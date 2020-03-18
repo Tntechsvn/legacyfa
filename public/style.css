@@ -1,0 +1,316 @@
+/*
+Theme Name: Legacyfa
+Theme URI: pfr.legacyfa-asia.com/
+Author: tvn developer
+Author URI: easyfood.vn
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Version: 1.2
+License: GNU General Public License v2 or later
+License URI: www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: twentysixteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* MAIN STYLE */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+	text-decoration: none;
+}
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+.clear{
+	clear:both;
+}
+/* #Basic Styles
+================================================== */
+/* #Floats
+================================================== */
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+img{
+	max-width:100%;
+	display: block;
+}
+img.alignleft{
+	float:left;
+	margin-bottom:10px;
+	margin-right:46px;
+}
+img.alignright{
+	float:right;
+	margin-bottom:10px;
+	margin-left:46px;
+}
+img.aligncenter{
+	float:none;
+	margin:10px auto;
+}
+.group:after {
+	content:".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+    font-size: 0;
+}
+/* #Typography
+================================================== */
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		font-family: 'Roboto', sans-serif;
+	}
+	h1,h2,h3,h4,h5,h6{
+		font-family: 'Roboto', sans-serif;
+	}
+	h1, .h1{
+		font-size: 30px;
+		line-height: 1.4; 
+		font-weight:normal;
+	}
+	h2, .h2 {
+		font-size: 22px;
+		font-weight:normal;
+		line-height: 1.4; 
+	}
+	h3, .h3 {
+		font-size: 18px;
+		font-weight:normal;
+		line-height: 1.4; 
+	}
+	h4, .h4 {
+		font-size: 16px; 
+		line-height: 1.4; 
+	}
+	h5, .h5 {
+		font-size: 15px; 
+		line-height: 1.4; 
+	}
+	h6, .h6 { 
+		font-size: 13px;
+		line-height: 1.4; 
+	}
+	em { font-style: italic; }
+	strong, b { font-weight: bold;}
+	small { font-size: 80%; }
+/* #Links
+================================================== */
+	a, a:visited, a:active{
+	text-decoration: none; 
+	outline: 0; 
+	cursor:pointer;
+}
+	a:hover{ 
+	text-decoration:none;
+}
+	p a, p a:visited { line-height: inherit; }
+	.clear{
+		clear:both;
+	}
+	.textcenter{
+		text-align:center;
+	}
+	.textright{
+		text-align:right;
+	}
+/* #Misc
+================================================== */	
+.no_select{
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}	
+.radius_2{-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;}
+.radius_3{-webkit-border-radius: 3px; -moz-border-radius: 3px;-o-border-radius: 3px; border-radius: 3px;}
+.radius_4{-webkit-border-radius: 4px; -moz-border-radius: 4px;-o-border-radius: 4px; border-radius: 4px;}
+.radius_6{-webkit-border-radius: 6px; -moz-border-radius: 6px;-o-border-radius: 6px; border-radius: 6px;}
+.radius_8{-webkit-border-radius: 8px; -moz-border-radius: 8px;-o-border-radius: 8px; border-radius: 8px;}
+.radius_50{-webkit-border-radius: 50%; -moz-border-radius: 50%;-o-border-radius: 50%; border-radius: 50%;}
+
+/* STYLE THEMES */
+body{
+	background:#fff;
+}
+/* siderbar */
+.sidebar{
+	
+}
+.sidebar nav{
+	
+}
+.sidebar nav ul{
+	
+}
+.sidebar .sub-menu{
+	padding-left:15px;
+}
+.sidebar nav ul li{
+	padding-bottom:10px;
+	padding-top:10px;
+}
+.sidebar nav ul li.has-child{
+	position:relative;
+	
+}
+.sidebar nav ul li.has-child::after{
+	width:12px;
+	height:8px;
+	display:block;
+	background:url(images/has_child.png) no-repeat;
+	content:"";
+	position:absolute;
+	right:0;
+	top:10px;
+}
+.sidebar nav ul li a{
+	font-size:16px;
+	color:#56819f;
+	line-height:20px;
+}
+.sidebar nav ul li.active > a{
+	color:#02c39a;
+}
+.sidebar nav ul li a i{
+	margin-right:12px;
+}
+.main{
+	background:#f4f4f1;
+}
+.header{
+	background:#02c39a;
+	margin-left:-15px;
+	margin-right:-15px;
+}
+.logo-header{
+	position:relative;
+	padding-left:40px;
+}
+.logo img{
+	margin:15px auto;
+	display:block;
+}
+.menu-header{
+	position:absolute;
+	left:15px;
+	top:20px;
+}
+.menu-header i{
+	color:#fff;
+}
+.profile-header{
+	position:relative;
+	padding-left:60px;
+	padding-right:60px;
+}
+.noti-bell{
+	width:60px;
+	height:60px;
+	border-left:1px solid #fff;
+	border-right:1px solid #fff;
+	position:absolute;
+	left:0;
+	top:0;
+	line-height:60px;
+	line-height:60px;
+	text-align:center;
+}
+.profile-header i{
+	color:#fff;
+}
+.logout-user{
+	width:60px;
+	height:60px;
+	border-left:1px solid #fff;
+	border-right:1px solid #fff;
+	position:absolute;
+	right:0;
+	top:0;
+	line-height:60px;
+	text-align:center;
+}
+.logout-user img{
+	margin:19px auto;
+}
+.user-header a{
+	color:#fff;
+	text-align:center;
+	line-height:60px;
+	display:block;
+}
+.user-header a i{
+	margin-right:8px;
+}
+/* maincontent */
+.maincontent{
+	width:100%;
+	margin-top:15px;
+	margin-bottom:15px;
+	background:#fff;
+	float:left;
+}
+.titlesection{
+	padding-top:14px;
+	padding-bottom:14px;
+}
+.borderfullwidth{
+	border-bottom:1px solid #e3e3e3;
+}
+.link-action-addnew{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.link-action-addnew a{
+	width:50%;
+	float:left;
+	display:block;
+	height:50px;
+	line-height:50px;
+	color:#56819f;
+}
+.link-action-addnew a:hover{
+	color:#fff;
+	background:#1b98e0;
+}
+
