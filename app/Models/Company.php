@@ -34,4 +34,31 @@ class Company extends Model
     {
         return $this->hasMany('App\Models\Plan');
     }
+
+    /*QUERY*/
+    public function listCompany()
+    {
+        return static::all();
+    }
+
+    public function listCompanyPaginate($request, $paginate)
+    {
+        return static::paginate($paginate);   
+    }
+
+    public function infoCompanyById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewCompany($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editCompany($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+    /*END QUERY*/
 }
