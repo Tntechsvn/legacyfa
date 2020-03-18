@@ -1,0 +1,7 @@
+<?php
+
+return [
+	'PAGINATE_COMPANY' => 20,
+	'PAGINATE_CATEGORY_PLAN' => 20,
+	'PAGINATE_PLAN' => 20,
+];

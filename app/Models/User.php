@@ -41,4 +41,43 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Role');
     }
+
+    /*QUERY*/
+    public function hasPermission($permission)
+    {
+        return !! optional(optional($this->role)->permissions)->contains($permission);
+    }
+
+    public function listUser()
+    {
+        return static::all();
+    }
+
+    public function listUserPaginate($request, $paginate)
+    {
+        return static::paginate($paginate);   
+    }
+
+    public function infoUserById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewUser($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editUser($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+    /*END QUERY*/
+
+    /*ATTRIBUTE*/
+    public function getNameRoleAttribute()
+    {
+        return optional($this->role)->name;
+    }
+    /*END ATTRIBUTE*/
 }

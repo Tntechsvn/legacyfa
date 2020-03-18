@@ -34,4 +34,31 @@ class Risk extends Model
     {
         return $this->belongsTo('App\Models\Rider');
     }
+
+    /*QUERY*/
+    public function listRisk()
+    {
+        return static::all();
+    }
+
+    public function listRiskPaginate($request, $paginate)
+    {
+        return static::paginate($paginate);   
+    }
+
+    public function infoRiskById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewRisk($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editRisk($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+    /*END QUERY*/
 }

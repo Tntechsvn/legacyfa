@@ -44,4 +44,31 @@ class Rider extends Model
     {
         return $this->hasMany('App\Models\Risk');
     }
+
+    /*QUERY*/
+    public function listRider()
+    {
+        return static::all();
+    }
+
+    public function listRiderPaginate($request, $paginate)
+    {
+        return static::paginate($paginate);   
+    }
+
+    public function infoRiderById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewRider($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editRider($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+    /*END QUERY*/
 }

@@ -34,4 +34,31 @@ class CategoryPlan extends Model
     {
         return $this->hasMany('App\Models\Plan');
     }
+
+    /*QUERY*/
+    public function listCategoryPlan()
+    {
+        return static::all();
+    }
+
+    public function listCategoryPlanPaginate($request, $paginate)
+    {
+        return static::paginate($paginate);   
+    }
+
+    public function infoCategoryPlanById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewCategoryPlan($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editCategoryPlan($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+    /*END QUERY*/
 }

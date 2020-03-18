@@ -19,4 +19,26 @@ class Role extends Model
 	{
 		return $this->belongsToMany('App\Models\Permission');
 	}
+
+	/*QUERY*/
+	public function listRolePaginate($request)
+	{
+		return static::paginate(config('constants.PAGINATE_ADMIN'));
+	}
+
+	public function infoRoleById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewRole($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editRole($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+	/*END QUERY*/
 }

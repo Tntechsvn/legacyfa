@@ -32,6 +32,55 @@ class Plan extends Model
 
     public function riders()
     {
-        $this->belongsToMany('App\Models\Rider');
+        return $this->belongsToMany('App\Models\Rider');
     }
+
+    public function categoryPlan()
+    {
+        return $this->belongsTo('App\Models\CategoryPlan');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo('App\Models\Company');
+    }
+
+    /*QUERY*/
+    public function listPlan()
+    {
+        return static::all();
+    }
+
+    public function listPlanPaginate($request, $paginate)
+    {
+        return static::paginate($paginate);   
+    }
+
+    public function infoPlanById($id)
+    {
+        return static::findOrFail($id);
+    }
+
+    public function addNewPlan($param)
+    {
+        return static::firstOrCreate($param);
+    }
+
+    /*public function editPlan($slug, $param)
+    {
+        return static::where('slug', $slug)->update($param);
+    }*/
+    /*END QUERY*/
+
+    /*ATTRIBUTE*/
+    public function getNameCategoryPlanAttribute()
+    {
+        return optional($this->categoryPlan)->name;
+    }
+
+    public function getNameCompanyAttribute()
+    {
+        return optional($this->company)->name;
+    }
+    /*END ATTRIBUTE*/
 }
