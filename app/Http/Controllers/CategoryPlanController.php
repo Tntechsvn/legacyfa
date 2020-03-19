@@ -91,7 +91,7 @@ class CategoryPlanController extends Controller
 			} else {
 				return view();
 			}
-		} else{
+		} else {
 			return view();
 		}
 	}
