@@ -99,9 +99,11 @@
 
                             <div class="modal-body">
                                 <form name="addcategory_form" id='addcategory_form' class="form-control-popup" method="post" action="" data-parsley-validate>
-                                    <label>Category<span>*</span></label>
-                                    <input type="text" class="form-control-elm input-user" id="name-category" value="" placeholder="Category Name" >
-                                    <button type="submit" class="btn btn-primary submit-menuhasbooking">Submit</button>
+                                    <div class="form-group">
+                                        <label for="name-category">Category<span>*</span></label>
+                                        <input type="text" class="form-control" id="name-category"  name="name-category" placeholder="Category Name" value="" >
+                                    </div>
+                                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
                                 </form>
                             </div>
                         </div>

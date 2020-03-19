@@ -96,11 +96,13 @@
                               </button>
                             </div>
 
-                            <div class="modal-body">
-                                <form name="addphone_Form" id='addphone_form' class="form-control-user" method="post" action="" data-parsley-validate>
-                                    <label>Company<span>*</span></label>
-                                    <input type="text" class="form-control-elm input-user" id="name-company" value="" placeholder="Company Name" >
-                                    <button type="submit" class="btn btn-primary submit-menuhasbooking">Submit</button>
+                             <div class="modal-body">
+                                <form name="addcompany_form" id='addcompany_form' class="form-control-popup" method="post" action="" data-parsley-validate>
+                                    <div class="form-group">
+                                        <label for="name-company">Company<span>*</span></label>
+                                        <input type="text" class="form-control" id="name-company"  name="name-company" placeholder="Company Name" value="" >
+                                    </div>
+                                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
                                 </form>
                             </div>
                         </div>

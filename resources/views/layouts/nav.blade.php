@@ -1,5 +1,4 @@
 <nav>
-    <p> viet cai deo gi dc</p>
     <ul>
         <li class="{{ Route::currentRouteNamed('home') ? 'active' : '' }}"><a href="{{route('home')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
         <li class="has-child"><a href=""><i class="fas fa-plus-circle"></i>ADD PFR</a>
