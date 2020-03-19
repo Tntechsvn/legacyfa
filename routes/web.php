@@ -23,21 +23,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('list-company', [
 	'as' => 'ListCompany',
-	'uses' => 'HomeController@ListCompany'
+	'uses' => 'CompanyController@listCompany'
 ]);
 
 Route::get('list-category', [
 	'as' => 'ListCategory',
-	'uses' => 'HomeController@ListCategory'
+	'uses' => 'CategoryPlanController@listCategoryPlan'
 ]);
 
 Route::get('list-plan', [
 	'as' => 'ListPlan',
-	'uses' => 'HomeController@ListPlan'
+	'uses' => 'PlanController@ListPlan'
 ]);
 
 Route::get('list-ridders', [
 	'as' => 'ListRidders',
-	'uses' => 'HomeController@ListRidders'
+	'uses' => 'RiderController@listRider'
 ]);
 

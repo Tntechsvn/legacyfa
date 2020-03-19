@@ -17,17 +17,12 @@ class CompanyController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_COMPANY');
 		$listCompany = $this->company->listCompanyPaginate($request, $paginate);
-		return view();
+		return view('pages.list-company', compact('listCompany'));
 	}
 
 	public function infoCompany($idCompany)
 	{
 		$infoCompany = $this->company->infoCompany($idCompany);
-		return view();
-	}
-
-	public function showFormAddNewCompany()
-	{
 		return view();
 	}
 
@@ -53,12 +48,6 @@ class CompanyController extends Controller
 		} else {
 			return view();
 		}
-	}
-
-	public function showFormEditCompany($idCompany)
-	{
-		$infoCompany = $this->company->infoCompany($idCompany);
-		return view();
 	}
 
 	public function editCompany()

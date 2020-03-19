@@ -11,7 +11,7 @@
         <li><a href=""><i class="fas fa-user-circle"></i>User</a></li>
         <li class="{{ Route::currentRouteNamed('ListPlan') ? 'active' : '' }}"><a href="{{route('ListPlan')}}"><i class="fas fa-clipboard-list"></i>Plans</a>
             <ul class="sub-menu">
-                <li><a href=""><i class="fas fa-user"></i>List Plan</a></li>
+                <li><a href="{{route('ListPlan')}}"><i class="fas fa-user"></i>List Plan</a></li>
                 <li class="{{ Route::currentRouteNamed('ListCategory') ? 'active' : '' }}"><a href="{{route('ListCategory')}}"><i class="fas fa-users"></i>List Category</a></li>
             </ul>
         </li>
