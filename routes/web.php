@@ -20,3 +20,24 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('list-company', [
+	'as' => 'ListCompany',
+	'uses' => 'HomeController@ListCompany'
+]);
+
+Route::get('list-category', [
+	'as' => 'ListCategory',
+	'uses' => 'HomeController@ListCategory'
+]);
+
+Route::get('list-plan', [
+	'as' => 'ListPlan',
+	'uses' => 'HomeController@ListPlan'
+]);
+
+Route::get('list-ridders', [
+	'as' => 'ListRidders',
+	'uses' => 'HomeController@ListRidders'
+]);
+

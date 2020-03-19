@@ -25,7 +25,20 @@
     
 </head>
 <body class="{{Route::currentRouteName()}}">
-    @yield('content')
+    <div class="site">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 sidebar">
+                    @include('layouts.nav')
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9 main">
+                    @include('layouts.header')
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    </div>
+
     @yield('script')
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <!-- Latest compiled and minified JavaScript -->
