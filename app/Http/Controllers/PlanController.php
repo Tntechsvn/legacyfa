@@ -17,17 +17,12 @@ class PlanController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_PLAN');
 		$listPlan = $this->plan->listPlanPaginate($request, $paginate);
-		return view();
+		return view('pages.list-plan', compact('listPlan'));
 	}
 
 	public function infoPlan($idPlan)
 	{
 		$infoPlan = $this->plan->infoPlanById($idCategoryPlan);
-		return view();
-	}
-
-	public function showFormAddNewPlan()
-	{
 		return view();
 	}
 
@@ -45,12 +40,6 @@ class PlanController extends Controller
 		} else {
 			return view();
 		}
-	}
-
-	public function showFormEditPlan($idPlan)
-	{
-		$infoPlan = $this->plan->infoPlan($request->idPlan);
-		return view();
 	}
 
 	public function editPlan(Request $request, $idPlan)

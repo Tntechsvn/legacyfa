@@ -17,17 +17,12 @@ class CategoryPlanController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_CATEGORY_PLAN');
 		$listCategoryPlan = $this->categoryPlan->listCategoryPlanPaginate($request, $paginate);
-		return view();
+		return view('pages.list-category', compact('listCategoryPlan'));
 	}
 
 	public function infoCategoryPlan($idCategoryPlan)
 	{
 		$infoCategoryPlan = $this->categoryPlan->infoCategoryPlanById($idCategoryPlan);
-		return view();
-	}
-
-	public function showFormAddNewCategoryPlan()
-	{
 		return view();
 	}
 
@@ -53,12 +48,6 @@ class CategoryPlanController extends Controller
 		} else {
 			return view();
 		}
-	}
-
-	public function showFormEditCategoryPlan($idCategoryPlan)
-	{
-		$infoCategoryPlan = $this->categoryPlan->infoCategoryPlanById($idCategoryPlan);
-		return view();
 	}
 
 	public function editCategoryPlan(Request $request, $idCategoryPlan)
