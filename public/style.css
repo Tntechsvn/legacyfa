@@ -228,8 +228,9 @@ body{
 	padding-left:40px;
 }
 .logo img{
-	margin:15px auto;
+	margin:2px auto;
 	display:block;
+	max-width:170px;
 }
 .menu-header{
 	position:absolute;
