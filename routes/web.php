@@ -14,30 +14,83 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('list-company', [
-	'as' => 'ListCompany',
-	'uses' => 'CompanyController@listCompany'
-]);
+Route::group(['prefix' => 'admin'], function(){
+	/*COMPANY*/
+	Route::group(['prefix' => 'company'], function(){
+		Route::get('/', [
+			'as' => 'ListCompany',
+			'uses' => 'CompanyController@listCompany'
+		]);
 
-Route::get('list-category', [
-	'as' => 'ListCategory',
-	'uses' => 'CategoryPlanController@listCategoryPlan'
-]);
+		Route::post('add-new', [
+			'as' => 'company.add_new',
+			'uses' => 'CompanyController@addNewCompany'
+		]);
 
-Route::get('list-plan', [
-	'as' => 'ListPlan',
-	'uses' => 'PlanController@ListPlan'
-]);
+		Route::post('edit/{id}', [
+			'as' => 'company.edit',
+			'uses' => 'CompanyController@editCompany'
+		]);
+	});
 
-Route::get('list-ridders', [
-	'as' => 'ListRidders',
-	'uses' => 'RiderController@listRider'
-]);
+	/*CATEGORY PLAN*/
+	Route::group(['prefix' => 'category-plan'], function(){
+		Route::get('/', [
+			'as' => 'ListCategory',
+			'uses' => 'CategoryPlanController@listCategoryPlan'
+		]);
 
+		Route::post('add-new', [
+			'as' => 'category_plan.add_new',
+			'uses' => 'CategoryPlanController@addNewCategoryPlan'
+		]);
+
+		Route::post('edit/{id}', [
+			'as' => 'category_plan.edit',
+			'uses' => 'CategoryPlanController@editCategoryPlan'
+		]);
+	});
+
+	/*PLAN*/
+	Route::group(['prefix' => 'plan'], function(){
+		Route::get('/', [
+			'as' => 'ListPlan',
+			'uses' => 'PlanController@ListPlan'
+		]);
+
+		Route::post('add-new', [
+			'as' => 'plan.add_new',
+			'uses' => 'PlanController@addNewPlan'
+		]);
+
+		Route::post('edit/{id}', [
+			'as' => 'plan.edit',
+			'uses' => 'PlanController@editPlan'
+		]);
+	});
+
+	/*RIDER*/
+	Route::group(['prefix' => 'rider'], function(){
+		Route::get('/', [
+			'as' => 'ListRidders',
+			'uses' => 'RiderController@listRider'
+		]);
+
+		Route::post('add-new', [
+			'as' => 'rider.add_new',
+			'uses' => 'RiderController@addNewRider'
+		]);
+
+		Route::post('edit/{id}', [
+			'as' => 'rider.edit',
+			'uses' => 'RiderController@editRider'
+		]);
+	});
+});

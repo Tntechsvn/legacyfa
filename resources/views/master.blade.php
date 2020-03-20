@@ -15,13 +15,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet"> 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/all.css">
-    <link href="style.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/all.css')}}">
+    <link href="{{asset('style.css')}}" rel="stylesheet" media="screen">
     
 </head>
 <body class="{{Route::currentRouteName()}}">
@@ -42,7 +42,7 @@
     @yield('script')
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
 </body>
