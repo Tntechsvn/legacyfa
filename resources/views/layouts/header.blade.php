@@ -4,7 +4,7 @@
             <a href="javascript:;"><i class="fas fa-bars"></i></a>
         </div>
         <div class="logo">
-            <a href="{{route('home')}}"><img src="images/logo.png" alt="" title=""/></a>
+            <a href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" title=""/></a>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 profile-header">
@@ -15,7 +15,7 @@
             <a href="javascript:;"><i class="fas fa-user-circle"></i>Cô Vi 19</a>
         </div>
         <div class="logout-user">
-            <a href="javascript:;"><img src="images/logout.png" alt="" title=""/></a>
+            <a href="javascript:;"><img src="{{asset('images/logout.png')}}" alt="" title=""/></a>
         </div>
     </div>
     <div class="clear"></div>

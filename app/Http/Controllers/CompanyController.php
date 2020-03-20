@@ -39,6 +39,7 @@ class CompanyController extends Controller
 				]);
 			}
 		}
+		return $request;
 		$param = [
 			'name' => $request->name
 		];
@@ -50,31 +51,26 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function editCompany()
+	public function editCompany(Request $request, $idCompany)
 	{
 		$validator = Validator::make($request->all(), [
-			'company_id' => 'required|integer|min:1',
 			'name' => 'required',
 		]);
 		if ($validator->fails()) {
-			if ($validator->errors()->first('company_id') != null) {
-				return response()->json([
-					"state" => "error",
-					"message" => $validator->errors()->first('company_id')
-				]);
-			} else if($validator->errors()->first('name') != null) {
+			if($validator->errors()->first('name') != null) {
 				return response()->json([
 					"state" => "error",
 					"message" => $validator->errors()->first('name')
 				]);
 			}
 		}
-		$infoCompany = $this->company->infoCompanyById($request->company_id);
+		return $request;
+		$infoCompany = $this->company->infoCompanyById($idCompany);
 		if ($infoCompany) {
 			$param = [
 				'name' => $request->name
 			];
-			$resultEditCompany = $this->company->editCompany($request->company_id, $param);
+			$resultEditCompany = $this->company->editCompany($idCompany, $param);
 			if ($resultEditCompany) {
 				return view();
 			} else {

@@ -39,6 +39,7 @@ class CategoryPlanController extends Controller
 				]);
 			}
 		}
+		return $request;
 		$param = [
 			'name' => $request->name
 		];
@@ -69,6 +70,7 @@ class CategoryPlanController extends Controller
 				]);
 			}
 		}
+		return $request;
 		$infoCategoryPlan = $this->categoryPlan->infoCategoryPlanById($idCategoryPlan);
 		if ($infoCategoryPlan) {
 			$param = [
