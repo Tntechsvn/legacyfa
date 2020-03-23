@@ -43,19 +43,28 @@
                 </button>
             </div>
 
-
             <div class="modal-body">
-                <form name="addcategory_form" id='addcategory_form' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="addcategory_form" id='addcategory_form' class="form-control-popup" method="post" action="{{route('category_plan.add_new')}}" data-parsley-validate>
+                    @csrf
                     <div class="form-group">
-                        <label for="name-category">Category<span>*</span></label>
-                        <input type="text" class="form-control" id="name-category"  name="name-category" placeholder="Category Name" value="" >
+                        <label for="name">Category<span>*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Category Name" value="{{old('name')}}">
+                        <span class="error">{{$errors->first('name')}}</span>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-</div>  
+</div>
+@endsection
 
-
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        if({{$errors->count()}} > 0){
+            $('#addcategorymodal').modal('show');
+        }
+    });
+</script>
 @endsection

@@ -46,8 +46,8 @@
                 <form name="addcompany_form" id='addcompany_form' class="form-control-popup" method="post" action="{{route('company.add_new')}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="name-company">Company<span>*</span></label>
-                        <input type="text" class="form-control" id="name-company" name="name-company" placeholder="Company Name" value="{{old('name')}}">
+                        <label for="name">Company<span>*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Company Name" value="{{old('name')}}">
                         <span class="error">{{$errors->first('name')}}</span>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>

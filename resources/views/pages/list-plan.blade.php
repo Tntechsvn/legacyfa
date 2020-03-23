@@ -16,7 +16,7 @@
                     <th>SN</th>
                     <th>Company</th>
                     <th>Play Name</th>
-                    <th>Categoty</th>
+                    <th>Category</th>
                     <th></th>
                 </tr>
             </thead>
@@ -47,26 +47,30 @@
                 </button>
             </div>
 
-
             <div class="modal-body">
-                <form name="addphone_Form" id='addphone_form' class="form-control-user" method="post" action="" data-parsley-validate>
+                <form name="addphone_Form" id='addphone_form' class="form-control-user" method="post" action="{{route('plan.add_new')}}" data-parsley-validate>
+                    @csrf
                    <div class="form-group">
-                        <label for="select-company">Company<span>*</span></label>
-                        <select name="select-company" id="select-company" class="form-control">
-                            <option value="Company 1">Company 1</option>
-                            <option value="Company 1">Company 2</option>
-                        </select> 
+                        <label for="company">Company<span>*</span></label>
+                        <select name="company" id="company" class="form-control">
+                            @foreach($listCompany as $company)
+                            <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endforeach
+                        </select>
+                        <span class="error">{{$errors->first('company')}}</span>
                     </div>
                     <div class="form-group">
                         <label for="name-plan">Plan Name<span>*</span></label>
-                        <input type="text" class="form-control" id="name-plan"  name="name-plan" placeholder="Plan Name" value="" >
+                        <input type="text" class="form-control" id="name"  name="name" placeholder="Plan Name" value="">
                     </div>
                     <div class="form-group">
-                        <label for="select-category">Company<span>*</span></label>
-                        <select name="select-category" id="select-category" class="form-control">
-                            <option value="Category 1">Category 1</option>
-                            <option value="Category 1">Category 2</option>
-                        </select> 
+                        <label for="category">Category Plan<span>*</span></label>
+                        <select name="category" id="category" class="form-control">
+                            @foreach($listCategoryPlan as $categoryPlan)
+                            <option value="{{$categoryPlan->id}}">{{$categoryPlan->name}}</option>
+                            @endforeach
+                        </select>
+                        <span class="error">{{$errors->first('category')}}</span>
                     </div>
                     <div class="form-group">
                         <label for="plan-featured">Plan Featured<span>*</span></label>
@@ -80,5 +84,14 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        if({{$errors->count()}} > 0){
+            $('#addplanmodal').modal('show');
+        }
+    });
+</script>
 @endsection

@@ -31,26 +31,14 @@ class CompanyController extends Controller
 
 	public function addNewCompany(AddNewCompanyRequest $request)
 	{
-		$validator = Validator::make($request->all(), [
-			'name' => 'required',
-		]);
-		if ($validator->fails()) {
-			if ($validator->errors()->first('name') != null) {
-				return response()->json([
-					"state" => "error",
-					"message" => $validator->errors()->first('name')
-				]);
-			}
-		}
-		return $request;
 		$param = [
 			'name' => $request->name
 		];
 		$resultAddCompany = $this->company->addNewCompany($param);
 		if ($resultAddCompany) {
-			return view();
+			return redirect()->route('ListCompany');
 		} else {
-			return view();
+			return redirect()->route('ListCompany');
 		}
 	}
 

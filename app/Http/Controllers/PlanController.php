@@ -20,7 +20,9 @@ class PlanController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_PLAN');
 		$listPlan = $this->plan->listPlanPaginate($request, $paginate);
-		return view('pages.list-plan', compact('listPlan'));
+		$listCompany = $this->company->listCompany();
+		$listCategoryPlan = $this->categoryPlan->listCategoryPlan();
+		return view('pages.list-plan', compact('listPlan', 'listCompany', 'listCategoryPlan'));
 	}
 
 	public function infoPlan($idPlan)

@@ -31,26 +31,14 @@ class CategoryPlanController extends Controller
 
 	public function addNewCategoryPlan(AddNewCategoryPlanRequest $request)
 	{
-		$validator = Validator::make($request->all(), [
-			'name' => 'required',
-		]);
-		if ($validator->fails()) {
-			if ($validator->errors()->first('name') != null) {
-				return response()->json([
-					"state" => "error",
-					"message" => $validator->errors()->first('name')
-				]);
-			}
-		}
-		return $request;
 		$param = [
 			'name' => $request->name
 		];
 		$resultAddCategoryPlan = $this->categoryPlan->addNewCategoryPlan($param);
 		if ($resultAddCategoryPlan) {
-			return view();
+			return redirect()->route('ListCategory');
 		} else {
-			return view();
+			return redirect()->route('ListCategory');
 		}
 	}
 
