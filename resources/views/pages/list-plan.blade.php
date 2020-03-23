@@ -50,27 +50,27 @@
 
             <div class="modal-body">
                 <form name="addphone_Form" id='addphone_form' class="form-control-user" method="post" action="" data-parsley-validate>
-                    <div class="section-input">
-                        <label>Company<span>*</span></label>
-                        <select name="company">
+                   <div class="form-group">
+                        <label for="select-company">Company<span>*</span></label>
+                        <select name="select-company" id="select-company" class="form-control">
                             <option value="Company 1">Company 1</option>
                             <option value="Company 1">Company 2</option>
                         </select> 
                     </div>
-                    <div class="section-input">
-                        <label>Plan Name<span>*</span></label>
-                        <input type="text" class="form-control-elm" id="name-plan" value="" placeholder="Plan Name" >
+                    <div class="form-group">
+                        <label for="name-plan">Plan Name<span>*</span></label>
+                        <input type="text" class="form-control" id="name-plan"  name="name-plan" placeholder="Plan Name" value="" >
                     </div>
-                    <div class="section-input">
-                        <label>Category<span>*</span></label>
-                        <select name="category">
-                            <option value="Company 1">Category 1</option>
-                            <option value="Company 1">Category 2</option>
+                    <div class="form-group">
+                        <label for="select-category">Company<span>*</span></label>
+                        <select name="select-category" id="select-category" class="form-control">
+                            <option value="Category 1">Category 1</option>
+                            <option value="Category 1">Category 2</option>
                         </select> 
                     </div>
-                    <div class="section-input">
-                        <label>Plan Featured<span>*</span></label>
-                        <textarea placeholder="Plan Featured"></textarea> 
+                    <div class="form-group">
+                        <label for="plan-featured">Plan Featured<span>*</span></label>
+                        <textarea class="plan-featured" rows="5" id="plan-featured" placeholder="Plan Featured"> </textarea>
                     </div>
                     <div class="section-input">
                         <button type="submit" class="btn btn-primary submit-menuhasbooking">Submit</button>
