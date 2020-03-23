@@ -315,3 +315,9 @@ body{
 	background:#1b98e0;
 }
 
+
+.link-trash{
+	display:block;
+	float: right;
+	line-height:35px;
+}
