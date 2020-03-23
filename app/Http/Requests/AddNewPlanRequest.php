@@ -25,8 +25,9 @@ class AddNewPlanRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:plans,name',
-            'company_id' => 'required|integer|min:1',
-            'categrory_plan_id' => 'required|integer|min:1'
+            'company' => 'required|integer|min:1',
+            'category' => 'required|integer|min:1',
+            'featured' => 'required'
         ];
     }
 }

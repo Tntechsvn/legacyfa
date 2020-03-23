@@ -25,8 +25,13 @@ Route::group(['prefix' => 'admin'], function(){
 	/*COMPANY*/
 	Route::group(['prefix' => 'company'], function(){
 		Route::get('/', [
-			'as' => 'ListCompany',
+			'as' => 'company.list',
 			'uses' => 'CompanyController@listCompany'
+		]);
+
+		Route::get('trash', [
+			'as' => 'company.list-trash',
+			'uses' => 'CompanyController@listTrashCompany'
 		]);
 
 		Route::post('add-new', [
@@ -43,8 +48,13 @@ Route::group(['prefix' => 'admin'], function(){
 	/*CATEGORY PLAN*/
 	Route::group(['prefix' => 'category-plan'], function(){
 		Route::get('/', [
-			'as' => 'ListCategory',
+			'as' => 'category.list',
 			'uses' => 'CategoryPlanController@listCategoryPlan'
+		]);
+
+		Route::get('trash', [
+			'as' => 'category.list-trash',
+			'uses' => 'CategoryPlanController@listTrashCategory'
 		]);
 
 		Route::post('add-new', [
@@ -61,8 +71,13 @@ Route::group(['prefix' => 'admin'], function(){
 	/*PLAN*/
 	Route::group(['prefix' => 'plan'], function(){
 		Route::get('/', [
-			'as' => 'ListPlan',
-			'uses' => 'PlanController@ListPlan'
+			'as' => 'plan.list',
+			'uses' => 'PlanController@listPlan'
+		]);
+
+		Route::get('trash', [
+			'as' => 'plan.list-trash',
+			'uses' => 'PlanController@listTrashPlan'
 		]);
 
 		Route::post('add-new', [
@@ -79,8 +94,13 @@ Route::group(['prefix' => 'admin'], function(){
 	/*RIDER*/
 	Route::group(['prefix' => 'rider'], function(){
 		Route::get('/', [
-			'as' => 'ListRidders',
+			'as' => 'riders.list',
 			'uses' => 'RiderController@listRider'
+		]);
+
+		Route::get('trash', [
+			'as' => 'riders.list_trash',
+			'uses' => 'RiderController@listTrashRiders'
 		]);
 
 		Route::post('add-new', [
