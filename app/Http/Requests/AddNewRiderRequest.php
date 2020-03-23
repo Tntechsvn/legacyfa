@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddNewBenifitRequest extends FormRequest
+class AddNewRiderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class AddNewBenifitRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:benifits,name',
-            'detail' => 'required',
-            'rider_id' => 'required|integer|min:1'
+            'name' => 'required|unique:riders,name',
+            'feature' => 'required'
         ];
     }
 }

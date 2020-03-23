@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\CategoryPlan;
 
+use App\Http\Requests\AddNewCategoryPlanRequest;
+use App\Http\Requests\EditCategoryPlanRequest;
+
 class CategoryPlanController extends Controller
 {
 	public function __construct()
@@ -26,7 +29,7 @@ class CategoryPlanController extends Controller
 		return view();
 	}
 
-	public function addNewCategoryPlan(Request $request)
+	public function addNewCategoryPlan(AddNewCategoryPlanRequest $request)
 	{
 		$validator = Validator::make($request->all(), [
 			'name' => 'required',
@@ -51,7 +54,7 @@ class CategoryPlanController extends Controller
 		}
 	}
 
-	public function editCategoryPlan(Request $request, $idCategoryPlan)
+	public function editCategoryPlan(EditCategoryPlanRequest $request, $idCategoryPlan)
 	{
 		$validator = Validator::make($request->all(), [
 			'category_plan_id' => 'required|integer|min:1',

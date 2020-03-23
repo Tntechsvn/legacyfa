@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddNewBenifitRequest extends FormRequest
+class EditRiskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class AddNewBenifitRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:benifits,name',
+            'name' => ['required' , Rule::unique('risks')->where(function ($query) {
+                return $query->where('id', '<>', $this->id);
+            })],
             'detail' => 'required',
             'rider_id' => 'required|integer|min:1'
         ];

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Company;
 
+use App\Http\Requests\AddNewCompanyRequest;
+use App\Http\Requests\EditCompanyRequest;
+
 class CompanyController extends Controller
 {
 	public function __construct()
@@ -26,7 +29,7 @@ class CompanyController extends Controller
 		return view();
 	}
 
-	public function addNewCompany(Request $request)
+	public function addNewCompany(AddNewCompanyRequest $request)
 	{
 		$validator = Validator::make($request->all(), [
 			'name' => 'required',
@@ -51,7 +54,7 @@ class CompanyController extends Controller
 		}
 	}
 
-	public function editCompany(Request $request, $idCompany)
+	public function editCompany(EditCompanyRequest $request, $idCompany)
 	{
 		$validator = Validator::make($request->all(), [
 			'name' => 'required',

@@ -27,6 +27,7 @@ class CreatePlansTable extends Migration
             }
             $table->text('feature')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

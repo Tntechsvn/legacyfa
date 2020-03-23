@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Plan;
 
+use App\Http\Requests\AddNewPlanRequest;
+use App\Http\Requests\EditPlanRequest;
+
 class PlanController extends Controller
 {
 	public function __construct()
@@ -26,7 +29,7 @@ class PlanController extends Controller
 		return view();
 	}
 
-	public function addNewPlan(Request $request)
+	public function addNewPlan(AddNewPlanRequest $request)
 	{
 		$param = [
 			'name' => $request->name,
@@ -42,7 +45,7 @@ class PlanController extends Controller
 		}
 	}
 
-	public function editPlan(Request $request, $idPlan)
+	public function editPlan(EditPlanRequest $request, $idPlan)
 	{
 		$infoPlan = $this->plan->infoPlanById($request->idPlan);
 		if ($infoPlan) {

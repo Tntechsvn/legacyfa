@@ -23,6 +23,7 @@ class CreateRisksTable extends Migration
                 $table->foreign('rider_id')->references('id')->on('riders');
             }
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

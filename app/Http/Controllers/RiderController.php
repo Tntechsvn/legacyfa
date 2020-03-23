@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Rider;
 
+use App\Http\Requests\AddNewRiderRequest;
+use App\Http\Requests\EditRiderRequest;
+
 class RiderController extends Controller
 {
     public function __construct()
@@ -26,7 +29,7 @@ class RiderController extends Controller
 		return view();
 	}
 
-	public function addNewRider(Request $request)
+	public function addNewRider(AddNewRiderRequest $request)
 	{
 		return $request;
 		$param = [
@@ -41,7 +44,7 @@ class RiderController extends Controller
 		}
 	}
 
-	public function editRider(Request $request, $idRider)
+	public function editRider(EditRiderRequest $request, $idRider)
 	{
 		return $request;
 		$infoRider = $this->rider->infoRiderById($idRider);

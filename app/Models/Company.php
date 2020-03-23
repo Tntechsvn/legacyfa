@@ -16,6 +16,8 @@ class Company extends Model
         'name', 'slug'
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * Return the sluggable configuration array for this model.
      *

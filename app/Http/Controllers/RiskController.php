@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Risk;
 
+use App\Http\Requests\AddNewRiskRequest;
+use App\Http\Requests\EditRiskRequest;
+
 class RiskController extends Controller
 {
     public function __construct()
@@ -26,7 +29,7 @@ class RiskController extends Controller
 		return view();
 	}
 
-	public function addNewRisk(Request $request)
+	public function addNewRisk(AddNewRiskRequest $request)
 	{
 		return $request;
 		$param = [
@@ -42,7 +45,7 @@ class RiskController extends Controller
 		}
 	}
 
-	public function editRisk(Request $request, $idRisk)
+	public function editRisk(EditRiskRequest $request, $idRisk)
 	{
 		return $requeRisk = $this->risk->infoRiskById($idRisk);
 		if ($infoRisk) {

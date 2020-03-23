@@ -16,6 +16,8 @@ class Plan extends Model
         'name', 'slug', 'company_id', 'category_plan_id', 'feature'
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * Return the sluggable configuration array for this model.
      *

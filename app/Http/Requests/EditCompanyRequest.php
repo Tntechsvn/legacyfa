@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddNewBenifitRequest extends FormRequest
+class EditCompanyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class AddNewBenifitRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,9 @@ class AddNewBenifitRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:benifits,name',
-            'detail' => 'required',
-            'rider_id' => 'required|integer|min:1'
+            'name' => ['required', Rule::unique('companies')->where(function ($query) {
+                return $query->where('id', '<>', $this->id);
+            })]
         ];
     }
 }

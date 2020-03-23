@@ -16,6 +16,8 @@ class Rider extends Model
         'name', 'slug', 'feature'
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * Return the sluggable configuration array for this model.
      *

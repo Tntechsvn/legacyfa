@@ -16,6 +16,8 @@ class Benifit extends Model
         'name', 'slug', 'detail', 'rider_id'
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * Return the sluggable configuration array for this model.
      *
