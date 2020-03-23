@@ -20,7 +20,12 @@ class PlanController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_PLAN');
 		$listPlan = $this->plan->listPlanPaginate($request, $paginate);
-		return view('pages.list-plan', compact('listPlan'));
+		return view('pages.plan.list', compact('listPlan'));
+	}
+
+	public function listTrashPlan()
+	{
+		return view('pages.plan.list-trash');
 	}
 
 	public function infoPlan($idPlan)

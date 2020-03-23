@@ -20,7 +20,12 @@ class RiderController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_RIDER');
 		$listRider = $this->rider->listRiderPaginate($request, $paginate);
-		return view('pages.list-rider', compact('listRider'));
+		return view('pages.rider.list', compact('listRider'));
+	}
+
+	public function listTrashRiders(Request $request)
+	{
+		return view('pages.rider.list-trash');
 	}
 
 	public function infoRider($idRider)

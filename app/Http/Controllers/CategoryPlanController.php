@@ -20,7 +20,12 @@ class CategoryPlanController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_CATEGORY_PLAN');
 		$listCategoryPlan = $this->categoryPlan->listCategoryPlanPaginate($request, $paginate);
-		return view('pages.list-category', compact('listCategoryPlan'));
+		return view('pages.category.list', compact('listCategoryPlan'));
+	}
+
+	public function listTrashCategory()
+	{
+		return view('pages.category.list-trash');
 	}
 
 	public function infoCategoryPlan($idCategoryPlan)

@@ -20,7 +20,12 @@ class CompanyController extends Controller
 	{
 		$paginate = config('constants.PAGINATE_COMPANY');
 		$listCompany = $this->company->listCompanyPaginate($request, $paginate);
-		return view('pages.list-company', compact('listCompany'));
+		return view('pages.company.list', compact('listCompany'));
+	}
+
+	public function listTrashCompany()
+	{
+		return view('pages.company.list-trash');
 	}
 
 	public function infoCompany($idCompany)
