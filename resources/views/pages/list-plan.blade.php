@@ -53,28 +53,32 @@
                    <div class="form-group">
                         <label for="company">Company<span>*</span></label>
                         <select name="company" id="company" class="form-control">
+                            <option value="0">Selected</option>
                             @foreach($listCompany as $company)
-                            <option value="{{$company->id}}">{{$company->name}}</option>
+                            <option value="{{$company->id}}" @if(old('company') == $company->id){{'selected'}}@endif>{{$company->name}}</option>
                             @endforeach
                         </select>
                         <span class="error">{{$errors->first('company')}}</span>
                     </div>
                     <div class="form-group">
-                        <label for="name-plan">Plan Name<span>*</span></label>
-                        <input type="text" class="form-control" id="name"  name="name" placeholder="Plan Name" value="">
+                        <label for="name">Plan Name<span>*</span></label>
+                        <input type="text" class="form-control" id="name"  name="name" placeholder="Plan Name" value="{{old('name')}}">
+                        <span class="error">{{$errors->first('name')}}</span>
                     </div>
                     <div class="form-group">
                         <label for="category">Category Plan<span>*</span></label>
                         <select name="category" id="category" class="form-control">
+                            <option value="0">Selected</option>
                             @foreach($listCategoryPlan as $categoryPlan)
-                            <option value="{{$categoryPlan->id}}">{{$categoryPlan->name}}</option>
+                            <option value="{{$categoryPlan->id}}" @if(old('category') == $categoryPlan->id){{'selected'}}@endif>{{$categoryPlan->name}}</option>
                             @endforeach
                         </select>
                         <span class="error">{{$errors->first('category')}}</span>
                     </div>
                     <div class="form-group">
-                        <label for="plan-featured">Plan Featured<span>*</span></label>
-                        <textarea class="plan-featured" rows="5" id="plan-featured" placeholder="Plan Featured"> </textarea>
+                        <label for="featured">Plan Featured<span>*</span></label>
+                        <textarea class="featured" rows="5" name="featured" id="featured" placeholder="Plan Featured">{{old('featured')}}</textarea>
+                        <span class="error">{{$errors->first('featured')}}</span>
                     </div>
                     <div class="section-input">
                         <button type="submit" class="btn btn-primary submit-menuhasbooking">Submit</button>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Plan;
+use App\Models\Company;
+use App\Models\CategoryPlan;
 
 use App\Http\Requests\AddNewPlanRequest;
 use App\Http\Requests\EditPlanRequest;
@@ -14,13 +16,17 @@ class PlanController extends Controller
 	public function __construct()
 	{
 		$this->plan = new Plan;
+		$this->company = new Company;
+		$this->categoryPlan = new CategoryPlan;
 	}
 
 	public function listPlan(Request $request)
 	{
 		$paginate = config('constants.PAGINATE_PLAN');
 		$listPlan = $this->plan->listPlanPaginate($request, $paginate);
-		return view('pages.plan.list', compact('listPlan'));
+		$listCompany = $this->company->listCompany();
+		$listCategoryPlan = $this->categoryPlan->listCategoryPlan();
+		return view('pages.list-plan', compact('listPlan', 'listCompany', 'listCategoryPlan'));
 	}
 
 	public function listTrashPlan()
@@ -38,15 +44,15 @@ class PlanController extends Controller
 	{
 		$param = [
 			'name' => $request->name,
-			'company_id' => $request->company_id,
-			'category_plan_id' => $request->category_plan_id,
-			'feature' => $request->feature
+			'company_id' => $request->company,
+			'category_plan_id' => $request->category,
+			'feature' => $request->featured
 		];
 		$resultAddPlan = $this->plan->addNewPlan($param);
 		if ($resultAddPlan) {
-			return view();
+			return redirect()->route('plan.list');
 		} else {
-			return view();
+			return redirect()->route('plan.list');
 		}
 	}
 
