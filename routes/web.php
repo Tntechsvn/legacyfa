@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 		Route::get('trash', [
 			'as' => 'category.list-trash',
-			'uses' => 'CategoryPlanController@listTrashCategory'
+			'uses' => 'CategoryPlanController@listTrashCategoryPlan'
 		]);
 
 		Route::post('add-new', [
@@ -87,6 +87,16 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::post('edit/{id}', [
 			'as' => 'category_plan.edit',
 			'uses' => 'CategoryPlanController@editCategoryPlan'
+		]);
+
+		Route::get('move-to-trash/{id}', [
+			'as' => 'category_plan.move_to_trash',
+			'uses' => 'CategoryPlanController@softDeleteCategoryPlan'
+		]);
+
+		Route::get('restore/{id}', [
+			'as' => 'category_plan.restore',
+			'uses' => 'CategoryPlanController@restoreCategoryPlan'
 		]);
 	});
 

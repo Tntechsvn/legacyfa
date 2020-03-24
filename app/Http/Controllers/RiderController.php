@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Rider;
+use App\Models\Plan;
 
 use App\Http\Requests\AddNewRiderRequest;
 use App\Http\Requests\EditRiderRequest;
@@ -14,13 +15,15 @@ class RiderController extends Controller
     public function __construct()
 	{
 		$this->rider = new Rider;
+		$this->plan = new Plan;
 	}
 
 	public function listRider(Request $request)
 	{
+		$listPlan = $this->plan->listPlan();
 		$paginate = config('constants.PAGINATE_RIDER');
 		$listRider = $this->rider->listRiderPaginate($request, $paginate);
-		return view('pages.rider.list', compact('listRider'));
+		return view('pages.rider.list', compact('listPlan', 'listRider'));
 	}
 
 	public function listTrashRiders(Request $request)

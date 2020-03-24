@@ -9,7 +9,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addridermodal">Add Rider</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new">Add Rider</button>
             <a class="link-trash textright" href="{{route('riders.list_trash')}}">Trash</a>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
@@ -40,7 +40,7 @@
 </div>
 
 <!-- modal ADD NEW RIDER -->
-<div class="modal fade" id="addridermodal" tabindex="-1" role="dialog" aria-labelledby="addridermodal" aria-hidden="true">
+<div class="modal fade" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="modal_add_new" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,13 +51,15 @@
             </div>
 
             <div class="modal-body">
-                <form name="addrider_form" id='addaddrider_form' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
                         <label for="associated-plans">Associated Plans<span>*</span></label>
                         <select name="associated-plans" id="associated-plans" class="form-control">  
-                            <option value="company->id1">company->name1</option>
-                            <option value="company->id2">company->name2</option>
+                            <option value="0">Select</option>
+                            @foreach($listPlan as $plan)
+                            <option value="{{$plan->id}}">{{$plan->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
