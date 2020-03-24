@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rider extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
+    use SoftDeletes;
 
     protected $fillable = [
         'name', 'slug', 'feature'

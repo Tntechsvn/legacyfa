@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Plan extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
+    use SoftDeletes;
 
     protected $fillable = [
         'name', 'slug', 'company_id', 'category_plan_id', 'feature'
