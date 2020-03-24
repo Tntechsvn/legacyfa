@@ -144,23 +144,23 @@ Route::group(['prefix' => 'admin'], function(){
 		// ]);
 	});
 
-	// /*Joint Fact*/
-	// Route::group(['prefix' => 'joint-fact'], function(){
-	// 	Route::get('/', [
-	// 		'as' => 'ListSingleFact',
-	// 		'uses' => 'JointFactController@listJointFact'
-	// 	]);
+	 /*Joint Fact*/
+	 Route::group(['prefix' => 'joint-fact'], function(){
+		// Route::get('/', [
+		// 	'as' => 'ListSingleFact',
+		// 	'uses' => 'JointFactController@listJointFact'
+		// ]);
 
-	// 	Route::post('add-new', [
-	// 		'as' => 'joint-fact.add_new',
-	// 		'uses' => 'JointFactController@addNewJointFact'
-	// 	]);
+	 	Route::get('add-new', [
+	 		'as' => 'joint-fact.add_new',
+	 		'uses' => 'JointFactController@addNewJointFact'
+	 	]);
 
 	// 	Route::post('edit/{id}', [
 	// 		'as' => 'joint-fact.edit',
 	// 		'uses' => 'JointFactController@editJointFact'
 	// 	]);
-	// });
+	 });
 
 	/* USER */
 	Route::group(['prefix' => 'user'], function(){
