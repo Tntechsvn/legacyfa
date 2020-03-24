@@ -161,7 +161,8 @@ img.aligncenter{
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-}	
+}
+.radius_none{-webkit-border-radius: 0; -moz-border-radius: 0;-o-border-radius: 0; border-radius: 0;}	
 .radius_2{-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;}
 .radius_3{-webkit-border-radius: 3px; -moz-border-radius: 3px;-o-border-radius: 3px; border-radius: 3px;}
 .radius_4{-webkit-border-radius: 4px; -moz-border-radius: 4px;-o-border-radius: 4px; border-radius: 4px;}
@@ -378,4 +379,51 @@ body{
 	float: right;
 	margin-right:15px;
 	width:auto;
+}
+
+/* Login Page*/
+body.login{
+	background:url(images/log-in.png) no-repeat;
+	background-size: cover;
+}
+body.login .container{
+	max-width: 450px;
+	margin-top: 130px;
+}
+.logo-login{
+	width:100%;
+}
+.logo-login img{
+	margin-left:auto;
+	margin-right: auto;
+}
+.login-form{
+	background:#fff;
+	padding:50px 25px;
+	margin-top: 25px;
+}
+.login-form input{
+	border:none;
+	border-bottom:1px solid #e0e0e0;
+	box-shadow: none;
+	width:100%;
+	line-height: 40px;
+	display: block;
+	background: #fff;
+}
+.login-form .form-group {
+    margin-bottom: 10px;
+}
+.login-form .form-group-submit{
+	margin-top: 25px;
+}
+.form-group-submit button{
+	width:100%;
+	height:40px;
+	line-height:40px;
+	color: #fff;
+	font-size: 18px;
+	background: #02c39a;
+	padding: 0;
+	border:none;
 }
