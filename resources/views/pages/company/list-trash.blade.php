@@ -16,16 +16,38 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($listCompanyTrash as $company)
                 <tr>
-                    <td>11</td>
-                    <td>TNTECHS</td>
-                    <td>Restore</td>
+                    <td>{{$company->id}}</td>
+                    <td>{{$company->name}}</td>
+                    <td><button class="restore" data-id="{{$company->id}}" data-url="{{route('company.restore', $company->id)}}">Restore</button></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
-
 @endsection
 
-
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.restore').on('click', function(){
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+    });
+</script>
+@endsection
