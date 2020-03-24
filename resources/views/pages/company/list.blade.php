@@ -1,14 +1,13 @@
 @extends('master')
 
 @section('content')
-
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>List Companies:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addcompanymodal">Add Company</button>
+            <button type="button" class="btn btn-primary" id="add_company" data-toggle="modal" data-target="#addcompanymodal">Add Company</button>
             <a class="link-trash textright" href="{{route('company.list-trash')}}">Trash</a>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
@@ -25,8 +24,8 @@
                     <td>{{$company->id}}</td>
                     <td>{{$company->name}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editcompanyid">Edit</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
+                        <button type="button" class="btn btn-primary edit" data-id="{{$company->id}}" data-name="{{$company->name}}" data-url="{{route('company.edit', $company->id)}}">Edit</button>
+                        <button type="button" class="btn btn-primary delete" data-id="{{$company->id}}" data-url="{{route('company.move_to_trash', $company->id)}}">Delete</button>
                     </td>
                 </tr>
                 @endforeach
@@ -51,7 +50,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Company<span>*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Company Name" value="{{old('name')}}">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Company Name" value="">
                         <span class="error">{{$errors->first('name')}}</span>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -72,12 +71,12 @@
             </div>
 
             <div class="modal-body">
-                <form name="addcompany_form" id='addcompany_form' class="form-control-popup" method="post" action="{{route('company.add_new')}}" data-parsley-validate>
+                <form name="editcompany_form" id='editcompany_form' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="name-company">Company<span>*</span></label>
-                        <input type="text" class="form-control" id="name-company" name="name-company" placeholder="Company Name" value="{{old('name')}}">
-                        <span class="error">{{$errors->first('name')}}</span>
+                        <label for="name_company">Company<span>*</span></label>
+                        <input type="text" class="form-control" id="name_company" name="name_company" placeholder="Company Name" value="">
+                        <span class="error">{{$errors->first('name_company')}}</span>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
@@ -90,9 +89,68 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
-        if({{$errors->count()}} > 0){
-            $('#addcompanymodal').modal('show');
-        }
+        $('#addcompany_form').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+
+        $('.edit').on('click', function(){
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var url = $(this).data('url');
+
+            $('#editcompanyid').modal('show');
+            $('#name_company').val(name);
+            $('#editcompany_form').attr('action', url);
+        });
+
+        $('#editcompany_form').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+
+        $('.delete').on('click', function(){
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
     });
 </script>
 @endsection

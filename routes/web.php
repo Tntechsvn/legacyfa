@@ -43,6 +43,16 @@ Route::group(['prefix' => 'admin'], function(){
 			'as' => 'company.edit',
 			'uses' => 'CompanyController@editCompany'
 		]);
+
+		Route::get('move-to-trash/{id}', [
+			'as' => 'company.move_to_trash',
+			'uses' => 'CompanyController@softDeleteCompany'
+		]);
+
+		Route::get('restore/{id}', [
+			'as' => 'company.restore',
+			'uses' => 'CompanyController@restoreCompany'
+		]);
 	});
 
 	/*CATEGORY PLAN*/

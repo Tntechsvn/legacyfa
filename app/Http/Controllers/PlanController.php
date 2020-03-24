@@ -26,7 +26,7 @@ class PlanController extends Controller
 		$listPlan = $this->plan->listPlanPaginate($request, $paginate);
 		$listCompany = $this->company->listCompany();
 		$listCategoryPlan = $this->categoryPlan->listCategoryPlan();
-		return view('pages.list-plan', compact('listPlan', 'listCompany', 'listCategoryPlan'));
+		return view('pages.plan.list', compact('listPlan', 'listCompany', 'listCategoryPlan'));
 	}
 
 	public function listTrashPlan()
