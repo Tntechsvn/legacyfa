@@ -28,8 +28,9 @@
                     <td>{{$rider->name}}</td>
                     <td>{{$rider->feature}}</td>
                     <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editplanid">Edit</button>
-                    <button type="button" class="btn btn-primary">Delete</button></td>
+                    <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#editplanid"><i class="fas fa-edit"></i></a>
+                    <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -25,8 +25,8 @@
                     <td>{{$company->id}}</td>
                     <td>{{$company->name}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-id="{{$company->id}}" data-toggle="modal" data-target="#editcompanyid">Edit</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
+                        <a href="javascript:;" class="editstyle1" data-id="{{$company->id}}" data-toggle="modal" data-target="#editcompanyid"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

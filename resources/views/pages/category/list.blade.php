@@ -25,8 +25,8 @@
                     <td>{{$categoryPlan->id}}</td>
                     <td>{{$categoryPlan->name}}</td>
                     <td>
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editcategoryid">Edit</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
+                         <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#editcategoryid"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

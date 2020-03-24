@@ -30,8 +30,7 @@
                     <td>March 15, 2020</td>
                     <td>single</td>
                     <td>Download as PDF</td>
-                    <td>
-                    <button type="button" class="btn btn-primary">Delete</button></td>
+                    <td><a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a></td>
                 </tr>
             </tbody>
         </table>
