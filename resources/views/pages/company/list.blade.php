@@ -25,7 +25,7 @@
                     <td>{{$company->id}}</td>
                     <td>{{$company->name}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editcompanyid">Edit</button>
+                        <button type="button" class="btn btn-primary" data-id="{{$company->id}}" data-toggle="modal" data-target="#editcompanyid">Edit</button>
                         <button type="button" class="btn btn-primary">Delete</button>
                     </td>
                 </tr>
@@ -72,6 +72,7 @@
             </div>
 
             <div class="modal-body">
+                <div id="orderDetails"></div>
                 <form name="addcompany_form" id='addcompany_form' class="form-control-popup" method="post" action="{{route('company.add_new')}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
@@ -94,5 +95,21 @@
             $('#addcompanymodal').modal('show');
         }
     });
+    $(document).ready(function(){    
+        $(function(){
+            $('#editcompanyid').modal({
+                keyboard: true,
+                backdrop: "static",
+                show:false,
+                
+            }).on('show', function(){
+                  var getIdFromRow = $(this).data('id');
+                //make your ajax call populate items or what even you need
+                $(this).find('#orderDetails').html($('<b> Order Id selected: ' + getIdFromRow  + '</b>'))
+            });
+        });
+    });
+
+
 </script>
 @endsection

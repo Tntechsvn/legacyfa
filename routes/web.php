@@ -21,7 +21,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('login', [
+			'as' => 'login',
+			'uses' => 'UserController@login'
+		]);
+
 Route::group(['prefix' => 'admin'], function(){
+
+	/* list pdf */
+	Route::get('list-pfr', [
+			'as' => 'listpfr',
+			'uses' => 'HomeController@listPfr'
+		]);
+
 	/*COMPANY*/
 	Route::group(['prefix' => 'company'], function(){
 		Route::get('/', [
@@ -149,4 +161,27 @@ Route::group(['prefix' => 'admin'], function(){
 	// 		'uses' => 'JointFactController@editJointFact'
 	// 	]);
 	// });
+
+	/* USER */
+	Route::group(['prefix' => 'user'], function(){
+		Route::get('/', [
+			'as' => 'plan.user',
+			'uses' => 'UserController@listUser'
+		]);
+
+		Route::get('trash', [
+			'as' => 'user.list-trash',
+			'uses' => 'UserController@listTrashUser'
+		]);
+
+		// Route::post('add-new', [
+		// 	'as' => 'plan.add_new',
+		// 	'uses' => 'PlanController@addNewPlan'
+		// ]);
+
+		// Route::post('edit/{id}', [
+		// 	'as' => 'plan.edit',
+		// 	'uses' => 'PlanController@editPlan'
+		// ]);
+	});
 });

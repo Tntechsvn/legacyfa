@@ -27,9 +27,9 @@ class HomeController extends Controller
         return view('pages.home');
     }
 
-    public function ListCompany()
+    public function listPfr()
     {
-        return view('pages.list-company');
+        return view('pages.pfr.list');
     }
 
     public function ListCategory()

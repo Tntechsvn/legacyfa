@@ -7,7 +7,7 @@
                 <li><a href=""><i class="fas fa-users"></i>Joint Fact - Find</a></li>
             </ul>
         </li>
-        <li><a href=""><i class="fas fa-list-alt"></i>View List PFR</a></li>
+        <li {{ Route::currentRouteNamed('listpfr') ? 'active' : '' }}><a href="{{route('listpfr')}}"><i class="fas fa-list-alt"></i>View List PFR</a></li>
         <li><a href=""><i class="fas fa-user-circle"></i>User</a></li>
         <li class="{{ Route::currentRouteNamed('plan.list') ? 'active' : '' }}"><a href="{{route('plan.list')}}"><i class="fas fa-clipboard-list"></i>Plans</a>
             <ul class="sub-menu">
