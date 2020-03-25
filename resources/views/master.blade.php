@@ -29,10 +29,10 @@
     <div class="site">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 sidebar">
+                <div class="sidebar" id="sidebar">
                     @include('layouts.nav')
                 </div>
-                <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9 main">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
                     @include('layouts.header')
                     @yield('content')
                 </div>
@@ -52,6 +52,22 @@
     <script src="{{asset('js/parsley.min.js')}}"></script>
     <script>
       $('.form-control-user').parsley();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var nav = $("#sidebar");
+            var ct = $(".main");
+            $(".nav-sidebar").click(function(){
+                if(nav.hasClass('sidebar-fix')){
+                    nav.removeClass('sidebar-fix');
+                    ct.css('padding-left','215px')
+                }else {
+                   nav.addClass('sidebar-fix');
+                   ct.css('padding-left','70px')
+                }
+            });
+        });
+
     </script>
     @yield('script')
 </body>

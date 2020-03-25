@@ -32,7 +32,7 @@
                     <td>Admin</td>
                     <td>Active</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1" data-id="company->id" data-toggle="modal" data-target="#editcompanyid"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1" data-id="company->id" data-toggle="modal" data-target="#edituser"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -43,6 +43,55 @@
 </div>
 <!-- modal ADD NEW COMPANY -->
 <div class="modal fade" id="addusermodal" tabindex="-1" role="dialog" aria-labelledby="addusermodal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add User</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form name="adduser_form" id='adduser_form' class="form-control-popup" method="post" action="" data-parsley-validate>
+                    <div class="form-group">
+                        <label for="user-role">User Role<span>*</span></label>
+                        <select name="user-role" id="user-role" class="form-control">
+                            <option value="">Admin</option>
+                            <option value="">Supper Admin</option>
+                            <option value="">Suppest Admin</option>
+                        </select>
+                        <span class="error">{{$errors->first('category')}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name">Full Name<span>*</span></label>
+                        <input type="text" class="form-control" id="full-name" name="full-name" placeholder="Full Name" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-name">Preferred Name<span>*</span></label>
+                        <input type="text" class="form-control" id="preferred-name" name="preferred-name" placeholder="Preferred Name" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email-user">Email<span>*</span></label>
+                        <input type="email" class="form-control" id="email-user" name="email-user" placeholder="Email" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password<span>*</span></label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="******" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="repassword">Re-Type Password<span>*</span></label>
+                        <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Password" value="">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal EDIT USER -->
+<div class="modal fade" id="edituser" tabindex="-1" role="dialog" aria-labelledby="edituser" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">

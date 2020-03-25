@@ -195,7 +195,7 @@ Route::group(['prefix' => 'admin'], function(){
 	/* USER */
 	Route::group(['prefix' => 'user'], function(){
 		Route::get('/', [
-			'as' => 'plan.user',
+			'as' => 'user.list',
 			'uses' => 'UserController@listUser'
 		]);
 
