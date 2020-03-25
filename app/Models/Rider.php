@@ -15,7 +15,7 @@ class Rider extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 'slug', 'feature'
+        'name', 'slug', 'featured'
     ];
 
     protected $dates = ['deleted_at'];

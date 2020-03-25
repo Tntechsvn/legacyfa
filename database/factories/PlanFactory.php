@@ -13,6 +13,6 @@ $factory->define(App\Models\Plan::class, function (Faker $faker) {
         },
         'company_id' => App\Models\Company::all()->random()->id,
         'category_plan_id' => App\Models\CategoryPlan::all()->random()->id,
-        'feature' => $faker->text(200)
+        'featured' => $faker->text(200)
     ];
 });

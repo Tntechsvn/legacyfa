@@ -25,7 +25,7 @@ class CreatePlansTable extends Migration
                 $table->bigInteger('category_plan_id')->unsigned();
                 $table->foreign('category_plan_id')->references('id')->on('category_plans');
             }
-            $table->text('feature')->nullable();
+            $table->text('featured')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

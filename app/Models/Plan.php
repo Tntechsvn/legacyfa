@@ -15,7 +15,7 @@ class Plan extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 'slug', 'company_id', 'category_plan_id', 'feature'
+        'name', 'slug', 'company_id', 'category_plan_id', 'featured'
     ];
 
     protected $dates = ['deleted_at'];
@@ -60,6 +60,11 @@ class Plan extends Model
         return static::paginate($paginate);   
     }
 
+    public function listPlanTrashPaginate($request, $paginate)
+    {
+        return static::onlyTrashed()->paginate($paginate);
+    }
+
     public function infoPlanById($id)
     {
         return static::findOrFail($id);
@@ -70,10 +75,27 @@ class Plan extends Model
         return static::firstOrCreate($param);
     }
 
-    /*public function editPlan($slug, $param)
+    public function editPlan($id, $param)
     {
-        return static::where('slug', $slug)->update($param);
-    }*/
+        return static::where('id', $id)->update($param);
+    }
+
+    public function softDeletePlan($id)
+    {
+        return static::where('id', $id)->update([
+            'deleted_at' => now()
+        ]);
+    }
+
+    public function restorePlan($id)
+    {
+        return static::onlyTrashed()->where('id', $id)->restore();
+    }
+
+    public function checkUniquePlan($id, $name)
+    {
+        return static::where('id', '<>', $id)->where('name', $name)->count();
+    }
     /*END QUERY*/
 
     /*ATTRIBUTE*/

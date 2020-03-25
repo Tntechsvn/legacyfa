@@ -121,6 +121,16 @@ Route::group(['prefix' => 'admin'], function(){
 			'as' => 'plan.edit',
 			'uses' => 'PlanController@editPlan'
 		]);
+
+		Route::get('move-to-trash/{id}', [
+			'as' => 'plan.move_to_trash',
+			'uses' => 'PlanController@softDeletePlan'
+		]);
+
+		Route::get('restore/{id}', [
+			'as' => 'plan.restore',
+			'uses' => 'PlanController@restorePlan'
+		]);
 	});
 
 	/*RIDER*/

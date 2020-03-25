@@ -42,7 +42,7 @@ class RiderController extends Controller
 		return $request;
 		$param = [
 			'name' => $request->name,
-			'feature' => $request->feature
+			'featured' => $request->feature
 		];
 		$resultAddRider = $this->rider->addNewRider($param);
 		if ($resultAddRider) {
@@ -59,7 +59,7 @@ class RiderController extends Controller
 		if ($infoRider) {
 			$param = [
 				'name' => $request->name,
-				'feature' => $request->feature
+				'featured' => $request->feature
 			];
 			$resultEditRider = $this->rider->editRider($idRider, $param);
 			if ($resultEditRider) {

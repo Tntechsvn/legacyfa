@@ -13,20 +13,45 @@
                     <th>SN</th>
                     <th>Company</th>
                     <th>Play Name</th>
-                    <th>Categoty</th>
+                    <th>Category</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($listPlanTrash as $plan)
                 <tr>
-                    <td>plan->id</td>
-                    <td>plan->nameCompany</td>
-                    <td>plan->name</td>
-                    <td>plan->nameCategoryPlan</td>
-                    <td>Restore</td>
+                    <td>{{$plan->id}}</td>
+                    <td>{{$plan->nameCompany}}</td>
+                    <td>{{$plan->name}}</td>
+                    <td>{{$plan->nameCategoryPlan}}</td>
+                    <td><button class="restore" data-id="{{$plan->id}}" data-url="{{route('plan.restore', $plan->id)}}">Restore</button></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.restore').on('click', function(){
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection

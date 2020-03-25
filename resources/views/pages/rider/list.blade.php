@@ -1,8 +1,6 @@
 @extends('master')
 
 @section('content')
-
-
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>List Of Ridders:</h4>
@@ -28,8 +26,8 @@
                     <td>{{$rider->name}}</td>
                     <td>{{$rider->feature}}</td>
                     <td>
-                    <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#editplanid"><i class="fas fa-edit"></i></a>
-                    <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#editplanid"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -55,7 +53,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="associated-plans">Associated Plans<span>*</span></label>
-                        <select name="associated-plans" id="associated-plans" class="form-control">  
+                        <select name="associated-plans" id="associated-plans" class="form-control">
                             <option value="0">Select</option>
                             @foreach($listPlan as $plan)
                             <option value="{{$plan->id}}">{{$plan->name}}</option>
@@ -78,4 +76,26 @@
 </div>
 @endsection
 
-
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#form_add_new').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+    });
+</script>
+@endsection
