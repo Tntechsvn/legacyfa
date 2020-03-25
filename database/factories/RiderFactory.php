@@ -11,6 +11,6 @@ $factory->define(App\Models\Rider::class, function (Faker $faker) {
 		'slug' => function (array $rider){
 			return Str::slug($rider['name']);
 		},
-		'feature' => $faker->text()
+		'featured' => $faker->text()
 	];
 });

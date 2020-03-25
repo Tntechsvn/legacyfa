@@ -69,7 +69,6 @@
         });
 
     </script>
-    menu-header
     @yield('script')
 </body>
 </html>

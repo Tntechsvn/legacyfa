@@ -8,7 +8,7 @@
             </ul>
         </li>
         <li class="{{ Route::currentRouteNamed('listpfr') ? 'active' : '' }}"><a href="{{route('listpfr')}}"><i class="fas fa-list-alt"></i><span>View List PFR</span></a></li>
-        <li><a href=""><i class="fas fa-user-circle"></i><span>User</span></a></li>
+        <li class="{{ Route::currentRouteNamed('user.list') ? 'active' : '' }}"><a href="{{route('user.list')}}"><i class="fas fa-user-circle"></i><span>User</span></a></li>
         <li class="{{ Route::currentRouteNamed('plan.list') ? 'active' : '' }}"><a href="{{route('plan.list')}}"><i class="fas fa-clipboard-list"></i><span>Plans</span></a>
             <ul class="sub-menu">
                 <li class="{{ Route::currentRouteNamed('plan.list') ? 'active' : '' }}"><a href="{{route('plan.list')}}"><i class="fas fa-user"></i>List Plan</a></li>
@@ -16,6 +16,6 @@
             </ul>
         </li>
         <li class="{{ Route::currentRouteNamed('riders.list') ? 'active' : '' }}"><a href="{{route('riders.list')}}"><i class="fas fa-clipboard-list"></i><span>Ridders</span></a></li> 
-        <li class="{{ Route::currentRouteNamed('company.list') ? 'active' : '' }}"><a href="{{route('company.list')}}"><i class="fas fa-clipboard-list"></i><span>Company</span></a></li>         
+        <li class="{{ Route::currentRouteNamed('company.list') ? 'active' : '' }}"><a href="{{route('company.list')}}"><i class="fas fa-clipboard-list"></i><span>Company</span></a></li>  
     </ul>
 </nav>
