@@ -18,7 +18,7 @@
                     <option value="mdm">Mdm</option>
                 </select> 
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <label for="single-name">Name<span>*</span></label>
                 <input type="text" class="form-control" id="single-name"  name="single-name" placeholder="Name" value="" >
                 <span class="noti-alert">(as in NRIC / Passport)</span>
@@ -30,7 +30,7 @@
                 <label class="radio-inline">
                   <input type="radio" name="sex">Female 
                 </label>
-             </div>
+            </div>
             <div class="form-group">
                 <label for="passport-no">NRIC/Passport No<span>*</span></label>
                 <input type="text" class="form-control" id="passport-no"  name="passport-no" placeholder="NRIC/Passport No" value="" >

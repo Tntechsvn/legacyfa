@@ -182,6 +182,16 @@ Route::group(['prefix' => 'admin'], function(){
 		// 	'as' => 'single-fact.edit',
 		// 	'uses' => 'SingleFactController@editSingleFact'
 		// ]);
+		Route::group(['prefix' => 'dependants'], function(){
+			Route::get('/', [
+				'as' => 'singlefact.dependants.list',
+				'uses' => 'SingleFactController@listSingleFactDependants'
+			]);
+			Route::get('trash', [
+			'as' => 'singlefact.dependants.list-trash',
+			'uses' => 'SingleFactController@listSingleFactDependantsTrash'
+		]);
+		});
 	});
 
 	/*Joint Fact*/
@@ -199,7 +209,7 @@ Route::group(['prefix' => 'admin'], function(){
 	// 	Route::post('edit/{id}', [
 	// 		'as' => 'joint-fact.edit',
 	// 		'uses' => 'JointFactController@editJointFact'
-	// 	]);
+	// 	]);	
 	});
 
 	/* USER */
