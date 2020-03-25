@@ -25,6 +25,7 @@
                 @endforeach
             </tbody>
         </table>
+        <div>{{$listCompanyTrash->links()}}</div>
     </div>
 </div>
 @endsection

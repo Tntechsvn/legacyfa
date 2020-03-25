@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'referred_name', 'avatar', 'role_id', 'status'
+        'full_name', 'email', 'password', 'preferred_name', 'avatar', 'role_id', 'status'
     ];
 
     protected $dates = ['deleted_at'];
@@ -60,6 +62,11 @@ class User extends Authenticatable
         return static::paginate($paginate);   
     }
 
+    public function listUserTrashPaginate($request, $paginate)
+    {
+        return static::onlyTrashed()->paginate($paginate);
+    }
+
     public function infoUserById($id)
     {
         return static::findOrFail($id);
@@ -70,16 +77,33 @@ class User extends Authenticatable
         return static::firstOrCreate($param);
     }
 
-    /*public function editUser($slug, $param)
+    public function editUser($id, $param)
     {
-        return static::where('slug', $slug)->update($param);
-    }*/
+        return static::where('id', $id)->update($param);
+    }
+
+    public function softDeleteUser($id)
+    {
+        return static::where('id', $id)->update([
+            'deleted_at' => now()
+        ]);
+    }
+
+    public function restoreUser($id)
+    {
+        return static::onlyTrashed()->where('id', $id)->restore();
+    }
     /*END QUERY*/
 
     /*ATTRIBUTE*/
     public function getNameRoleAttribute()
     {
         return optional($this->role)->name;
+    }
+
+    public function getLevelUserAttribute()
+    {
+        return optional($this->role)->level;
     }
     /*END ATTRIBUTE*/
 }

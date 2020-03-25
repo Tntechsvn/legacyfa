@@ -17,7 +17,7 @@ class UserTabelSeeder extends Seeder
     			'full_name' => 'Admin Legacy',
                 'email_verified_at' => now(),
     			'password' => bcrypt('123456'),
-    			'referred_name' => 'Admin',
+    			'preferred_name' => 'Admin',
     			'role_id' => 1,
                 'status' => 0,
                 'created_at' => now()

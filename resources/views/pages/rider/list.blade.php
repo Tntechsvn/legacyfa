@@ -3,12 +3,12 @@
 @section('content')
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>List Of Ridders:</h4>
+        <h4>List Of Riders:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new">Add Rider</button>
-            <a class="link-trash textright" href="{{route('riders.list_trash')}}">Trash</a>
+            <a class="link-trash textright" href="{{route('rider.list_trash')}}">Trash</a>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
             <thead>
@@ -24,10 +24,10 @@
                 <tr>
                     <td>{{$rider->id}}</td>
                     <td>{{$rider->name}}</td>
-                    <td>{{$rider->feature}}</td>
+                    <td>{{$rider->featured}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#editrider"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-target="#editrider" data-id="{{$rider->id}}" data-name="{{$rider->name}}" data-featured="{{$rider->featured}}" data-plan="{{$rider->planRider}}" data-url="{{route('rider.edit', $rider->id)}}"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-id="{{$rider->id}}" data-url="{{route('rider.move_to_trash', $rider->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -49,24 +49,23 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="{{route('rider.add_new')}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="associated-plans">Associated Plans<span>*</span></label>
-                        <select name="associated-plans" id="associated-plans" class="form-control" multiple >
-                            <option value="0">Select</option>
+                        <label for="plan">Associated Plans<span>*</span></label>
+                        <select name="plan[]" id="plan" class="form-control" multiple >
                             @foreach($listPlan as $plan)
                             <option value="{{$plan->id}}">{{$plan->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="rider-name">Rider Name<span>*</span></label>
-                        <input type="text" class="form-control" id="rider-name" name="rider-name" placeholder="Rider Name" value="">
+                        <label for="name">Rider Name<span>*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Rider Name" value="">
                     </div>
                     <div class="form-group">
-                        <label for="rider-featured">Rider Featured<span>*</span></label>
-                        <textarea class="rider-featured" rows="5" id="rider-featured" placeholder="Rider Featured"> </textarea>
+                        <label for="featured">Rider Featured<span>*</span></label>
+                        <textarea class="featured" rows="5" name="featured" id="featured" placeholder="Rider Featured"> </textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
@@ -76,7 +75,7 @@
 </div>
 
 <!-- modal EDIT RIDER -->
-<div class="modal fade" id="editrider" tabindex="-1" role="dialog" aria-labelledby="editrider" aria-hidden="true">
+<div class="modal fade" id="modal_edit" tabindex="-1" role="dialog" aria-labelledby="modal_edit" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,24 +86,23 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_edit" id='form_edit' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
-                        <label for="associated-plans">Associated Plans<span>*</span></label>
-                        <select name="associated-plans" id="associated-plans" class="form-control" multiple >
-                            <option value="0">Select</option>
+                    <div class="form-group" id="form_plan">
+                        <label for="plan_edit">Associated Plans<span>*</span></label>
+                        <select name="plan_edit[]" id="plan_edit" class="form-control" multiple >
                             @foreach($listPlan as $plan)
                             <option value="{{$plan->id}}">{{$plan->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="rider-name">Rider Name<span>*</span></label>
-                        <input type="text" class="form-control" id="rider-name" name="rider-name" placeholder="Rider Name" value="">
+                        <label for="name_edit">Rider Name<span>*</span></label>
+                        <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Rider Name" value="">
                     </div>
                     <div class="form-group">
-                        <label for="rider-featured">Rider Featured<span>*</span></label>
-                        <textarea class="rider-featured" rows="5" id="rider-featured" placeholder="Rider Featured"> </textarea>
+                        <label for="featured_edit">Rider Featured<span>*</span></label>
+                        <textarea class="featured_edit" rows="5" name="featured_edit" id="featured_edit" placeholder="Rider Featured"> </textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
@@ -126,6 +124,7 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
+                    console.log(res);
                     if(res['error']){
                         alert(res['message']);
                     }else{
@@ -133,6 +132,57 @@
                     }
                 }
             });
+        });
+
+        $('.edit').on('click', function(){
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var featured = $(this).data('featured');
+            var plan = $(this).data('plan');
+            var url = $(this).data('url');
+
+            $('#modal_edit').modal('show');
+            $('#name_edit').val(name);
+            $('#featured_edit').val(featured);
+            $('#plan_edit').val(plan);
+            $('#form_edit').attr('action', url);
+        });
+
+        $('#form_edit').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+
+        $('.delete').on('click', function(){
+            if(confirm('Do you want delete this rider??')){
+                var id = $(this).data('id');
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function(res){
+                        if(res['error']){
+                            alert(res['message']);
+                        }else{
+                            alert(res['message']);
+                        }
+                    }
+                });
+            }
         });
     });
 </script>

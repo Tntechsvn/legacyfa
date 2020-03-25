@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
 	protected $fillable = [
-		'name', 'desciption'
+		'name', 'desciption', 'level'
 	];
 
 	public function users()
@@ -21,6 +21,12 @@ class Role extends Model
 	}
 
 	/*QUERY*/
+	public function listRole($user)
+	{
+		//return static::where('level', '>', $user->levelUser)->get();
+		return static::all();
+	}
+	
 	public function listRolePaginate($request)
 	{
 		return static::paginate(config('constants.PAGINATE_ADMIN'));
@@ -36,9 +42,9 @@ class Role extends Model
         return static::firstOrCreate($param);
     }
 
-    /*public function editRole($slug, $param)
+    public function editRole($id, $param)
     {
-        return static::where('slug', $slug)->update($param);
-    }*/
+        return static::where('id', $id)->update($param);
+    }
 	/*END QUERY*/
 }

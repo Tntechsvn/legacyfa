@@ -18,15 +18,42 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($listRiderTrash as $rider)
                 <tr>
-                    <td>rider->id</td>
-                    <td>rider->name</td>
-                    <td>rider->feature</td>
-                    <td>Restore</td>
+                    <td>{{$rider->id}}</td>
+                    <td>{{$rider->name}}</td>
+                    <td>{{$rider->featured}}</td>
+                    <td>
+                        <button class="restore" data-id="{{$rider->id}}" data-url="{{route('rider.restore', $rider->id)}}">Restore</button>
+                    </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
+        <div>{{$listRiderTrash->links()}}</div>
     </div>
 </div>
+@endsection
 
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.restore').on('click', function(){
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection

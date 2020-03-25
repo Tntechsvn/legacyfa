@@ -22,17 +22,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('login', [
-			'as' => 'login',
-			'uses' => 'UserController@login'
-		]);
+	'as' => 'login',
+	'uses' => 'UserController@login'
+]);
 
 Route::group(['prefix' => 'admin'], function(){
 
 	/* list pdf */
 	Route::get('list-pfr', [
-			'as' => 'listpfr',
-			'uses' => 'HomeController@listPfr'
-		]);
+		'as' => 'listpfr',
+		'uses' => 'HomeController@listPfr'
+	]);
 
 	/*COMPANY*/
 	Route::group(['prefix' => 'company'], function(){
@@ -136,13 +136,13 @@ Route::group(['prefix' => 'admin'], function(){
 	/*RIDER*/
 	Route::group(['prefix' => 'rider'], function(){
 		Route::get('/', [
-			'as' => 'riders.list',
+			'as' => 'rider.list',
 			'uses' => 'RiderController@listRider'
 		]);
 
 		Route::get('trash', [
-			'as' => 'riders.list_trash',
-			'uses' => 'RiderController@listTrashRiders'
+			'as' => 'rider.list_trash',
+			'uses' => 'RiderController@listTrashRider'
 		]);
 
 		Route::post('add-new', [
@@ -153,6 +153,16 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::post('edit/{id}', [
 			'as' => 'rider.edit',
 			'uses' => 'RiderController@editRider'
+		]);
+
+		Route::get('move-to-trash/{id}', [
+			'as' => 'rider.move_to_trash',
+			'uses' => 'RiderController@softDeleteRider'
+		]);
+
+		Route::get('restore/{id}', [
+			'as' => 'rider.restore',
+			'uses' => 'RiderController@restoreRider'
 		]);
 	});
 
@@ -174,23 +184,23 @@ Route::group(['prefix' => 'admin'], function(){
 		// ]);
 	});
 
-	 /*Joint Fact*/
-	 Route::group(['prefix' => 'joint-fact'], function(){
+	/*Joint Fact*/
+	Route::group(['prefix' => 'joint-fact'], function(){
 		// Route::get('/', [
 		// 	'as' => 'ListSingleFact',
 		// 	'uses' => 'JointFactController@listJointFact'
 		// ]);
 
-	 	Route::get('add-new', [
-	 		'as' => 'joint-fact.add_new',
-	 		'uses' => 'JointFactController@addNewJointFact'
-	 	]);
+		Route::get('add-new', [
+			'as' => 'joint-fact.add_new',
+			'uses' => 'JointFactController@addNewJointFact'
+		]);
 
 	// 	Route::post('edit/{id}', [
 	// 		'as' => 'joint-fact.edit',
 	// 		'uses' => 'JointFactController@editJointFact'
 	// 	]);
-	 });
+	});
 
 	/* USER */
 	Route::group(['prefix' => 'user'], function(){
@@ -204,14 +214,24 @@ Route::group(['prefix' => 'admin'], function(){
 			'uses' => 'UserController@listTrashUser'
 		]);
 
-		// Route::post('add-new', [
-		// 	'as' => 'plan.add_new',
-		// 	'uses' => 'PlanController@addNewPlan'
-		// ]);
+		Route::post('add-new', [
+			'as' => 'user.add_new',
+			'uses' => 'UserController@addNewUser'
+		]);
 
-		// Route::post('edit/{id}', [
-		// 	'as' => 'plan.edit',
-		// 	'uses' => 'PlanController@editPlan'
-		// ]);
+		Route::post('edit/{id}', [
+			'as' => 'user.edit',
+			'uses' => 'UserController@editUser'
+		]);
+
+		Route::get('move-to-trash/{id}', [
+			'as' => 'user.move_to_trash',
+			'uses' => 'UserController@softDeleteUser'
+		]);
+
+		Route::get('restore/{id}', [
+			'as' => 'user.restore',
+			'uses' => 'UserController@restoreUser'
+		]);
 	});
 });
