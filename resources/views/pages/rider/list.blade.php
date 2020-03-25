@@ -3,7 +3,7 @@
 @section('content')
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>List Of Ridders:</h4>
+        <h4>List Of Riders:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">

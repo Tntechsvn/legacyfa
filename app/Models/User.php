@@ -70,10 +70,22 @@ class User extends Authenticatable
         return static::firstOrCreate($param);
     }
 
-    /*public function editUser($slug, $param)
+    public function editUser($id, $param)
     {
-        return static::where('slug', $slug)->update($param);
-    }*/
+        return static::where('id', $id)->update($param);
+    }
+
+    public function softDeleteUser($id)
+    {
+        return static::where('id', $id)->update([
+            'deleted_at' => now()
+        ]);
+    }
+
+    public function restoreUser($id)
+    {
+        return static::onlyTrashed()->where('id', $id)->restore();
+    }
     /*END QUERY*/
 
     /*ATTRIBUTE*/
