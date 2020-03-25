@@ -15,7 +15,7 @@
                 <li class="{{ Route::currentRouteNamed('category.list') ? 'active' : '' }}"><a href="{{route('category.list')}}"><i class="fas fa-users"></i>List Category</a></li>
             </ul>
         </li>
-        <li class="{{ Route::currentRouteNamed('riders.list') ? 'active' : '' }}"><a href="{{route('riders.list')}}"><i class="fas fa-clipboard-list"></i><span>Ridders</span></a></li> 
+        <li class="{{ Route::currentRouteNamed('rider.list') ? 'active' : '' }}"><a href="{{route('rider.list')}}"><i class="fas fa-clipboard-list"></i><span>Riders</span></a></li> 
         <li class="{{ Route::currentRouteNamed('company.list') ? 'active' : '' }}"><a href="{{route('company.list')}}"><i class="fas fa-clipboard-list"></i><span>Company</span></a></li>  
     </ul>
 </nav>

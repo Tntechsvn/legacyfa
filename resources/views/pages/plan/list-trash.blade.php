@@ -29,6 +29,7 @@
                 @endforeach
             </tbody>
         </table>
+        <div>{{$listPlanTrash->links()}}</div>
     </div>
 </div>
 @endsection

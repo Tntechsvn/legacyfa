@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('referred_name');
+            $table->string('preferred_name');
             $table->text('avatar')->nullable();
             if (Schema::hasTable('roles')) {
                 $table->bigInteger('role_id')->unsigned();

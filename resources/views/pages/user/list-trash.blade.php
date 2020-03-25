@@ -18,18 +18,44 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($listUserTrash as $user)
                 <tr>
-                    <td>11</td>
-                    <td>TNTECHS</td>
-                    <td>email@gmail.com</td>
-                    <td>admin</td>
-                    <td>Restore</td>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->full_name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->nameRole}}</td>
+                    <td>
+                        <button class="restore" data-id="{{$user->id}}" data-url="{{route('user.restore', $user->id)}}">Restore</button>
+                    </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
+        <div>{{$listUserTrash->links()}}</div>
     </div>
 </div>
 
 @endsection
 
-
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.restore').on('click', function(){
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+    });
+</script>
+@endsection

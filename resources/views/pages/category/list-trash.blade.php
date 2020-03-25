@@ -25,6 +25,7 @@
                 @endforeach
             </tbody>
         </table>
+        <div>{{$listCategoryPlanTrash->links()}}</div>
     </div>
 </div>
 @endsection
