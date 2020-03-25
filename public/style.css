@@ -233,6 +233,8 @@ body{
 .sidebar-fix .mainmenu > li{
 	height:40px;
 	position: relative;
+	padding-top:0;
+	padding-bottom: 0;
 }
 .sidebar-fix .mainmenu > li > a > i{
 	width:100%;
@@ -246,13 +248,84 @@ body{
 	display:none;
 }
 .sidebar-fix ul.sub-menu{
+	position: absolute;
+	left:100%;
+	top:30px;
+	width:150px;
+	background: #000;
 	display: none;
+}
+.sidebar-fix li:hover ul.sub-menu{
+	display: block;
+}
+.sidebar-fix ul.sub-menu i{
+	display: none;
+}
+.sidebar-fix ul.sub-menu a{
+	color:rgba(255,255,255,0.7);
+	font-size: 14px;
+	line-height:20px;
+}
+.sidebar-fix ul.sub-menu a:hover{
+	color:#02c39a
+}
+
+.sidebar-fix .sub-menu{
+	padding-left:0;
+}
+.sidebar-fix ul.sub-menu li{
+	padding:5px 15px;
+}
+.sidebar-fix nav ul li.has-child::{
+	display: none;
+}
+.sidebar-fix .mainmenu > li.active::before{
+	left:0;
+	top:0;
+	width:4px;
+	background:#fff;
+	content:"";
+	height: 100%;
+	z-index: 2;
+	display:block;
+	position: absolute;
+}
+.sidebar-fix .mainmenu > li.active{
+	background:#02c39a;
+}
+.sidebar-fix .mainmenu > li:hover{
+	background:#02c39a;
+}
+.sidebar-fix .mainmenu > li:hover::before{
+	left:0;
+	top:0;
+	width:4px;
+	background:#fff;
+	content:"";
+	height: 100%;
+	z-index: 2;
+	display:block;
+	position: absolute;
 }
 .sidebar-fix nav ul li.has-child::after{
-	display: none;
+	display:none;
 }
-.sidebar-fix .mainmenu > li.active:before{
-
+.sidebar-fix .has-child > a > span{
+	position:absolute;
+	left: 100%;
+	top:0;
+	width:150px;
+	background: #000;
+	padding:5px 15px;
+	display:none;
+	height:30px;
+	color: #fff;
+	font-size: 14px;
+	line-height:20px;
+}
+.sidebar-fix li.has-child:hover > a > span{
+	display:block;
+	z-index: 9;
 }
 
 
