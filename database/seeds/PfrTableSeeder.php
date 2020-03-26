@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PrfTabelSeeder extends Seeder
+class PfrTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
