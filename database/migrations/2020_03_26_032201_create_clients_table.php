@@ -17,7 +17,7 @@ class CreateClientsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('name');
-            $table->tinyInteger('relationship')->unsigned();
+            $table->tinyInteger('relationship')->unsigned()->default(0);
             $table->tinyInteger('gender')->unsigned()->default(0);
             $table->string('nric_passport');
             $table->string('nationality');
