@@ -23,11 +23,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($listPfr as $pfr)
+
                 <tr>
-                    <td>{{$pfr->id}}</td>
-                    <td>{{$pfr->nameClient}}</td>
-                    <td>{{$pfr->nameUserAdd}}</td>
+                    <td>$pfr->id</td>
+                    <td>$pfr->nameClient</td>
+                    <td>$pfr->nameUserAdd</td>
                     <td>March 15, 2020</td>
                     <td>single</td>
                     <td>Download as PDF</td>
@@ -35,9 +35,10 @@
                         <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
+       
             </tbody>
         </table>
-        <div>{{$listPfr->links()}}</div>
+
     </div>
 </div>
 @endsection

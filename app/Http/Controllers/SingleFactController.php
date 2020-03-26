@@ -20,7 +20,7 @@ class SingleFactController extends Controller
     public function listSingleFactDependants(){
 		$paginate = config('constants.PAGINATE_PFR');
 		$listPfr = $this->pfr->listPfrPaginate($request, $paginate);
-        return view('pages.single-fact.dependants.list');
+        return view('pages.single-fact.dependants.list',compact('listPfr'));
     }
 
     public function listSingleFactDependantsTrash(){
