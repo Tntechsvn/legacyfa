@@ -190,7 +190,16 @@ Route::group(['prefix' => 'admin'], function(){
 			Route::get('trash', [
 			'as' => 'singlefact.dependants.list-trash',
 			'uses' => 'SingleFactController@listSingleFactDependantsTrash'
-		]);
+			]);
+			Route::get('assessment', [
+				'as' => 'single-fact.assessment',
+				'uses' => 'SingleFactController@addNewSingleFactAssessment'
+			]);
+			Route::get('question', [
+				'as' => 'single-fact.question',
+				'uses' => 'SingleFactController@addNewSingleFactQuestion'
+			]);
+
 		});
 	});
 
