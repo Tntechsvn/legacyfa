@@ -12,6 +12,16 @@ class Pfr extends Model
 
     protected $fillable = ['user_id', 'type'];
 
+    public function user()
+    {
+    	return $this->belongsTo('App\Models\User');
+    }
+
+    public function clients()
+    {
+    	return $this->hasMany('App\Models\Client');
+    }
+
     /*QUERY*/
     public function listPfr()
     {
@@ -55,4 +65,16 @@ class Pfr extends Model
         return static::onlyTrashed()->where('id', $id)->restore();
     }
     /*END QUERY*/
+
+    /*ATTRIBUTE*/
+    public function getNameClientAttribute()
+    {
+    	return $this->clients()->first()->name;
+    }
+
+    public function getNameUserAdd()
+    {
+    	return optional($this->user)->full_name;
+    }
+    /*END ATTRIBUTE*/
 }

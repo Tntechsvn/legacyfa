@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Client::class, function (Faker $faker) {
 	return [
-		'title' => $faker->text,
+		'title' => $faker->randomElement(['Mr', 'Mrs', 'Ms', 'Dr', 'Mdm']),
 		'name' => $faker->name,
 		'gender' => $faker->numberBetween(0, 1),
 		'nric_passport' => $faker->swiftBicNumber,
