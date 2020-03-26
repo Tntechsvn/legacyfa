@@ -35,6 +35,7 @@
                         <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
         <div>{{$listPfr->links()}}</div>
