@@ -505,11 +505,11 @@ body{
 }
 
 /* Login Page*/
-body.login{
+body.show_form_login{
 	background:url(images/log-in.png) no-repeat;
 	background-size: cover;
 }
-body.login .container{
+body.show_form_login .container{
 	max-width: 450px;
 	margin-top: 130px;
 }
@@ -524,6 +524,8 @@ body.login .container{
 	background:#fff;
 	padding:50px 25px;
 	margin-top: 25px;
+	float: left;
+	width: 100%;
 }
 .login-form input{
 	border:none;

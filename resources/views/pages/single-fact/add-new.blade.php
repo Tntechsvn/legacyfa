@@ -6,7 +6,7 @@
     <h4>Personal Information:</h4>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <form name="addsinglefact_form" id='addsinglefact_form' class="form-control" method="post" action="{{route('single-fact.add_new')}}" data-parsley-validate>
+    <form name="addsinglefact_form" id='addsinglefact_form' class="" method="post" action="{{route('single-fact.add_new')}}" data-parsley-validate>
       @csrf
       <div class="form-group">
         <label for="select_title">Title<span>*</span></label>
