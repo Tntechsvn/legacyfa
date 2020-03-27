@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pfr extends Model
 {
+
     use SoftDeletes;
 
     protected $fillable = ['user_id', 'type'];
@@ -93,6 +94,7 @@ class Pfr extends Model
     /* DOWNLOAD PDF*/
     public function downloadPdf($id)
     {
+        
         return static::where('id', $id)->first();
     }
 }

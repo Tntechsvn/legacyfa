@@ -260,6 +260,7 @@
         </select> 
       </div>
       <div class="form-group">
+        <label for="smoker1">Smoker<span>*</span></label>
         <label class="radio-inline">
           <input type="radio" name="smoker" value="0" checked>Yes
         </label>
