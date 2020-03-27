@@ -20,6 +20,7 @@
                     <th>Email</th>
                     <th>Role</th>
                     <th>Status</th>
+                    <th>Download</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->nameRole}}</td>
                     <td>{{$user->status}}</td>
+                    <td><a href="{{route('downloadpdf',$user->id)}}">PDF</a></td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit" data-id="{{$user->id}}" data-email="{{$user->email}}" data-full-name="{{$user->full_name}}" data-preferred-name="{{$user->preferred_name}}" data-role="{{$user->role_id}}" data-url="{{route('user.edit', $user->id)}}" data-toggle="modal"><i class="fas fa-edit"></i></a>
                         {{--@if(Auth::user()->levelUser < $user->levelUser && Auth::id() != $user->id)--}}

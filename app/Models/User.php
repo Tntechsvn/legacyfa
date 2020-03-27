@@ -93,6 +93,11 @@ class User extends Authenticatable
     {
         return static::onlyTrashed()->where('id', $id)->restore();
     }
+
+    public function downloadPdf($id)
+    {
+        return static::where('id', $id)->first();
+    }
     /*END QUERY*/
 
     /*ATTRIBUTE*/

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
+use PDF;
 
 use App\Models\User;
 use App\Models\Role;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -154,4 +156,14 @@ class UserController extends Controller
 			], 200);
 		}
 	}
+
+	public function downloadPdf($id)
+    {
+    	$data=$this->user->downloadPdf($id);
+    	$filename = $data->full_name;
+    	$time = Carbon::now();
+		$nowtime = $time->format('Y-m-d');
+    	$pdf = PDF::loadView('pages.user.invoice',  compact('data'));
+    		return $pdf->download($nowtime.'-'.$id.'-'.$filename.'.pdf');
+    }
 }

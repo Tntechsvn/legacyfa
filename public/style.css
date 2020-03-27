@@ -170,6 +170,13 @@ img.aligncenter{
 .radius_8{-webkit-border-radius: 8px; -moz-border-radius: 8px;-o-border-radius: 8px; border-radius: 8px;}
 .radius_50{-webkit-border-radius: 50%; -moz-border-radius: 50%;-o-border-radius: 50%; border-radius: 50%;}
 
+/* Form */
+.form-group{
+	clear: both;
+	width: 100%;
+	float: left;
+}
+
 /* STYLE THEMES */
 body{
 	background:#fff;

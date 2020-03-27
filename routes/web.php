@@ -252,5 +252,10 @@ Route::group(['prefix' => 'admin'], function(){
 			'as' => 'user.restore',
 			'uses' => 'UserController@restoreUser'
 		]);
+
+		Route::get('downloadpdf/{id}', [
+			'as' => 'downloadpdf',
+			'uses' => 'UserController@downloadPdf'
+		]);
 	});
 });
