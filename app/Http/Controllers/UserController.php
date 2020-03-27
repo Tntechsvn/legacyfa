@@ -17,8 +17,27 @@ class UserController extends Controller
 		$this->role = new Role;
 	}
     // Login
-	public function login(){
+    // 
+	public function showFormLogin()
+	{
 		return view('pages.login');
+	}
+
+	public function login(Request $request)
+	{
+		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+			return redirect()->route('home');
+		} else {
+			return redirect()->back();
+		}
+	}
+
+	public function logout()
+	{
+		if (Auth::check()) {
+			Auth::logout();
+		}
+		return redirect()->route('show_form_login');
 	}
 
 	public function listUser(Request $request)

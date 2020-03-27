@@ -17,7 +17,7 @@
                     <th>Name</th>
                     <th>Add By</th>
                     <th>Create Date</th>
-                    <th>Application Date</th>
+                    <th>Application Type</th>
                     <th>Download PDF</th>
                     <th>Action</th>
                 </tr>
@@ -28,8 +28,8 @@
                     <td>{{$pfr->id}}</td>
                     <td>{{$pfr->nameClient}}</td>
                     <td>{{$pfr->nameUserAdd}}</td>
-                    <td>March 15, 2020</td>
-                    <td>single</td>
+                    <td>{{$pfr->createDate}}</td>
+                    <td>{{$pfr->typePfr}}</td>
                     <td>Download as PDF</td>
                     <td>
                         <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
@@ -42,5 +42,3 @@
     </div>
 </div>
 @endsection
-
-

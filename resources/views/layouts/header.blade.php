@@ -12,10 +12,10 @@
             <a href="#noti-user" class="dropdown-toggle"  data-toggle="collapse"><i class="far fa-bell"></i></a>
         </div>
         <div class="user-header">
-            <a href="javascript:;"><i class="fas fa-user-circle"></i>Cô Vi 19</a>
+            <a href="javascript:;"><i class="fas fa-user-circle"></i>{{Auth::user()->full_name}}</a>
         </div>
         <div class="logout-user">
-            <a href="javascript:;"><img src="{{asset('images/logout.png')}}" alt="" title=""/></a>
+            <a href="{{route('logout')}}"><img src="{{asset('images/logout.png')}}" alt="" title=""/></a>
         </div>
         <div class="panel-collapse collapse list-noti" id="noti-user">
             <ul>

@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class JointFactController extends Controller
 {
-    public function addNewJointFact(){
-        return view('pages.joint-fact.add-new');
-    }
+	public function showFormAddNewJointFact()
+	{
+		return view('pages.joint-fact.add-new');
+	}
+
+	public function addNewJointFact(Request $request)
+	{
+		return $request;
+	}
 }

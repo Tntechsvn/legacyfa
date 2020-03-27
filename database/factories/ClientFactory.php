@@ -27,6 +27,8 @@ $factory->define(App\Models\Client::class, function (Faker $faker) {
 		'email' => $faker->email,
 		'residential_address' => $faker->address,
 		'mailing_address' => $faker->email,
-		'pfr_id' => App\Models\Pfr::all()->random()->id
+		'pfr_id' => function () {
+			return factory('App\Models\Pfr')->create()->id;
+		},
 	];
 });

@@ -23,7 +23,7 @@ class Pfr extends Model
     }
 
     /*QUERY*/
-    public function listPfr()
+    public function listPfr($request)
     {
         return static::all();
     }
@@ -45,7 +45,7 @@ class Pfr extends Model
 
     public function addNewPfr($param)
     {
-        return static::firstOrCreate($param);
+        return static::create($param);
     }
 
     public function editPfr($id, $param)
@@ -72,9 +72,23 @@ class Pfr extends Model
     	return $this->clients()->first()->name;
     }
 
-    public function getNameUserAdd()
+    public function getNameUserAddAttribute()
     {
     	return optional($this->user)->full_name;
+    }
+
+    public function getCreateDateAttribute()
+    {
+    	return date('F d,Y', strtotime($this->created_at));
+    }
+
+    public function getTypePfrAttribute()
+    {
+    	if ($this->type == 0) {
+    		return "Single";
+    	} else {
+    		return "Join";
+    	}
     }
     /*END ATTRIBUTE*/
 }
