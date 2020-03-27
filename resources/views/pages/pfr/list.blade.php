@@ -30,7 +30,7 @@
                     <td>{{$pfr->nameUserAdd}}</td>
                     <td>{{$pfr->createDate}}</td>
                     <td>{{$pfr->typePfr}}</td>
-                    <td>Download as PDF</td>
+                    <td><a href="{{route('downloadpdf',$pfr->id)}}">Download as PDF</a></td>
                     <td>
                         <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>

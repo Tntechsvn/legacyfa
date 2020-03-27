@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Pfr;
+use App\Models\User;
+use PDF;
+
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -51,5 +55,15 @@ class HomeController extends Controller
         return view('pages.list-ridders');
     }
 
+    /* DOWNLOAD PDF*/
+    public function downloadPdf($id)
+    {
+        $data=$this->pfr->downloadPdf($id);
+        $filename = $data->nameClient;
+        $time = Carbon::now();
+        $nowtime = $time->format('Y-m-d');
+        $pdf = PDF::loadView('pages.user.invoice',  compact('data'));
+        return $pdf->download($nowtime.'-'.$id.'-'.$filename.'.pdf');
+    }
     
 }

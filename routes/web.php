@@ -274,7 +274,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 		Route::get('downloadpdf/{id}', [
 			'as' => 'downloadpdf',
-			'uses' => 'UserController@downloadPdf'
+			'uses' => 'HomeController@downloadPdf'
 		]);
 	});
 });
