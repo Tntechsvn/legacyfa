@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <a class="link-trash textright" href="{{route('plan.list-trash')}}">Trash</a>
+            <a class="link-trash textright" href="{{route('pfr.list_trash')}}">Trash</a>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
             <thead>
@@ -32,7 +32,7 @@
                     <td>{{$pfr->typePfr}}</td>
                     <td><a href="{{route('downloadpdf',$pfr->id)}}">Download as PDF</a></td>
                     <td>
-                        <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-id="{{$pfr->id}}" data-url="{{route('pfr.move_to_trash', $pfr->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -41,4 +41,27 @@
         <div>{{$listPfr->links()}}</div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $('.delete').on('click', function(){
+        if(confirm("Do you want delete this pfr??")){
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        alert(res['message']);
+                    }
+                }
+            });
+        }
+    });
+</script>
 @endsection

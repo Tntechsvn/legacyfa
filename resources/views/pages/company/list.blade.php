@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
             <button type="button" class="btn btn-primary" id="add_company" data-toggle="modal" data-target="#modal_add_new">Add Company</button>
-            <a class="link-trash textright" href="{{route('company.list-trash')}}">Trash</a>
+            <a class="link-trash textright" href="{{route('company.list_trash')}}">Trash</a>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
             <thead>

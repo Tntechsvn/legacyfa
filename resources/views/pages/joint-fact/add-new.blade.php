@@ -47,23 +47,23 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <label for="relationship1">Relationship to Client 1<span>*</span></label>
+                    <label for="relationship">Relationship to Client 1<span>*</span></label>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 pull-right">
                     <label class="radio-inline">
-                      <input type="radio" name="relationship1" value="1" checked>Spouse
+                      <input type="radio" name="relationship" value="1" checked>Spouse
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="relationship1" value="2">Child 
+                      <input type="radio" name="relationship" value="2">Child 
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="relationship1" value="3">Parent 
+                      <input type="radio" name="relationship" value="3">Parent 
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="relationship1" value="4">Others
+                      <input type="radio" name="relationship" value="4">Others
                     </label>
                 </div>
             </div>
