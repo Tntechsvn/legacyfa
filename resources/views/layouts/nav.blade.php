@@ -3,8 +3,8 @@
         <li class="{{ Route::currentRouteNamed('home') ? 'active' : '' }}"><a href="{{route('home')}}" title="Home"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
         <li class="has-child "><a href="Javascript:;" title="ADD PFR"><i class="fas fa-plus-circle"></i><span>ADD PFR</span></a>
             <ul class="sub-menu">
-                <li class="{{ Route::currentRouteNamed('single-fact.add_new') ? 'active' : '' }}"><a href="{{route('single-fact.add_new')}}" title="Single Fact - Find"><i class="fas fa-user"></i>Single Fact - Find</a></li>
-                <li class="{{ Route::currentRouteNamed('joint-fact.add_new') ? 'active' : '' }}"><a href="{{route('joint-fact.add_new')}}" title="Joint Fact - Find"><i class="fas fa-users"></i>Joint Fact - Find</a></li>
+                <li class="{{ Route::currentRouteNamed('single-fact.show_form_add_new') ? 'active' : '' }}"><a href="{{route('single-fact.show_form_add_new')}}" title="Single Fact - Find"><i class="fas fa-user"></i>Single Fact - Find</a></li>
+                <li class="{{ Route::currentRouteNamed('joint-fact.show_form_add_new') ? 'active' : '' }}"><a href="{{route('joint-fact.show_form_add_new')}}" title="Joint Fact - Find"><i class="fas fa-users"></i>Joint Fact - Find</a></li>
             </ul>
         </li>
         <li class="{{ Route::currentRouteNamed('listpfr') ? 'active' : '' }}"><a href="{{route('listpfr')}}" title="View List PFR"><i class="fas fa-list-alt"></i><span>View List PFR</span></a></li>

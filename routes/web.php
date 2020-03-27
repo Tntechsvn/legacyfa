@@ -18,15 +18,24 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('login', [
+	'as' => 'show_form_login',
+	'uses' => 'UserController@showFormLogin'
+]);
+
+Route::post('login', [
 	'as' => 'login',
 	'uses' => 'UserController@login'
 ]);
 
-Route::group(['prefix' => 'admin'], function(){
+Route::get('logout', [
+	'as' => 'logout',
+	'uses' => 'UserController@logout'
+]);
+
+Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(){
+
+	Route::get('/home', 'HomeController@index')->name('home');
 
 	/* list pdf */
 	Route::get('list-pfr', [
@@ -174,6 +183,11 @@ Route::group(['prefix' => 'admin'], function(){
 		// ]);
 
 		Route::get('add-new', [
+			'as' => 'single-fact.show_form_add_new',
+			'uses' => 'SingleFactController@showFormAddNewSingleFact'
+		]);
+
+		Route::post('add-new', [
 			'as' => 'single-fact.add_new',
 			'uses' => 'SingleFactController@addNewSingleFact'
 		]);
@@ -188,8 +202,8 @@ Route::group(['prefix' => 'admin'], function(){
 				'uses' => 'SingleFactController@listSingleFactDependants'
 			]);
 			Route::get('trash', [
-			'as' => 'singlefact.dependants.list-trash',
-			'uses' => 'SingleFactController@listSingleFactDependantsTrash'
+				'as' => 'singlefact.dependants.list-trash',
+				'uses' => 'SingleFactController@listSingleFactDependantsTrash'
 			]);
 			Route::get('assessment', [
 				'as' => 'single-fact.assessment',
@@ -211,6 +225,11 @@ Route::group(['prefix' => 'admin'], function(){
 		// ]);
 
 		Route::get('add-new', [
+			'as' => 'joint-fact.show_form_add_new',
+			'uses' => 'JointFactController@showFormAddNewJointFact'
+		]);
+
+		Route::post('add-new', [
 			'as' => 'joint-fact.add_new',
 			'uses' => 'JointFactController@addNewJointFact'
 		]);

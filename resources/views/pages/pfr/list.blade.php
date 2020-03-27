@@ -17,30 +17,28 @@
                     <th>Name</th>
                     <th>Add By</th>
                     <th>Create Date</th>
-                    <th>Application Date</th>
+                    <th>Application Type</th>
                     <th>Download PDF</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-
+                @foreach($listPfr as $pfr)
                 <tr>
-                    <td>$pfr->id</td>
-                    <td>$pfr->nameClient</td>
-                    <td>$pfr->nameUserAdd</td>
-                    <td>March 15, 2020</td>
-                    <td>single</td>
+                    <td>{{$pfr->id}}</td>
+                    <td>{{$pfr->nameClient}}</td>
+                    <td>{{$pfr->nameUserAdd}}</td>
+                    <td>{{$pfr->createDate}}</td>
+                    <td>{{$pfr->typePfr}}</td>
                     <td>Download as PDF</td>
                     <td>
                         <a href="javascript:;" class="deletestyle1"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
-       
+                @endforeach
             </tbody>
         </table>
-
+        <div>{{$listPfr->links()}}</div>
     </div>
 </div>
 @endsection
-
-

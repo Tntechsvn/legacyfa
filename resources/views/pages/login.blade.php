@@ -27,6 +27,7 @@
                 </div>
 
                 <form class="login-form" method="POST" action="{{ route('login') }}">
+                    @csrf
                     <div class="form-group">
                         <input class="radius_none" id="email" type="email" class="form-control"  name="email" value="{{ old('email') }}" required  placeholder="Email">
                     </div>
@@ -35,7 +36,7 @@
                     </div>
                     <div class="form-group form-group-submit">
                         <button type="submit" class="btn radius_4">
-                            Sign In
+                            Login
                         </button>
                     </div>
                 </form>
@@ -53,4 +54,3 @@
     @yield('script')
 </body>
 </html>
-

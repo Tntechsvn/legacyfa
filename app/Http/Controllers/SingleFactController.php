@@ -3,24 +3,107 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+
 use App\Models\Pfr;
+use App\Models\Client;
 
 class SingleFactController extends Controller
 {
-	public function __construct()
-	{
-		$this->pfr = new Pfr;
-	}
+    public function __construct()
+    {
+        $this->pfr = new Pfr;
+        $this->client = new Client;
+    }
 
-	public function addNewSingleFact(Request $request)
-	{
-		return view('pages.single-fact.add-new');
-	}
+    public function showFormAddNewSingleFact(Request $request)
+    {
+        return view('pages.single-fact.add-new');
+    }
+
+    public function addNewSingleFact(Request $request)
+    {
+        $rules = [
+            'select_title' => 'required',
+            'single_name' => 'required',
+            'sex' => 'required',
+            'passport_no' => 'required',
+            'select_nationality' => 'required',
+            'select_residency' => 'required',
+            'birthday' => 'required',
+            'select_marital' => 'required',
+            'smoker' => 'required',
+            'select_employment' => 'required',
+            'occupation' => 'required',
+            'company_name' => 'required',
+            'business_nature' => 'required',
+            'select_annual_income' => 'required',
+            'details_mobile' => 'required',
+            'residential_address' => 'required',
+            'email_address' => 'nullable|email',
+            'mailing_address' => 'email'
+        ];
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => true,
+                'message' => $validator->errors()
+            ], 200);
+        }
+
+        $paramPfr = array(
+            'user_id' => Auth::id(),
+            'type' => 0
+        );
+        $resultAddPfr = $this->pfr->addNewPfr($paramPfr);
+        if ($resultAddPfr) {
+            $paramClient = array(
+                'pfr_id' => $resultAddPfr->id,
+                'title' => $request->select_title,
+                'name' => $request->single_name,
+                'gender' => $request->sex,
+                'nric_passport' => $request->passport_no,
+                'nationality' => $request->select_nationality,
+                'dob' => $request->birthday,
+                'marital_status' => $request->select_marital,
+                'smoker' => $request->smoker,
+                'employment_status' => $request->select_employment,
+                'occupation' => $request->occupation,
+                'company' => $request->company_name,
+                'business_nature' => $request->business_nature,
+                'income_range' => $request->select_annual_income,
+                'contact_home' => $request->details_home,
+                'contact_mobile' => $request->details_mobile,
+                'contact_office' => $request->details_office,
+                'contact_fax' => $request->details_fax,
+                'email' => $request->email_address,
+                'residential_address' => $request->residential_address,
+                'mailing_address' => $request->mailing_address,
+            );
+            $resultAddClient = $this->client->addNewClient($paramClient);
+            if ($resultAddClient) {
+                return response()->json([
+                    'error' => false,
+                    'message' => "Add new client successfully"
+                ], 200);
+            } else {
+                return response()->json([
+                    'error' => true,
+                    'message' => "Add new client error"
+                ], 200);
+            }
+        } else {
+            return response()->json([
+                'error' => true,
+                'message' => "Add new pfr error"
+            ], 200);
+        }
+    }
+
 
     public function listSingleFactDependants(){
-		$paginate = config('constants.PAGINATE_PFR');
-		$listPfr = $this->pfr->listPfrPaginate($request, $paginate);
-        return view('pages.single-fact.dependants.list',compact('listPfr'));
+        return view('pages.single-fact.dependants.list');
     }
 
     public function listSingleFactDependantsTrash(){
@@ -30,7 +113,7 @@ class SingleFactController extends Controller
     public function addNewSingleFactAssessment(){
         return view('pages.single-fact.assessment.add-new');
     }
-    
+
     public function addNewSingleFactQuestion(){
         return view('pages.single-fact.question.add-new');
     }

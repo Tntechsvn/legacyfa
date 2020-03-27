@@ -15,6 +15,10 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            if (Schema::hasTable('pfrs')) {
+                $table->bigInteger('pfr_id')->unsigned();
+                $table->foreign('pfr_id')->references('id')->on('pfrs');
+            }
             $table->string('title');
             $table->string('name');
             $table->tinyInteger('relationship')->unsigned()->default(0);
@@ -37,10 +41,6 @@ class CreateClientsTable extends Migration
             $table->text('residential_address');
             $table->string('mailing_address')->nullable();
             $table->timestamps();
-            if (Schema::hasTable('pfrs')) {
-                $table->bigInteger('pfr_id')->unsigned();
-                $table->foreign('pfr_id')->references('id')->on('pfrs');
-            }
             $table->softDeletes();
         });
     }

@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlanRiderTableSeeder::class);
         $this->call(BenifitTableSeeder::class);
         $this->call(RiskTableSeeder::class);
-        $this->call(PfrTableSeeder::class);
         $this->call(ClientTableSeeder::class);
     }
 }
