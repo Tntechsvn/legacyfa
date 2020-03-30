@@ -46,6 +46,7 @@ class JointFactController extends Controller
 
 			'select_title2' => 'required',
 			'join_name2' => 'required',
+			'relationship' => 'required|min:1|max:4',
 			'sex2' => 'required',
 			'passport_no2' => 'required',
 			'select_nationality2' => 'required',
@@ -114,6 +115,7 @@ class JointFactController extends Controller
 				'pfr_id' => $resultAddPfr->id,
 				'title' => $request->select_title2,
 				'name' => $request->join_name2,
+				'relationship' => $request->relationship,
 				'gender' => $request->sex2,
 				'nric_passport' => $request->passport_no2,
 				'nationality' => $request->select_nationality2,

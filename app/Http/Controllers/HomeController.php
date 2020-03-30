@@ -40,19 +40,27 @@ class HomeController extends Controller
         return view('pages.pfr.list', compact('listPfr'));
     }
 
-    public function ListCategory()
+    public function listTrashPfr(Request $request)
     {
-        return view('pages.list-category');
+        $paginate = config('constants.PAGINATE_PFR_TRASH');
+        $listPfr = $this->pfr->listPfrTrashPaginate($request, $paginate);
+        return "jfal";
     }
 
-    public function ListPlan()
+    public function softDeletePfr($id)
     {
-        return view('pages.list-plan');
-    }
-
-    public function ListRidders()
-    {
-        return view('pages.list-ridders');
+        $resultSoftDelete = $this->pfr->softDeletePfr($id);
+        if ($resultSoftDelete) {
+            return response()->json([
+                'error' => false,
+                'message' => "Delete pfr successfully"
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => true,
+                'message' => "Delete pfr error"
+            ], 200);
+        }
     }
 
     /* DOWNLOAD PDF*/

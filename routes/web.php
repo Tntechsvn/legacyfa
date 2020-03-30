@@ -37,11 +37,28 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 	Route::get('/home', 'HomeController@index')->name('home');
 
-	/* list pdf */
-	Route::get('list-pfr', [
-		'as' => 'listpfr',
-		'uses' => 'HomeController@listPfr'
-	]);
+	/* PFR */
+	Route::group(['prefix' => 'pfr'], function(){
+		Route::get('/', [
+			'as' => 'pfr.list',
+			'uses' => 'HomeController@listPfr'
+		]);
+
+		Route::get('trash', [
+			'as' => 'pfr.list_trash',
+			'uses' => 'HomeController@listTrashPfr'
+		]);
+
+		Route::get('move-to-trash/{id}', [
+			'as' => 'pfr.move_to_trash',
+			'uses' => 'HomeController@softDeletePfr'
+		]);
+
+		Route::get('restore/{id}', [
+			'as' => 'pfr.restore',
+			'uses' => 'HomeController@restorePfr'
+		]);
+	});
 
 	/*COMPANY*/
 	Route::group(['prefix' => 'company'], function(){
@@ -51,7 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		]);
 
 		Route::get('trash', [
-			'as' => 'company.list-trash',
+			'as' => 'company.list_trash',
 			'uses' => 'CompanyController@listTrashCompany'
 		]);
 
@@ -84,7 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		]);
 
 		Route::get('trash', [
-			'as' => 'category.list-trash',
+			'as' => 'category.list_trash',
 			'uses' => 'CategoryPlanController@listTrashCategoryPlan'
 		]);
 
@@ -117,7 +134,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		]);
 
 		Route::get('trash', [
-			'as' => 'plan.list-trash',
+			'as' => 'plan.list_trash',
 			'uses' => 'PlanController@listTrashPlan'
 		]);
 
@@ -248,7 +265,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		]);
 
 		Route::get('trash', [
-			'as' => 'user.list-trash',
+			'as' => 'user.list_trash',
 			'uses' => 'UserController@listTrashUser'
 		]);
 
