@@ -91,6 +91,7 @@ class Pfr extends Model
     	}
     }
     /*END ATTRIBUTE*/
+    
     /* DOWNLOAD PDF*/
     public function downloadPdf($id)
     {

@@ -25,7 +25,7 @@ class SingleFactController extends Controller
     public function addNewSingleFact(Request $request)
     {
         $rules = [
-            'select_title' => 'required',
+            'title' => 'required',
             'single_name' => 'required',
             'sex' => 'required',
             'passport_no' => 'required',
@@ -61,7 +61,7 @@ class SingleFactController extends Controller
         if ($resultAddPfr) {
             $paramClient = array(
                 'pfr_id' => $resultAddPfr->id,
-                'title' => $request->select_title,
+                'title' => $request->title,
                 'name' => $request->single_name,
                 'gender' => $request->sex,
                 'nric_passport' => $request->passport_no,
@@ -86,7 +86,8 @@ class SingleFactController extends Controller
             if ($resultAddClient) {
                 return response()->json([
                     'error' => false,
-                    'message' => "Add new client successfully"
+                    'message' => "Add new client successfully",
+                    'url' => "{{route('singlefact.dependants.list', $resultAddPfr->id)}}"
                 ], 200);
             } else {
                 return response()->json([
@@ -102,20 +103,15 @@ class SingleFactController extends Controller
         }
     }
 
+    
 
-    public function listSingleFactDependants(){
-        return view('pages.single-fact.dependants.list');
-    }
-
-    public function listSingleFactDependantsTrash(){
-        return view('pages.single-fact.dependants.list-trash');
-    }
-
-    public function addNewSingleFactAssessment(){
+    public function addNewSingleFactAssessment()
+    {
         return view('pages.single-fact.assessment.add-new');
     }
 
-    public function addNewSingleFactQuestion(){
+    public function addNewSingleFactQuestion()
+    {
         return view('pages.single-fact.question.add-new');
     }
 }

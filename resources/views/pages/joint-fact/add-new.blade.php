@@ -11,10 +11,10 @@
             @csrf
             <div class="form-group">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <label for="select-title">Title<span>*</span></label>
+                    <label for="title1">Title<span>*</span></label>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <select name="select_title1" id="select_title1" class="form-control">
+                    <select name="title1" id="title1" class="form-control">
                         <option value="Mr">Mr</option>
                         <option value="Mrs">Mrs</option>
                         <option value="Ms">Ms</option>
@@ -23,7 +23,7 @@
                     </select>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <select name="select_title2" id="select_title2" class="form-control">
+                    <select name="title2" id="title2" class="form-control">
                         <option value="Mr">Mr</option>
                         <option value="Mrs">Mrs</option>
                         <option value="Ms">Ms</option>

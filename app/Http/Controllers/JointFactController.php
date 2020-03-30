@@ -25,7 +25,7 @@ class JointFactController extends Controller
 	public function addNewJointFact(Request $request)
 	{
 		$rules = [
-			'select_title1' => 'required',
+			'title1' => 'required',
 			'join_name1' => 'required',
 			'sex1' => 'required',
 			'passport_no1' => 'required',
@@ -44,7 +44,7 @@ class JointFactController extends Controller
 			'email_address1' => 'nullable|email',
 			'mailing_address1' => 'email',
 
-			'select_title2' => 'required',
+			'title2' => 'required',
 			'join_name2' => 'required',
 			'relationship' => 'required|min:1|max:4',
 			'sex2' => 'required',
@@ -81,7 +81,7 @@ class JointFactController extends Controller
 		if ($resultAddPfr) {
 			$paramClient1 = array(
 				'pfr_id' => $resultAddPfr->id,
-				'title' => $request->select_title1,
+				'title' => $request->title1,
 				'name' => $request->join_name1,
 				'gender' => $request->sex1,
 				'nric_passport' => $request->passport_no1,
@@ -113,7 +113,7 @@ class JointFactController extends Controller
 
 			$paramClient2 = array(
 				'pfr_id' => $resultAddPfr->id,
-				'title' => $request->select_title2,
+				'title' => $request->title2,
 				'name' => $request->join_name2,
 				'relationship' => $request->relationship,
 				'gender' => $request->sex2,
