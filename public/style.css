@@ -218,7 +218,7 @@ body{
 	content:"";
 	position:absolute;
 	right:0;
-	top:10px;
+	top:15px;
 }
 .sidebar nav ul li a{
 	font-size:16px;
@@ -438,7 +438,9 @@ body{
 	color:#fff;
 	background:#1b98e0;
 }
-
+.link-action-addnew a i{
+	margin-right:10px;
+}
 
 .link-trash{
 	display:block;
@@ -502,6 +504,30 @@ body{
 	float: right;
 	margin-right:15px;
 	width:auto;
+}
+.link-innerpage{
+	color:#495057;
+	cursor: pointer;
+	display: block;
+	width: auto;
+	font-size: 16px;
+	line-height: 45px;
+}
+/* Table custom */
+.table-style1 > tbody > tr > td,
+.table-style1 > tbody > tr > th,
+.table-style1 > tfoot > tr > td,
+.table-style1 > tfoot > tr > th,
+.table-style1 > thead > tr > td,
+.table-style1 > thead > tr > th{
+	padding:15px 5px;
+}
+.table-style1 tbody tr:hover td{
+	background:#f1f3f3;
+}
+
+.pdflink{
+	color:#02c39a;
 }
 
 /* Login Page*/
