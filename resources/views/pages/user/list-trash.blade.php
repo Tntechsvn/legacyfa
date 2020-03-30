@@ -7,7 +7,7 @@
         <h4>List Trash User:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="list-trash-user" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -31,7 +31,12 @@
                 @endforeach
             </tbody>
         </table>
-        <div>{{$listUserTrash->links()}}</div>
+        <div class="bottom-table">
+            <div class="viewall-table">
+                <p>Number of rows {{ $listUserTrash->total() }} </p>
+            </div>
+            <div class="paginate-style">{{$listUserTrash->links()}}</div>
+        </div>
     </div>
 </div>
 
