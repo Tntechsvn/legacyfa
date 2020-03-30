@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RiskTableSeeder::class);
         $this->call(ClientTableSeeder::class);
         $this->call(DependantSeeder::class);
+        $this->call(ClientAaTableSeeder::class);
     }
 }
