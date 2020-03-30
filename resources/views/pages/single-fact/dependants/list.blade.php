@@ -83,26 +83,26 @@
                         <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="" >
                     </div>
                     <div class="form-group">
-                       <label for="age">Age<span>*</span></label>
-                       <input type="number" class="form-control" id="age" name="age" placeholder="Age" value="" >
-                   </div>
-                   <div class="form-group">
-                    <label class="radio-inline">
-                      <input type="radio" name="sex" value="0" checked>Male
-                  </label>
-                  <label class="radio-inline">
-                      <input type="radio" name="sex" value="1">Female 
-                  </label>
-              </div>
-              <div class="form-group">
-               <label for="year_sp">Years to Support<span>*</span></label>
-               <input type="number" class="form-control" id="year_sp"  name="year_sp" placeholder="Years to Support" value="" >
-           </div>
-           <button type="submit" class="btn btn-primary mb-2">Submit</button>
-       </form>
-   </div>
-</div>
-</div>
+                        <label for="age">Age<span>*</span></label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Age" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" value="0" checked>Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" value="1">Female 
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="year_sp">Years to Support<span>*</span></label>
+                        <input type="number" class="form-control" id="year_sp"  name="year_sp" placeholder="Years to Support" value="" >
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- modal EDIT DEPENDANTS -->
@@ -142,26 +142,26 @@
                         <input type="date" class="form-control" id="birthday_edit" name="birthday_edit" placeholder="Date of Birth" value="" >
                     </div>
                     <div class="form-group">
-                       <label for="age_edit">Age<span>*</span></label>
-                       <input type="number" class="form-control" id="age_edit" name="age_edit" placeholder="Age" value="" >
-                   </div>
-                   <div class="form-group">
-                    <label class="radio-inline">
-                      <input type="radio" name="sex_edit" id="male" value="0">Male
-                  </label>
-                  <label class="radio-inline">
-                      <input type="radio" name="sex_edit" id="female" value="1">Female 
-                  </label>
-              </div>
-              <div class="form-group">
-               <label for="year_sp_edit">Years to Support<span>*</span></label>
-               <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" >
-           </div>
-           <button type="submit" class="btn btn-primary mb-2">Submit</button>
-       </form>
-   </div>
-</div>
-</div>
+                        <label for="age_edit">Age<span>*</span></label>
+                        <input type="number" class="form-control" id="age_edit" name="age_edit" placeholder="Age" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="sex_edit" id="male" value="0">Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex_edit" id="female" value="1">Female 
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="year_sp_edit">Years to Support<span>*</span></label>
+                        <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" >
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 
