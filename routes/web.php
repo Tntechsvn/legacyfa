@@ -35,7 +35,7 @@ Route::get('logout', [
 
 Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(){
 
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/', 'HomeController@index')->name('home');
 
 	/* PFR */
 	Route::group(['prefix' => 'pfr'], function(){
@@ -213,19 +213,42 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		// 	'as' => 'single-fact.edit',
 		// 	'uses' => 'SingleFactController@editSingleFact'
 		// ]);
-		Route::group(['prefix' => 'dependants'], function(){
+		Route::group(['prefix' => 'dependants/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'singlefact.dependants.list',
-				'uses' => 'SingleFactController@listSingleFactDependants'
+				'as' => 'singlefact.dependant.list',
+				'uses' => 'DependantController@listDependantSingle'
 			]);
+
 			Route::get('trash', [
-				'as' => 'singlefact.dependants.list-trash',
-				'uses' => 'SingleFactController@listSingleFactDependantsTrash'
+				'as' => 'singlefact.dependant.list_trash',
+				'uses' => 'DependantController@listDependantTrashSingle'
 			]);
+
+			Route::post('add-new', [
+				'as' => 'singlefact.dependant.add_new',
+				'uses' => 'DependantController@addNewDependant'
+			]);
+
+			Route::post('edit/{id_dependant}', [
+				'as' => 'singlefact.dependant.edit',
+				'uses' => 'DependantController@editDependant'
+			]);
+
+			Route::get('move-to-trash/{id_dependant}', [
+				'as' => 'singlefact.dependant.move_to_trash',
+				'uses' => 'DependantController@softDeleteDependant'
+			]);
+
+			Route::get('restore/{id_dependant}', [
+				'as' => 'singlefact.dependant.restore',
+				'uses' => 'DependantController@restoreDependant'
+			]);
+
 			Route::get('assessment', [
 				'as' => 'single-fact.assessment',
 				'uses' => 'SingleFactController@addNewSingleFactAssessment'
 			]);
+
 			Route::get('question', [
 				'as' => 'single-fact.question',
 				'uses' => 'SingleFactController@addNewSingleFactQuestion'

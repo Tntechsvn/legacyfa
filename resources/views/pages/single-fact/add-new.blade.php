@@ -9,8 +9,8 @@
     <form name="addsinglefact_form" id='addsinglefact_form' class="" method="post" action="{{route('single-fact.add_new')}}" data-parsley-validate>
       @csrf
       <div class="form-group">
-        <label for="select_title">Title<span>*</span></label>
-        <select name="select_title" id="select_title" class="form-control">
+        <label for="title">Title<span>*</span></label>
+        <select name="title" id="title" class="form-control">
           <option value="Mr">Mr</option>
           <option value="Mrs">Mrs</option>
           <option value="Ms">Ms</option>
@@ -355,10 +355,10 @@
         data: data,
         dataType: 'json',
         success: function(res){
-          console.log(res);
           if(res['error']){
             alert(res['message']);
           }else{
+            window.location.href = res['url'];
             alert(res['message']);
           }
         }
