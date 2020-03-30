@@ -505,6 +505,16 @@ body{
 	margin-right:15px;
 	width:auto;
 }
+
+.second-section{
+	width:100%;
+	height:auto;
+	float:left;
+	margin-top:20px;
+	border-top:1px solid #e3e3e3;
+}
+
+
 .link-innerpage{
 	color:#495057;
 	cursor: pointer;
@@ -512,6 +522,57 @@ body{
 	width: auto;
 	font-size: 16px;
 	line-height: 45px;
+}
+.bottom-table{
+	width:100%;
+}
+.viewall-table{
+	width:25%;
+	float:left;
+}
+.viewall-table a{
+	width:100px;
+	height:40px;
+	line-height: 40px;
+	border:0;
+	color:#fff;
+	background:#1b98e0;
+	display: block;
+	text-align: center;
+	float: left;
+	margin-top:10px;
+	font-size: 16px;
+	-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;
+}
+.viewall-table p{
+	margin-top:10px;
+	line-height: 40px;
+	font-size: 16px;
+	display: block;
+}
+.paginate-style{
+	width:75%;
+	float:right;
+}
+.paginate-style nav{
+	float: right;
+}
+.paginate-style .pagination{
+	margin-top: 10px;
+}
+.paginate-style .pagination > li > a,
+.paginate-style .pagination > li > span{
+	border:none;
+	height:40px;
+	width:40px;
+	padding: 0 ;
+	line-height:40px;
+	display: block;
+	text-align: center;
+
+}
+.paginate-style .pagination > li.active span{
+	background: #02c39a;
 }
 /* Table custom */
 .table-style1 > tbody > tr > td,
@@ -529,6 +590,31 @@ body{
 .pdflink{
 	color:#02c39a;
 }
+.restore{
+	border: none;
+	background: none;
+	color: blue;
+	font-size: 16px;
+}
+/* INNER PAGE */
+.addnewelm{
+	width:100%;
+	height:auto;
+	padding-top:20px;
+	padding-bottom: 2px;
+}
+.addnewelm button{
+	height:35px;
+	width:100px;
+	border:none;
+	color:#fff;
+	-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;
+	background:#00aeef;
+	padding:0;
+	text-align: center;
+	line-height:35px;
+}
+.addnewelm
 
 /* Login Page*/
 body.show_form_login{
@@ -582,4 +668,31 @@ body.show_form_login .container{
 /* MAIN */
 .main{
 	transition: all 100ms ease-out;
+}
+
+/* MODAL */
+.modal-dialog{
+	width:90%;
+	max-width:725px;
+}
+.modal-header{
+	position: relative;
+}
+.modal-header .close{
+	width:24px;
+	height:24px;
+	-webkit-border-radius: 50%; -moz-border-radius: 50%;-o-border-radius: 50%; border-radius: 50%;
+	display: block;
+	background:#ff4444;
+	color:#fff;
+	opacity: 1;
+	position: absolute;
+	right:15px;
+	top:15px;
+
+}
+.modal-body button{
+	margin-left:auto;
+	margin-right: auto;
+	display: block;
 }

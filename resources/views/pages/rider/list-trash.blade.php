@@ -5,10 +5,10 @@
 
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>List Trash Of Ridders:</h4>
+        <h4>List Trash Of Riders:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="list-trash-rider" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -30,7 +30,12 @@
                 @endforeach
             </tbody>
         </table>
-        <div>{{$listRiderTrash->links()}}</div>
+        <div class="bottom-table">
+            <div class="viewall-table">
+                <p>Number of rows {{ $listRiderTrash->total() }} </p>
+            </div>
+            <div class="paginate-style">{{$listRiderTrash->links()}}</div>
+        </div>
     </div>
 </div>
 @endsection

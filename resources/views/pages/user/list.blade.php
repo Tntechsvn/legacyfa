@@ -11,7 +11,7 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new">Add User</button>
             <a class="link-trash textright" href="{{route('user.list_trash')}}">Trash</a>
         </div>
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="example" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -20,7 +20,6 @@
                     <th>Email</th>
                     <th>Role</th>
                     <th>Status</th>
-                    <th>Download</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -32,8 +31,7 @@
                     <td>{{$user->preferred_name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->nameRole}}</td>
-                    <td>{{$user->status}}</td>
-                    <td><a href="{{route('downloadpdf',$user->id)}}">PDF</a></td>
+                    <td><!-- {{$user->status}} -->Active</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit" data-id="{{$user->id}}" data-email="{{$user->email}}" data-full-name="{{$user->full_name}}" data-preferred-name="{{$user->preferred_name}}" data-role="{{$user->role_id}}" data-url="{{route('user.edit', $user->id)}}" data-toggle="modal"><i class="fas fa-edit"></i></a>
                         {{--@if(Auth::user()->levelUser < $user->levelUser && Auth::id() != $user->id)--}}
@@ -44,7 +42,12 @@
                 @endforeach
             </tbody>
         </table>
-        <div>{{$listUser->links()}}</div>
+        <div class="bottom-table">
+            <div class="viewall-table">
+                <p>Number of rows {{ $listUser->total() }} </p>
+            </div>
+            <div class="paginate-style">{{$listUser->links()}}</div>
+        </div>
     </div>
 </div>
 <!-- modal ADD NEW USER -->
