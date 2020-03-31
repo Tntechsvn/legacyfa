@@ -397,15 +397,15 @@
                 <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="client-property">Client<span>*</span></label>
-                        <select name="client-property" id="client-property" class="form-control">
+                        <label for="client-investment">Client<span>*</span></label>
+                        <select name="client-investment" id="client-investment" class="form-control">
                             <option value="">Select</option>
                             <option value="">Client1</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="category-property">Type of Investment<span>*</span></label>
-                        <select name="category-property" id="category-property" class="form-control">
+                        <label for="type-investment">Type of Investment<span>*</span></label>
+                        <select name="type-investment" id="type-investment" class="form-control">
                             <option value="">Select</option>
                             <option value="">Stocks & Shares</option>
                             <option value="">Bonds</option>
@@ -416,28 +416,28 @@
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="year-property">Company</label>
-                        <input type="text" class="form-control" id="year-property" name="year-property" placeholder="Company" value="" >
+                        <label for="company-investment">Company</label>
+                        <input type="text" class="form-control" id="company-investment" name="company-investment" placeholder="Company" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="price-property">Year Invested</label>
-                        <input type="text" class="form-control" id="price-property" name="price-property" placeholder="Year Invested" value="" >
+                        <label for="invested-investment">Year Invested</label>
+                        <input type="text" class="form-control" id="invested-investment" name="invested-investment" placeholder="Year Invested" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="loan-property">Investment Amount ($)</label>
-                        <input type="text" class="form-control" id="loan-property" name="loan-property" placeholder="Investment Amount ($)" value="" >
+                        <label for="amount-investment">Investment Amount ($)</label>
+                        <input type="text" class="form-control" id="amount-investment" name="amount-investment" placeholder="Investment Amount ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="outstanding-loan">Current Market Value ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="outstanding-loan" name="outstanding-loan" placeholder="Current Market Value ($)" value="" >
+                        <label for="market-investment">Current Market Value ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="market-investment" name="market-investment" placeholder="Current Market Value ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="monthly-loan">Source of Funds</label>
-                        <input type="text" class="form-control" id="monthly-loan" name="monthly-loan" placeholder="Source of Funds" value="" >
+                        <label for="source-investment">Source of Funds</label>
+                        <input type="text" class="form-control" id="source-investment" name="source-investment" placeholder="Source of Funds" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="monthly-loan">Intention with Investment</label>
-                        <textarea  class="form-control" id="monthly-loan" name="monthly-loan" placeholder="Intention with Investment" value="" ></textarea>
+                        <label for="intention-investment">Intention with Investment</label>
+                        <textarea  class="form-control" id="intention-investment" name="intention-investment" placeholder="Intention with Investment" value="" ></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                     <button type="submit" class="btn btn-primary mb-2">Cancel</button>
