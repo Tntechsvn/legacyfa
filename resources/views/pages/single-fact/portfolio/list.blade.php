@@ -285,6 +285,20 @@
             </tbody>
         </table>
     </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
+      <ul>
+          <li><a href="javascript:;">1</a></li>
+          <li><a href="javascript:;">2</a></li>
+          <li><a href="javascript:;">3</a></li>
+          <li><a href="javascript:;">4</a></li>
+          <li><a href="javascript:;">5</a></li>
+          <li><a href="javascript:;">6</a></li>
+          <li><a href="javascript:;">7</a></li>
+          <li><a href="javascript:;">8</a></li>
+          <li><a href="javascript:;">9</a></li>
+          <li><a href="javascript:;">10</a></li>
+      </ul>
+    </div>
 </div>
 
 <!-- modal PROPERTY -->
@@ -369,11 +383,11 @@
 </div>
 
 <!-- modal INVESTMENT -->
-<div class="modal fade" id="property-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+<div class="modal fade" id="investment-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Property Details</h5>  
+                <h5 class="modal-title">Investment Details</h5>  
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -390,56 +404,40 @@
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="category-property">Category<span>*</span></label>
+                        <label for="category-property">Type of Investment<span>*</span></label>
                         <select name="category-property" id="category-property" class="form-control">
                             <option value="">Select</option>
-                            <option value="">Residence</option>
-                            <option value="">Investment</option>
-                        </select> 
-                    </div>
-                    <div class="form-group">
-                        <label for="type-property">Type of Property<span>*</span></label>
-                        <select name="type-property" id="type-property" class="form-control">
-                            <option value="">Select</option>
-                            <option value="">HDB direct purchase</option>
-                            <option value="">HDB resale</option>
-                            <option value="">Condo</option>
-                            <option value="">Landed</option>
-                            <option value="">Commercial</option>
+                            <option value="">Stocks & Shares</option>
+                            <option value="">Bonds</option>
+                            <option value="">Collective Investment Scheme</option>
+                            <option value="">Structured Products</option>
+                            <option value="">Business Ownership</option>
                             <option value="">Others</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="year-property">Year Purchased</label>
-                        <input type="text" class="form-control" id="year-property" name="year-property" placeholder="Year Purchased" value="" >
+                        <label for="year-property">Company</label>
+                        <input type="text" class="form-control" id="year-property" name="year-property" placeholder="Company" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="price-property">Purchase Price ($)</label>
-                        <input type="text" class="form-control" id="price-property" name="price-property" placeholder="Purchase Price" value="" >
+                        <label for="price-property">Year Invested</label>
+                        <input type="text" class="form-control" id="price-property" name="price-property" placeholder="Year Invested" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="loan-property">Loan Taken ($)</label>
-                        <input type="text" class="form-control" id="loan-property" name="loan-property" placeholder="Loan Taken" value="" >
+                        <label for="loan-property">Investment Amount ($)</label>
+                        <input type="text" class="form-control" id="loan-property" name="loan-property" placeholder="Investment Amount ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="outstanding-loan">Current Outstanding Loan ($)</label>
-                        <input type="text" class="form-control" id="outstanding-loan" name="outstanding-loan" placeholder="Current Outstanding Loan" value="" >
+                        <label for="outstanding-loan">Current Market Value ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="outstanding-loan" name="outstanding-loan" placeholder="Current Market Value ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="monthly-loan">Monthly Loan Repayment - Cash ($)</label>
-                        <input type="text" class="form-control" id="monthly-loan" name="monthly-loan" placeholder="Monthly Loan Repayment - Cash" value="" >
+                        <label for="monthly-loan">Source of Funds</label>
+                        <input type="text" class="form-control" id="monthly-loan" name="monthly-loan" placeholder="Source of Funds" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="monthly-loan-cpr">Monthly Loan Repayment - CPF ($)</label>
-                        <input type="text" class="form-control" id="monthly-loan-cpr" name="monthly-loan-cpr" placeholder="Monthly Loan Repayment - CPF" value="" >
-                    </div>
-                    <div class="form-group">
-                        <label for="market-property">Current Market Value ($)</label>
-                        <input type="text" class="form-control" id="market-property" name="market-property" placeholder="Current Market Value" value="" >
-                    </div>
-                    <div class="form-group">
-                        <label for="monthly-loan">Intention with Property</label>
-                        <textarea  class="form-control" id="monthly-loan" name="monthly-loan" placeholder="Intention with Property" value="" ></textarea>
+                        <label for="monthly-loan">Intention with Investment</label>
+                        <textarea  class="form-control" id="monthly-loan" name="monthly-loan" placeholder="Intention with Investment" value="" ></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                     <button type="submit" class="btn btn-primary mb-2">Cancel</button>
