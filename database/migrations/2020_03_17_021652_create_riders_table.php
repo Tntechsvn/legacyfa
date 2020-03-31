@@ -17,8 +17,9 @@ class CreateRidersTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('slug');
-            $table->text('feature');
+            $table->text('featured');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

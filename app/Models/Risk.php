@@ -6,15 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Risk extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
+    use SoftDeletes;
 
     protected $fillable = [
         'name', 'slug', 'detail', 'rider_id'
     ];
+
+    protected $dates = ['deleted_at'];
 
     /**
      * Return the sluggable configuration array for this model.

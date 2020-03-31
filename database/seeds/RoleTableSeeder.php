@@ -14,10 +14,12 @@ class RoleTableSeeder extends Seeder
     	DB::table('roles')->insert([
     		[
     			'name' => 'Supper Admin',
+                'level' => 0,
     			'created_at' => now()
     		],
     		[
-    			'name' => 'agency',
+    			'name' => 'Agency',
+                'level' => 1,
     			'created_at' => now()
     		]
     	]);

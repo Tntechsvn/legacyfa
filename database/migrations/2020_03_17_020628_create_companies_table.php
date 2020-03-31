@@ -18,6 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->text('slug');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

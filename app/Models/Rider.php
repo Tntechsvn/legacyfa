@@ -6,15 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rider extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
+    use SoftDeletes;
 
     protected $fillable = [
-        'name', 'slug', 'feature'
+        'name', 'slug', 'featured'
     ];
+
+    protected $dates = ['deleted_at'];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -56,6 +60,11 @@ class Rider extends Model
         return static::paginate($paginate);   
     }
 
+    public function listRiderTrashPaginate($request, $paginate)
+    {
+        return static::onlyTrashed()->paginate($paginate);
+    }
+
     public function infoRiderById($id)
     {
         return static::findOrFail($id);
@@ -66,9 +75,33 @@ class Rider extends Model
         return static::firstOrCreate($param);
     }
 
-    /*public function editRider($slug, $param)
+    public function editRider($id, $param)
     {
-        return static::where('slug', $slug)->update($param);
-    }*/
+        return static::where('id', $id)->update($param);
+    }
+
+    public function softDeleteRider($id)
+    {
+        return static::where('id', $id)->update([
+            'deleted_at' => now()
+        ]);
+    }
+
+    public function restoreRider($id)
+    {
+        return static::onlyTrashed()->where('id', $id)->restore();
+    }
+
+    public function checkUniqueRider($id, $name)
+    {
+        return static::where('id', '<>', $id)->where('name', $name)->count();
+    }
     /*END QUERY*/
+
+    /*ATTRIBUTE*/
+    public function getPlanRiderAttribute()
+    {
+        return $this->plans()->pluck('id');
+    }
+    /*END ATTRIBUTE*/
 }
