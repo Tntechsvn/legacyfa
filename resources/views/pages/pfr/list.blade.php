@@ -10,7 +10,7 @@
         <div class="addnewelm">
             <a class="link-trash textright" href="{{route('pfr.list_trash')}}">Trash</a>
         </div>
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="list-pfr-page" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -38,7 +38,12 @@
                 @endforeach
             </tbody>
         </table>
-        <div>{{$listPfr->links()}}</div>
+        <div class="bottom-table">
+            <div class="viewall-table">
+                <p>Number of rows {{ $listPfr->total() }} </p>
+            </div>
+            <div class="paginate-style">{{$listPfr->links()}}</div>
+        </div>
     </div>
 </div>
 @endsection

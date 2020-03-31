@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Pfr;
 use App\Models\User;
+use App\Models\Plan;
+use App\Models\Company;
+use App\Models\CategoryPlan;
 use PDF;
 
 use Carbon\Carbon;
@@ -20,6 +23,10 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->pfr = new Pfr;
+        $this->user = new User;
+        $this->plan = new Plan;
+        $this->company = new Company;
+        $this->categoryPlan = new CategoryPlan;
     }
 
     /**
@@ -28,9 +35,20 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.home');
+        $paginate = config('constants.PAGINATE_PFR');
+        $listPfr = $this->pfr->listPfrPaginate($request, $paginate);
+        $paginate2 = config('constants.PAGINATE_USER');
+        $listUser = $this->user->listUserPaginate($request, $paginate2);
+
+        $paginate3 = config('constants.PAGINATE_PLAN');
+        $listPlan = $this->plan->listPlanPaginate($request, $paginate3);
+        $listCompany = $this->company->listCompany();
+        $listCategoryPlan = $this->categoryPlan->listCategoryPlan();
+
+
+        return view('pages.home', compact('listPfr','listUser','listPlan', 'listCompany', 'listCategoryPlan'));
     }
 
     public function listPfr(Request $request)
@@ -62,6 +80,8 @@ class HomeController extends Controller
             ], 200);
         }
     }
+
+
 
     /* DOWNLOAD PDF*/
     public function downloadPdf($id)

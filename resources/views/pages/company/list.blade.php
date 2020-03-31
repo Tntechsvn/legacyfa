@@ -10,7 +10,7 @@
             <button type="button" class="btn btn-primary" id="add_company" data-toggle="modal" data-target="#modal_add_new">Add Company</button>
             <a class="link-trash textright" href="{{route('company.list_trash')}}">Trash</a>
         </div>
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="list-company-page" class="table  table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -31,8 +31,13 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="bottom-table">
+            <div class="viewall-table">
+                <p>Number of rows {{ $listCompany->total() }} </p>
+            </div>
+            <div class="paginate-style">{{$listCompany->links()}}</div>
+        </div>
     </div>
-    <div>{{$listCompany->links()}}</div>
 </div>
 <!-- modal ADD NEW COMPANY -->
 <div class="modal fade" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="modal_add_new" aria-hidden="true">
