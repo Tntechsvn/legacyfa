@@ -20,6 +20,7 @@ class CreatePfrsTable extends Migration
                 $table->foreign('user_id')->references('id')->on('users');
             }
             $table->tinyInteger('type')->unsigned()->default(0);
+            $table->json('trusted_individual')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

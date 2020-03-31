@@ -19,6 +19,7 @@ class CreateClientAasTable extends Migration
                 $table->bigInteger('client_id')->unsigned();
                 $table->foreign('client_id')->references('id')->on('clients');
             }
+            $table->tinyInteger('age')->unsigned()->default(0);
             $table->tinyInteger('english_spoken')->unsigned()->default(0);
             $table->tinyInteger('english_written')->unsigned()->default(0);
             $table->tinyInteger('education_level')->unsigned()->default(0);

@@ -100,13 +100,13 @@ class CategoryPlanController extends Controller
 				], 200);
 			} else {
 				return response()->json([
-					'error' => false,
+					'error' => true,
 					'message' => "Edit category plan error"
 				], 200);
 			}
 		} else {
 			return response()->json([
-				'error' => false,
+				'error' => true,
 				'message' => "Category plan not found"
 			], 200);
 		}

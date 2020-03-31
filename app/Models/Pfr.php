@@ -10,7 +10,11 @@ class Pfr extends Model
 
     use SoftDeletes;
 
-    protected $fillable = ['user_id', 'type'];
+    protected $fillable = ['user_id', 'type', 'trusted_individual'];
+
+    protected $casts = [
+        'trusted_individual' => 'array'
+    ];
 
     public function user()
     {
