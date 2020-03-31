@@ -102,16 +102,4 @@ class SingleFactController extends Controller
             ], 200);
         }
     }
-
-    
-
-    public function addNewSingleFactAssessment()
-    {
-        return view('pages.single-fact.assessment.add-new');
-    }
-
-    public function addNewSingleFactQuestion()
-    {
-        return view('pages.single-fact.question.add-new');
-    }
 }

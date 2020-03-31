@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    protected $fillable = ['title', 'name', 'relationship', 'gender', 'nric_passport', 'nationality', 'dob', 'marital_status', 'smoker', 'employment_status', 'occupation', 'company', 'business_nature', 'income_range', 'contact_home', 'contact_mobile', 'contact_office', 'contact_fax', 'email', 'residential_address', 'mailing_address', 'pfr_id'];
+    protected $fillable = ['pfr_id', 'title', 'name', 'relationship', 'gender', 'nric_passport', 'nationality', 'dob', 'marital_status', 'smoker', 'employment_status', 'occupation', 'company', 'business_nature', 'income_range', 'contact_home', 'contact_mobile', 'contact_office', 'contact_fax', 'email', 'residential_address', 'mailing_address'];
 
     /*QUERY*/
     public function listClient()
@@ -49,6 +49,11 @@ class Client extends Model
     public function restoreClient($id)
     {
         return static::onlyTrashed()->where('id', $id)->restore();
+    }
+
+    public function infoClientOne($idPfr)
+    {
+        return static::where('pfr_id', $idPfr)->first();
     }
     /*END QUERY*/
 }

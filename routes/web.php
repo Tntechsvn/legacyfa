@@ -243,17 +243,30 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'as' => 'singlefact.dependant.restore',
 				'uses' => 'DependantController@restoreDependant'
 			]);
+		});
 
-			Route::get('assessment', [
-				'as' => 'single-fact.assessment',
-				'uses' => 'SingleFactController@addNewSingleFactAssessment'
+		Route::group(['prefix' => 'assessment/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single-fact.show_form_add_new_assessment',
+				'uses' => 'AssessmentController@showFormAddNewSingleAssessment'
 			]);
 
-			Route::get('question', [
-				'as' => 'single-fact.question',
-				'uses' => 'SingleFactController@addNewSingleFactQuestion'
+			Route::post('/', [
+				'as' => 'single-fact.add_new_assessment',
+				'uses' => 'AssessmentController@addNewSingleAssessment'
+			]);
+		});
+
+		Route::group(['prefix' => 'question/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single-fact.show_form_question',
+				'uses' => 'PfrController@showFormQuestion'
 			]);
 
+			Route::post('/', [
+				'as' => 'single-fact.add_new_question',
+				'uses' => 'PfrController@addNewQuestion'
+			]);
 		});
 		Route::group(['prefix' => 'portfolio'], function(){
 			Route::get('/', [
