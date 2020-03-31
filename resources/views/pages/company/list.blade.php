@@ -24,8 +24,8 @@
                     <td>{{$company->id}}</td>
                     <td>{{$company->name}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit" data-id="{{$company->id}}" data-name="{{$company->name}}" data-url="{{route('company.edit', $company->id)}}">Edit</a>
-                        <a href="javascript:;"  class="deletestyle1 delete" data-id="{{$company->id}}" data-url="{{route('company.move_to_trash', $company->id)}}">Delete</a>
+                        <a href="javascript:;" class="editstyle1 edit" data-id="{{$company->id}}" data-name="{{$company->name}}" data-url="{{route('company.edit', $company->id)}}"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;"  class="deletestyle1 delete" data-id="{{$company->id}}" data-url="{{route('company.move_to_trash', $company->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

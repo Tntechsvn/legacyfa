@@ -255,6 +255,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 		});
+		Route::group(['prefix' => 'portfolio'], function(){
+			Route::get('/', [
+				'as' => 'portfolio.list',
+				'uses' => 'PortfolioController@listPortfolioSingle'
+			]);
+		});
 	});
 
 	/*Joint Fact*/
