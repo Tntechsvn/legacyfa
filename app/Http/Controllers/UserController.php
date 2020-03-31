@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
+use View;
 
 use App\Models\User;
 use App\Models\Role;
@@ -84,9 +85,12 @@ class UserController extends Controller
 		];
 		$resultAddUser = $this->user->addNewUser($param);
 		if ($resultAddUser) {
+        	$view = View::make('pages.user.content-user', ['user' => $resultAddUser]);
+			$data = (string) $view;
 			return response()->json([
 				'error' => false,
-				'message' => "Add new user successfully"
+				'message' => "Add new user successfully",
+				'data' => $data
 			], 200);
 		} else {
 			return response()->json([
@@ -99,11 +103,11 @@ class UserController extends Controller
 	public function editUser(Request $request, $idUser)
 	{
 		$rules = [
-			'full_name_edit' => 'required',
-			'preferred_name_edit' => 'required',
-			'role_edit' => 'required|integer|min:1',
-			'password_edit' => 'min:6',
-			'repassword' => 'same:password_edit'
+			'full_name' => 'required',
+			'preferred_name' => 'required',
+			'role' => 'required|integer|min:1',
+			'password' => 'nullable|min:6',
+			'repassword' => 'same:password'
 		];
 		$validator = Validator::make($request->all(), $rules);
 		if ($validator->fails()) {
@@ -116,18 +120,22 @@ class UserController extends Controller
 		$infoUser = $this->user->infoUserById($idUser);
 		if ($infoUser) {
 			$param = [
-				'full_name' => $request->full_name_edit,
-				'preferred_name' => $request->preferred_name_edit,
-				'role_id' => $request->role_edit
+				'full_name' => $request->full_name,
+				'preferred_name' => $request->preferred_name,
+				'role_id' => $request->role
 			];
-			if (isset($request->password_edit)) {
-				$param['password'] = bcrypt($request->password_edit);
+			if (isset($request->password)) {
+				$param['password'] = bcrypt($request->password);
 			}
 			$resultEditUser = $this->user->editUser($idUser, $param);
+			$infoUser = $this->user->infoUserById($idUser);
 			if ($resultEditUser) {
+	        	$view = View::make('pages.user.content-user', ['user' => $infoUser]);
+				$data = (string) $view;
 				return response()->json([
 					'error' => false,
-					'message' => "Edit user successfully"
+					'message' => "Edit user successfully",
+					'data' => $data
 				], 200);
 			} else {
 				return response()->json([
