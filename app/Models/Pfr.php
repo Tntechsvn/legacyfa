@@ -26,6 +26,11 @@ class Pfr extends Model
     	return $this->hasMany('App\Models\Client');
     }
 
+    public function dependants()
+    {
+        return $this->hasMany('App\Models\Dependant');
+    }
+
     public function portfolios()
     {
         return $this->hasMany('App\Models\Portfolio');
