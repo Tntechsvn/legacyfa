@@ -102,6 +102,7 @@
             modal.find('h5.modal-title.edit').addClass('hidden');
             modal.modal('show');
         });
+        
         $(document).on('click', '.edit', function(e){
             var modal = $('#modal_add_new');
             var url = $(this).data('url');
@@ -124,6 +125,7 @@
 
             modal.modal('show');
         });
+
         $('#form_add_new').on('submit', function(e){
             e.preventDefault();
             var _this = $(this);

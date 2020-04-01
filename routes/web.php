@@ -286,19 +286,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-new-saving', [
-
+				'as' => 'portfolio.add_new_saving',
+				'uses' => 'PortfolioController@addNewSaving'
 			]);
 
 			Route::post('add-new-cpf', [
-
+				'as' => 'portfolio.add_new_cpf',
+				'uses' => 'PortfolioController@addNewCpf'
 			]);
 
 			Route::post('add-new-insurance', [
-
+				'as' => 'portfolio.add_new_insurance',
+				'uses' => 'PortfolioController@addNewInsurance'
 			]);
 
 			Route::post('add-new-loan', [
-
+				'as' => 'portfolio.add_new_loan',
+				'uses' => 'PortfolioController@addNewLoan'
 			]);
 		});
 	});

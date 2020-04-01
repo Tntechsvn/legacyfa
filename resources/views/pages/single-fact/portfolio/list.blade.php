@@ -47,7 +47,6 @@
                 @php $i++; @endphp
                 @endforeach
                 @endif
-
             </tbody>
         </table>
     </div>
@@ -55,7 +54,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INVESTMENT</h3>
-            <a  class="btn btn-primary" id="add_new_investment"  class="" data-toggle="modal" data-target="#investment_modal"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary" id="add_new_investment" class="" data-toggle="modal" data-target="#investment_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="investment-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -72,7 +71,7 @@
             </thead>
             <tbody>
                 @if(isset($infoPortfolio))
-                @php $i = 1; @endphpS
+                @php $i = 1; @endphp
                 @foreach($infoPortfolio->investment as $investment)
                 <tr>
                     <td>{{$i}}</td>
@@ -98,7 +97,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>SAVINGS</h3>
-            <a  class="btn btn-primary" id="add_new_saving"  class="" data-toggle="modal" data-target="#saving-modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_saving"  class="" data-toggle="modal" data-target="#saving_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="saving-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -113,18 +112,24 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
+                @php $i = 1; @endphp
+                @foreach($infoPortfolio->saving as $saving)
                 <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>2020</td>
-                    <td>50</td>
+                    <td>{{$i}}</td>
+                    <td>{{$saving['client_saving']}}</td>
+                    <td>{{$saving['type_deposit']}}</td>
+                    <td>{{$saving['bank_saving']}}</td>
+                    <td>{{$saving['deposit_year']}}</td>
+                    <td>{{$saving['amount_saving']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
                     </td>
+                    @php $i++; @endphp
                 </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -133,7 +138,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>CPF</h3>
-            <a  class="btn btn-primary" id="add_new_cpf"  class="" data-toggle="modal" data-target="#cpf-modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_cpf"  class="" data-toggle="modal" data-target="#cpf_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="cpf-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -148,18 +153,24 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
+                @php $i = 1; @endphp
+                @foreach($infoPortfolio->cpf as $cpf)
                 <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>2020</td>
-                    <td>50</td>
+                    <td>{{$i}}</td>
+                    <td>{{$cpf['client_cpf']}}</td>
+                    <td>{{$cpf['ordinary_account']}}</td>
+                    <td>{{$cpf['special_account']}}</td>
+                    <td>{{$cpf['medisave_account']}}</td>
+                    <td>{{$cpf['retirement_account']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
                     </td>
+                    @php $i++; @endphp
                 </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -168,7 +179,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INSURANCE</h3>
-            <a  class="btn btn-primary" id="add_new_insurance"  class="" data-toggle="modal" data-target="#insurance-modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_insurance"  class="" data-toggle="modal" data-target="#insurance_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="insurance-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -259,7 +270,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>LOAN</h3>
-            <a  class="btn btn-primary" id="add_new_loan"  class="" data-toggle="modal" data-target="#loan-modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_loan"  class="" data-toggle="modal" data-target="#loan_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="loan-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -277,38 +288,44 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
+                @php $i = 1; @endphp
+                @foreach($infoPortfolio->loan as $loan)
                 <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>2020</td>
-                    <td>2020</td>
-                    <td>2020</td>
-                    <td>2020</td>
-                    <td>50</td>
+                    <td>{{$i}}</td>
+                    <td>{{$loan['client_loan']}}</td>
+                    <td>{{$loan['type_loan']}}</td>
+                    <td>{{$loan['term_loan']}}</td>
+                    <td>{{$loan['year_loan']}}</td>
+                    <td>{{$loan['amount_borrowed']}}</td>
+                    <td>{{$loan['outstanding_amount']}}</td>
+                    <td>{{$loan['lender_loan']}}</td>
+                    <td>{{$loan['interest_rate']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
                     </td>
+                    @php $i++; @endphp
                 </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-      <ul>
-          <li><a href="javascript:;">1</a></li>
-          <li><a href="javascript:;">2</a></li>
-          <li><a href="javascript:;">3</a></li>
-          <li><a href="javascript:;">4</a></li>
-          <li><a href="javascript:;">5</a></li>
-          <li><a href="javascript:;">6</a></li>
-          <li><a href="javascript:;">7</a></li>
-          <li><a href="javascript:;">8</a></li>
-          <li><a href="javascript:;">9</a></li>
-          <li><a href="javascript:;">10</a></li>
-      </ul>
-  </div>
+        <ul>
+            <li><a href="javascript:;">1</a></li>
+            <li><a href="javascript:;">2</a></li>
+            <li><a href="javascript:;">3</a></li>
+            <li><a href="javascript:;">4</a></li>
+            <li><a href="javascript:;">5</a></li>
+            <li><a href="javascript:;">6</a></li>
+            <li><a href="javascript:;">7</a></li>
+            <li><a href="javascript:;">8</a></li>
+            <li><a href="javascript:;">9</a></li>
+            <li><a href="javascript:;">10</a></li>
+        </ul>
+    </div>
 </div>
 
 <!-- modal PROPERTY -->
@@ -384,8 +401,8 @@
                         <label for="intention">Intention with Property</label>
                         <textarea class="form-control" id="intention" name="intention" placeholder="Intention with Property" value="" ></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
             </div>
         </div>
@@ -457,8 +474,8 @@
     </div>
 </div>
 
-<!-- modal INVESTMENT -->
-<div class="modal fade" id="saving-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+<!-- modal SAVING -->
+<div class="modal fade" id="saving_modal" tabindex="-1" role="dialog" aria-labelledby="saving_modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -469,102 +486,41 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="{{route('portfolio.add_new_saving', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="client-saving">Client<span>*</span></label>
-                        <select name="client-saving" id="client-saving" class="form-control">
+                        <label for="client_saving">Client<span>*</span></label>
+                        <select name="client_saving" id="client_saving" class="form-control">
                             <option value="">Select</option>
-                            <option value="">Client1</option>
+                            <option value="1">Client1</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="type-deposit">Type of Deposit<span>*</span></label>
-                        <select name="type-deposit" id="type-deposit" class="form-control">
+                        <label for="type_deposit">Type of Deposit<span>*</span></label>
+                        <select name="type_deposit" id="type_deposit" class="form-control">
                             <option value="">Select</option>
-                            <option value="">Stocks & Shares</option>
-                            <option value="">Bonds</option>
-                            <option value="">Collective Investment Scheme</option>
-                            <option value="">Structured Products</option>
-                            <option value="">Business Ownership</option>
-                            <option value="">Others</option>
+                            <option value="BSA">Savings Account</option>
+                            <option value="FD">Fixed Deposit</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="bank-saving">Bank</label>
-                        <input type="text" class="form-control" id="bank-saving" name="bank-saving" placeholder="Bank" value="" >
+                        <label for="bank_saving">Bank</label>
+                        <input type="text" class="form-control" id="bank_saving" name="bank_saving" placeholder="Bank" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="deposit-year">Deposit Year</label>
-                        <input type="text" class="form-control" id="deposit-year" name="deposit-year" placeholder="Deposit Year" value="" >
+                        <label for="deposit_year">Deposit Year</label>
+                        <input type="text" class="form-control" id="deposit_year" name="deposit_year" placeholder="Deposit Year" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="amount-saving">Savings Amount ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="amount-saving" name="amount-saving" placeholder="Savings Amount ($)" value="" >
+                        <label for="amount_saving">Savings Amount ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="amount_saving" name="amount_saving" placeholder="Savings Amount ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="intention-saving">Intention for the Savings</label>
-                        <textarea  class="form-control" id="intention-saving" name="intention-saving" placeholder="Intention for the Savings" value="" ></textarea>
+                        <label for="intention_saving">Intention for the Savings</label>
+                        <textarea class="form-control" id="intention_saving" name="intention_saving" placeholder="Intention for the Savings" value="" ></textarea>
                     </div>
+                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- modal Savings Details -->
-<div class="modal fade" id="saving-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Savings Details</h5>  
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="" data-parsley-validate>
-                    @csrf
-                    <div class="form-group">
-                        <label for="client-saving">Client<span>*</span></label>
-                        <select name="client-saving" id="client-saving" class="form-control">
-                            <option value="">Select</option>
-                            <option value="">Client1</option>
-                        </select> 
-                    </div>
-                    <div class="form-group">
-                        <label for="type-deposit">Type of Deposit<span>*</span></label>
-                        <select name="type-deposit" id="type-deposit" class="form-control">
-                            <option value="">Select</option>
-                            <option value="">Stocks & Shares</option>
-                            <option value="">Bonds</option>
-                            <option value="">Collective Investment Scheme</option>
-                            <option value="">Structured Products</option>
-                            <option value="">Business Ownership</option>
-                            <option value="">Others</option>
-                        </select> 
-                    </div>
-                    <div class="form-group">
-                        <label for="bank-saving">Bank</label>
-                        <input type="text" class="form-control" id="bank-saving" name="bank-saving" placeholder="Bank" value="" >
-                    </div>
-                    <div class="form-group">
-                        <label for="deposit-year">Deposit Year</label>
-                        <input type="text" class="form-control" id="deposit-year" name="deposit-year" placeholder="Deposit Year" value="" >
-                    </div>
-                    <div class="form-group">
-                        <label for="amount-saving">Savings Amount ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="amount-saving" name="amount-saving" placeholder="Savings Amount ($)" value="" >
-                    </div>
-                    <div class="form-group">
-                        <label for="intention-saving">Intention for the Savings</label>
-                        <textarea  class="form-control" id="intention-saving" name="intention-saving" placeholder="Intention for the Savings" value="" ></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
                 </form>
             </div>
         </div>
@@ -572,7 +528,7 @@
 </div>
 
 <!-- modal CPF Details -->
-<div class="modal fade" id="cpf-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+<div class="modal fade" id="cpf_modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -583,33 +539,33 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_cpf" id='form_cpf' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_cpf" id='form_cpf' class="form-control-popup" method="post" action="{{route('portfolio.add_new_cpf', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="client-cpf">Client<span>*</span></label>
-                        <select name="client-cpf" id="client-cpf" class="form-control">
+                        <label for="client_cpf">Client<span>*</span></label>
+                        <select name="client_cpf" id="client_cpf" class="form-control">
                             <option value="">Select</option>
-                            <option value="">Client1</option>
+                            <option value="1">Client1</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="ordinary-account">Ordinary Account ($)</label>
-                        <input type="text" class="form-control" id="ordinary-account" name="ordinary-account" placeholder="Ordinary Account ($)" value="" >
+                        <label for="ordinary_account">Ordinary Account ($)</label>
+                        <input type="text" class="form-control" id="ordinary_account" name="ordinary_account" placeholder="Ordinary Account ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="special-account">Special Account ($)</label>
-                        <input type="text" class="form-control" id="special-account" name="special-account" placeholder="Special Account ($)" value="" >
+                        <label for="special_account">Special Account ($)</label>
+                        <input type="text" class="form-control" id="special_account" name="special_account" placeholder="Special Account ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="ordinary-account">Medisave Account ($)</label>
-                        <input type="text" class="form-control" id="medisave-account" name="medisave-account" placeholder="Medisave Account ($)" value="" >
+                        <label for="medisave_account">Medisave Account ($)</label>
+                        <input type="text" class="form-control" id="medisave_account" name="medisave_account" placeholder="Medisave Account ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="retirement-account">Retirement Account ($)</label>
-                        <input type="text" class="form-control" id="retirement-account" name="retirement-account" placeholder="Retirement Account ($)" value="" >
+                        <label for="retirement_account">Retirement Account ($)</label>
+                        <input type="text" class="form-control" id="retirement_account" name="retirement_account" placeholder="Retirement Account ($)" value="" >
                     </div>
+                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
                 </form>
             </div>
         </div>
@@ -617,7 +573,7 @@
 </div>
 
 <!-- modal INSURANCE -->
-<div class="modal fade" id="insurance-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+<div class="modal fade" id="insurance_modal" tabindex="-1" role="dialog" aria-labelledby="insurance_modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -628,148 +584,142 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_insurance" id='form_insurance' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_insurance" id='form_insurance' class="form-control-popup" method="post" action="{{route('portfolio.add_new_insurance', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="client-insurance">Client<span>*</span></label>
-                        <select name="client-insurance" id="client-insurance" class="form-control">
+                        <label for="client_insurance">Client<span>*</span></label>
+                        <select name="client_insurance" id="client_insurance" class="form-control">
                             <option value="">Select</option>
-                            <option value="">Client1</option>
+                            <option value="1">Client1</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="status-insurance">Status<span>*</span></label>
-                        <select name="status-insurance" id="status-insurance" class="form-control">
-                            <option value="">Select</option>
-                            <option value="">Both Policy Owner & Insured</option>
-                            <option value="">Insured</option>
-                            <option value="">Policy Owner</option>
+                        <label for="status_insurance">Status<span>*</span></label>
+                        <select name="status_insurance" id="status_insurance" class="form-control">
+                            <option value="PO & INS">Both Policy Owner & Insured</option>
+                            <option value="INS">Insured</option>
+                            <option value="PO">Policy Owner</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="insurer-insurance">Insurer</label>
-                        <input type="text" class="form-control" id="insurer-insurance" name="insurer-insurance" placeholder="Insurer" value="" >
+                        <label for="insurer_insurance">Insurer</label>
+                        <input type="text" class="form-control" id="insurer_insurance" name="insurer_insurance" placeholder="Insurer" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="policy-type">Policy Type</label>
-                        <select name="policy-type" id="policy-type" class="form-control">
-                            <option value="">Select</option>
-                            <option value="">Wholelife</option>
-                            <option value="">Investment-linked</option>
-                            <option value="">Endowment</option>
-                            <option value="">Term</option>
-                            <option value="">Accident</option>
-                            <option value="">Hospitalization</option>
-                            <option value="">Disability Income</option>
-                            <option value="">Others</option>
+                        <label for="policy_type">Policy Type</label>
+                        <select name="policy_type" id="policy_type" class="form-control">
+                            <option value="WL">Wholelife</option>
+                            <option value="IL">Investment-linked</option>
+                            <option value="EN">Endowment</option>
+                            <option value="TE">Term</option>
+                            <option value="AC">Accident</option>
+                            <option value="HO">Hospitalization</option>
+                            <option value="DI">Disability Income</option>
+                            <option value="Ot">Others</option>
                         </select> 
                     </div>
                     <div class="custom-input-form1">
                         <div class="form-group">
-                            <label for="sa-death">Sum Assured: Death ($)</label>
-                            <input type="text" class="form-control" id="sa-death" name="sa-death" placeholder="Sum Assured: Death ($)" value="" >
+                            <label for="sa_death">Sum Assured: Death ($)</label>
+                            <input type="text" class="form-control" id="sa_death" name="sa_death" placeholder="Sum Assured: Death ($)" value="" >
                         </div>
                         <div class="form-group">
-                            <label for="sa-tpd">Sum Assured: TPD ($)</label>
-                            <input type="text" class="form-control" id="sa-tpd" name="sa-tpd" placeholder="Sum Assured: TPD ($)" value="" >
+                            <label for="sa_tpd">Sum Assured: TPD ($)</label>
+                            <input type="text" class="form-control" id="sa_tpd" name="sa_tpd" placeholder="Sum Assured: TPD ($)" value="" >
                         </div>  
                         <div class="form-group">
-                            <label for="sa-ci">Sum Assured: CI ($)</label>
-                            <input type="text" class="form-control" id="sa-ci" name="sa-ci" placeholder="Sum Assured: CI ($)" value="" >
+                            <label for="sa_ci">Sum Assured: CI ($)</label>
+                            <input type="text" class="form-control" id="sa_ci" name="sa_ci" placeholder="Sum Assured: CI ($)" value="" >
                         </div>  
                         <div class="form-group">
-                            <label for="sa-accident">Sum Assured: Accident ($)</label>
-                            <input type="text" class="form-control" id="sa-accident" name="sa-accident" placeholder="Sum Assured: Accident ($)" value="" >
+                            <label for="sa_accident">Sum Assured: Accident ($)</label>
+                            <input type="text" class="form-control" id="sa_accident" name="sa_accident" placeholder="Sum Assured: Accident ($)" value="" >
                         </div> 
                     </div>
                     <div class="custom-input-form-all">
                         <div class="form-group">
-                            <label for="year-purchased">Year Purchased</label>
-                            <input type="text" class="form-control" id="year-purchased" name="year-purchased" placeholder="Year Purchased" value="" >
+                            <label for="year_purchased">Year Purchased</label>
+                            <input type="text" class="form-control" id="year_purchased" name="year_purchased" placeholder="Year Purchased" value="" >
                         </div> 
                         <div class="form-group">
-                            <label for="policy-term">Policy Term</label>
-                            <input type="text" class="form-control" id="policy-term" name="policy-term" placeholder=">Policy Term" value="" >
+                            <label for="policy_term">Policy Term</label>
+                            <input type="text" class="form-control" id="policy_term" name="policy_term" placeholder="Policy Term" value="" >
                         </div> 
                         <div class="form-group">
-                            <label for="frequency-insurance">Frequency</label>
-                            <select name="frequency-insurance" id="frequency-insurance" class="form-control">
-                                <option value="">Select</option>
-                                <option value="">Monthly</option>
-                                <option value="">Annual</option>
-                                <option value="">Single</option>
-                                <option value="">Half-Yearly</option>
-                                <option value="">Quarterly</option>
+                            <label for="frequency_insurance">Frequency</label>
+                            <select name="frequency_insurance" id="frequency_insurance" class="form-control">
+                                <option value="M">Monthly</option>
+                                <option value="A">Annual</option>
+                                <option value="S">Single</option>
+                                <option value="H">Half-Yearly</option>
+                                <option value="Q">Quarterly</option>
                             </select> 
                         </div>
                         <div class="form-group">
-                            <label for="source-fund">Source Of Fund</label>
-                            <select name="source-fund" id="source-fund" class="form-control">
-                                <option value="">Select</option>
-                                <option value="">Cash</option>
-                                <option value="">CPF</option>
-                                <option value="">SRS</option>
+                            <label for="source_fund">Source Of Fund</label>
+                            <select name="source_fund" id="source_fund" class="form-control">
+                                <option value="Cash">Cash</option>
+                                <option value="CPF">CPF</option>
+                                <option value="SRS">SRS</option>
                             </select> 
                         </div>
                         <div class="form-group">
-                            <label for="premium-insurance">Premium ($)</label>
-                            <input type="text" class="form-control" id="premium-insurance" name="premium-insurance" placeholder="Premium ($)" value="" >
+                            <label for="premium_insurance">Premium ($)</label>
+                            <input type="text" class="form-control" id="premium_insurance" name="premium_insurance" placeholder="Premium ($)" value="" >
                         </div>
                     </div>
                     <div class="custom-input-form1 custom-input-form2"> 
                         <div class="form-group">
-                            <label for="maturity-year">Maturity Year</label>
-                            <input type="text" class="form-control" id="maturity-year" name="maturity-year" placeholder="Maturity Year" value="" >
+                            <label for="maturity_year">Maturity Year</label>
+                            <input type="text" class="form-control" id="maturity_year" name="maturity_year" placeholder="Maturity Year" value="" >
                         </div> 
                         <div class="form-group">
-                            <label for="estimated-maturity">Estimated Maturity Value ($)</label>
-                            <input type="text" class="form-control" id="estimated-maturity" name="estimated-maturity" placeholder="Estimated Maturity Value ($)" value="" >
+                            <label for="estimated_maturity">Estimated Maturity Value ($)</label>
+                            <input type="text" class="form-control" id="estimated_maturity" name="estimated_maturity" placeholder="Estimated Maturity Value ($)" value="" >
                         </div> 
                         <div class="form-group">
-                            <label for="estimated-current-cash">Estimated Current Cash Value ($)<span>*</span></label>
-                            <input type="text" class="form-control" id="estimated-current-cash" name="estimated-current-cash" placeholder="Estimated Current Cash Value ($)" value="" >
+                            <label for="estimated_current_cash">Estimated Current Cash Value ($)<span>*</span></label>
+                            <input type="text" class="form-control" id="estimated_current_cash" name="estimated_current_cash" placeholder="Estimated Current Cash Value ($)" value="" >
                         </div> 
                     </div>
                     <div class="custom-input-form3">
                         <div class="form-group">
-                            <label for="existing-plan">Name of Existing Plan</label>
-                            <input type="text" class="form-control" id="existing-plan" name="existing-plan" placeholder="Name of Existing Plan" value="" >
+                            <label for="existing_plan">Name of Existing Plan</label>
+                            <input type="text" class="form-control" id="existing_plan" name="existing_plan" placeholder="Name of Existing Plan" value="" >
                         </div>
                         <div class="form-group">
-                            <label for="existing-plan">Type of Hospital Covered</label>
+                            <label for="">Type of Hospital Covered</label>
                             <label class="radio-inline">
-                                <input type="radio" name="existing-plan" value="0" checked>PRIVATE
+                                <input type="radio" name="insurance_hospital" id="private" value="0" checked>PRIVATE
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="existing-plan" value="1">PUBLIC 
+                                <input type="radio" name="insurance_hospital" id="pubic" value="1">PUBLIC 
                             </label>
                         </div> 
                         <div class="form-group">
-                            <label for="ward-covered">Class of Ward Covered</label>
-                            <select name="ward-covered" id="ward-covered" class="form-control">
-                                <option value="">Select</option>
-                                <option value="">A</option>
-                                <option value="">B1</option>
-                                <option value="">B2</option>
-                                <option value="">C</option>
+                            <label for="ward_covered">Class of Ward Covered</label>
+                            <select name="ward_covered" id="ward_covered" class="form-control">
+                                <option value="A">A</option>
+                                <option value="B1">B1</option>
+                                <option value="B2">B2</option>
+                                <option value="C">C</option>
                             </select> 
                         </div> 
                     </div>
                     <div class="form-group">
-                        <label for="additional-insurance">Additional Notes</label>
-                        <textarea  class="form-control" id="additional-insurance" name="additional-insurance" placeholder="Additional Notes" value="" ></textarea>
-                    </div>   
+                        <label for="additional_insurance">Additional Notes</label>
+                        <textarea class="form-control" id="additional_insurance" name="additional_insurance" placeholder="Additional Notes" value="" ></textarea>
+                    </div>  
+                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-
 <!-- modal LOAN -->
-<div class="modal fade" id="loan-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+<div class="modal fade" id="loan_modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -780,58 +730,57 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_loan" id='form_loan' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_loan" id='form_loan' class="form-control-popup" method="post" action="{{route('portfolio.add_new_loan', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group">
-                        <label for="client-cpf">Client<span>*</span></label>
-                        <select name="client-cpf" id="client-cpf" class="form-control">
+                        <label for="client_loan">Client<span>*</span></label>
+                        <select name="client_loan" id="client_loan" class="form-control">
                             <option value="">Select</option>
-                            <option value="">Client1</option>
+                            <option value="1">Client1</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="type-loan">Client<span>*</span></label>
-                        <select name="client-cpf" id="type-loan" class="form-control">
-                            <option value="">Select</option>
-                            <option value="">Vehicle</option>
-                            <option value="">Renovation</option>
-                            <option value="">Education</option>
-                            <option value="">Credit Card</option>
-                            <option value="">Personal Loans</option>
-                            <option value="">Overdrafts</option>
-                            <option value="">Others</option>
+                        <label for="type_loan">Type of Loan <span>*</span></label>
+                        <select name="type_loan" id="type_loan" class="form-control">
+                            <option value="V">Vehicle</option>
+                            <option value="R">Renovation</option>
+                            <option value="E">Education</option>
+                            <option value="CC">Credit Card</option>
+                            <option value="PL">Personal Loans</option>
+                            <option value="O">Overdrafts</option>
+                            <option value="Ot">Others</option>
                         </select> 
                     </div>
                     <div class="form-group">
-                        <label for="term-loan">Loan Term</label>
-                        <input type="text" class="form-control" id="term-loan" name="term-loan" placeholder="Type of Loan" value="" >
+                        <label for="term_loan">Loan Term</label>
+                        <input type="text" class="form-control" id="term_loan" name="term_loan" placeholder="Type of Loan" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="year-loan">Year of Loan Taken</label>
-                        <input type="text" class="form-control" id="year-loan" name="year-loan" placeholder="Year of Loan Taken" value="" >
+                        <label for="year_loan">Year of Loan Taken</label>
+                        <input type="text" class="form-control" id="year_loan" name="year_loan" placeholder="Year of Loan Taken" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="amount-borrowed">Amount Borrowed ($)</label>
-                        <input type="text" class="form-control" id="amount-borrowed" name="amount-borrowed" placeholder="Amount Borrowed ($)" value="" >
+                        <label for="amount_borrowed">Amount Borrowed ($)</label>
+                        <input type="text" class="form-control" id="amount_borrowed" name="amount_borrowed" placeholder="Amount Borrowed ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="outstanding-amount">Current Outstanding Amount ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="outstanding-amount" name="outstanding-amount" placeholder="Current Outstanding Amount ($)" value="" >
+                        <label for="outstanding_amount">Current Outstanding Amount ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="outstanding_amount" name="outstanding_amount" placeholder="Current Outstanding Amount ($)" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="lender-loan">Lender</label>
-                        <input type="text" class="form-control" id="lender-loan" name="lender-loan" placeholder="Lender" value="" >
+                        <label for="lender_loan">Lender</label>
+                        <input type="text" class="form-control" id="lender_loan" name="lender_loan" placeholder="Lender" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="interest-rate">Interest Rate</label>
-                        <input type="text" class="form-control" id="interest-rate" name="interest-rate" placeholder="Interest Rate" value="" >
+                        <label for="interest_rate">Interest Rate</label>
+                        <input type="text" class="form-control" id="interest_rate" name="interest_rate" placeholder="Interest Rate" value="" >
                     </div>
                     <div class="form-group">
-                        <label for="repayment-cash">Monthly Loan Repayment - Cash ($)</label>
-                        <input type="text" class="form-control" id="repayment-cash" name="repayment-cash" placeholder="Monthly Loan Repayment - Cash ($)" value="" >
+                        <label for="repayment_cash">Monthly Loan Repayment - Cash ($)</label>
+                        <input type="text" class="form-control" id="repayment_cash" name="repayment_cash" placeholder="Monthly Loan Repayment - Cash ($)" value="" >
                     </div>
+                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
                 </form>
             </div>
         </div>
@@ -851,6 +800,7 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
+                    console.log(res);
                     if(res['error']){
                         alert(res['message']);
                     }else{
@@ -880,6 +830,82 @@
             });
         });
 
+        $('#form_saving').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        location.reload();
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+
+        $('#form_cpf').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        location.reload();
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+
+        $('#form_insurance').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        location.reload();
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
+
+        $('#form_loan').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    if(res['error']){
+                        alert(res['message']);
+                    }else{
+                        location.reload();
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
         $('.delete').on('click', function(){
             if(confirm('Do you want delete this dependant??')){
                 var id = $(this).data('id');
