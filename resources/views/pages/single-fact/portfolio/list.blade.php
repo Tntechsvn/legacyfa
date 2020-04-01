@@ -26,6 +26,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
                 @php $i = 1; @endphp
                 @foreach($infoPortfolio->property as $property)
                 <tr>
@@ -45,6 +46,7 @@
                 </tr>
                 @php $i++; @endphp
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -68,6 +70,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
                 @php $i = 1; @endphp
                 @foreach($infoPortfolio->investment as $investment)
                 <tr>
@@ -82,9 +85,10 @@
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
                     </td>
-                </tr>                
+                </tr>
                 @php $i++; @endphp
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>

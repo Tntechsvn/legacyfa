@@ -19,12 +19,12 @@ class CreatePortfoliosTable extends Migration
                 $table->bigInteger('pfr_id')->unsigned();
                 $table->foreign('pfr_id')->references('id')->on('pfrs');
             }
-            $table->json('property')->nullable();
-            $table->json('investment')->nullable();
-            $table->json('saving')->nullable();
-            $table->json('cpf')->nullable();
-            $table->json('insurance')->nullable();
-            $table->json('loan')->nullable();
+            $table->json('property')->default('[]');
+            $table->json('investment')->default('[]');
+            $table->json('saving')->default('[]');
+            $table->json('cpf')->default('[]');
+            $table->json('insurance')->default('[]');
+            $table->json('loan')->default('[]');
             $table->timestamps();
         });
     }
