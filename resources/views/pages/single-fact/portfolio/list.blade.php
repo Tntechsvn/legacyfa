@@ -27,6 +27,7 @@
             </thead>
             <tbody>
                 @php $i = 1; @endphp
+                @if(isset($infoPortfolio))
                 @foreach($infoPortfolio->property as $property)
                 <tr>
                     <td>{{$i}}</td>
@@ -45,6 +46,7 @@
                 </tr>
                 @php $i++; @endphp
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -69,6 +71,7 @@
             </thead>
             <tbody>
                 @php $i = 1; @endphp
+                @if(isset($infoPortfolio))
                 @foreach($infoPortfolio->investment as $investment)
                 <tr>
                     <td>{{$i}}</td>
@@ -85,6 +88,7 @@
                 </tr>                
                 @php $i++; @endphp
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -464,7 +468,7 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_saving" id='form_saving' class="form-control" method="post" action="" data-parsley-validate>
+                <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
                         <label for="client-saving">Client<span>*</span></label>
@@ -521,7 +525,7 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_saving" id='form_saving' class="form-control" method="post" action="" data-parsley-validate>
+                <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
                         <label for="client-saving">Client<span>*</span></label>
@@ -578,7 +582,7 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_cpf" id='form_cpf' class="form-control" method="post" action="" data-parsley-validate>
+                <form name="form_cpf" id='form_cpf' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
                         <label for="client-cpf">Client<span>*</span></label>
@@ -612,7 +616,7 @@
 </div>
 
 <!-- modal INSURANCE -->
-<div class="modal fade" id="loan-insurance" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+<div class="modal fade" id="insurance-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -623,7 +627,7 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_insurance" id='form_insurance' class="form-control" method="post" action="" data-parsley-validate>
+                <form name="form_insurance" id='form_insurance' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
                         <label for="client-insurance">Client<span>*</span></label>
@@ -775,7 +779,7 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_loan" id='form_loan' class="form-control" method="post" action="" data-parsley-validate>
+                <form name="form_loan" id='form_loan' class="form-control-popup" method="post" action="" data-parsley-validate>
                     @csrf
                     <div class="form-group">
                         <label for="client-cpf">Client<span>*</span></label>
