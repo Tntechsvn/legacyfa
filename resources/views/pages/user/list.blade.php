@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 @foreach($listUser as $user)
-                    @include('pages.user.content-user', [$user])
+                @include('pages.user.content-user', [$user])
                 @endforeach
             </tbody>
         </table>
@@ -145,13 +145,13 @@
                         if(!$.isPlainObject(res.message)){
                             alert(res.message);
                         }else{
-                          $.each(res.message, function(key,value){
-                            alert(value[0]);
-                            return false;
-                          });
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
                         }
                     }else{
-                        _this.trigger("reset");                        
+                        _this.trigger("reset");
                         alert(res['message']);
                         modal.modal('hide');
                         if(row == ''){
@@ -198,14 +198,14 @@
                               $.each(res.message, function(key,value){
                                 alert(value[0]);
                                 return false;
-                              });
-                            }
-                        }else{
-                            tr.remove();
-                            alert(res['message']);
-                        }
+                            });
+                          }
+                      }else{
+                        tr.remove();
+                        alert(res['message']);
                     }
-                });
+                }
+            });
             }
         });
     });
