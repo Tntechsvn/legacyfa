@@ -48,6 +48,7 @@
         $('.restore').on('click', function(){
             var id = $(this).data('id');
             var url = $(this).data('url');
+            var tr = $(this).closest('tr');
             $.ajax({
                 type: "GET",
                 url: url,
@@ -56,6 +57,7 @@
                     if(res['error']){
                         alert(res['message']);
                     }else{
+                        tr.remove();
                         alert(res['message']);
                     }
                 }

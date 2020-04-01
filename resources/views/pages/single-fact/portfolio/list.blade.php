@@ -159,7 +159,7 @@
         </table>
     </div>
 
-        <!-- CPF -->
+        <!-- INSURANCE -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INSURANCE</h3>
@@ -213,9 +213,6 @@
 
     <!-- INSURANCE 2 -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="addnewelm-style2">
-            <a  class="btn btn-primary" id="add_new_insurance2"  class="" data-toggle="modal" data-target="#insurance2-modal"><i class="far fa-plus-square"></i></a>
-        </div>
         <table id="insurance2-table" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>
@@ -449,6 +446,387 @@
                     </div>
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal INVESTMENT -->
+<div class="modal fade" id="saving-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Savings Details</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form name="form_saving" id='form_saving' class="form-control" method="post" action="" data-parsley-validate>
+                    @csrf
+                    <div class="form-group">
+                        <label for="client-saving">Client<span>*</span></label>
+                        <select name="client-saving" id="client-saving" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Client1</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="type-deposit">Type of Deposit<span>*</span></label>
+                        <select name="type-deposit" id="type-deposit" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Stocks & Shares</option>
+                            <option value="">Bonds</option>
+                            <option value="">Collective Investment Scheme</option>
+                            <option value="">Structured Products</option>
+                            <option value="">Business Ownership</option>
+                            <option value="">Others</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-saving">Bank</label>
+                        <input type="text" class="form-control" id="bank-saving" name="bank-saving" placeholder="Bank" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="deposit-year">Deposit Year</label>
+                        <input type="text" class="form-control" id="deposit-year" name="deposit-year" placeholder="Deposit Year" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="amount-saving">Savings Amount ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="amount-saving" name="amount-saving" placeholder="Savings Amount ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="intention-saving">Intention for the Savings</label>
+                        <textarea  class="form-control" id="intention-saving" name="intention-saving" placeholder="Intention for the Savings" value="" ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal Savings Details -->
+<div class="modal fade" id="saving-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Savings Details</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form name="form_saving" id='form_saving' class="form-control" method="post" action="" data-parsley-validate>
+                    @csrf
+                    <div class="form-group">
+                        <label for="client-saving">Client<span>*</span></label>
+                        <select name="client-saving" id="client-saving" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Client1</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="type-deposit">Type of Deposit<span>*</span></label>
+                        <select name="type-deposit" id="type-deposit" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Stocks & Shares</option>
+                            <option value="">Bonds</option>
+                            <option value="">Collective Investment Scheme</option>
+                            <option value="">Structured Products</option>
+                            <option value="">Business Ownership</option>
+                            <option value="">Others</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-saving">Bank</label>
+                        <input type="text" class="form-control" id="bank-saving" name="bank-saving" placeholder="Bank" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="deposit-year">Deposit Year</label>
+                        <input type="text" class="form-control" id="deposit-year" name="deposit-year" placeholder="Deposit Year" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="amount-saving">Savings Amount ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="amount-saving" name="amount-saving" placeholder="Savings Amount ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="intention-saving">Intention for the Savings</label>
+                        <textarea  class="form-control" id="intention-saving" name="intention-saving" placeholder="Intention for the Savings" value="" ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal CPF Details -->
+<div class="modal fade" id="cpf-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">CPF Details</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form name="form_cpf" id='form_cpf' class="form-control" method="post" action="" data-parsley-validate>
+                    @csrf
+                    <div class="form-group">
+                        <label for="client-cpf">Client<span>*</span></label>
+                        <select name="client-cpf" id="client-cpf" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Client1</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="ordinary-account">Ordinary Account ($)</label>
+                        <input type="text" class="form-control" id="ordinary-account" name="ordinary-account" placeholder="Ordinary Account ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="special-account">Special Account ($)</label>
+                        <input type="text" class="form-control" id="special-account" name="special-account" placeholder="Special Account ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="ordinary-account">Medisave Account ($)</label>
+                        <input type="text" class="form-control" id="medisave-account" name="medisave-account" placeholder="Medisave Account ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="retirement-account">Retirement Account ($)</label>
+                        <input type="text" class="form-control" id="retirement-account" name="retirement-account" placeholder="Retirement Account ($)" value="" >
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal INSURANCE -->
+<div class="modal fade" id="loan-insurance" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">INSURANCE</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form name="form_insurance" id='form_insurance' class="form-control" method="post" action="" data-parsley-validate>
+                    @csrf
+                    <div class="form-group">
+                        <label for="client-insurance">Client<span>*</span></label>
+                        <select name="client-insurance" id="client-insurance" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Client1</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="status-insurance">Status<span>*</span></label>
+                        <select name="status-insurance" id="status-insurance" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Both Policy Owner & Insured</option>
+                            <option value="">Insured</option>
+                            <option value="">Policy Owner</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="insurer-insurance">Insurer</label>
+                        <input type="text" class="form-control" id="insurer-insurance" name="insurer-insurance" placeholder="Insurer" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="policy-type">Policy Type</label>
+                        <select name="policy-type" id="policy-type" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Wholelife</option>
+                            <option value="">Investment-linked</option>
+                            <option value="">Endowment</option>
+                            <option value="">Term</option>
+                            <option value="">Accident</option>
+                            <option value="">Hospitalization</option>
+                            <option value="">Disability Income</option>
+                            <option value="">Others</option>
+                        </select> 
+                    </div>
+                    <div class="custom-input-form1">
+                        <div class="form-group">
+                            <label for="sa-death">Sum Assured: Death ($)</label>
+                            <input type="text" class="form-control" id="sa-death" name="sa-death" placeholder="Sum Assured: Death ($)" value="" >
+                        </div>
+                        <div class="form-group">
+                            <label for="sa-tpd">Sum Assured: TPD ($)</label>
+                            <input type="text" class="form-control" id="sa-tpd" name="sa-tpd" placeholder="Sum Assured: TPD ($)" value="" >
+                        </div>  
+                        <div class="form-group">
+                            <label for="sa-ci">Sum Assured: CI ($)</label>
+                            <input type="text" class="form-control" id="sa-ci" name="sa-ci" placeholder="Sum Assured: CI ($)" value="" >
+                        </div>  
+                        <div class="form-group">
+                            <label for="sa-accident">Sum Assured: Accident ($)</label>
+                            <input type="text" class="form-control" id="sa-accident" name="sa-accident" placeholder="Sum Assured: Accident ($)" value="" >
+                        </div> 
+                    </div>
+                    <div class="custom-input-form-all">
+                        <div class="form-group">
+                            <label for="year-purchased">Year Purchased</label>
+                            <input type="text" class="form-control" id="year-purchased" name="year-purchased" placeholder="Year Purchased" value="" >
+                        </div> 
+                        <div class="form-group">
+                            <label for="policy-term">Policy Term</label>
+                            <input type="text" class="form-control" id="policy-term" name="policy-term" placeholder=">Policy Term" value="" >
+                        </div> 
+                        <div class="form-group">
+                            <label for="frequency-insurance">Frequency</label>
+                            <select name="frequency-insurance" id="frequency-insurance" class="form-control">
+                                <option value="">Select</option>
+                                <option value="">Monthly</option>
+                                <option value="">Annual</option>
+                                <option value="">Single</option>
+                                <option value="">Half-Yearly</option>
+                                <option value="">Quarterly</option>
+                            </select> 
+                        </div>
+                        <div class="form-group">
+                            <label for="source-fund">Source Of Fund</label>
+                            <select name="source-fund" id="source-fund" class="form-control">
+                                <option value="">Select</option>
+                                <option value="">Cash</option>
+                                <option value="">CPF</option>
+                                <option value="">SRS</option>
+                            </select> 
+                        </div>
+                        <div class="form-group">
+                            <label for="premium-insurance">Premium ($)</label>
+                            <input type="text" class="form-control" id="premium-insurance" name="premium-insurance" placeholder="Premium ($)" value="" >
+                        </div>
+                    </div>
+                    <div class="custom-input-form1 custom-input-form2"> 
+                        <div class="form-group">
+                            <label for="maturity-year">Maturity Year</label>
+                            <input type="text" class="form-control" id="maturity-year" name="maturity-year" placeholder="Maturity Year" value="" >
+                        </div> 
+                        <div class="form-group">
+                            <label for="estimated-maturity">Estimated Maturity Value ($)</label>
+                            <input type="text" class="form-control" id="estimated-maturity" name="estimated-maturity" placeholder="Estimated Maturity Value ($)" value="" >
+                        </div> 
+                        <div class="form-group">
+                            <label for="estimated-current-cash">Estimated Current Cash Value ($)<span>*</span></label>
+                            <input type="text" class="form-control" id="estimated-current-cash" name="estimated-current-cash" placeholder="Estimated Current Cash Value ($)" value="" >
+                        </div> 
+                    </div>
+                    <div class="custom-input-form3">
+                        <div class="form-group">
+                            <label for="existing-plan">Name of Existing Plan</label>
+                            <input type="text" class="form-control" id="existing-plan" name="existing-plan" placeholder="Name of Existing Plan" value="" >
+                        </div>
+                        <div class="form-group">
+                            <label for="existing-plan">Type of Hospital Covered</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="existing-plan" value="0" checked>PRIVATE
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="existing-plan" value="1">PUBLIC 
+                            </label>
+                        </div> 
+                        <div class="form-group">
+                            <label for="ward-covered">Class of Ward Covered</label>
+                            <select name="ward-covered" id="ward-covered" class="form-control">
+                                <option value="">Select</option>
+                                <option value="">A</option>
+                                <option value="">B1</option>
+                                <option value="">B2</option>
+                                <option value="">C</option>
+                            </select> 
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-insurance">Additional Notes</label>
+                        <textarea  class="form-control" id="additional-insurance" name="additional-insurance" placeholder="Additional Notes" value="" ></textarea>
+                    </div>   
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal LOAN -->
+<div class="modal fade" id="loan-modal" tabindex="-1" role="dialog" aria-labelledby="property-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">LOAN</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form name="form_loan" id='form_loan' class="form-control" method="post" action="" data-parsley-validate>
+                    @csrf
+                    <div class="form-group">
+                        <label for="client-cpf">Client<span>*</span></label>
+                        <select name="client-cpf" id="client-cpf" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Client1</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="type-loan">Client<span>*</span></label>
+                        <select name="client-cpf" id="type-loan" class="form-control">
+                            <option value="">Select</option>
+                            <option value="">Vehicle</option>
+                            <option value="">Renovation</option>
+                            <option value="">Education</option>
+                            <option value="">Credit Card</option>
+                            <option value="">Personal Loans</option>
+                            <option value="">Overdrafts</option>
+                            <option value="">Others</option>
+                        </select> 
+                    </div>
+                    <div class="form-group">
+                        <label for="term-loan">Loan Term</label>
+                        <input type="text" class="form-control" id="term-loan" name="term-loan" placeholder="Type of Loan" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="year-loan">Year of Loan Taken</label>
+                        <input type="text" class="form-control" id="year-loan" name="year-loan" placeholder="Year of Loan Taken" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="amount-borrowed">Amount Borrowed ($)</label>
+                        <input type="text" class="form-control" id="amount-borrowed" name="amount-borrowed" placeholder="Amount Borrowed ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="outstanding-amount">Current Outstanding Amount ($)<span>*</span></label>
+                        <input type="text" class="form-control" id="outstanding-amount" name="outstanding-amount" placeholder="Current Outstanding Amount ($)" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="lender-loan">Lender</label>
+                        <input type="text" class="form-control" id="lender-loan" name="lender-loan" placeholder="Lender" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-rate">Interest Rate</label>
+                        <input type="text" class="form-control" id="interest-rate" name="interest-rate" placeholder="Interest Rate" value="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="repayment-cash">Monthly Loan Repayment - Cash ($)</label>
+                        <input type="text" class="form-control" id="repayment-cash" name="repayment-cash" placeholder="Monthly Loan Repayment - Cash ($)" value="" >
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2">Cancel</button>
                 </form>
              </div>
         </div>
