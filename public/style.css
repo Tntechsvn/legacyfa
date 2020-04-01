@@ -225,11 +225,13 @@ body{
 	color:#56819f;
 	line-height:20px;
 }
+.sidebar nav ul li:hover > a,
 .sidebar nav ul li.active > a{
 	color:#02c39a;
 }
 .sidebar nav ul li a i{
 	margin-right:12px;
+	font-size: 18px;
 }
 /* Menu responsive */
 .sidebar-fix{
