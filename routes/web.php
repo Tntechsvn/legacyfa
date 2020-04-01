@@ -268,6 +268,39 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PfrController@addNewQuestion'
 			]);
 		});
+
+		Route::group(['prefix' => 'portfolio/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'portfolio.list',
+				'uses' => 'PortfolioController@listPortfolioSingle'
+			]);
+
+			Route::post('add-new-property', [
+				'as' => 'portfolio.add_new_property',
+				'uses' => 'PortfolioController@addNewProperty'
+			]);
+
+			Route::post('add-new-investment', [
+				'as' => 'portfolio.add_new_investment',
+				'uses' => 'PortfolioController@addNewInvestment'
+			]);
+
+			Route::post('add-new-saving', [
+
+			]);
+
+			Route::post('add-new-cpf', [
+
+			]);
+
+			Route::post('add-new-insurance', [
+
+			]);
+
+			Route::post('add-new-loan', [
+
+			]);
+		});
 	});
 
 	/*Joint Fact*/

@@ -668,7 +668,29 @@ body.show_form_login .container{
 .main{
 	transition: all 100ms ease-out;
 }
-
+/* STEP LINK */
+.step-link ul{
+	width:300px;
+	margin:10px auto;
+}
+.step-link ul li{
+	width:30px;
+	height:30px;
+	float: left;
+}
+.step-link ul li a{
+	width:30px;
+	height:30px;
+	line-height: 28px;
+	text-align: center;
+	display: block;
+	border:1px solid #ededed;
+	background: #fff;
+}
+.step-link ul li.active a{
+	background:#e74c3c;
+	border:1px solid #e74c3c;
+}
 /* MODAL */
 .modal-dialog{
 	width:90%;
