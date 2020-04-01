@@ -301,6 +301,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 			]);
 		});
+		Route::group(['prefix' => 'balance'], function(){
+			Route::get('/', [
+				'as' => 'single-fact.list.balance',
+				'uses' => 'BalanceController@listBalance'
+			]);
+		});
+		
 	});
 
 	/*Joint Fact*/
