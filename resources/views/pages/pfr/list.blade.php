@@ -33,7 +33,7 @@
                     <td><a href="{{route('downloadpdf',$pfr->id)}}">Download as PDF</a></td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete" data-id="{{$pfr->id}}" data-url="{{route('pfr.move_to_trash', $pfr->id)}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('pfr.move_to_trash', $pfr->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -53,7 +53,6 @@
 <script type="text/javascript">
     $('.delete').on('click', function(){
         if(confirm("Do you want delete this pfr??")){
-            var id = $(this).data('id');
             var url = $(this).data('url');
             $.ajax({
                 type: "GET",

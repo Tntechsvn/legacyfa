@@ -30,7 +30,7 @@
                     <td>{{$plan->nameCategoryPlan}}</td>
                     <td>
                     <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-id="{{$plan->id}}" data-name="{{$plan->name}}" data-company="{{$plan->company_id}}" data-category="{{$plan->category_plan_id}}" data-featured="{{$plan->featured}}" data-url="{{route('plan.edit', $plan->id)}}"><i class="fas fa-edit"></i></a>
-                    <a href="javascript:;" class="deletestyle1 delete" data-id="{{$plan->id}}" data-url="{{route('plan.move_to_trash', $plan->id)}}"><i class="fas fa-trash"></i></a>
+                    <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('plan.move_to_trash', $plan->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -204,7 +204,6 @@
 
     $('.delete').on('click', function(){
         if(confirm("Do you want delete this plan??")){
-            var id = $(this).data('id');
             var url = $(this).data('url');
             $.ajax({
                 type: "GET",

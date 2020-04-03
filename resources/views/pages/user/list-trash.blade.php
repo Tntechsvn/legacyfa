@@ -25,7 +25,7 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->nameRole}}</td>
                     <td>
-                        <button class="restore" data-id="{{$user->id}}" data-url="{{route('user.restore', $user->id)}}">Restore</button>
+                        <button class="restore" data-url="{{route('user.restore', $user->id)}}">Restore</button>
                     </td>
                 </tr>
                 @endforeach
@@ -46,7 +46,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.restore').on('click', function(){
-            var id = $(this).data('id');
             var url = $(this).data('url');
             var tr = $(this).closest('tr');
             $.ajax({

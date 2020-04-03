@@ -27,7 +27,7 @@
                     <td>{{$rider->featured}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-target="#editrider" data-id="{{$rider->id}}" data-name="{{$rider->name}}" data-featured="{{$rider->featured}}" data-plan="{{$rider->planRider}}" data-url="{{route('rider.edit', $rider->id)}}"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete" data-id="{{$rider->id}}" data-url="{{route('rider.move_to_trash', $rider->id)}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('rider.move_to_trash', $rider->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -173,7 +173,6 @@
 
         $('.delete').on('click', function(){
             if(confirm('Do you want delete this rider??')){
-                var id = $(this).data('id');
                 var url = $(this).data('url');
                 $.ajax({
                     type: "GET",

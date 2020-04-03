@@ -89,6 +89,35 @@ class PortfolioController extends Controller
 		}
 	}
 
+	public function deleteProperty($idPfr, $position)
+	{
+		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+		if ($infoPortfolio) {
+			$property = $infoPortfolio->property;
+			array_splice($property, $position - 1, 1);
+			$param = array(
+				'property' => $property
+			);
+			$resultDeleteProperty = $this->portfolio->editPortfolio($idPfr, $param);
+			if ($resultDeleteProperty) {
+				return response()->json([
+					'error' => false,
+					'message' => "Delete property successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Delete property error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Portfolio not found"
+			], 200);
+		}
+	}
+
 	public function addNewInvestment(Request $request, $idPfr)
 	{
 		$rules = [
@@ -147,6 +176,35 @@ class PortfolioController extends Controller
 			return response()->json([
 				'error' => true,
 				'message' => "Error"
+			], 200);
+		}
+	}
+
+	public function deleteInvestment($idPfr, $position)
+	{
+		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+		if ($infoPortfolio) {
+			$investment = $infoPortfolio->investment;
+			array_splice($investment, $position - 1, 1);
+			$param = array(
+				'investment' => $investment
+			);
+			$resultDeleteProperty = $this->portfolio->editPortfolio($idPfr, $param);
+			if ($resultDeleteProperty) {
+				return response()->json([
+					'error' => false,
+					'message' => "Delete investment successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Delete investment error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Portfolio not found"
 			], 200);
 		}
 	}
@@ -210,6 +268,35 @@ class PortfolioController extends Controller
 		}
 	}
 
+	public function deleteSaving($idPfr, $position)
+	{
+		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+		if ($infoPortfolio) {
+			$saving = $infoPortfolio->saving;
+			array_splice($saving, $position - 1, 1);
+			$param = array(
+				'saving' => $saving
+			);
+			$resultDeleteProperty = $this->portfolio->editPortfolio($idPfr, $param);
+			if ($resultDeleteProperty) {
+				return response()->json([
+					'error' => false,
+					'message' => "Delete saving successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Delete saving error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Portfolio not found"
+			], 200);
+		}
+	}
+
 	public function addNewCpf(Request $request, $idPfr)
 	{
 		$rules = [
@@ -262,6 +349,35 @@ class PortfolioController extends Controller
 			return response()->json([
 				'error' => true,
 				'message' => "Error"
+			], 200);
+		}
+	}
+
+	public function deleteCpf($idPfr, $position)
+	{
+		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+		if ($infoPortfolio) {
+			$cpf = $infoPortfolio->cpf;
+			array_splice($cpf, $position - 1, 1);
+			$param = array(
+				'cpf' => $cpf
+			);
+			$resultDeleteProperty = $this->portfolio->editPortfolio($idPfr, $param);
+			if ($resultDeleteProperty) {
+				return response()->json([
+					'error' => false,
+					'message' => "Delete cpf successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Delete cpf error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Portfolio not found"
 			], 200);
 		}
 	}
@@ -344,6 +460,35 @@ class PortfolioController extends Controller
 		}
 	}
 
+	public function deleteInsurance($idPfr, $position)
+	{
+		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+		if ($infoPortfolio) {
+			$insurance = $infoPortfolio->insurance;
+			array_splice($insurance, $position - 1, 1);
+			$param = array(
+				'insurance' => $insurance
+			);
+			$resultDeleteProperty = $this->portfolio->editPortfolio($idPfr, $param);
+			if ($resultDeleteProperty) {
+				return response()->json([
+					'error' => false,
+					'message' => "Delete insurance successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Delete insurance error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Portfolio not found"
+			], 200);
+		}
+	}
+
 	public function addNewLoan(Request $request, $idPfr)
 	{
 		$rules = [
@@ -402,6 +547,35 @@ class PortfolioController extends Controller
 			return response()->json([
 				'error' => true,
 				'message' => "Error"
+			], 200);
+		}
+	}
+
+	public function deleteLoan($idPfr, $position)
+	{
+		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+		if ($infoPortfolio) {
+			$loan = $infoPortfolio->loan;
+			array_splice($loan, $position - 1, 1);
+			$param = array(
+				'loan' => $loan
+			);
+			$resultDeleteProperty = $this->portfolio->editPortfolio($idPfr, $param);
+			if ($resultDeleteProperty) {
+				return response()->json([
+					'error' => false,
+					'message' => "Delete loan successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Delete loan error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Portfolio not found"
 			], 200);
 		}
 	}

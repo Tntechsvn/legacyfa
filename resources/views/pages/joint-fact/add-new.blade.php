@@ -73,18 +73,18 @@
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                     <label class="radio-inline">
-                      <input type="radio" name="sex1" value="0" checked>Male
+                      <input type="radio" name="sex1" id="male1" value="0" checked>Male
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="sex1" value="1">Female 
+                      <input type="radio" name="sex1" id="female1" value="1">Female 
                     </label>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                     <label class="radio-inline">
-                      <input type="radio" name="sex2" value="0" checked>Male
+                      <input type="radio" name="sex2" id="male2" value="0" checked>Male
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="sex2" value="1">Female 
+                      <input type="radio" name="sex2" id="female2" value="1">Female 
                     </label>
                 </div>
              </div>
@@ -758,6 +758,28 @@
 @section('script')
 <script type="text/javascript">
   $(document).ready(function(){
+    $('#title1').change(function(){
+      var title1 = $(this).val();
+      if(title1 == "Mrs" || title1 == "Ms" || title1 == "Mdm"){
+        $('#female1').prop('checked', true);
+        $('#male1').prop('checked', false);
+      }else{
+        $('#female1').prop('checked', false);
+        $('#male1').prop('checked', true);
+      }
+    });
+
+    $('#title2').change(function(){
+      var title2 = $(this).val();
+      if(title2 == "Mrs" || title2 == "Ms" || title2 == "Mdm"){
+        $('#female2').prop('checked', true);
+        $('#male2').prop('checked', false);
+      }else{
+        $('#female2').prop('checked', false);
+        $('#male2').prop('checked', true);
+      }
+    });
+
     $('#addjoinfact_form').on('submit', function(e){
       e.preventDefault();
       var data = $(this).serialize();

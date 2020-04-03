@@ -37,7 +37,7 @@
                     <td>{{$dependant->year_to_support}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit" data-id="{{$dependant->id}}" data-title="{{$dependant->title}}" data-name="{{$dependant->name}}" data-relationship="{{$dependant->relationship}}" data-dob="{{$dependant->dob}}" data-gender="{{$dependant->gender}}" data-age="{{$dependant->age}}" data-year="{{$dependant->year_to_support}}" data-url="{{route('singlefact.dependant.edit', [$infoPfr->id, $dependant->id])}}">Edit</a>
-                        <a href="javascript:;" class="deletestyle1 delete" data-id="{{$dependant->id}}" data-url="{{route('singlefact.dependant.move_to_trash', [$infoPfr->id, $dependant->id])}}">Delete</a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('singlefact.dependant.move_to_trash', [$infoPfr->id, $dependant->id])}}">Delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -58,7 +58,7 @@
           <li><a href="javascript:;">9</a></li>
           <li><a href="javascript:;">10</a></li>
       </ul>
-    </div>
+  </div>
 </div>
 <!-- modal ADD NEW DEPENDANTS -->
 <div class="modal fade" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="modal_add_new" aria-hidden="true">
@@ -102,10 +102,10 @@
                     </div>
                     <div class="form-group">
                         <label class="radio-inline">
-                            <input type="radio" name="sex" value="0" checked>Male
+                            <input type="radio" name="sex" id="male" value="0" checked>Male
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="sex" value="1">Female 
+                            <input type="radio" name="sex" id="female" value="1">Female 
                         </label>
                     </div>
                     <div class="form-group">
@@ -161,10 +161,10 @@
                     </div>
                     <div class="form-group">
                         <label class="radio-inline">
-                            <input type="radio" name="sex_edit" id="male" value="0">Male
+                            <input type="radio" name="sex_edit" id="male_edit" value="0">Male
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="sex_edit" id="female" value="1">Female 
+                            <input type="radio" name="sex_edit" id="female_edit" value="1">Female 
                         </label>
                     </div>
                     <div class="form-group">
@@ -182,6 +182,28 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        $('#title').change(function(){
+            var title = $(this).val();
+            if(title == "Mrs" || title == "Ms" || title == "Mdm"){
+                $('#female').prop('checked', true);
+                $('#male').prop('checked', false);
+            }else{
+                $('#female').prop('checked', false);
+                $('#male').prop('checked', true);
+            }
+        });
+
+        $('#title_edit').change(function(){
+            var title_edit = $(this).val();
+            if(title_edit == "Mrs" || title_edit == "Ms" || title_edit == "Mdm"){
+                $('#female_edit').prop('checked', true);
+                $('#male_edit').prop('checked', false);
+            }else{
+                $('#female_edit').prop('checked', false);
+                $('#male_edit').prop('checked', true);
+            }
+        });
+
         $('#form_add_new').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
@@ -221,9 +243,9 @@
             $('#age_edit').val(age);
             $("div#form_sex select").val(sex);
             if(sex == 0){
-                $('#male').attr('checked', true);
+                $('#male_edit').attr('checked', true);
             }else{
-                $('#female').attr('checked', true);
+                $('#female_edit').attr('checked', true);
             }
             $('#year_sp_edit').val(year);
             $('#form_edit').attr('action', url);
@@ -249,7 +271,6 @@
 
         $('.delete').on('click', function(){
             if(confirm('Do you want delete this dependant??')){
-                var id = $(this).data('id');
                 var url = $(this).data('url');
                 $.ajax({
                     type: "GET",

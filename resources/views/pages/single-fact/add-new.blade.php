@@ -25,10 +25,10 @@
       </div>
       <div class="form-group">
         <label class="radio-inline">
-          <input type="radio" name="sex" value="0" checked>Male
+          <input type="radio" name="sex" id="male" value="0" checked>Male
         </label>
         <label class="radio-inline">
-          <input type="radio" name="sex" value="1">Female 
+          <input type="radio" name="sex" id="female" value="1">Female 
         </label>
       </div>
       <div class="form-group">
@@ -339,26 +339,37 @@
       <button type="submit" class="btn btn-primary mb-2">Next</button>
     </form>
   </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-      <ul>
-          <li><a href="javascript:;">1</a></li>
-          <li><a href="javascript:;">2</a></li>
-          <li><a href="javascript:;">3</a></li>
-          <li><a href="javascript:;">4</a></li>
-          <li><a href="javascript:;">5</a></li>
-          <li><a href="javascript:;">6</a></li>
-          <li><a href="javascript:;">7</a></li>
-          <li><a href="javascript:;">8</a></li>
-          <li><a href="javascript:;">9</a></li>
-          <li><a href="javascript:;">10</a></li>
-      </ul>
-    </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
+    <ul>
+      <li><a href="javascript:;">1</a></li>
+      <li><a href="javascript:;">2</a></li>
+      <li><a href="javascript:;">3</a></li>
+      <li><a href="javascript:;">4</a></li>
+      <li><a href="javascript:;">5</a></li>
+      <li><a href="javascript:;">6</a></li>
+      <li><a href="javascript:;">7</a></li>
+      <li><a href="javascript:;">8</a></li>
+      <li><a href="javascript:;">9</a></li>
+      <li><a href="javascript:;">10</a></li>
+    </ul>
+  </div>
 </div>
 @endsection
 
 @section('script')
 <script type="text/javascript">
   $(document).ready(function(){
+    $('#title').change(function(){
+      var title = $(this).val();
+      if(title == "Mrs" || title == "Ms" || title == "Mdm"){
+        $('#female').prop('checked', true);
+        $('#male').prop('checked', false);
+      }else{
+        $('#female').prop('checked', false);
+        $('#male').prop('checked', true);
+      }
+    });
+
     $('#addsinglefact_form').on('submit', function(e){
       e.preventDefault();
       var data = $(this).serialize();
