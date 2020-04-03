@@ -25,7 +25,7 @@
                     <td>{{$company->name}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit" data-id="{{$company->id}}" data-name="{{$company->name}}" data-url="{{route('company.edit', $company->id)}}"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;"  class="deletestyle1 delete" data-id="{{$company->id}}" data-url="{{route('company.move_to_trash', $company->id)}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;"  class="deletestyle1 delete" data-url="{{route('company.move_to_trash', $company->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -143,7 +143,6 @@
 
         $('.delete').on('click', function(){
             if(confirm('Do you want delete this company??')){
-                var id = $(this).data('id');
                 var url = $(this).data('url');
                 $.ajax({
                     type: "GET",

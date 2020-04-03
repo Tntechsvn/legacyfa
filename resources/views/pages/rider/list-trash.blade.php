@@ -24,7 +24,7 @@
                     <td>{{$rider->name}}</td>
                     <td>{{$rider->featured}}</td>
                     <td>
-                        <button class="restore" data-id="{{$rider->id}}" data-url="{{route('rider.restore', $rider->id)}}">Restore</button>
+                        <button class="restore" data-url="{{route('rider.restore', $rider->id)}}">Restore</button>
                     </td>
                 </tr>
                 @endforeach
@@ -44,7 +44,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.restore').on('click', function(){
-            var id = $(this).data('id');
             var url = $(this).data('url');
             $.ajax({
                 type: "GET",

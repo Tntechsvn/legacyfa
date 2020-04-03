@@ -184,7 +184,6 @@
         $('.delete').on('click', function(){
             var tr = $(this).closest('tr');
             if(confirm('Do you want delete this user??')){
-                var id = $(this).data('id');
                 var url = $(this).data('url');
                 $.ajax({
                     type: "GET",

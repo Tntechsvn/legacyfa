@@ -41,7 +41,7 @@
                     <td>{{$property['market_property']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @php $i++; @endphp
@@ -83,7 +83,7 @@
                     <td>{{$investment['market_investment']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @php $i++; @endphp
@@ -124,7 +124,7 @@
                     <td>{{$saving['amount_saving']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -165,7 +165,7 @@
                     <td>{{$cpf['retirement_account']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -204,25 +204,33 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
+                @php $i = 1; @endphp
+                @foreach($infoPortfolio->insurance as $insurance)
+                @if($insurance['policy_type'] != "HO")
                 <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>2020</td>
-                    <td>50</td>
+                    <td>{{$i}}</td>
+                    <td>{{$insurance['client_insurance']}}</td>
+                    <td>{{$insurance['status_insurance']}}</td>
+                    <td>{{$insurance['insurer_insurance']}}</td>
+                    <td>{{$insurance['policy_type']}}</td>
+                    <td>{{$insurance['sa_death']}}</td>
+                    <td>{{$insurance['sa_tpd']}}</td>
+                    <td>{{$insurance['sa_ci']}}</td>
+                    <td>{{$insurance['sa_accident']}}</td>
+                    <td>{{$insurance['year_purchased']}}</td>
+                    <td>{{$insurance['frequency_insurance']}}</td>
+                    <td>{{$insurance['maturity_year']}}</td>
+                    <td>{{$insurance['estimated_current_cash']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
+                @endif
+                @php $i++; @endphp
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -246,22 +254,30 @@
                 </tr>
             </thead>
             <tbody>
+                @if(isset($infoPortfolio))
+                @php $i = 1; @endphp
+                @foreach($infoPortfolio->insurance as $insurance)
+                @if($insurance['policy_type'] == "HO")
                 <tr>
-                    <td>id</td>
-                    <td>title</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>Category</td>
-                    <td>2020</td>
-                    <td>50</td>
+                    <td>{{$i}}</td>
+                    <td>{{$insurance['client_insurance']}}</td>
+                    <td>{{$insurance['status_insurance']}}</td>
+                    <td>{{$insurance['insurer_insurance']}}</td>
+                    <td>{{$insurance['policy_type']}}</td>
+                    <td>{{$insurance['existing_plan']}}</td>
+                    <td>{{$insurance['insurance_hospital']}}</td>
+                    <td>{{$insurance['ward_covered']}}</td>
+                    <td>{{$insurance['year_purchased']}}</td>
+                    <td>{{$insurance['premium_insurance']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
+                @endif
+                @php $i++; @endphp
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -303,7 +319,7 @@
                     <td>{{$loan['interest_rate']}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -811,6 +827,25 @@
             });
         });
 
+        $('.delete_property').click(function(){
+            if(confirm('Do you want delete this property??')){
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function(res){
+                        if(res['error']){
+                            alert(res['message']);
+                        }else{
+                            location.reload();
+                            alert(res['message']);
+                        }
+                    }
+                });
+            }
+        });
+
         $('#form_add_new_investment').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
@@ -828,6 +863,25 @@
                     }
                 }
             });
+        });
+
+        $('.delete_investment').click(function(){
+            if(confirm('Do you want delete this investment??')){
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function(res){
+                        if(res['error']){
+                            alert(res['message']);
+                        }else{
+                            location.reload();
+                            alert(res['message']);
+                        }
+                    }
+                });
+            }
         });
 
         $('#form_saving').on('submit', function(e){
@@ -849,6 +903,25 @@
             });
         });
 
+        $('.delete_saving').click(function(){
+            if(confirm('Do you want delete this saving??')){
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function(res){
+                        if(res['error']){
+                            alert(res['message']);
+                        }else{
+                            location.reload();
+                            alert(res['message']);
+                        }
+                    }
+                });
+            }
+        });
+
         $('#form_cpf').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
@@ -866,6 +939,25 @@
                     }
                 }
             });
+        });
+
+        $('.delete_cpf').click(function(){
+            if(confirm('Do you want delete this cpf??')){
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function(res){
+                        if(res['error']){
+                            alert(res['message']);
+                        }else{
+                            location.reload();
+                            alert(res['message']);
+                        }
+                    }
+                });
+            }
         });
 
         $('#form_insurance').on('submit', function(e){
@@ -887,6 +979,26 @@
             });
         });
 
+        $('.delete_insurance').on('click', function(){
+            if(confirm('Do you want delete this insurance??')){
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function(res){
+                        console.log(res);
+                        if(res['error']){
+                            alert(res['message']);
+                        }else{
+                            //location.reload();
+                            alert(res['message']);
+                        }
+                    }
+                });
+            }
+        });
+
         $('#form_loan').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
@@ -906,9 +1018,9 @@
                 }
             });
         });
-        $('.delete').on('click', function(){
-            if(confirm('Do you want delete this dependant??')){
-                var id = $(this).data('id');
+
+        $('.delete_loan').on('click', function(){
+            if(confirm('Do you want delete this loan??')){
                 var url = $(this).data('url');
                 $.ajax({
                     type: "GET",
@@ -918,6 +1030,7 @@
                         if(res['error']){
                             alert(res['message']);
                         }else{
+                            location.reload();
                             alert(res['message']);
                         }
                     }

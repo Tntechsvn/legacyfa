@@ -32,7 +32,7 @@
                     <td>{{$dependant->genderDependant}}</td>
                     <td>{{$dependant->year_to_support}}</td>
                     <td>
-                        <button class="restore" data-id="{{$dependant->id}}" data-url="{{route('singlefact.dependant.restore', [$infoPfr->id, $dependant->id])}}">Restore</button>
+                        <button class="restore" data-url="{{route('singlefact.dependant.restore', [$infoPfr->id, $dependant->id])}}">Restore</button>
                     </td>
                 </tr>
                 @endforeach
@@ -47,7 +47,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.restore').on('click', function(){
-            var id = $(this).data('id');
             var url = $(this).data('url');
             $.ajax({
                 type: "GET",

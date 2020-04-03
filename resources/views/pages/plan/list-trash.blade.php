@@ -24,7 +24,9 @@
                     <td>{{$plan->nameCompany}}</td>
                     <td>{{$plan->name}}</td>
                     <td>{{$plan->nameCategoryPlan}}</td>
-                    <td><button class="restore" data-id="{{$plan->id}}" data-url="{{route('plan.restore', $plan->id)}}">Restore</button></td>
+                    <td>
+                        <button class="restore" data-url="{{route('plan.restore', $plan->id)}}">Restore</button>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -43,7 +45,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.restore').on('click', function(){
-            var id = $(this).data('id');
             var url = $(this).data('url');
             $.ajax({
                 type: "GET",

@@ -280,9 +280,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@addNewProperty'
 			]);
 
+			Route::get('delete-property/{position}', [
+				'as' => 'portfolio.delete_property',
+				'uses' => 'PortfolioController@deleteProperty'
+			]);
+
 			Route::post('add-new-investment', [
 				'as' => 'portfolio.add_new_investment',
 				'uses' => 'PortfolioController@addNewInvestment'
+			]);
+
+			Route::get('delete-investment/{position}', [
+				'as' => 'portfolio.delete_investment',
+				'uses' => 'PortfolioController@deleteInvestment'
 			]);
 
 			Route::post('add-new-saving', [
@@ -290,9 +300,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@addNewSaving'
 			]);
 
+			Route::get('delete-saving/{position}', [
+				'as' => 'portfolio.delete_saving',
+				'uses' => 'PortfolioController@deleteSaving'
+			]);
+
 			Route::post('add-new-cpf', [
 				'as' => 'portfolio.add_new_cpf',
 				'uses' => 'PortfolioController@addNewCpf'
+			]);
+
+			Route::get('delete-cpf/{position}', [
+				'as' => 'portfolio.delete_cpf',
+				'uses' => 'PortfolioController@deleteCpf'
 			]);
 
 			Route::post('add-new-insurance', [
@@ -300,11 +320,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@addNewInsurance'
 			]);
 
+			Route::get('delete-insurance/{position}', [
+				'as' => 'portfolio.delete_insurance',
+				'uses' => 'PortfolioController@deleteInsurance'
+			]);
+
 			Route::post('add-new-loan', [
 				'as' => 'portfolio.add_new_loan',
 				'uses' => 'PortfolioController@addNewLoan'
 			]);
+
+			Route::get('delete-loan/{position}', [
+				'as' => 'portfolio.delete_loan',
+				'uses' => 'PortfolioController@deleteLoan'
+			]);
 		});
+
 		Route::group(['prefix' => 'balance'], function(){
 			Route::get('/', [
 				'as' => 'single-fact.list.balance',
