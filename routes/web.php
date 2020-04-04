@@ -336,73 +336,77 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 		});
 
-		Route::group(['prefix' => 'balance'], function(){
+		Route::group(['prefix' => 'balance/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'single-fact.list.balance',
+				'as' => 'single_fact.balance.list',
 				'uses' => 'BalanceController@listBalance'
 			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.balance.add_new',
+				'uses' => 'BalanceController@addNewBalance'
+			]);
 		});
-		
 	});
 
-	/*Joint Fact*/
-	Route::group(['prefix' => 'joint-fact'], function(){
+/*Joint Fact*/
+Route::group(['prefix' => 'joint-fact'], function(){
 		// Route::get('/', [
 		// 	'as' => 'ListSingleFact',
 		// 	'uses' => 'JointFactController@listJointFact'
 		// ]);
 
-		Route::get('add-new', [
-			'as' => 'joint-fact.show_form_add_new',
-			'uses' => 'JointFactController@showFormAddNewJointFact'
-		]);
+	Route::get('add-new', [
+		'as' => 'joint-fact.show_form_add_new',
+		'uses' => 'JointFactController@showFormAddNewJointFact'
+	]);
 
-		Route::post('add-new', [
-			'as' => 'joint-fact.add_new',
-			'uses' => 'JointFactController@addNewJointFact'
-		]);
+	Route::post('add-new', [
+		'as' => 'joint-fact.add_new',
+		'uses' => 'JointFactController@addNewJointFact'
+	]);
 
 	// 	Route::post('edit/{id}', [
 	// 		'as' => 'joint-fact.edit',
 	// 		'uses' => 'JointFactController@editJointFact'
 	// 	]);	
-	});
+});
 
-	/* USER */
-	Route::group(['prefix' => 'user'], function(){
-		Route::get('/', [
-			'as' => 'user.list',
-			'uses' => 'UserController@listUser'
-		]);
+/* USER */
+Route::group(['prefix' => 'user'], function(){
+	Route::get('/', [
+		'as' => 'user.list',
+		'uses' => 'UserController@listUser'
+	]);
 
-		Route::get('trash', [
-			'as' => 'user.list_trash',
-			'uses' => 'UserController@listTrashUser'
-		]);
+	Route::get('trash', [
+		'as' => 'user.list_trash',
+		'uses' => 'UserController@listTrashUser'
+	]);
 
-		Route::post('add-new', [
-			'as' => 'user.add_new',
-			'uses' => 'UserController@addNewUser'
-		]);
+	Route::post('add-new', [
+		'as' => 'user.add_new',
+		'uses' => 'UserController@addNewUser'
+	]);
 
-		Route::post('edit/{id}', [
-			'as' => 'user.edit',
-			'uses' => 'UserController@editUser'
-		]);
+	Route::post('edit/{id}', [
+		'as' => 'user.edit',
+		'uses' => 'UserController@editUser'
+	]);
 
-		Route::get('move-to-trash/{id}', [
-			'as' => 'user.move_to_trash',
-			'uses' => 'UserController@softDeleteUser'
-		]);
+	Route::get('move-to-trash/{id}', [
+		'as' => 'user.move_to_trash',
+		'uses' => 'UserController@softDeleteUser'
+	]);
 
-		Route::get('restore/{id}', [
-			'as' => 'user.restore',
-			'uses' => 'UserController@restoreUser'
-		]);
+	Route::get('restore/{id}', [
+		'as' => 'user.restore',
+		'uses' => 'UserController@restoreUser'
+	]);
 
-		Route::get('downloadpdf/{id}', [
-			'as' => 'downloadpdf',
-			'uses' => 'HomeController@downloadPdf'
-		]);
-	});
+	Route::get('downloadpdf/{id}', [
+		'as' => 'downloadpdf',
+		'uses' => 'HomeController@downloadPdf'
+	]);
+});
 });
