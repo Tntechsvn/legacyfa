@@ -20,7 +20,13 @@ class PortfolioController extends Controller
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
-		return view('pages.single-fact.portfolio.list', compact('infoPfr', 'infoPortfolio'));
+		$arrProperty = (array) json_decode($infoPortfolio->property);
+		$arrInvestment = (array) json_decode($infoPortfolio->investment);
+		$arrSaving = (array) json_decode($infoPortfolio->saving);
+		$arrCpf = (array) json_decode($infoPortfolio->cpf);
+		$arrInsurance = (array) json_decode($infoPortfolio->insurance);
+		$arrLoan = (array) json_decode($infoPortfolio->loan);
+		return view('pages.single-fact.portfolio.list', compact('infoPfr', 'infoPortfolio', 'arrProperty', 'arrInvestment', 'arrSaving', 'arrCpf', 'arrInsurance', 'arrLoan'));
 	}
 
 	public function addNewProperty(Request $request, $idPfr)
@@ -57,7 +63,7 @@ class PortfolioController extends Controller
 			);
 			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 			if ($infoPortfolio) {
-				$property = $infoPortfolio->property;
+				$property = (array) json_decode($infoPortfolio->property);
 				$property[] = $data;
 				$param = array(
 					'property' => json_encode($property)
@@ -93,7 +99,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$property = $infoPortfolio->property;
+			$property = (array) json_decode($infoPortfolio->property);
 			array_splice($property, $position - 1, 1);
 			$param = array(
 				'property' => $property
@@ -148,7 +154,7 @@ class PortfolioController extends Controller
 			);
 			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 			if ($infoPortfolio) {
-				$investment = $infoPortfolio->investment;
+				$investment = (array) json_decode($infoPortfolio->investment);
 				$investment[] = $data;
 				$param = array(
 					'investment' => json_encode($investment)
@@ -184,7 +190,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$investment = $infoPortfolio->investment;
+			$investment = (array) json_decode($infoPortfolio->investment);
 			array_splice($investment, $position - 1, 1);
 			$param = array(
 				'investment' => $investment
@@ -236,7 +242,7 @@ class PortfolioController extends Controller
 			);
 			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 			if ($infoPortfolio) {
-				$saving = $infoPortfolio->saving;
+				$saving = (array) json_decode($infoPortfolio->saving);
 				$saving[] = $data;
 				$param = array(
 					'saving' => json_encode($saving)
@@ -272,7 +278,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$saving = $infoPortfolio->saving;
+			$saving = (array) json_decode($infoPortfolio->saving);
 			array_splice($saving, $position - 1, 1);
 			$param = array(
 				'saving' => $saving
@@ -321,7 +327,7 @@ class PortfolioController extends Controller
 			);
 			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 			if ($infoPortfolio) {
-				$cpf = $infoPortfolio->cpf;
+				$cpf = (array) json_decode($infoPortfolio->cpf);
 				$cpf[] = $data;
 				$param = array(
 					'cpf' => json_encode($cpf)
@@ -357,7 +363,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$cpf = $infoPortfolio->cpf;
+			$cpf = (array) json_decode($infoPortfolio->cpf);
 			array_splice($cpf, $position - 1, 1);
 			$param = array(
 				'cpf' => $cpf
@@ -428,7 +434,7 @@ class PortfolioController extends Controller
 			);
 			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 			if ($infoPortfolio) {
-				$insurance = $infoPortfolio->insurance;
+				$insurance = (array) json_decode($infoPortfolio->insurance);
 				$insurance[] = $data;
 				$param = array(
 					'insurance' => json_encode($insurance)
@@ -464,7 +470,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$insurance = $infoPortfolio->insurance;
+			$insurance = (array) json_decode($infoPortfolio->insurance);
 			array_splice($insurance, $position - 1, 1);
 			$param = array(
 				'insurance' => $insurance
@@ -519,7 +525,7 @@ class PortfolioController extends Controller
 			);
 			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 			if ($infoPortfolio) {
-				$loan = $infoPortfolio->loan;
+				$loan = (array) json_decode($infoPortfolio->loan);
 				$loan[] = $data;
 				$param = array(
 					'loan' => json_encode($loan)
@@ -555,7 +561,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$loan = $infoPortfolio->loan;
+			$loan = (array) json_encode($infoPortfolio->loan);
 			array_splice($loan, $position - 1, 1);
 			$param = array(
 				'loan' => $loan

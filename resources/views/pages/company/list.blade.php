@@ -103,9 +103,15 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
-                    console.log(res);
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         alert(res['message']);
                     }
@@ -133,7 +139,14 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         alert(res['message']);
                     }
@@ -150,7 +163,14 @@
                     dataType: 'json',
                     success: function(res){
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
                             alert(res['message']);
                         }

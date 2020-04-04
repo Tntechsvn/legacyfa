@@ -29,8 +29,8 @@
                     <td>{{$plan->name}}</td>
                     <td>{{$plan->nameCategoryPlan}}</td>
                     <td>
-                    <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-id="{{$plan->id}}" data-name="{{$plan->name}}" data-company="{{$plan->company_id}}" data-category="{{$plan->category_plan_id}}" data-featured="{{$plan->featured}}" data-url="{{route('plan.edit', $plan->id)}}"><i class="fas fa-edit"></i></a>
-                    <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('plan.move_to_trash', $plan->id)}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-id="{{$plan->id}}" data-name="{{$plan->name}}" data-company="{{$plan->company_id}}" data-category="{{$plan->category_plan_id}}" data-featured="{{$plan->featured}}" data-url="{{route('plan.edit', $plan->id)}}"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('plan.move_to_trash', $plan->id)}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -59,7 +59,7 @@
             <div class="modal-body">
                 <form name="form_add_new" id='form_add_new' class="form-control-user" method="post" action="{{route('plan.add_new')}}" data-parsley-validate>
                     @csrf
-                   <div class="form-group">
+                    <div class="form-group">
                         <label for="company">Company<span>*</span></label>
                         <select name="company" id="company" class="form-control">
                             <option value="0">Select</option>
@@ -110,7 +110,7 @@
             <div class="modal-body">
                 <form name="form_edit" id='form_edit' class="form-control-user" method="post" action="" data-parsley-validate>
                     @csrf
-                   <div class="form-group" id="form_company">
+                    <div class="form-group" id="form_company">
                         <label for="company_edit">Company<span>*</span></label>
                         <select name="company_edit" id="company_edit" class="form-control">
                             @foreach($listCompany as $company)
@@ -159,7 +159,14 @@
             dataType: 'json',
             success: function(res){
                 if(res['error']){
-                    alert(res['message']);
+                    if(!$.isPlainObject(res.message)){
+                        alert(res.message);
+                    }else{
+                        $.each(res.message, function(key,value){
+                            alert(value[0]);
+                            return false;
+                        });
+                    }
                 }else{
                     alert(res['message']);
                 }
@@ -192,9 +199,15 @@
             data: data,
             dataType: 'json',
             success: function(res){
-                console.log(res);
                 if(res['error']){
-                    alert(res['message']);
+                    if(!$.isPlainObject(res.message)){
+                        alert(res.message);
+                    }else{
+                        $.each(res.message, function(key,value){
+                            alert(value[0]);
+                            return false;
+                        });
+                    }
                 }else{
                     alert(res['message']);
                 }
@@ -211,7 +224,14 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         alert(res['message']);
                     }

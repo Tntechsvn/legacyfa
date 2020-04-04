@@ -8,6 +8,11 @@ class Balance extends Model
 {
     protected $fillable = ['pfr_id', 'assets', 'liabilities', 'reason'];
 
+	public function pfr()
+	{
+		return $this->belongsTo('App\Models\Pfr');
+	}
+
     public function addNewBalance($param)
 	{
 		return static::firstOrCreate($param);

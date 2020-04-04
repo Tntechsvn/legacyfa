@@ -26,19 +26,19 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrProperty))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->property as $property)
+                @foreach($arrProperty as $property)
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$property['client_property']}}</td>
-                    <td>{{$property['category_property']}}</td>
-                    <td>{{$property['type_property']}}</td>
-                    <td>{{$property['year_property']}}</td>
-                    <td>{{$property['price_property']}}</td>
-                    <td>{{$property['loan_property']}}</td>
-                    <td>{{$property['outstanding_loan']}}</td>
-                    <td>{{$property['market_property']}}</td>
+                    <td>{{$property->client_property}}</td>
+                    <td>{{$property->category_property}}</td>
+                    <td>{{$property->type_property}}</td>
+                    <td>{{$property->year_property}}</td>
+                    <td>{{$property->price_property}}</td>
+                    <td>{{$property->loan_property}}</td>
+                    <td>{{$property->outstanding_loan}}</td>
+                    <td>{{$property->market_property}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -70,17 +70,17 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrInvestment))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->investment as $investment)
+                @foreach($arrInvestment as $investment)
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$investment['client_investment']}}</td>
-                    <td>{{$investment['type_investment']}}</td>
-                    <td>{{$investment['company_investment']}}</td>
-                    <td>{{$investment['invested_investment']}}</td>
-                    <td>{{$investment['amount_investment']}}</td>
-                    <td>{{$investment['market_investment']}}</td>
+                    <td>{{$investment->client_investment}}</td>
+                    <td>{{$investment->type_investment}}</td>
+                    <td>{{$investment->company_investment}}</td>
+                    <td>{{$investment->invested_investment}}</td>
+                    <td>{{$investment->amount_investment}}</td>
+                    <td>{{$investment->market_investment}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -112,16 +112,16 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrSaving))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->saving as $saving)
+                @foreach($arrSaving as $saving)
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$saving['client_saving']}}</td>
-                    <td>{{$saving['type_deposit']}}</td>
-                    <td>{{$saving['bank_saving']}}</td>
-                    <td>{{$saving['deposit_year']}}</td>
-                    <td>{{$saving['amount_saving']}}</td>
+                    <td>{{$saving->client_saving}}</td>
+                    <td>{{$saving->type_deposit}}</td>
+                    <td>{{$saving->bank_saving}}</td>
+                    <td>{{$saving->deposit_year}}</td>
+                    <td>{{$saving->amount_saving}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -153,16 +153,16 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrCpf))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->cpf as $cpf)
+                @foreach($arrCpf as $cpf)
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$cpf['client_cpf']}}</td>
-                    <td>{{$cpf['ordinary_account']}}</td>
-                    <td>{{$cpf['special_account']}}</td>
-                    <td>{{$cpf['medisave_account']}}</td>
-                    <td>{{$cpf['retirement_account']}}</td>
+                    <td>{{$cpf->client_cpf}}</td>
+                    <td>{{$cpf->ordinary_account}}</td>
+                    <td>{{$cpf->special_account}}</td>
+                    <td>{{$cpf->medisave_account}}</td>
+                    <td>{{$cpf->retirement_account}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -204,24 +204,24 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrInsurance))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->insurance as $insurance)
-                @if($insurance['policy_type'] != "HO")
+                @foreach($arrInsurance as $insurance)
+                @if($insurance->policy_type != "HO")
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$insurance['client_insurance']}}</td>
-                    <td>{{$insurance['status_insurance']}}</td>
-                    <td>{{$insurance['insurer_insurance']}}</td>
-                    <td>{{$insurance['policy_type']}}</td>
-                    <td>{{$insurance['sa_death']}}</td>
-                    <td>{{$insurance['sa_tpd']}}</td>
-                    <td>{{$insurance['sa_ci']}}</td>
-                    <td>{{$insurance['sa_accident']}}</td>
-                    <td>{{$insurance['year_purchased']}}</td>
-                    <td>{{$insurance['frequency_insurance']}}</td>
-                    <td>{{$insurance['maturity_year']}}</td>
-                    <td>{{$insurance['estimated_current_cash']}}</td>
+                    <td>{{$insurance->client_insurance}}</td>
+                    <td>{{$insurance->status_insurance}}</td>
+                    <td>{{$insurance->insurer_insurance}}</td>
+                    <td>{{$insurance->policy_type}}</td>
+                    <td>{{$insurance->sa_death}}</td>
+                    <td>{{$insurance->sa_tpd}}</td>
+                    <td>{{$insurance->sa_ci}}</td>
+                    <td>{{$insurance->sa_accident}}</td>
+                    <td>{{$insurance->year_purchased}}</td>
+                    <td>{{$insurance->frequency_insurance}}</td>
+                    <td>{{$insurance->maturity_year}}</td>
+                    <td>{{$insurance->estimated_current_cash}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -254,21 +254,21 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrInsurance))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->insurance as $insurance)
-                @if($insurance['policy_type'] == "HO")
+                @foreach($arrInsurance as $insurance)
+                @if($insurance->policy_type == "HO")
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$insurance['client_insurance']}}</td>
-                    <td>{{$insurance['status_insurance']}}</td>
-                    <td>{{$insurance['insurer_insurance']}}</td>
-                    <td>{{$insurance['policy_type']}}</td>
-                    <td>{{$insurance['existing_plan']}}</td>
-                    <td>{{$insurance['insurance_hospital']}}</td>
-                    <td>{{$insurance['ward_covered']}}</td>
-                    <td>{{$insurance['year_purchased']}}</td>
-                    <td>{{$insurance['premium_insurance']}}</td>
+                    <td>{{$insurance->client_insurance}}</td>
+                    <td>{{$insurance->status_insurance}}</td>
+                    <td>{{$insurance->insurer_insurance}}</td>
+                    <td>{{$insurance->policy_type}}</td>
+                    <td>{{$insurance->existing_plan}}</td>
+                    <td>{{$insurance->insurance_hospital}}</td>
+                    <td>{{$insurance->ward_covered}}</td>
+                    <td>{{$insurance->year_purchased}}</td>
+                    <td>{{$insurance->premium_insurance}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -304,19 +304,19 @@
                 </tr>
             </thead>
             <tbody>
-                @if(isset($infoPortfolio))
+                @if(isset($arrLoan))
                 @php $i = 1; @endphp
-                @foreach($infoPortfolio->loan as $loan)
+                @foreach($arrLoan as $loan)
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$loan['client_loan']}}</td>
-                    <td>{{$loan['type_loan']}}</td>
-                    <td>{{$loan['term_loan']}}</td>
-                    <td>{{$loan['year_loan']}}</td>
-                    <td>{{$loan['amount_borrowed']}}</td>
-                    <td>{{$loan['outstanding_amount']}}</td>
-                    <td>{{$loan['lender_loan']}}</td>
-                    <td>{{$loan['interest_rate']}}</td>
+                    <td>{{$loan->client_loan}}</td>
+                    <td>{{$loan->type_loan}}</td>
+                    <td>{{$loan->term_loan}}</td>
+                    <td>{{$loan->year_loan}}</td>
+                    <td>{{$loan->amount_borrowed}}</td>
+                    <td>{{$loan->outstanding_amount}}</td>
+                    <td>{{$loan->lender_loan}}</td>
+                    <td>{{$loan->interest_rate}}</td>
                     <td>
                         <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
@@ -331,8 +331,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
             <li><a href="javascript:;">1</a></li>
-            <li><a href="javascript:;">2</a></li>
-            <li><a href="javascript:;">3</a></li>
+            <li><a href="{{route('portfolio.list', $infoPfr->id)}}">2</a></li>
+            <li><a href="{{route('single_fact.balance.list', $infoPfr->id)}}">3</a></li>
             <li><a href="javascript:;">4</a></li>
             <li><a href="javascript:;">5</a></li>
             <li><a href="javascript:;">6</a></li>
@@ -816,9 +816,15 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
-                    console.log(res);
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         location.reload();
                         alert(res['message']);
@@ -836,7 +842,14 @@
                     dataType: 'json',
                     success: function(res){
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
                             location.reload();
                             alert(res['message']);
@@ -856,7 +869,14 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         location.reload();
                         alert(res['message']);
@@ -874,7 +894,14 @@
                     dataType: 'json',
                     success: function(res){
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
                             location.reload();
                             alert(res['message']);
@@ -894,7 +921,14 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         location.reload();
                         alert(res['message']);
@@ -912,7 +946,14 @@
                     dataType: 'json',
                     success: function(res){
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
                             location.reload();
                             alert(res['message']);
@@ -932,7 +973,14 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         location.reload();
                         alert(res['message']);
@@ -950,7 +998,14 @@
                     dataType: 'json',
                     success: function(res){
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
                             location.reload();
                             alert(res['message']);
@@ -970,7 +1025,14 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         location.reload();
                         alert(res['message']);
@@ -989,9 +1051,16 @@
                     success: function(res){
                         console.log(res);
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
-                            //location.reload();
+                            location.reload();
                             alert(res['message']);
                         }
                     }
@@ -1010,7 +1079,14 @@
                 success: function(res){
                     console.log(res);
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
                         location.reload();
                         alert(res['message']);
@@ -1028,7 +1104,14 @@
                     dataType: 'json',
                     success: function(res){
                         if(res['error']){
-                            alert(res['message']);
+                            if(!$.isPlainObject(res.message)){
+                                alert(res.message);
+                            }else{
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
                         }else{
                             location.reload();
                             alert(res['message']);
