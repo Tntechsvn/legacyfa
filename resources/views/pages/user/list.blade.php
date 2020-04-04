@@ -206,17 +206,17 @@
                             if(!$.isPlainObject(res.message)){
                                 alert(res.message);
                             }else{
-                              $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                          }
-                      }else{
-                        tr.remove();
-                        alert(res['message']);
+                                $.each(res.message, function(key,value){
+                                    alert(value[0]);
+                                    return false;
+                                });
+                            }
+                        }else{
+                            tr.remove();
+                            alert(res['message']);
+                        }
                     }
-                }
-            });
+                });
             }
         });
     });

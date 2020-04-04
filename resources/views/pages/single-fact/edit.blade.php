@@ -6,6 +6,7 @@
     <h4>Edit Single Fact:</h4>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<<<<<<< HEAD
     <form name="editsinglefact_form" id='editsinglefact_form' class="parsley-form" method="post" action="" data-parsley-validate>
       @csrf
       <div class="form-group form-layout-row">
@@ -380,20 +381,20 @@
       <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
     </form>
   </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-      <ul>
-          <li><a href="javascript:;">1</a></li>
-          <li><a href="javascript:;">2</a></li>
-          <li><a href="javascript:;">3</a></li>
-          <li><a href="javascript:;">4</a></li>
-          <li><a href="javascript:;">5</a></li>
-          <li><a href="javascript:;">6</a></li>
-          <li><a href="javascript:;">7</a></li>
-          <li><a href="javascript:;">8</a></li>
-          <li><a href="javascript:;">9</a></li>
-          <li><a href="javascript:;">10</a></li>
-      </ul>
-    </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
+    <ul>
+      <li><a href="javascript:;">1</a></li>
+      <li><a href="javascript:;">2</a></li>
+      <li><a href="javascript:;">3</a></li>
+      <li><a href="javascript:;">4</a></li>
+      <li><a href="javascript:;">5</a></li>
+      <li><a href="javascript:;">6</a></li>
+      <li><a href="javascript:;">7</a></li>
+      <li><a href="javascript:;">8</a></li>
+      <li><a href="javascript:;">9</a></li>
+      <li><a href="javascript:;">10</a></li>
+    </ul>
+  </div>
 </div>
 @endsection
 
@@ -410,7 +411,14 @@
         dataType: 'json',
         success: function(res){
           if(res['error']){
-            alert(res['message']);
+            if(!$.isPlainObject(res.message)){
+              alert(res.message);
+            }else{
+              $.each(res.message, function(key,value){
+                alert(value[0]);
+                return false;
+              });
+            }
           }else{
             window.location.href = res['url'];
             alert(res['message']);

@@ -8,15 +8,6 @@ class Portfolio extends Model
 {
 	protected $fillable = ['pfr_id', 'property', 'investment', 'saving', 'cpf', 'insurance', 'loan'];
 
-	protected $casts = [
-		'property' => 'array',
-		'investment' => 'array',
-		'saving' => 'array',
-		'cpf' => 'array',
-		'insurance' => 'array',
-		'loan' => 'array'
-	];
-
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');

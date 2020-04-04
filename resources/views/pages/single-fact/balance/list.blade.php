@@ -10,14 +10,14 @@
             @csrf
             <div class="form-group">
                 <label class="radio-inline">Would you like your assets and liabilities to be taken into consideration for the Needs Analysis and Recommendation(s)
-                    <input type="radio" name="state" value="0" checked>Yes (Please fill in the details below)
+                    <input type="radio" name="state" value="0" @if($infoBalance->reason == null){{'checked'}}@endif>Yes (Please fill in the details below)
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="state" value="1">No (Please state reason):
+                    <input type="radio" name="state" value="1" @if($infoBalance->reason != null){{'checked'}}@endif>No (Please state reason):
                 </label>
             </div>
             <div class="form-group">
-                <textarea class="form-control" id="reason" name="reason" placeholder="Please state reason:" value="" ></textarea>
+                <textarea class="form-control" id="reason" name="reason" placeholder="Please state reason:" >{{$infoBalance->reason}}</textarea>
             </div>
             <h3>ASSETS</h3>
             <table id="blance-table" class="table table-content table-style1" style="width:100%">
@@ -25,72 +25,72 @@
                     <tr>
                         <td rowspan="2">Property</td>
                         <td>Residence</td>
-                        <td><input type="number" class="form-control" id="residence_property" name="residence_property" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="residence_property" name="residence_property" placeholder="$" value="@if(isset($assets)){{$assets->residence_property}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Investment</td>
-                        <td><input type="number" class="form-control" id="investment_property" name="residence_property" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="investment_property" name="investment_property" placeholder="$" value="@if(isset($assets)){{$assets->investment_property}}@endif" ></td>
                     </tr>
                     <tr>
                         <td rowspan="4">Investments</td>
                         <td>Bonds</td>
-                        <td><input type="number" class="form-control" id="bonds_investments" name="bonds_investments" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="bonds_investments" name="bonds_investments" placeholder="$" value="@if(isset($assets)){{$assets->bonds_investments}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Unit Trusts</td>
-                        <td><input type="number" class="form-control" id="unit_investments" name="unit_investments" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="unit_investments" name="unit_investments" placeholder="$" value="@if(isset($assets)){{$assets->unit_investments}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Stock & Shares</td>
-                        <td><input type="number" class="form-control" id="stockshares_investments" name="stockshares_investments" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="stockshares_investments" name="stockshares_investments" placeholder="$" value="@if(isset($assets)){{$assets->stockshares_investments}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Others</td>
-                        <td><input type="number" class="form-control" id="other_investments" name="other_investments" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="other_investments" name="other_investments" placeholder="$" value="@if(isset($assets)){{$assets->other_investments}}@endif" ></td>
                     </tr>
                     <tr>
                         <td rowspan="2">Savings</td>
                         <td>Bank Savings Account</td>
-                        <td><input type="number" class="form-control" id="bank_savings" name="bank_savings" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="bank_savings" name="bank_savings" placeholder="$" value="@if(isset($assets)){{$assets->bank_savings}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Fixed Deposits</td>
-                        <td><input type="number" class="form-control" id="deposits_savings" name="deposits_savings" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="deposits_savings" name="deposits_savings" placeholder="$" value="@if(isset($assets)){{$assets->deposits_savings}}@endif" ></td>
                     </tr>
                     <tr>
                         <td rowspan="4">CPF</td>
                         <td>Ordinary Account</td>
-                        <td><input type="number" class="form-control" id="ordinary_cpf" name="ordinary_cpf" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="ordinary_cpf" name="ordinary_cpf" placeholder="$" value="@if(isset($assets)){{$assets->ordinary_cpf}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Special Account</td>
-                        <td><input type="number" class="form-control" id="special_cpf" name="special_cpf" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="special_cpf" name="special_cpf" placeholder="$" value="@if(isset($assets)){{$assets->special_cpf}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Medisave</td>
-                        <td><input type="number" class="form-control" id="medisave_cpf" name="medisave_cpf" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="medisave_cpf" name="medisave_cpf" placeholder="$" value="@if(isset($assets)){{$assets->medisave_cpf}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Retirement Account</td>
-                        <td><input type="number" class="form-control" id="retirement_cpf" name="retirement_cpf" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="retirement_cpf" name="retirement_cpf" placeholder="$" value="@if(isset($assets)){{$assets->retirement_cpf}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Insurance</td>
                         <td>Cash Value</td>
-                        <td><input type="number" class="form-control" id="cash_insurance" name="cash_insurance" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="cash_insurance" name="cash_insurance" placeholder="$" value="@if(isset($assets)){{$assets->cash_insurance}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>SRS</td>
                         <td>Account Balance</td>
-                        <td><input type="number" class="form-control" id="account_balance" name="account_balance" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="account_balance" name="account_balance" placeholder="$" value="@if(isset($assets)){{$assets->account_balance}}@endif" ></td>
                     </tr>
                     <tr>
                         <td colspan="2">Others, Please specify:</td>
-                        <td><input type="number" class="form-control" id="others_value" name="others_value" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="others_value" name="others_value" placeholder="$" value="@if(isset($assets)){{$assets->others_value}}@endif" ></td>
                     </tr>
                     <tr>
                         <td colspan="2"><h4>Total Assets:</h4></td>
-                        <td><input type="number" class="form-control" id="total_assets" name="total_assets" placeholder="Total" value="" readonly=""></td>
+                        <td><input type="number" class="form-control" id="total_assets" name="total_assets" placeholder="Total" value="{{$totalAssets}}" readonly=""></td>
                     </tr>
                 </tbody>
             </table>
@@ -100,39 +100,39 @@
                     <tr>
                         <td rowspan="7">Loans</td>
                         <td>Housing</td>
-                        <td><input type="number" class="form-control" id="housing_loans" name="housing_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="housing_loans" name="housing_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->housing_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Vehicle</td>
-                        <td><input type="number" class="form-control" id="vehicle_loans" name="vehicle_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="vehicle_loans" name="vehicle_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->vehicle_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Renovation</td>
-                        <td><input type="number" class="form-control" id="renovation_loans" name="renovation_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="renovation_loans" name="renovation_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->renovation_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Education</td>
-                        <td><input type="number" class="form-control" id="education_loans" name="education_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="education_loans" name="education_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->education_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Credit Card</td>
-                        <td><input type="number" class="form-control" id="credit_loans" name="credit_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="credit_loans" name="credit_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->credit_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Personal Loans</td>
-                        <td><input type="number" class="form-control" id="personal_loans" name="personal_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="personal_loans" name="personal_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->personal_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Overdrafts</td>
-                        <td><input type="number" class="form-control" id="overdrafts_loans" name="overdrafts_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="overdrafts_loans" name="overdrafts_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->overdrafts_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td colspan="2">Others, Please specify:</td>
-                        <td><input type="number" class="form-control" id="others_loans" name="others_loans" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="others_loans" name="others_loans" placeholder="$" value="@if(isset($liabilities)){{$liabilities->others_loans}}@endif" ></td>
                     </tr>
                     <tr>
                         <td colspan="2"><h4>Total Liabilities:</h4></td>
-                        <td><input type="number" class="form-control" id="total_liabilities" name="total_liabilities" placeholder="Total" value="" readonly=""></td>
+                        <td><input type="number" class="form-control" id="total_liabilities" name="total_liabilities" placeholder="Total" value="{{$totalLiabilities}}" readonly=""></td>
                     </tr>
                 </tbody>
             </table>
@@ -143,8 +143,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
             <li><a href="javascript:;">1</a></li>
-            <li><a href="javascript:;">2</a></li>
-            <li><a href="javascript:;">3</a></li>
+            <li><a href="{{route('portfolio.list', $infoPfr->id)}}">2</a></li>
+            <li><a href="{{route('single_fact.balance.list', $infoPfr->id)}}">3</a></li>
             <li><a href="javascript:;">4</a></li>
             <li><a href="javascript:;">5</a></li>
             <li><a href="javascript:;">6</a></li>
@@ -169,10 +169,17 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
-                    console.log(res);
                     if(res['error']){
-                        alert(res['message']);
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
                     }else{
+                        location.reload();
                         alert(res['message']);
                     }
                 }
