@@ -50,7 +50,7 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="{{route('user.add_new')}}" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('user.add_new')}}" data-parsley-validate>
                     @csrf
                     <div class="form-group" id="form_role">
                         <label for="role">User Role<span>*</span></label>

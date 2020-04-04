@@ -51,7 +51,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <script src="{{asset('js/parsley.min.js')}}"></script>
     <script>
-      $('.form-control-user').parsley();
+      $('.parsley-form').parsley();
     </script>
     <script type="text/javascript">
         $(document).ready(function(){
