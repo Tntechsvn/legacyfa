@@ -19,8 +19,8 @@ class CreateBalancesTable extends Migration
                 $table->bigInteger('pfr_id')->unsigned();
                 $table->foreign('pfr_id')->references('id')->on('pfrs');
             }
-            $table->json('assets')->default('[]');
-            $table->json('liabilities')->default('[]');
+            $table->longText('assets')->default('[]');
+            $table->longText('liabilities')->default('[]');
             $table->text('reason')->nullable();
             $table->timestamps();
         });

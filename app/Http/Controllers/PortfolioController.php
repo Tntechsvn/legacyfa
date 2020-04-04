@@ -20,12 +20,21 @@ class PortfolioController extends Controller
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
-		$arrProperty = (array) json_decode($infoPortfolio->property);
-		$arrInvestment = (array) json_decode($infoPortfolio->investment);
-		$arrSaving = (array) json_decode($infoPortfolio->saving);
-		$arrCpf = (array) json_decode($infoPortfolio->cpf);
-		$arrInsurance = (array) json_decode($infoPortfolio->insurance);
-		$arrLoan = (array) json_decode($infoPortfolio->loan);
+		if ($infoPortfolio) {
+			$arrProperty = (array) json_decode($infoPortfolio->property);
+			$arrInvestment = (array) json_decode($infoPortfolio->investment);
+			$arrSaving = (array) json_decode($infoPortfolio->saving);
+			$arrCpf = (array) json_decode($infoPortfolio->cpf);
+			$arrInsurance = (array) json_decode($infoPortfolio->insurance);
+			$arrLoan = (array) json_decode($infoPortfolio->loan);
+		} else {
+			$arrProperty = array();
+			$arrInvestment = array();
+			$arrSaving = array();
+			$arrCpf = array();
+			$arrInsurance = array();
+			$arrLoan = array();
+		}
 		return view('pages.single-fact.portfolio.list', compact('infoPfr', 'infoPortfolio', 'arrProperty', 'arrInvestment', 'arrSaving', 'arrCpf', 'arrInsurance', 'arrLoan'));
 	}
 
