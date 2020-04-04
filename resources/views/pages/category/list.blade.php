@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new">Add Category</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new"><i class="fas fa-plus-circle"></i>Add Category</button>
             <a class="link-trash textright" href="{{route('category.list_trash')}}">Trash</a>
         </div>
         <table id="list-category-page" class="table table-content table-style1" style="width:100%">
@@ -53,14 +53,16 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="{{route('category_plan.add_new')}}" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('category_plan.add_new')}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="name">Category<span>*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Category Name" value="">
-                        <span class="error">{{$errors->first('name')}}</span>
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Category Name" value="" data-parsley-trigger="change" required="">
+                            <span class="error">{{$errors->first('name')}}</span>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>
@@ -79,14 +81,16 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_edit" id='form_edit' class="form-control-popup" method="post" action="{{route('category_plan.add_new')}}" data-parsley-validate>
+                <form name="form_edit" id='form_edit' class="form-control-popup parsley-form" method="post" action="{{route('category_plan.add_new')}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="name_category">Category<span>*</span></label>
-                        <input type="text" class="form-control" id="name_category" name="name_category" placeholder="Category Name" value="">
-                        <span class="error">{{$errors->first('name')}}</span>
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="name_category" name="name_category" placeholder="Category Name" value="" data-parsley-trigger="change" required="">
+                            <span class="error">{{$errors->first('name')}}</span>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>

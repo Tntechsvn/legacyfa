@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new">Add Rider</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_new"><i class="fas fa-plus-circle"></i>Add Rider</button>
             <a class="link-trash textright" href="{{route('rider.list_trash')}}">Trash</a>
         </div>
         <table id="list-rider-page" class="table table-content table-style1" style="width:100%">
@@ -54,25 +54,31 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="{{route('rider.add_new')}}" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('rider.add_new')}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="plan">Associated Plans<span>*</span></label>
-                        <select name="plan[]" id="plan" class="form-control" multiple >
-                            @foreach($listPlan as $plan)
-                            <option value="{{$plan->id}}">{{$plan->name}}</option>
-                            @endforeach
-                        </select>
+                        <div class="custom-input-modal">
+                            <select name="plan[]" id="plan" class="form-control" multiple data-parsley-trigger="change" required="">
+                                @foreach($listPlan as $plan)
+                                <option value="{{$plan->id}}">{{$plan->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="name">Rider Name<span>*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Rider Name" value="">
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Rider Name" value="" data-parsley-trigger="change" required="">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="featured">Rider Featured<span>*</span></label>
-                        <textarea class="featured" rows="5" name="featured" id="featured" placeholder="Rider Featured"> </textarea>
+                        <div class="custom-input-modal">
+                            <textarea class="featured" rows="5" name="featured" id="featured" placeholder="Rider Featured" data-parsley-trigger="change" required=""> </textarea>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>
@@ -91,25 +97,31 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_edit" id='form_edit' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_edit" id='form_edit' class="form-control-popup parsley-form" method="post" action="" data-parsley-validate>
                     @csrf
-                    <div class="form-group" id="form_plan">
+                    <div class="form-group form-group-modal" id="form_plan">
                         <label for="plan_edit">Associated Plans<span>*</span></label>
-                        <select name="plan_edit[]" id="plan_edit" class="form-control" multiple >
-                            @foreach($listPlan as $plan)
-                            <option value="{{$plan->id}}">{{$plan->name}}</option>
-                            @endforeach
-                        </select>
+                        <div class="custom-input-modal">
+                            <select name="plan_edit[]" id="plan_edit" class="form-control" multiple data-parsley-trigger="change" required="">
+                                @foreach($listPlan as $plan)
+                                <option value="{{$plan->id}}">{{$plan->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="name_edit">Rider Name<span>*</span></label>
-                        <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Rider Name" value="">
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Rider Name" value="" data-parsley-trigger="change" required="">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="featured_edit">Rider Featured<span>*</span></label>
-                        <textarea class="featured_edit" rows="5" name="featured_edit" id="featured_edit" placeholder="Rider Featured"> </textarea>
+                        <div class="custom-input-modal">
+                            <textarea class="featured_edit" rows="5" name="featured_edit" id="featured_edit" placeholder="Rider Featured" data-parsley-trigger="change" required=""> </textarea>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>

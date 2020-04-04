@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"{{--  data-toggle="modal" data-target="#modal_add_new" --}}>Add User</button>
+            <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"{{--  data-toggle="modal" data-target="#modal_add_new" --}}><i class="fas fa-plus-circle"></i> Add User</button>
             <a class="link-trash textright" href="{{route('user.list_trash')}}">Trash</a>
         </div>
         <table id="list-user" class="table table-content table-style1" style="width:100%">
@@ -50,38 +50,50 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('user.add_new')}}" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('user.add_new')}}" data-parsley-validate="">
                     @csrf
-                    <div class="form-group" id="form_role">
+                    <div class="form-group form-group-modal" id="form_role">
                         <label for="role">User Role<span>*</span></label>
-                        <select name="role" id="role" class="form-control">
-                            <option value="0">Select</option>
-                            @foreach($listRole as $role)
-                            <option value="{{$role->id}}">{{$role->name}}</option>
-                            @endforeach
-                        </select>
+                        <div class="custom-input-modal">
+                            <select name="role" id="role" class="form-control">
+                                <option value="0">Select</option>
+                                @foreach($listRole as $role)
+                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="full_name">Full Name<span>*</span></label>
-                        <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" value="">
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" value="">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="preferred_name">Preferred Name<span>*</span></label>
-                        <input type="text" class="form-control" id="preferred_name" name="preferred_name" placeholder="Preferred Name" value="">
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="preferred_name" name="preferred_name" placeholder="Preferred Name" value="">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="email">Email<span>*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="">
+                        <div class="custom-input-modal">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" data-parsley-trigger="change" required>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="password">Password<span>*</span></label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="******" value="">
+                        <div class="custom-input-modal">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="******" value="">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="password_confirmation">Re-Type Password<span>*</span></label>
-                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password" value="">
+                        <div class="custom-input-modal">
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password" value="">
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     <input type="hidden" id="row" name="row" value="">
                 </form>
             </div>

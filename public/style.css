@@ -179,7 +179,7 @@ img.aligncenter{
 
 /* STYLE THEMES */
 body{
-	background:#fff;
+	background:#f4f4f1;
 }
 /* siderbar */
 .sidebar{
@@ -607,14 +607,17 @@ body{
 }
 .addnewelm button{
 	height:35px;
-	width:100px;
+	width:auto;
 	border:none;
 	color:#fff;
 	-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;
 	background:#00aeef;
-	padding:0;
+	padding:0 15px;
 	text-align: center;
 	line-height:35px;
+}
+.addnewelm button i{
+	margin-right:5px;
 }
 
 /* Login Page*/
@@ -686,7 +689,6 @@ body.show_form_login .container{
 	line-height: 28px;
 	text-align: center;
 	display: block;
-	border:1px solid #ededed;
 	background: #fff;
 }
 .step-link ul li.active a{
@@ -718,4 +720,86 @@ body.show_form_login .container{
 	margin-left:auto;
 	margin-right: auto;
 	display: block;
+}
+/* MODAL FORM */
+.form-group-modal{
+	padding-left:70px;
+	padding-right:70px;
+}
+.form-group-modal > label{
+	width:25%;
+	float:left;
+	font-size: 14px;
+	font-weight: 400;
+	color:#333;
+	margin-top: 5px;
+}
+.form-group-modal label span{
+	margin-left:3px;
+	color:#ff0303;
+}
+.form-group-modal .custom-input-modal{
+	width:75%;
+	float:left;
+}
+.custom-input-modal textarea{
+	height:150px;
+	resize: none;
+	width:100%;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	padding:6px 12px;
+}
+.form-group-modal .custom-input-modal ul{
+	margin-top:5px;
+}
+.modal-body button.style-button1{
+	width:100px;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+	text-align:center;
+	background:#00aeef;
+	font-weight: 100;
+	border:none;
+	padding:0;
+}
+/* ADD NEW FORM */
+.form-layout-row{
+	padding-left:15%;
+	padding-right: 15%;
+}
+.form-layout-row > label{
+	width:30%;
+	float:left;
+	font-size: 14px;
+	font-weight: 400;
+	color:#333;
+	margin-top: 5px;
+}
+.form-layout-row label span{
+	margin-left:3px;
+	color:#ff0303;
+}
+.custom-input-layout-row{
+	width:70%;
+	float:right;
+}
+button.style-button1{
+	width:100px;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+	text-align:center;
+	background:#00aeef;
+	font-weight: 100;
+	border:none;
+	padding:0;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.noti-alert{
+	color:#ff0202;
+	font-size: 12px;
 }

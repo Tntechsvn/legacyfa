@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary" id="add_dependants" data-toggle="modal" data-target="#modal_add_new">Add Dependants</button>
+            <button type="button" class="btn btn-primary" id="add_dependants" data-toggle="modal" data-target="#modal_add_new"><i class="fas fa-plus-circle"></i>Add Dependants</button>
             <a class="link-trash textright" href="{{route('singlefact.dependant.list_trash', $infoPfr->id)}}">Trash</a>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
@@ -72,47 +72,62 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup" method="post" action="{{route('singlefact.dependant.add_new', $infoPfr->id)}}" data-parsley-validate>
+                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('singlefact.dependant.add_new', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="title">Title<span>*</span></label>
-                        <select name="title" id="title" class="form-control">
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Ms">Ms</option>
-                            <option value="Dr">Dr</option>
-                            <option value="Mdm">Mdm</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="title" id="title" class="form-control">
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                                <option value="Mdm">Mdm</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="name">Name<span>*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="relationship">Relationship<span>*</span></label>
-                        <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Name" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Name" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="birthday">Date of Birth<span>*</span></label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="" >
+                        <div class="custom-input-modal">
+                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="age">Age<span>*</span></label>
-                        <input type="number" class="form-control" id="age" name="age" placeholder="Age" value="" >
+                        <div class="custom-input-modal">
+                            <input type="number" class="form-control" id="age" name="age" placeholder="Age" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" id="male" value="0" checked>Male
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" id="female" value="1">Female 
-                        </label>
+                    <div class="form-group form-group-modal">
+                        <label for="age">Gender<span>*</span></label>
+                        <div class="custom-input-modal">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="male" value="0" checked>Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="female" value="1">Female 
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="year_sp">Years to Support<span>*</span></label>
-                        <input type="number" class="form-control" id="year_sp"  name="year_sp" placeholder="Years to Support" value="" >
+                        <div class="custom-input-modal">
+                            <input type="number" class="form-control" id="year_sp"  name="year_sp" placeholder="Years to Support" value="" >
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>
@@ -131,47 +146,62 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_edit" id='form_edit' class="form-control-popup" method="post" action="" data-parsley-validate>
+                <form name="form_edit" id='form_edit' class="form-control-popup parsley-form" method="post" action="" data-parsley-validate>
                     @csrf
-                    <div class="form-group" id="form_title">
+                    <div class="form-group form-group-modal" id="form_title">
                         <label for="title_edit">Title<span>*</span></label>
-                        <select name="title_edit" id="title_edit" class="form-control">
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Ms">Ms</option>
-                            <option value="Dr">Dr</option>
-                            <option value="Mdm">Mdm</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="title_edit" id="title_edit" class="form-control">
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                                <option value="Mdm">Mdm</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="name_edit">Name<span>*</span></label>
-                        <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Name" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Name" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="relationship_edit">Relationship<span>*</span></label>
-                        <input type="text" class="form-control" id="relationship_edit" name="relationship_edit" placeholder="Name" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="relationship_edit" name="relationship_edit" placeholder="Name" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="birthday_edit">Date of Birth<span>*</span></label>
-                        <input type="date" class="form-control" id="birthday_edit" name="birthday_edit" placeholder="Date of Birth" value="" >
+                        <div class="custom-input-modal">
+                            <input type="date" class="form-control" id="birthday_edit" name="birthday_edit" placeholder="Date of Birth" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="age_edit">Age<span>*</span></label>
-                        <input type="number" class="form-control" id="age_edit" name="age_edit" placeholder="Age" value="" >
+                        <div class="custom-input-modal">
+                            <input type="number" class="form-control" id="age_edit" name="age_edit" placeholder="Age" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="radio-inline">
-                            <input type="radio" name="sex_edit" id="male_edit" value="0">Male
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex_edit" id="female_edit" value="1">Female 
-                        </label>
+                    <div class="form-group form-group-modal">
+                        <label for="age">Gender<span>*</span></label>
+                        <div class="custom-input-modal">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex_edit" id="male_edit" value="0">Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex_edit" id="female_edit" value="1">Female 
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="year_sp_edit">Years to Support<span>*</span></label>
-                        <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" >
+                        <div class="custom-input-modal">
+                            <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" >
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>
