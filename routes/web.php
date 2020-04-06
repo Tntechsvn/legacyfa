@@ -353,6 +353,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'CashFlowController@listCashFlow'
 			]);
 		});
+		Route::group(['prefix' => 'risk-profile'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.risk-profile',
+				'uses' => 'RiskProfileController@RiskProfile'
+			]);
+		});
 	});
 
 /*Joint Fact*/
