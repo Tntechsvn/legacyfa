@@ -347,6 +347,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'BalanceController@addNewBalance'
 			]);
 		});
+		Route::group(['prefix' => 'cash-flow'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.cash-flow',
+				'uses' => 'CashFlowController@listCashFlow'
+			]);
+		});
 	});
 
 /*Joint Fact*/
