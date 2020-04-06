@@ -23,12 +23,14 @@ class BalanceController extends Controller
 		$totalLiabilities = 0;
 		$infoBalance = $this->balance->infoBalanceForPfr($idPfr);
 		if ($infoBalance) {
-			$assets = json_decode($infoBalance->assets);
-			foreach((array) $assets as $val){
+			$dataAssets = json_decode($infoBalance->assets, true);
+			$assets = $dataAssets[0];
+			foreach($assets as $val){
 				$totalAssets += (int) $val;
 			}
-			$liabilities = json_decode($infoBalance->liabilities);
-			foreach((array) $liabilities as $val){
+			$dataLiabilities = json_decode($infoBalance->liabilities, true);
+			$liabilities = $dataLiabilities[0];
+			foreach($liabilities as $val){
 				$totalLiabilities += (int) $val;
 			}
 		}
@@ -49,7 +51,7 @@ class BalanceController extends Controller
 			], 200);
 		}
 
-		$assets = array(
+		$assets[] = array(
 			'residence_property' => $request->residence_property != null && $request->state == 0 ? $request->residence_property : "",
 			'investment_property' => $request->investment_property != null && $request->state == 0 ? $request->investment_property : "",
 			'bonds_investments' => $request->bonds_investments != null && $request->state == 0 ? $request->bonds_investments : "",
@@ -67,7 +69,25 @@ class BalanceController extends Controller
 			'others_value' => $request->others_value != null && $request->state == 0 ? $request->others_value : ""
 		);
 
-		$liabilities = array(
+		$assets[] = array(
+			'residence_property' => 0,
+			'investment_property' => 0,
+			'bonds_investments' => 0,
+			'unit_investments' => 0,
+			'stockshares_investments' => 0,
+			'other_investments' => 0,
+			'bank_savings' => 0,
+			'deposits_savings' => 0,
+			'ordinary_cpf' => 0,
+			'special_cpf' => 0,
+			'medisave_cpf' => 0,
+			'retirement_cpf' => 0,
+			'cash_insurance' => 0,
+			'account_balance' => 0,
+			'others_value' => 0
+		);
+
+		$liabilities[] = array(
 			'housing_loans' => $request->housing_loans != null && $request->state == 0 ? $request->housing_loans : "",
 			'vehicle_loans' => $request->vehicle_loans != null && $request->state == 0 ? $request->vehicle_loans : "",
 			'renovation_loans' => $request->renovation_loans != null && $request->state == 0 ? $request->renovation_loans : "",
@@ -78,11 +98,26 @@ class BalanceController extends Controller
 			'others_loans' => $request->others_loans != null && $request->state == 0 ? $request->others_loans : "",
 		);
 
+		$liabilities[] = array(
+			'housing_loans' => 0,
+			'vehicle_loans' => 0,
+			'renovation_loans' => 0,
+			'education_loans' => 0,
+			'credit_loans' => 0,
+			'personal_loans' => 0,
+			'overdrafts_loans' => 0,
+			'others_loans' => 0,
+		);
+
 		$infoBalanceForPfr = $this->balance->infoBalanceForPfr($idPfr);
 		if ($infoBalanceForPfr) {
+			$dataAssets = json_decode($infoBalanceForPfr->assets, true);
+			$dataAssets = $assets;
+			$dataLiabilities = json_decode($infoBalanceForPfr->liabilities, true);
+			$dataLiabilities = $liabilities;
 			$param = [
-				'assets' => json_encode($assets),
-				'liabilities' => json_encode($liabilities),
+				'assets' => json_encode($dataAssets),
+				'liabilities' => json_encode($dataLiabilities),
 				'reason' => $request->reason
 			];
 			$resultAddBalance = $this->balance->editBalance($idPfr, $param);

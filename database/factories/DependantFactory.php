@@ -10,7 +10,7 @@ $factory->define(App\Models\Dependant::class, function (Faker $faker) {
 		'pfr_id' => App\Models\Pfr::all()->random()->id,
 		'title' => $faker->randomElement(['Mr', 'Mrs', 'Ms', 'Dr', 'Mdm']),
 		'name' => $faker->name,
-		'relationship' => $faker->text,
+		'relationship' => $faker->sentence,
 		'dob' => $faker->date('Y-m-d'),
 		'age' => $faker->numberBetween(0, 70),
 		'gender' => $faker->numberBetween(0, 1),

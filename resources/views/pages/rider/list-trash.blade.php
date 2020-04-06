@@ -53,6 +53,7 @@
                     if(res['error']){
                         alert(res['message']);
                     }else{
+                        location.reload();
                         alert(res['message']);
                     }
                 }

@@ -151,6 +151,7 @@
                             });
                         }
                     }else{
+                        location.reload();
                         alert(res['message']);
                     }
                 }
@@ -190,6 +191,7 @@
                             });
                         }
                     }else{
+                        location.reload();
                         alert(res['message']);
                     }
                 }
@@ -214,6 +216,7 @@
                                 });
                             }
                         }else{
+                            location.reload();
                             alert(res['message']);
                         }
                     }

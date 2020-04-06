@@ -570,7 +570,7 @@ class PortfolioController extends Controller
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
 		if ($infoPortfolio) {
-			$loan = (array) json_encode($infoPortfolio->loan);
+			$loan = (array) json_decode($infoPortfolio->loan);
 			array_splice($loan, $position - 1, 1);
 			$param = array(
 				'loan' => $loan

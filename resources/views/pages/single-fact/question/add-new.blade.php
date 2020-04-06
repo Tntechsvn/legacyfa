@@ -93,6 +93,7 @@
                             });
                         }
                     }else{
+                        location.reload();
                         alert(res['message']);
                     }
                 }
