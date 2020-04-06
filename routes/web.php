@@ -347,10 +347,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'BalanceController@addNewBalance'
 			]);
 		});
-		Route::group(['prefix' => 'cash-flow'], function(){
+		Route::group(['prefix' => 'cash-flow/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'single_fact.cash-flow',
+				'as' => 'single_fact.cash_flow.list',
 				'uses' => 'CashFlowController@listCashFlow'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.cash_flow.add_new',
+				'uses' => 'CashFlowController@addNewCashFlow'
 			]);
 		});
 		Route::group(['prefix' => 'risk-profile'], function(){

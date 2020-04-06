@@ -108,6 +108,7 @@ class BalanceController extends Controller
 			'overdrafts_loans' => 0,
 			'others_loans' => 0,
 		);
+		$reason = $request->state == 1 && $request->reason != null ? $request->reason : null;
 
 		$infoBalanceForPfr = $this->balance->infoBalanceForPfr($idPfr);
 		if ($infoBalanceForPfr) {
@@ -118,7 +119,7 @@ class BalanceController extends Controller
 			$param = [
 				'assets' => json_encode($dataAssets),
 				'liabilities' => json_encode($dataLiabilities),
-				'reason' => $request->reason
+				'reason' => $reason
 			];
 			$resultAddBalance = $this->balance->editBalance($idPfr, $param);
 		} else {
@@ -126,7 +127,7 @@ class BalanceController extends Controller
 				'pfr_id' => $idPfr,
 				'assets' => json_encode($assets),
 				'liabilities' => json_encode($liabilities),
-				'reason' => $request->reason
+				'reason' => $reason
 			];
 			$resultAddBalance = $this->balance->addNewBalance($param);
 		}
