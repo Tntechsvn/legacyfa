@@ -22,24 +22,37 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="logo-login">
-                    <a href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" title=""/></a>
+                <div class="login-layout radius_4">
+                    <div class="logo-login">
+                        <a href="{{route('home')}}"><img src="{{asset('images/logo-login.png')}}" alt="" title=""/></a>
+                    </div>
+                    <form class="login-form" method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="form-group">
+                            <input class="radius_none" id="email" type="email" class="form-control"  name="email" value="{{ old('email') }}" required  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input class="radius_none" id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">N/A</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-submit">
+                            <button type="submit" class="btn radius_4">
+                                Login
+                            </button>
+                        </div>
+                        <a class="link-forgot" href="JavaScript:;">Forgot password?</a>
+                    </form>
+                    <div class="bottom-login">
+                            Copyright © 2020 Legacy FA Pte Ltd. All Rights Reserved.<br/>
+                            Terms of Use | Privacy Policy
+                        </div>
+                    <div class="clear"></div>
                 </div>
-
-                <form class="login-form" method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="form-group">
-                        <input class="radius_none" id="email" type="email" class="form-control"  name="email" value="{{ old('email') }}" required  placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input class="radius_none" id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="Password">
-                    </div>
-                    <div class="form-group form-group-submit">
-                        <button type="submit" class="btn radius_4">
-                            Login
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

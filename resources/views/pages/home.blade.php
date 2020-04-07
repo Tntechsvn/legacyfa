@@ -11,7 +11,21 @@
         <a class="textcenter radius_4" href=""><i class="fas fa-users"></i>Joint Fact Find</a>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="link-innerpage" href="{{route('pfr.list')}}">List PRF</a>
+        <div class="header-table-style1">
+            <div class="title-table-home">
+                <a class="link-innerpage" href="{{route('pfr.list')}}">
+                    <i class="fas fa-list-alt"></i>   
+                    <span class="name-table">List PRF</span>
+                    <span class="total-row">100 Record</span>
+                </a>
+            </div>
+            <div class="search-table-home">
+                <form class="" id="search_form" action="" method="">
+                    <input type="text" class="form-control" id="keyword-pfr" name="keyword-pfr" placeholder="Search..." value="">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-keysearchsearch"></i></button>
+                </form>
+            </div>
+        </div>
         <table id="table-pfr-home" class="table  table-content table-style1" style="width:100%">
             <thead>
                 <tr>

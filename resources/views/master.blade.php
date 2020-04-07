@@ -53,16 +53,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <script src="{{asset('js/parsley.min.js')}}"></script>
 
-    <script type="text/javascript">
-        $(function () {
-          $('.parsley-form').parsley().on('field:validated', function() {
-            var ok = $('.parsley-error').length === 0;
-          })
-          .on('form:submit', function() {
-            return false; // Don't submit form for this demo
-          });
-        });
-    </script>
+
     <script type="text/javascript">
         $(document).ready(function(){
             var nav = $("#sidebar");

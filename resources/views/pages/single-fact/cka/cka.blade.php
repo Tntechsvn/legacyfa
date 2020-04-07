@@ -3,7 +3,7 @@
 @section('content')
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>Customer Knowledge Assessment (CKA)<span>Must be completed if advice is given for Unlisted Specified Investment Products.</span></h4>
+        <h4>Cash Flow:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="" data-parsley-validate>

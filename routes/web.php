@@ -364,6 +364,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'RiskProfileController@RiskProfile'
 			]);
 		});
+		Route::group(['prefix' => 'cka'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.cka',
+				'uses' => 'CKAController@cka'
+			]);
+		});
 	});
 
 /*Joint Fact*/
