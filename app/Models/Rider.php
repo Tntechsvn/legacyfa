@@ -104,4 +104,10 @@ class Rider extends Model
         return $this->plans()->pluck('id');
     }
     /*END ATTRIBUTE*/
+
+    public function scopeKeyword($query, $keyword)
+    {
+        return $query
+                ->where('name', 'LIKE', '%'.$keyword.'%');
+    }
 }

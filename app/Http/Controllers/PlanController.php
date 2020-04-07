@@ -20,8 +20,9 @@ class PlanController extends Controller
 
 	public function listPlan(Request $request)
 	{
+		$keyword = $request->keyword ?? "";
 		$paginate = config('constants.PAGINATE_PLAN');
-		$listPlan = $this->plan->listPlanPaginate($request, $paginate);
+		$listPlan = $this->plan->keyword($keyword)->paginate($paginate);
 		$listCompany = $this->company->listCompany();
 		$listCategoryPlan = $this->categoryPlan->listCategoryPlan();
 		return view('pages.plan.list', compact('listPlan', 'listCompany', 'listCategoryPlan'));

@@ -8,6 +8,10 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
             <button type="button" class="btn btn-primary" id="add_company" data-toggle="modal" data-target="#modal_add_new"><i class="fas fa-plus-circle"></i>Add Company</button>
+            <form class="pull-right" method="get" action="">
+                <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                <i class="fa fa-search"></i>
+            </form>
             <a class="link-trash textright" href="{{route('company.list_trash')}}">Trash</a>
         </div>
         <table id="list-company-page" class="table  table-content table-style1" style="width:100%">

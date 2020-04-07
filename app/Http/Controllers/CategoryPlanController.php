@@ -16,8 +16,9 @@ class CategoryPlanController extends Controller
 
 	public function listCategoryPlan(Request $request)
 	{
+		$keyword = $request->keyword ?? "";
 		$paginate = config('constants.PAGINATE_CATEGORY_PLAN');
-		$listCategoryPlan = $this->categoryPlan->listCategoryPlanPaginate($request, $paginate);
+		$listCategoryPlan = $this->categoryPlan->keyword($keyword)->paginate($paginate);
 		return view('pages.category.list', compact('listCategoryPlan'));
 	}
 
