@@ -44,8 +44,10 @@ class UserController extends Controller
 
 	public function listUser(Request $request)
 	{
+		$keyword = $request->keyword ?? "";
 		$paginate = config('constants.PAGINATE_USER');
-		$listUser = $this->user->listUserPaginate($request, $paginate);
+		$listUser = $this->user->keyword($keyword)->paginate($paginate);
+		// $listUser = $this->user->listUserPaginate($request, $paginate);
 		$listRole = $this->role->listRole(Auth::user());
 		return view('pages.user.list', compact('listUser', 'listRole'));
 	}

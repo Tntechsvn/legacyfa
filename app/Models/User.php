@@ -111,4 +111,12 @@ class User extends Authenticatable
         return optional($this->role)->level;
     }
     /*END ATTRIBUTE*/
+
+    public function scopeKeyword($query, $keyword)
+    {
+        return $query->where('full_name', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('preferred_name', 'LIKE', '%'.$keyword.'%')
+                ->orWhere('email', 'LIKE', '%'.$keyword.'%');
+    }
+
 }
