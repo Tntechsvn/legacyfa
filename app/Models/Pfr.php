@@ -36,6 +36,11 @@ class Pfr extends Model
         return $this->hasMany('App\Models\Portfolio');
     }
 
+    public function riskProfile()
+    {
+        return $this->hasOne('App\Models\RiskProfile');
+    }
+
     /*QUERY*/
     public function listPfr($request)
     {
@@ -103,6 +108,11 @@ class Pfr extends Model
     	} else {
     		return "Join";
     	}
+    }
+
+    public function getDataRiskProfileAttribute()
+    {
+        return optional($this->riskProfile)->data;
     }
     /*END ATTRIBUTE*/
     
