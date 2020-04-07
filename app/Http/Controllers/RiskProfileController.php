@@ -39,16 +39,18 @@ class RiskProfileController extends Controller
 		foreach($request->except('_token', 'reason') as $key=>$val){
 			$data[$key] = $val;
 		}
-		$data['reason'] = $request->reason != null ? $request->reason : "";
+		$data['reason'] = $request->state == 1 && $request->reason != null ? $request->reason : "";
 		$param[] = $data;
 		$param[] = array(
 			'reason' => ''
 		);
 		
 		$infoRiskProfileForPfr = $this->riskProfile->infoRiskProfileForPfr($idPfr);
+		$edit = false;
 		if ($infoRiskProfileForPfr) {
+			$edit = true;
 			$param = [
-				'data' => json_encode($param),
+				'data' => json_encode($param)
 			];
 			$resultAddRiskProfile = $this->riskProfile->editRiskProfile($idPfr, $param);
 		} else {
@@ -60,14 +62,16 @@ class RiskProfileController extends Controller
 		}
 		
 		if ($resultAddRiskProfile) {
+			$message = $edit ? "Edit risk profile successfully" : "Add new risk profile successfully";
 			return response()->json([
 				'error' => false,
-				'message' => "Add new risk profile successfully"
+				'message' => $message
 			], 200);
 		} else {
+			$message = $edit ? "Edit risk profile error" : "Add new risk profile error";
 			return response()->json([
 				'error' => true,
-				'message' => "Add new risk profile error"
+				'message' => $message
 			], 200);
 		}
 	}

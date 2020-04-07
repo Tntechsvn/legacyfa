@@ -41,6 +41,11 @@ class Pfr extends Model
         return $this->hasOne('App\Models\RiskProfile');
     }
 
+    public function cka()
+    {
+        return $this->hasOne('App\Models\Cka');
+    }
+
     /*QUERY*/
     public function listPfr($request)
     {
@@ -113,6 +118,16 @@ class Pfr extends Model
     public function getDataRiskProfileAttribute()
     {
         return optional($this->riskProfile)->data;
+    }
+
+    public function getDataCkaAttribute()
+    {
+        return optional($this->cka)->data;
+    }
+
+    public function getReasonCkaAttribute()
+    {
+        return optional($this->cka)->reason;
     }
     /*END ATTRIBUTE*/
     

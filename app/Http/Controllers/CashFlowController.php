@@ -94,7 +94,9 @@ class CashFlowController extends Controller
 		$reason_plan = $request->state_cash_flow == 0 && $request->state_plan == 1 && $request->reason_plan != null ? $request->reason_plan : null;
 
 		$infoCashFlowForPfr = $this->cashFlow->infoCashFlowForPfr($idPfr);
+		$edit = false;
 		if ($infoCashFlowForPfr) {
+			$edit = true;
 			$dataIncome = json_decode($infoCashFlowForPfr->income, true);
 			$dataIncome = $income;
 			$dataExpenses = json_decode($infoCashFlowForPfr->expenses, true);
@@ -117,14 +119,16 @@ class CashFlowController extends Controller
 			$resultAddCashFlow = $this->cashFlow->addNewCashFlow($param);
 		}
 		if ($resultAddCashFlow) {
+			$message = $edit ? "Edit cash flow successfully" : "Add new cash flow successfully";
 			return response()->json([
 				'error' => false,
-				'message' => "Add new cash flow successfully"
+				'message' => $message
 			], 200);
 		} else {
+			$message = $edit ? "Edit cash flow error" : "Add new cash flow error";
 			return response()->json([
 				'error' => true,
-				'message' => "Add new cash flow error"
+				'message' => $message
 			], 200);
 		}
 	}
