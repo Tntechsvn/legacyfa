@@ -20,9 +20,9 @@
                 </a>
             </div>
             <div class="search-table-home">
-                <form class="" id="search_form" action="" method="">
-                    <input type="text" class="form-control" id="keyword-pfr" name="keyword-pfr" placeholder="Search..." value="">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-keysearchsearch"></i></button>
+                <form class="pull-right" method="get" action="">
+                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                    <i class="fa fa-search"></i>
                 </form>
             </div>
         </div>
@@ -63,7 +63,21 @@
     </div>
     <div class="section second-section">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <a class="link-innerpage" href="{{route('user.list')}}">List User</a>
+            <div class="header-table-style1">
+                <div class="title-table-home">
+                    <a class="link-innerpage" href="{{route('user.list')}}">
+                        <i class="fas fa-list-alt"></i>   
+                        <span class="name-table">Plans</span>
+                        <span class="total-row">1B Plans</span>
+                    </a>
+                </div>
+                <div class="search-table-home">
+                    <form class="pull-right" method="get" action="">
+                        <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+            </div>
             <table id="user-list" class="table  table-content table-style1" style="width:100%">
                 <thead>
                     <tr>
@@ -92,7 +106,21 @@
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-             <a class="link-innerpage" href="{{route('plan.list')}}">Plan and Rider</a>
+             <div class="header-table-style1">
+                <div class="title-table-home">
+                     <a class="link-innerpage" href="{{route('plan.list')}}">
+                        <i class="fas fa-list-alt"></i>   
+                        <span class="name-table">List User</span>
+                        <span class="total-row">1M User</span>
+                    </a>
+                </div>
+                <div class="search-table-home">
+                    <form class="pull-right" method="get" action="">
+                        <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+            </div>
             <table id="user-list" class="table  table-content table-style1" style="width:100%">
                 <thead>
                     <tr>
