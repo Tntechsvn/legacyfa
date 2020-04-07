@@ -8,8 +8,12 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"{{--  data-toggle="modal" data-target="#modal_add_new" --}}><i class="fas fa-plus-circle"></i> Add User</button>
-            <a class="link-trash textright" href="{{route('user.list_trash')}}">Trash</a>
+            <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"><i class="fas fa-plus-circle"></i> Add User</button>
+            <form class="pull-right" method="get" action="">
+                <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                <i class="fa fa-search"></i>
+            </form>
+            <a class="pull-right link-trash textright" href="{{route('user.list_trash')}}">Trash</a>
         </div>
         <table id="list-user" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -31,9 +35,9 @@
         </table>
         <div class="bottom-table">
             <div class="viewall-table">
-                <p>Number of rows {{ $listUser->total() }} </p>
+                <p>Number of rows {{ $listUser->total() ?? "N/A" }} </p>
             </div>
-            <div class="paginate-style">{{$listUser->links()}}</div>
+            <div class="paginate-style">{{$listUser->appends($_GET)->links()}}</div>
         </div>
     </div>
 </div>
@@ -50,13 +54,13 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form" method="post" action="{{route('user.add_new')}}" data-parsley-validate="">
+                <form name="form_add_new" id='form_add_new' class="form-control-popup parsley-form1" method="post" action="{{route('user.add_new')}}" data-parsley-validate="">
                     @csrf
                     <div class="form-group form-group-modal" id="form_role">
                         <label for="role">User Role<span>*</span></label>
                         <div class="custom-input-modal">
-                            <select name="role" id="role" class="form-control">
-                                <option value="0">Select</option>
+                            <select name="role" id="role" class="form-control" required>
+                                <option value="">Select</option>
                                 @foreach($listRole as $role)
                                 <option value="{{$role->id}}">{{$role->name}}</option>
                                 @endforeach
@@ -66,13 +70,13 @@
                     <div class="form-group form-group-modal">
                         <label for="full_name">Full Name<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" value="">
+                            <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Full Name" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="preferred_name">Preferred Name<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="text" class="form-control" id="preferred_name" name="preferred_name" placeholder="Preferred Name" value="">
+                            <input type="text" class="form-control" id="preferred_name" name="preferred_name" placeholder="Preferred Name" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
@@ -84,13 +88,13 @@
                     <div class="form-group form-group-modal">
                         <label for="password">Password<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="******" value="">
+                            <input type="password" class="form-control" id="password" name="password" value="">
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="password_confirmation">Re-Type Password<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password" value="">
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
@@ -175,22 +179,6 @@
                     }
                 }
             });
-        });
-
-        $('.edit1').on('click', function(){
-            var id = $(this).data('id');
-            var full_name = $(this).data('full-name');
-            var preferred_name = $(this).data('preferred-name');
-            var email = $(this).data('email');
-            var role = $(this).data('role');
-            var url = $(this).data('url');
-
-            $('#modal_edit').modal('show');
-            $('#email_edit').val(email);
-            $('#full_name_edit').val(full_name);
-            $('#preferred_name_edit').val(preferred_name);
-            $("div#form_role select").val(role);
-            $('#form_edit').attr('action', url);
         });
 
         $('.delete').on('click', function(){
