@@ -331,10 +331,10 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
             <li><a href="javascript:;">1</a></li>
-            <li><a href="{{route('portfolio.list', $infoPfr->id)}}">2</a></li>
-            <li><a href="{{route('single_fact.balance.list', $infoPfr->id)}}">3</a></li>
-            <li><a href="javascript:;">4</a></li>
-            <li><a href="javascript:;">5</a></li>
+            <li><a href="{{route('single_fact.balance.list', $infoPfr->id)}}">2</a></li>
+            <li><a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}">3</a></li>
+            <li><a href="{{route('portfolio.list', $infoPfr->id)}}">4</a></li>
+            <li><a href="{{route('single_fact.risk_profile.list', $infoPfr->id)}}">5</a></li>
             <li><a href="javascript:;">6</a></li>
             <li><a href="javascript:;">7</a></li>
             <li><a href="javascript:;">8</a></li>

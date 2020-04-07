@@ -213,6 +213,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		// 	'as' => 'single-fact.edit',
 		// 	'uses' => 'SingleFactController@editSingleFact'
 		// ]);
+		
 		Route::group(['prefix' => 'dependants/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'singlefact.dependant.list',
@@ -347,6 +348,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'BalanceController@addNewBalance'
 			]);
 		});
+
 		Route::group(['prefix' => 'cash-flow/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.cash_flow.list',
@@ -358,10 +360,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'CashFlowController@addNewCashFlow'
 			]);
 		});
-		Route::group(['prefix' => 'risk-profile'], function(){
+
+		Route::group(['prefix' => 'risk-profile/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'single_fact.risk-profile',
-				'uses' => 'RiskProfileController@RiskProfile'
+				'as' => 'single_fact.risk_profile.list',
+				'uses' => 'RiskProfileController@listRiskProfile'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.risk_profile.add_new',
+				'uses' => 'RiskProfileController@addNewRiskProfile'
 			]);
 		});
 		Route::group(['prefix' => 'cka'], function(){
