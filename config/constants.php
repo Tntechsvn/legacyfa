@@ -103,5 +103,61 @@ return [
 				'e' => 'Options, futures, warrants'
 			]
 		],
+	],
+
+	'CKA_Questionnaire' => [
+		[
+			'name' => 'Do you have a Diploma or higher qualification(s) in any of the following?',
+			'answers' => [
+				'a' => 'Accountancy',
+				'b' => 'Economics',
+				'c' => 'Actuarial Science', 
+				'd' => 'Finance',
+				'e' => 'Capital Markets',
+				'f' => 'Financial Engineering',
+				'g' => 'Commerce',
+				'h' => 'Financial Planning',
+				'i' => 'Computational Finance',
+				'j' => 'Insurance',
+				'k' => 'Business / Business Administration / Business Management / Business Studies'
+			]
+		],
+
+		[
+			'name' => 'Do you have a professional finance-related qualification(s) in any of the following?',
+			'answers' => [
+				'a' => 'Chartered Financial Analyst (CFA)',
+				'b' => 'Chartered Financial Consultant (ChFC)',
+				'c' => 'Association of Chartered Certified Accountants (ACCA)', 
+				'd' => 'Associate Financial Planner (AFP)',
+				'e' => 'Chartered Institute of Securities & Investment',
+				'f' => 'Associate Wealth Planner',
+				'g' => 'Chartered Alternative Investment Analyst (CAIA)',
+				'h' => 'Certified Financial Planner (CFP)',
+				'i' => 'Certified Financial Technician (CFTe)',
+				'j' => 'CMFAS Exams (M8 & M8A, or M9 & M9A, or M6 & M7)',
+				'k' => 'Financial Risk Manager (FRM)'
+			]
+		],
+
+		[
+			'name' => 'Have you transacted at least 6 times in a Collective Investment Scheme (eg. Unit Trust) or Investment Linked Policy (ILP) in the last 3 years?',
+			'answers' => [
+				'a' => 'Unit Trust',
+				'b' => 'Investment-linked Policy'
+			]
+		],
+
+		[
+			'name' => 'Do you have at least 3 consecutive years of working experience for the last 10 years in any of the following?',
+			'answers' => [
+				'a' => 'Accountancy',
+				'b' => 'Actuarial Science',
+				'c' => 'Treasury',
+				'd' => 'Financial Risk Management',
+				'e' => 'Provision of legal advice in relevant financial areas',
+				'f' => 'Development / Structuring / Management / Training / Sale / Trading /Research on and Analysis of Investment'
+			]
+		],
 	]
 ];

@@ -8,30 +8,32 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="" data-parsley-validate>
             @csrf
-            @php $questions = json_decode(json_encode(config('constants.Risk_Profile_Questionnaire'))); @endphp 
+            @php $questions = json_decode(json_encode(config('constants.CKA_Questionnaire'))); @endphp 
             <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
                 <tbody>
                     @foreach($questions as $key=>$q)
                     <tr>
-                        <td>Q{{$key+1}}) {{$q->name}}</td>
+                        <td>{{$key+1}}. {{$q->name}}</td>
                         <td>
+                            <div class="radio">
+                                <label><input type="radio" name="name{{$key}}" checked>Yes</label>
+                            </div>
                             @foreach($q->answers as $key=>$a)
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="" id value="0">
-                                  <label class="form-check-label" for="gridRadios2">
-                                    {{$a}}
-                                  </label>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">{{$a}}</label>
                                 </div>
                             @endforeach
+                            <div class="radio">
+                                <label><input type="radio" name="name{{$key}}">No</label>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="custom-bg-text">
-                Risk Profile Assessment Outcome:<br/>
-                Capital Preservation.
-            </div>
+                 h4>RESULT:</h4>   
+                YOU HAVE MET the Customer Knowledge Assessment criteria and am deemed to posses the knowledge or experience for transactions In a Collective Investment Scheme or an Investment Linked Policy.
             <div class="form-group form-layout-row">
                 <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
