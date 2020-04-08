@@ -109,4 +109,10 @@ class Plan extends Model
         return optional($this->company)->name;
     }
     /*END ATTRIBUTE*/
+
+    public function scopeKeyword($query, $keyword)
+    {
+        return $query
+                ->where('name', 'LIKE', '%'.$keyword.'%');
+    }
 }

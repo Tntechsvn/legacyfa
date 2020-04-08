@@ -18,9 +18,10 @@ class RiderController extends Controller
 
 	public function listRider(Request $request)
 	{
+		$keyword = $request->keyword ?? "";
 		$listPlan = $this->plan->listPlan();
 		$paginate = config('constants.PAGINATE_RIDER');
-		$listRider = $this->rider->listRiderPaginate($request, $paginate);
+		$listRider = $this->rider->keyword($keyword)->paginate($paginate);
 		return view('pages.rider.list', compact('listPlan', 'listRider'));
 	}
 

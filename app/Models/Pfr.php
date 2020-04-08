@@ -137,4 +137,10 @@ class Pfr extends Model
         
         return static::where('id', $id)->first();
     }
+
+    public function scopeKeyword($query, $keyword)
+    {
+        return $query->join('clients', 'pfrs.id', '=', 'clients.pfr_id')
+                ->where('clients.name', 'LIKE', '%'.$keyword.'%');
+    }
 }

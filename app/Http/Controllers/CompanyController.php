@@ -16,8 +16,9 @@ class CompanyController extends Controller
 
 	public function listCompany(Request $request)
 	{
+		$keyword = $request->keyword ?? "";
 		$paginate = config('constants.PAGINATE_COMPANY');
-		$listCompany = $this->company->listCompanyPaginate($request, $paginate);
+		$listCompany = $this->company->keyword($keyword)->paginate($paginate);
 		return view('pages.company.list', compact('listCompany'));
 	}
 

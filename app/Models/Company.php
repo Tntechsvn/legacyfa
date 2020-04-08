@@ -87,4 +87,10 @@ class Company extends Model
         return static::where('id', '<>', $id)->where('name', $name)->count();
     }
     /*END QUERY*/
+
+    public function scopeKeyword($query, $keyword)
+    {
+        return $query
+                ->where('name', 'LIKE', '%'.$keyword.'%');
+    }
 }

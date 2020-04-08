@@ -20,7 +20,7 @@
                 </a>
             </div>
             <div class="search-table-home">
-                <form class="pull-right" method="get" action="">
+                <form class="pull-right" method="get" action="{{route('pfr.list')}}">
                     <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
                     <i class="fa fa-search"></i>
                 </form>
@@ -72,7 +72,7 @@
                     </a>
                 </div>
                 <div class="search-table-home">
-                    <form class="pull-right" method="get" action="">
+                    <form class="pull-right" method="get" action="{{route('user.list')}}">
                         <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
                         <i class="fa fa-search"></i>
                     </form>
@@ -115,7 +115,7 @@
                     </a>
                 </div>
                 <div class="search-table-home">
-                    <form class="pull-right" method="get" action="">
+                    <form class="pull-right" method="get" action="{{route('company.list')}}">
                         <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
                         <i class="fa fa-search"></i>
                     </form>
