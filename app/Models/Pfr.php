@@ -46,6 +46,11 @@ class Pfr extends Model
         return $this->hasOne('App\Models\Cka');
     }
 
+    public function prioritiesNeed()
+    {
+        return $this->hasOne('App\Models\PrioritiesNeed');
+    }
+
     /*QUERY*/
     public function listPfr($request)
     {
@@ -129,18 +134,23 @@ class Pfr extends Model
     {
         return optional($this->cka)->reason;
     }
+
+    public function getRatePrioritiesNeedAttribute()
+    {
+        return optional($this->prioritiesNeed)->rate;
+    }
     /*END ATTRIBUTE*/
     
     /* DOWNLOAD PDF*/
     public function downloadPdf($id)
     {
-        
+
         return static::where('id', $id)->first();
     }
 
     public function scopeKeyword($query, $keyword)
     {
         return $query->join('clients', 'pfrs.id', '=', 'clients.pfr_id')
-                ->where('clients.name', 'LIKE', '%'.$keyword.'%');
+        ->where('clients.name', 'LIKE', '%'.$keyword.'%');
     }
 }
