@@ -372,10 +372,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'RiskProfileController@addNewRiskProfile'
 			]);
 		});
-		Route::group(['prefix' => 'cka'], function(){
+		Route::group(['prefix' => 'cka/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'single_fact.cka',
-				'uses' => 'CKAController@cka'
+				'as' => 'single_fact.cka.list',
+				'uses' => 'CKAController@listCka'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.cka.add_new',
+				'uses' => 'CKAController@addNewCka'
 			]);
 		});
 	});

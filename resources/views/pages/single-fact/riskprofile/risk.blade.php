@@ -8,7 +8,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.risk_profile.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
-            @php $questions = json_decode(json_encode(config('constants.Risk_Profile_Questionnaire'))); $dataRiskProfile = json_decode($infoPfr->dataRiskProfile, true);
+            @php $questions = json_decode(json_encode(config('constants.Risk_Profile_Questionnaire')));
+
+            $dataRiskProfile = json_decode($infoPfr->dataRiskProfile, true);
             @endphp
             <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
                 <tbody>
@@ -63,7 +65,7 @@
         <li><a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}">3</a></li>
         <li><a href="{{route('portfolio.list', $infoPfr->id)}}">4</a></li>
         <li><a href="{{route('single_fact.risk_profile.list', $infoPfr->id)}}">5</a></li>
-        <li><a href="javascript:;">6</a></li>
+        <li><a href="{{route('single_fact.cka.list', $infoPfr->id)}}">6</a></li>
         <li><a href="javascript:;">7</a></li>
         <li><a href="javascript:;">8</a></li>
         <li><a href="javascript:;">9</a></li>

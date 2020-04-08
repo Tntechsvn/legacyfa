@@ -111,7 +111,9 @@ class BalanceController extends Controller
 		$reason = $request->state == 1 && $request->reason != null ? $request->reason : null;
 
 		$infoBalanceForPfr = $this->balance->infoBalanceForPfr($idPfr);
+		$edit = false;
 		if ($infoBalanceForPfr) {
+			$edit = true;
 			$dataAssets = json_decode($infoBalanceForPfr->assets, true);
 			$dataAssets = $assets;
 			$dataLiabilities = json_decode($infoBalanceForPfr->liabilities, true);
@@ -133,14 +135,16 @@ class BalanceController extends Controller
 		}
 		
 		if ($resultAddBalance) {
+			$message = $edit ? "Edit balance successfully" : "Add new balance successfully";
 			return response()->json([
 				'error' => false,
-				'message' => "Add new balance successfully"
+				'message' => $message
 			], 200);
 		} else {
+			$message = $edit ? "Edit balance error" : "Add new balance error";
 			return response()->json([
 				'error' => true,
-				'message' => "Add new balance error"
+				'message' => $message
 			], 200);
 		}
 	}

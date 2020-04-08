@@ -335,7 +335,7 @@
             <li><a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}">3</a></li>
             <li><a href="{{route('portfolio.list', $infoPfr->id)}}">4</a></li>
             <li><a href="{{route('single_fact.risk_profile.list', $infoPfr->id)}}">5</a></li>
-            <li><a href="javascript:;">6</a></li>
+            <li><a href="{{route('single_fact.cka.list', $infoPfr->id)}}">6</a></li>
             <li><a href="javascript:;">7</a></li>
             <li><a href="javascript:;">8</a></li>
             <li><a href="javascript:;">9</a></li>
