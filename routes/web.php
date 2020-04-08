@@ -383,6 +383,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'CKAController@addNewCka'
 			]);
 		});
+		Route::group(['prefix' => 'priorities-needs'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.priorities-needs',
+				'uses' => 'PrioritiesNeedsController@listPrioritiesNeeds'
+			]);
+		});
 	});
 
 /*Joint Fact*/

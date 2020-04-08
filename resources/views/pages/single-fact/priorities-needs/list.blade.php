@@ -32,134 +32,61 @@
                         <td>To Plan For</td>
                     </tr>
                 </thead>
+                @php
+                    $arr = array(
+                        'Income Protection Upon Death',
+                        'Fund Disability Income / Expenses',
+                        'Fund Critical Illness Expenses',
+                        'Fund Children is Education',
+                        'Fund Medium to Long Term Savings / Investment Needs / Other Goals',
+                        'Fund Retirement Lifestyle',
+                        'Cover for Personal Accident',
+                        'Fund Long Term Care',
+                        'Fund Hospital Expenses');
+                        $i=0;
+                @endphp
                 <tbody>
+                    @foreach( $arr as $key=>$name )
                     <tr>
-                        <td>Income Protection Upon Death</td>
+                        <td>{{ $name }}</td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1trate1" checked>
-                            </div>
+                            <input type="radio" name="clien1trate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1rate1">
-                            </div>
+                            <input type="radio" name="clien1rate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1rate1">
-                            </div>
+                            <input type="radio" name="clien1rate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1goplan1">
-                            </div>
+                            <input type="radio" name="clien1goplan{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2trate1" checked>
-                            </div>
+                            <input type="radio" name="clien2trate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2rate1">
-                            </div>
+                            <input type="radio" name="clien2rate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2rate1">
-                            </div>
+                            <input type="radio" name="clien2rate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2goplan1">
-                            </div>
+                            <input type="radio" name="clien2goplan{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="dependent1trate1" checked>
-                            </div>
+                            <input type="radio" name="dependent1trate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="dependentclien1rate1">
-                            </div>
+                            <input type="radio" name="dependentclien1rate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="dependentclien1rate1">
-                            </div>
+                            <input type="radio" name="dependentclien1rate{{$key+1}}">
                         </td>
                         <td>
-                            <div class="radio">
-                                <input type="radio" name="dependentclien1goplan1">
-                            </div>
+                            <input type="radio" name="dependentclien1goplan{{$key+1}}">
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>Income Protection Upon Death</td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1trate1" checked>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1rate1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1rate1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien1goplan1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2trate1" checked>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2rate1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2rate1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="clien2goplan1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="dependent1trate1" checked>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="dependentclien1rate1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="dependentclien1rate1">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="radio">
-                                <input type="radio" name="dependentclien1goplan1">
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
 
