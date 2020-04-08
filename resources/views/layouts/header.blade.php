@@ -1,8 +1,5 @@
 <div class="header">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 logo-header">
-        <div class="menu-header">
-            <a href="javascript:;" class="nav-sidebar"><i class="fas fa-bars"></i></a>
-        </div>
         <div class="logo">
             <a href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" title=""/></a>
         </div>
