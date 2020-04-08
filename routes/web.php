@@ -372,6 +372,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'RiskProfileController@addNewRiskProfile'
 			]);
 		});
+
 		Route::group(['prefix' => 'cka/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.cka.list',
@@ -383,10 +384,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'CKAController@addNewCka'
 			]);
 		});
-		Route::group(['prefix' => 'priorities-needs'], function(){
+
+		Route::group(['prefix' => 'priorities-needs/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'single_fact.priorities-needs',
-				'uses' => 'PrioritiesNeedsController@listPrioritiesNeeds'
+				'as' => 'single_fact.priorities_needs.show_form_rate_category',
+				'uses' => 'PrioritiesNeedsController@showFormRateCategory'
+			]);
+
+			Route::post('rate-category', [
+				'as' => 'single_fact.priorities_needs.rate_category',
+				'uses' => 'PrioritiesNeedsController@rateCategory'
 			]);
 		});
 	});
