@@ -20,6 +20,7 @@
     -webkit-transform: translateX(0);
     transform: translateX(0);
     transition-delay: .3s; 
+	box-shadow: 0px -18px 5px #ccc;
 }
 .fixed-sidebar-left {
     position: absolute;

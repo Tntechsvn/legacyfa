@@ -13,7 +13,7 @@
             <div class="search-fn search-innerpage">
                 <form class="pull-right" method="get" action="">
                     <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                    <i class="fa fa-search"></i>
+                    <i class="fa fa-search radius_2"></i>
                 </form>
             </div>
 
