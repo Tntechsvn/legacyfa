@@ -18,8 +18,6 @@ class PrioritiesNeedsController extends Controller
 	public function showFormRateCategory($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		/*$data = json_decode($infoPfr->ratePrioritiesNeed, true);
-		return $data[0]['income'];*/
 		return view('pages.single-fact.priorities-needs.list', compact('infoPfr'));
 	}
 
@@ -90,10 +88,13 @@ class PrioritiesNeedsController extends Controller
 				'rate' => json_encode($rate)
 			];
 			$resultAddPrioritiesNeed = $this->prioritiesNeed->addNewPrioritiesNeed($param);
+			$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		}
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit priorities need successfully" : "Add new priorities need successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, 0);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -105,6 +106,60 @@ class PrioritiesNeedsController extends Controller
 				'message' => $message
 			], 200);
 		}
+	}
+
+	public function showFormAddProtectionOne($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection1.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionTwo($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection2.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionThree($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection3.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionFour($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection4.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionFive($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection5.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionSix($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection6.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionSeven($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection7.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionEight($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection8.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionNine($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection9.list', compact('infoPfr'));
 	}
 
 	private function addData2Arr($request, $goPlan, $arr, $position, $type, $val)
@@ -161,5 +216,77 @@ class PrioritiesNeedsController extends Controller
 			}
 		}
 		return $check;
+	}
+
+	private function getMinGoPlan($str, $nextStep)
+	{
+		$data = json_decode($str, true);
+		$i = 1;
+		$min = -1;
+		foreach($data as $item){
+			$count = $minVal = count($item) + 1;
+			if($i == 1){
+				$min = $count;
+			}
+			$j = 1;
+			foreach($item as $val){
+				$rate = substr($val, 0, 1);
+				$goPlan = substr($val, -1, 1);
+				if ($j > $nextStep && $goPlan == 1 && $j < $count) {
+					$minVal = $j;
+				}
+				$j++;
+			}
+			$i++;
+			if ($minVal < $min && $min > 0) {
+				$min = $minVal;
+			}
+		}
+		return $min;
+	}
+
+	public function getNextUrl($nextStep, $idPfr)
+	{
+		switch($nextStep){
+			case 1:
+			$url = route('single_fact.priorities_needs.priotection_1', $idPfr);
+			break;
+
+			case 2:
+			$url = route('single_fact.priorities_needs.priotection_2', $idPfr);
+			break;
+
+			case 3:
+			$url = route('single_fact.priorities_needs.priotection_3', $idPfr);
+			break;
+
+			case 4:
+			$url = route('single_fact.priorities_needs.priotection_4', $idPfr);
+			break;
+
+			case 5:
+			$url = route('single_fact.priorities_needs.priotection_5', $idPfr);
+			break;
+
+			case 6:
+			$url = route('single_fact.priorities_needs.priotection_6', $idPfr);
+			break;
+
+			case 7:
+			$url = route('single_fact.priorities_needs.priotection_7', $idPfr);
+			break;
+
+			case 8:
+			$url = route('single_fact.priorities_needs.priotection_8', $idPfr);
+			break;
+
+			case 9:
+			$url = route('single_fact.priorities_needs.priotection_9', $idPfr);
+			break;
+
+			default:
+			$url = "";
+		}
+		return $url;
 	}
 }

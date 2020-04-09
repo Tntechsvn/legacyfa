@@ -182,6 +182,7 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
+                    console.log(res);
                     if(res['error']){
                         if(!$.isPlainObject(res.message)){
                             alert(res.message);
@@ -192,7 +193,7 @@
                             });
                         }
                     }else{
-                        location.reload();
+                        //location.reload();
                         alert(res['message']);
                     }
                 }
