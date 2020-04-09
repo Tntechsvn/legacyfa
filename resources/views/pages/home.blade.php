@@ -19,10 +19,10 @@
                     <span class="total-row">100 Record</span>
                 </a>
             </div>
-            <div class="search-table-home">
+            <div class="search-table-home search-fn">
                 <form class="pull-right" method="get" action="{{route('pfr.list')}}">
-                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                    <i class="fa fa-search"></i>
+                    <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                    <i class="fa fa-search radius_2"></i>
                 </form>
             </div>
         </div>
@@ -71,10 +71,10 @@
                         <span class="total-row">1B Plans</span>
                     </a>
                 </div>
-                <div class="search-table-home">
+                <div class="search-table-home search-fn">
                     <form class="pull-right" method="get" action="{{route('user.list')}}">
-                        <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                        <i class="fa fa-search"></i>
+                        <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                        <i class="fa fa-search radius_2"></i>
                     </form>
                 </div>
             </div>
@@ -114,10 +114,10 @@
                         <span class="total-row">1M User</span>
                     </a>
                 </div>
-                <div class="search-table-home">
+                <div class="search-table-home search-fn">
                     <form class="pull-right" method="get" action="{{route('company.list')}}">
-                        <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                        <i class="fa fa-search"></i>
+                        <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                        <i class="fa fa-search radius_2"></i>
                     </form>
                 </div>
             </div>
