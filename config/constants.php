@@ -17,6 +17,16 @@ return [
 	'PAGINATE_DEPENDANT_SINGLE' => 10,
 	'PAGINATE_DEPENDANT_SINGLE_TRASH' => 10,
 
+	'STEP_RATE_INCOME' => 1,
+	'STEP_RATE_FUND_DISABILITY' => 2,
+	'STEP_RATE_FUND_CRITICAL' => 3,
+	'STEP_RATE_FUND_CHILDREN' => 4,
+	'STEP_RATE_FUND_SAVING' => 5,
+	'STEP_RATE_FUND_RETIREMENT' => 6,
+	'STEP_RATE_COVER' => 7,
+	'STEP_RATE_FUND_CARE' => 8,
+	'STEP_RATE_FUND_HOSPITAL' => 9,
+
 	'Risk_Profile_Questionnaire' => [
 		[
 			'name' => 'What is your investment time horizon?',

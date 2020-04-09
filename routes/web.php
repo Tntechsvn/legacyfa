@@ -395,6 +395,51 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'as' => 'single_fact.priorities_needs.rate_category',
 				'uses' => 'PrioritiesNeedsController@rateCategory'
 			]);
+
+			Route::get('priotection-1', [
+				'as' => 'single_fact.priorities_needs.priotection_1',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionOne'
+			]);
+
+			Route::get('priotection-2', [
+				'as' => 'single_fact.priorities_needs.priotection_2',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTwo'
+			]);
+
+			Route::get('priotection-3', [
+				'as' => 'single_fact.priorities_needs.priotection_3',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionThree'
+			]);
+
+			Route::get('priotection-4', [
+				'as' => 'single_fact.priorities_needs.priotection_4',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionFour'
+			]);
+
+			Route::get('priotection-5', [
+				'as' => 'single_fact.priorities_needs.priotection_5',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionFive'
+			]);
+
+			Route::get('priotection-6', [
+				'as' => 'single_fact.priorities_needs.priotection_6',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionSix'
+			]);
+
+			Route::get('priotection-7', [
+				'as' => 'single_fact.priorities_needs.priotection_7',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionSeven'
+			]);
+
+			Route::get('priotection-8', [
+				'as' => 'single_fact.priorities_needs.priotection_8',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionEight'
+			]);
+
+			Route::get('priotection-9', [
+				'as' => 'single_fact.priorities_needs.priotection_9',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionNine'
+			]);
 		});
 	});
 

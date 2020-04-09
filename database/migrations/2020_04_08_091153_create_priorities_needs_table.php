@@ -20,6 +20,15 @@ class CreatePrioritiesNeedsTable extends Migration
                 $table->foreign('pfr_id')->references('id')->on('pfrs');
             }
             $table->json('rate')->nullable();
+            $table->json('income')->nullable();
+            $table->json('fund_disability')->nullable();
+            $table->json('fund_critical')->nullable();
+            $table->json('fund_children')->nullable();
+            $table->json('fund_saving')->nullable();
+            $table->json('fund_retirement')->nullable();
+            $table->json('cover')->nullable();
+            $table->json('fund_care')->nullable();
+            $table->json('fund_hospital')->nullable();
             $table->timestamps();
         });
     }

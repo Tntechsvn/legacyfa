@@ -43,11 +43,6 @@
                         <td><input type="number" class="form-control" id="final-expenses-dependent1" name="final-expenses-dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
-                        <td>Final Expenses ($)</td>
-                        <td><input type="number" class="form-control" id="final-expenses-client1" name="final-expenses-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="final-expenses-dependent1" name="final-expenses-dependent1" placeholder="$" value="" ></td>
-                    </tr>
-                    <tr>
                         <td>Emergency Fund ($)</td>
                         <td><input type="number" class="form-control" id="emergency-client1" name="emergency-client1" placeholder="$" value="" ></td>
                         <td><input type="number" class="form-control" id="emergency-dependent1" name="emergency-dependent1" placeholder="$" value="" ></td>
