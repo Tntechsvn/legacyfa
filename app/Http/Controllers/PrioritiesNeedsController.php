@@ -33,7 +33,7 @@ class PrioritiesNeedsController extends Controller
 			'fund_retirement' => '',
 			'cover' => '',
 			'fund_care' => '',
-			'fund_hospital' => '',
+			'fund_hospital' => ''
 		);
 		$data = $request->except('_token');
 		foreach($data as $key=>$val){
@@ -44,9 +44,9 @@ class PrioritiesNeedsController extends Controller
 				$type = substr($key, 7, 4);
 				$goPlan = $str.$client."goplan".$position;
 				if ($client == 1) {
-					$client1 = $this->addData2Arr($data, $goPlan, $client1, $position, $type, $val);
+					$client1 = $this->addDataRate2Arr($data, $goPlan, $client1, $position, $type, $val);
 				} else {
-					$client2 = $this->addData2Arr($data, $goPlan, $client2, $position, $type, $val);
+					$client2 = $this->addDataRate2Arr($data, $goPlan, $client2, $position, $type, $val);
 				}
 			} else {
 				$str = substr($key, 0, 9);
@@ -56,13 +56,13 @@ class PrioritiesNeedsController extends Controller
 					$type = substr($key, 10, 4);
 					$goPlan = $str.$dependent."goplan".$position;
 					if ($dependent == 1) {
-						$dependent1 = $this->addData2Arr($data, $goPlan, $dependent1, $position, $type, $val);
+						$dependent1 = $this->addDataRate2Arr($data, $goPlan, $dependent1, $position, $type, $val);
 					} else if ($dependent == 2){
-						$dependent2 = $this->addData2Arr($data, $goPlan, $dependent2, $position, $type, $val);
+						$dependent2 = $this->addDataRate2Arr($data, $goPlan, $dependent2, $position, $type, $val);
 					} else if ($dependent == 3){
-						$dependent3 = $this->addData2Arr($data, $goPlan, $dependent3, $position, $type, $val);
+						$dependent3 = $this->addDataRate2Arr($data, $goPlan, $dependent3, $position, $type, $val);
 					} else if ($dependent == 4){
-						$dependent4 = $this->addData2Arr($data, $goPlan, $dependent4, $position, $type, $val);
+						$dependent4 = $this->addDataRate2Arr($data, $goPlan, $dependent4, $position, $type, $val);
 					}
 				}
 			}
@@ -93,7 +93,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit priorities need successfully" : "Add new priorities need successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, 0);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_INCOME') - 1);
 			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -114,17 +114,165 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection1.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionOne(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			'annual_amount' => '',
+			'year' => '',
+			'net_rate' => '',
+			'final_expenses' => '',
+			'emergency_fund' => '',
+			'mortgage' => '',
+			'personal_debts' => '',
+			'others' => '',
+			'insurance' => '',
+			'resources' => '',
+			'amount ' => '',
+			'note' => ''
+		);
+
+		$income[] = $client1;
+		$income[] = $client2;
+		$income[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->income != null){
+				$edit = true;
+			}
+			$param = [
+				'income' => json_encode($income)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit income successfully" : "Add new income successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_DISABILITY') - 1);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit income error" : "Add new income error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionTwo($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		return view('pages.single-fact.priorities-needs.protection2.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionTwo(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			'annual_amount' => '',
+			'year' => '',
+			'net_rate' => '',
+			'final_expenses' => '',
+			'emergency_fund' => '',
+			'mortgage' => '',
+			'personal_debts' => '',
+			'others' => '',
+			'insurance' => '',
+			'resources' => '',
+			'amount ' => '',
+			'note' => ''
+		);
+
+		$fund_disability[] = $client1;
+		$fund_disability[] = $client2;
+		$fund_disability[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_disability != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_disability' => json_encode($fund_disability)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund disability successfully" : "Add new fund disability successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CRITICAL') - 1);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund disability error" : "Add new fund disability error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionThree($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		return view('pages.single-fact.priorities-needs.protection3.list', compact('infoPfr'));
 	}
+
+	/*public function addProtectionThree(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			'annual_amount' => '',
+			'year' => '',
+			'net_rate' => '',
+			'medical_expenses' => '',
+			'mortgage' => '',
+			'others' => '',
+			'insurance' => '',
+			'resources' => '',
+			'amount ' => '',
+			'note' => ''
+		);
+
+		$fund_critical[] = $client1;
+		$fund_critical[] = $client2;
+		$fund_critical[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_critical != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_critical' => json_encode($fund_critical)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund critical successfully" : "Add new fund critical successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CHILDREN') - 1);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund critical error" : "Add new fund critical error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
 
 	public function showFormAddProtectionFour($idPfr)
 	{
@@ -138,6 +286,50 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection5.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionFive(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			'objective' => '',
+			'description' => '',
+			'year' => '',
+			'future' => '',
+			'net_amount' => '',
+			'note' => ''
+		);
+
+		$fund_saving[] = $client1;
+		$fund_saving[] = $client2;
+		$fund_saving[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_saving != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_saving' => json_encode($fund_saving)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund saving successfully" : "Add new fund saving successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_RETIREMENT') - 1);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund saving error" : "Add new fund saving error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionSix($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
@@ -150,11 +342,96 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection7.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionSeven(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			'amount' => '',
+			'accident' => '',
+			'net_amount' => '',
+			'note' => ''
+		);
+
+		$cover[] = $client1;
+		$cover[] = $client2;
+		$cover[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->cover != null){
+				$edit = true;
+			}
+			$param = [
+				'cover' => json_encode($cover)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit cover successfully" : "Add new cover successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CARE') - 1);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit cover error" : "Add new cover error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionEight($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		return view('pages.single-fact.priorities-needs.protection8.list', compact('infoPfr'));
 	}
+
+	/*public function addProtectionEight(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			'desired' => '',
+			'care_insurance' => '',
+			'insurance_benefit' => '',
+			'net_amount' => '',
+			'note' => ''
+		);
+
+		$fund_care[] = $client1;
+		$fund_care[] = $client2;
+		$fund_care[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_care != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_care' => json_encode($fund_care)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund care successfully" : "Add new fund care successfully";
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_HOSPITAL') - 1);
+			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund care error" : "Add new fund care error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
 
 	public function showFormAddProtectionNine($idPfr)
 	{
@@ -162,7 +439,44 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection9.list', compact('infoPfr'));
 	}
 
-	private function addData2Arr($request, $goPlan, $arr, $position, $type, $val)
+	/*public function addProtectionNine(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = array(
+			
+		);
+
+		$fund_hospital[] = $client1;
+		$fund_hospital[] = $client2;
+		$fund_hospital[] = $dependent1;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_hospital != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_hospital' => json_encode($fund_hospital)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund hospital successfully" : "Add new fund hospital successfully";
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund hospital error" : "Add new fund hospital error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
+	private function addDataRate2Arr($request, $goPlan, $arr, $position, $type, $val)
 	{
 		if ($type == "rate") {
 			switch($position){
