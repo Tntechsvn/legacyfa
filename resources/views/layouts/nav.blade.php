@@ -5,7 +5,7 @@
             <a href="Javascript:;" title="ADD PFR"><!-- <i class="fas fa-plus-circle"></i> --><i class="far fa-plus-square"></i><span>ADD PFR</span></a>
             <ul class="sub-menu">
                 <li class="{{ Route::currentRouteNamed('single-fact.show_form_add_new') ? 'active' : '' }}"><a href="{{route('single-fact.show_form_add_new')}}" title="Single Fact - Find"><i class="fas fa-chevron-right"></i>Single Fact - Find</a></li>
-                <li class="{{ Route::currentRouteNamed('joint-fact.show_form_add_new') ? 'active' : '' }}"><a href="{{route('joint-fact.show_form_add_new')}}" title="Joint Fact - Find"><i class="fas fa-chevron-right"></i>Joint Fact - Find</a></li>
+                <li class="{{ Route::currentRouteNamed('joint-fact.show_form_add_new') ? 'active' : '' }}"><a href="Javascript:;" title="Joint Fact - Find"><i class="fas fa-chevron-right"></i>Joint Fact - Find</a></li>
             </ul>
         </li>
         <li class="{{ Route::currentRouteNamed('pfr.list') ? 'active' : '' }}"><a href="{{route('pfr.list')}}" title="View List PFR"><i class="fas fa-list-alt"></i><span>View List PFR</span></a></li>
