@@ -76,7 +76,8 @@
                             <input type="radio" name="client1rate{{$key+1}}" value="H" {{$checkRateH}}>
                         </td>
                         <td>
-                            <input type="radio" name="client1goplan{{$key+1}}" id="goplanclient1{{$key+1}}" value="1" {{$checkGoPlan}}>
+                            <!-- <input type="radio" name="client1goplan{{$key+1}}" id="goplanclient1{{$key+1}}" value="1" {{$checkGoPlan}}> -->
+                            <input id="goplanclient1{{$key+1}}" class="form-check-input" value="1" name="client1goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
                         </td>
 
                         <?php
@@ -100,7 +101,8 @@
                             <input type="radio" name="client2rate{{$key+1}}" value="H" {{$checkRateH}}>
                         </td>
                         <td>
-                            <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}>
+                            <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
+                            <input id="goplanclient2{{$key+1}}" class="form-check-input" value="1" name="client2goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
                         </td>
 
                         <?php
@@ -124,9 +126,94 @@
                             <input type="radio" name="dependent1rate{{$key+1}}" value="H" {{$checkRateH}}>
                         </td>
                         <td>
-                            <input type="radio" name="dependent1goplan{{$key+1}}" id="goplandependent1{{$key+1}}" value="1" {{$checkGoPlan}}>
+                            <!-- <input type="radio" name="dependent1goplan{{$key+1}}" id="dependent1goplan{{$key+1}}" value="1" {{$checkGoPlan}}> -->
+                            <input id="dependent1goplan{{$key+1}}" class="form-check-input" value="1" name="dependent1goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
                         </td>
                     </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
+                  <thead>
+                    <tr>
+                        <td></td>
+                        <td colspan="4">Dependent 2</td>
+                        <td colspan="4">Dependent 3</td>
+                        <td colspan="4">Dependent 4</td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>High</td>
+                        <td>To Plan For</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>High</td>
+                        <td>To Plan For</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>High</td>
+                        <td>To Plan For</td>
+                    </tr>
+                </thead>
+                @php
+                    $arr = array(
+                    'Income Protection Upon Death',
+                    'Fund Disability Income / Expenses',
+                    'Fund Critical Illness Expenses',
+                    'Fund Children is Education',
+                    'Fund Medium to Long Term Savings / Investment Needs / Other Goals',
+                    'Fund Retirement Lifestyle',
+                    'Cover for Personal Accident',
+                    'Fund Long Term Care',
+                    'Fund Hospital Expenses');
+                @endphp
+                <tbody>
+                    @foreach( $arr as $key=>$name )
+                    <tr>
+                        <td>{{ $name }}</td>
+                        <td>
+                            <input type="radio" name="dependent2rate{{$key+1}}" value="L">
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent2rate{{$key+1}}" value="M" >
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent2rate{{$key+1}}" value="H" >
+                        </td>
+                        <td>
+                            <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
+                            <input id="dependent2goplan{{$key+1}}" class="form-check-input" value="1" name="dependent2goplan{{$key+1}}" type="checkbox">
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent3rate{{$key+1}}" value="L">
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent3rate{{$key+1}}" value="M" >
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent3rate{{$key+1}}" value="H" >
+                        </td>
+                        <td>
+                            <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
+                            <input id="dependent3goplan{{$key+1}}" class="form-check-input" value="1" name="dependent3goplan{{$key+1}}" type="checkbox">
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent4rate{{$key+1}}" value="L">
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent4rate{{$key+1}}" value="M" >
+                        </td>
+                        <td>
+                            <input type="radio" name="dependent4rate{{$key+1}}" value="H" >
+                        </td>
+                        <td>
+                            <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
+                            <input id="dependent4goplan{{$key+1}}" class="form-check-input" value="1" name="dependent4goplan{{$key+1}}" type="checkbox">
+                        </td>
+                    </tr>    
                     @endforeach
                 </tbody>
             </table>
@@ -134,6 +221,7 @@
             <button class="btn btn-primary mb-2">Back</button>
             <button type="submit" class="btn btn-primary mb-2">Next</button>
             <button class="btn btn-primary mb-2">Reset All</button>
+
         </form>      
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

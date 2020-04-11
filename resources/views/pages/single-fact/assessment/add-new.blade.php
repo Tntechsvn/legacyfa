@@ -99,6 +99,7 @@
             </div>
             <button type="button" class="btn btn-primary mb-2">Back</button>
             <button type="submit" class="btn btn-primary mb-2">Next</button>
+            <div class="clear"></div>
         </form>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

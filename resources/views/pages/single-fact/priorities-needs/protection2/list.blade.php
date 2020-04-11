@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
             @csrf
-            <table id="blance-table" class="table table-content table-style1" style="width:100%">
+            <table id="protection2-1" class="table table-content table-style1 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <th>Fund Disability Income/Expense</th>
@@ -79,8 +79,95 @@
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
-                         <td><textarea class="form-control" id="additional-dependent1" name="additional-dependent1"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+             <table id="protection2-2" class="table table-content table-style1 protection-st protection-st2" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Fund Disability Income/Expense</th>
+                        <th>Dependent 2</th>
+                        <th>Dependent 3</th>
+                        <th>Dependent 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Annual Amount Needed ($)</td>
+                        <td><input type="number" class="form-control" id="annual-amount-dependent2" name="annual-amount-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="annual-amount-dependent3" name="annual-amount-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="annual-amount-dependent4" name="annual-amount-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Number of Years Needed</td>
+                        <td><input type="number" class="form-control" id="years-needed-dependent2" name="years-needed-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years-needed-dependent3" name="years-needed-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years-needed-dependent4" name="years-needed-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Net Rate of Return (adjusted for inflation)</td>
+                        <td><input type="number" class="form-control" id="net-rate-dependent2" name="net-rate-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net-rate-dependent3" name="net-rate-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net-rate-dependent4" name="net-rate-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>A. CAPITAL SUM REQUIRED ($)</td>
+                        <td><input type="number" class="form-control" id="capital-sum-dependent2" name="capital-sum-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="capital-sum-dependent3" name="acapital-sum-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="capital-sum-dependent4" name="acapital-sum-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Medical Expenses ($)</td>
+                        <td><input type="number" class="form-control" id="medical-expenses-dependent2" name="medical-expenses-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="medical-expenses-dependent3" name="medical-expenses-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="medical-expenses-dependent4" name="medical-expenses-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Mortgage ($)</td>
+                        <td><input type="number" class="form-control" id="mortgage-dependent2" name="mortgage-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="mortgage-dependent3" name="mortgage-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="mortgage-dependent4" name="mortgage-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Loans/Others ($)</td>
+                        <td><input type="number" class="form-control" id="loan-others-dependent2" name="loan-others-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="loan-others-dependent3" name="loan-others-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="loan-others-dependent4" name="loan-others-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>B. TOTAL CASH OUTFLOW ($)</td>
+                        <td><input type="number" class="form-control" id="total-cash-dependent2" name="total-cash-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="total-cash-dependent3" name="total-cash-dependent3" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="total-cash-dependent4" name="total-cash-dependent4" placeholder="$" value="" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL ( A + B ) ($)</td>
+                        <td><input type="number" class="form-control" id="total-ab-dependent2" name="total-ab-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="total-ab-dependent3" name="total-ab-dependent3" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="total-ab-dependent4" name="total-ab-dependent4" placeholder="$" value="" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Less: Existing Insurance Coverage on Disability ($)</td>
+                        <td><input type="number" class="form-control" id="insurance-coverage-dependent2" name="insurance-coverage-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="insurance-coverage-dependent3" name="insurance-coverage-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="insurance-coverage-dependent4" name="insurance-coverage-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Less: Existing Resources ($) (if any)</td>
+                        <td><input type="number" class="form-control" id="existing-resources-dependent2" name="existing-resources-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing-resources-dependent3" name="existing-resources-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing-resources-dependent4" name="existing-resources-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Net Amount Required ($)</td>
+                        <td><input type="number" class="form-control" id="net-amount-dependent2" name="net-amount-dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net-amount-dependent3" name="net-amount-dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net-amount-dependent4" name="net-amount-dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                     <tr>
+                        <td>Additional Notes</td>
+                        <td colspan="3"><textarea class="form-control" id="additional-dependent2" name="additional-dependent2"></textarea></td>
                     </tr>
                 </tbody>
             </table>
