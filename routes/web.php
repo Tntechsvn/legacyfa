@@ -401,6 +401,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionOne'
 			]);
 
+			Route::post('add-priotection-1', [
+				'as' => 'single_fact.priorities-needs.priotection_1',
+				'uses' => 'PrioritiesNeedsController@addProtectionOne'
+			]);
+
 			Route::get('priotection-2', [
 				'as' => 'single_fact.priorities_needs.priotection_2',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTwo'

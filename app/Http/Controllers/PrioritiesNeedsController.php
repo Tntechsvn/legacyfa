@@ -114,27 +114,56 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection1.list', compact('infoPfr'));
 	}
 
+	private function addDataProtection2Arr($request, $arr, $position, $user)
+	{
+		foreach($request as $key=>$val){
+			if($key == $position."_".$user){
+				$arr[$position] = $val;
+			}
+		}
+		return $arr;
+	}
+
 	/*public function addProtectionOne(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
-			'annual_amount' => '',
-			'year' => '',
-			'net_rate' => '',
-			'final_expenses' => '',
-			'emergency_fund' => '',
-			'mortgage' => '',
-			'personal_debts' => '',
-			'others' => '',
-			'insurance' => '',
-			'resources' => '',
-			'amount ' => '',
-			'note' => ''
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			'annual_amount' => "",
+			'years_needed' => "",
+			'net_rate' => "",
+			'final_expenses' => "",
+			'emergency' => "",
+			'mortgage' => "",
+			'personal_debts' => "",
+			'others' => "",
+			'insurance_coverage' => "",
+			'existing_resources' => "",
+			'net_amount' => ""
 		);
+		$data = $request->except('_token');
+		$param = array('annual_amount', 'years_needed', 'net_rate', 'final_expenses', 'emergency', 'mortgage', 'personal_debts', 'others', 'insurance_coverage', 'existing_resources', 'net_amount');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$income[] = $client1;
-		$income[] = $client2;
-		$income[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
 
+		$income[] = $group1;
+		$income[] = $group2;
+		
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
 		if ($infoPrioritiesNeedForPfr) {
