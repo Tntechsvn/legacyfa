@@ -12,33 +12,57 @@
             <div class="form-group  form-layout-row">
                 <label for="below_62">Age</label>
                 <div class="custom-input-layout-row">
-                    <label class="radio-inline">
-                        <input type="radio" name="age" id="below_62" value="0" checked>Below 62
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="age" id="below_62" value="0" checked>
+                        </div>
+                        Below 62
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="age" value="above_62">62 or above 
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="age" value="above_62">
+                        </div>
+                        62 or above 
                     </label>
                 </div>
             </div>
             <div class="form-group  form-layout-row">
                 <label for="pro_spoken">English Language Proficiency (Spoken)</label>
                 <div class="custom-input-layout-row">
-                    <label class="radio-inline">
-                        <input type="radio" name="spoken_en" id="pro_spoken" value="0" checked>Proficient
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
+                        </div>
+                        Proficient
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">NOT Proficient
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">
+                        </div>
+                            NOT Proficient
                     </label>
                 </div>
             </div>
             <div class="form-group  form-layout-row">
                 <label for="pro_written">English Language Proficiency (Written)</label>
                 <div class="custom-input-layout-row">
-                    <label class="radio-inline">
-                        <input type="radio" name="written_en" id="pro_written" value="0" checked>Proficient
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="written_en" id="pro_written" value="0" checked>
+                        </div>
+                        Proficient
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="written_en" id="not_pro_written" value="1">NOT Proficient 
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="written_en" id="not_pro_written" value="1">
+                        </div>
+                        NOT Proficient 
                     </label>
                 </div>
             </div>

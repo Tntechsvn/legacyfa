@@ -8,7 +8,13 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
             <button type="button" class="btn btn-primary" id="add_dependants" data-toggle="modal" data-target="#modal_add_new"><i class="fas fa-plus-circle"></i>Add Dependants</button>
-            <a class="link-trash textright" href="{{route('singlefact.dependant.list_trash', $infoPfr->id)}}">Trash</a>
+            <a class="link-trash textright" href="{{route('singlefact.dependant.list_trash', $infoPfr->id)}}"><i class="fas fa-trash"></i></a>
+            <div class="search-fn search-innerpage">
+                <form class="pull-right" method="get" action="">
+                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                    <i class="fa fa-search radius_2"></i>
+                </form>
+            </div>
         </div>
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
             <thead>
@@ -36,8 +42,8 @@
                     <td>{{$dependant->genderDependant}}</td>
                     <td>{{$dependant->year_to_support}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit" data-id="{{$dependant->id}}" data-title="{{$dependant->title}}" data-name="{{$dependant->name}}" data-relationship="{{$dependant->relationship}}" data-dob="{{$dependant->dob}}" data-gender="{{$dependant->gender}}" data-age="{{$dependant->age}}" data-year="{{$dependant->year_to_support}}" data-url="{{route('singlefact.dependant.edit', [$infoPfr->id, $dependant->id])}}">Edit</a>
-                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('singlefact.dependant.move_to_trash', [$infoPfr->id, $dependant->id])}}">Delete</a>
+                        <a href="javascript:;" class="editstyle1 edit" data-id="{{$dependant->id}}" data-title="{{$dependant->title}}" data-name="{{$dependant->name}}" data-relationship="{{$dependant->relationship}}" data-dob="{{$dependant->dob}}" data-gender="{{$dependant->gender}}" data-age="{{$dependant->age}}" data-year="{{$dependant->year_to_support}}" data-url="{{route('singlefact.dependant.edit', [$infoPfr->id, $dependant->id])}}"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('singlefact.dependant.move_to_trash', [$infoPfr->id, $dependant->id])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -113,11 +119,19 @@
                     <div class="form-group form-group-modal">
                         <label for="age">Gender<span>*</span></label>
                         <div class="custom-input-modal">
-                            <label class="radio-inline">
-                                <input type="radio" name="sex" id="male" value="0" checked>Male
+                            <label class="radio-inline custom-style-radio1">
+                                <div class="style-checked">
+                                    <i class="fas fa-check-circle"></i>
+                                    <input type="radio" name="sex" id="male" value="0" checked>
+                                </div>
+                                Male
                             </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="sex" id="female" value="1">Female 
+                            <label class="radio-inline custom-style-radio1">
+                                <div class="style-checked">
+                                    <i class="far fa-circle"></i>
+                                    <input type="radio" name="sex" id="female" value="1"> 
+                                </div>
+                                Female
                             </label>
                         </div>
                     </div>
@@ -187,11 +201,19 @@
                     <div class="form-group form-group-modal">
                         <label for="age">Gender<span>*</span></label>
                         <div class="custom-input-modal">
-                            <label class="radio-inline">
-                                <input type="radio" name="sex_edit" id="male_edit" value="0">Male
+                            <label class="radio-inline custom-style-radio1">
+                                <div class="style-checked">
+                                    <i class="fas fa-check-circle"></i>
+                                   <input type="radio" name="sex_edit" id="male_edit" value="0">
+                                </div>
+                                Male
                             </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="sex_edit" id="female_edit" value="1">Female 
+                            <label class="radio-inline custom-style-radio1">
+                                <div class="style-checked">
+                                    <i class="far fa-circle"></i>
+                                    <input type="radio" name="sex_edit" id="female_edit" value="1"> 
+                                </div>
+                                Female
                             </label>
                         </div>
                     </div>

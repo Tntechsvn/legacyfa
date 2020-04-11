@@ -1,14 +1,12 @@
 <nav>
     <ul class="mainmenu">
         <li class="{{ Route::currentRouteNamed('home') ? 'active' : '' }}"><a href="{{route('home')}}" title="Home"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-        <li class="has-child"><!-- <i class="fas fa-minus"></i> --><i class="fas fa-plus  has-submenu radius_50"></i>
-            <a href="Javascript:;" title="ADD PFR"><!-- <i class="fas fa-plus-circle"></i> --><i class="far fa-plus-square"></i><span>ADD PFR</span></a>
-            <ul class="sub-menu">
+        <li class="has-child {{ Route::currentRouteNamed('pfr.list') ? 'active' : '' }}"><i class="fas fa-plus  has-submenu radius_50"></i><a href="{{route('pfr.list')}}" title="View List PFR"><i class="fas fa-list-alt"></i><span>View List PFR</span></a>
+        	 <ul class="sub-menu">
                 <li class="{{ Route::currentRouteNamed('single-fact.show_form_add_new') ? 'active' : '' }}"><a href="{{route('single-fact.show_form_add_new')}}" title="Single Fact - Find"><i class="fas fa-chevron-right"></i>Single Fact - Find</a></li>
                 <li class="{{ Route::currentRouteNamed('joint-fact.show_form_add_new') ? 'active' : '' }}"><a href="Javascript:;" title="Joint Fact - Find"><i class="fas fa-chevron-right"></i>Joint Fact - Find</a></li>
             </ul>
         </li>
-        <li class="{{ Route::currentRouteNamed('pfr.list') ? 'active' : '' }}"><a href="{{route('pfr.list')}}" title="View List PFR"><i class="fas fa-list-alt"></i><span>View List PFR</span></a></li>
         <li class="{{ Route::currentRouteNamed('user.list') ? 'active' : '' }}"><a href="{{route('user.list')}}" title="User"><!-- <i class="fas fa-user-circle"></i> --><i class="far fa-user"></i><span>User</span></a></li>
         <li class="{{ Route::currentRouteNamed('plan.list') ? 'active' : '' }} has-child">
             <i class="fas fa-plus  has-submenu radius_50"></i>

@@ -709,7 +709,7 @@ li.has-child{
 .table-style1 > thead > tr > td,
 .table-style1 > thead > tr > th{
 	padding:20px 5px;
-	text-align: center;
+	text-align: left;
 }
 .table-style1 tbody tr:hover td{
 	background:#f1f3f3;
@@ -910,6 +910,7 @@ button.style-button1{
 	padding-top: 10px;
 	padding-bottom: 20px;
 }
+.form-group-modal .custom-style-radio1,
 .form-layout-row .custom-style-radio1{
 	float:left;
 	width: auto;
