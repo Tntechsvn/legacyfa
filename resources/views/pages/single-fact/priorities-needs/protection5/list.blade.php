@@ -19,28 +19,28 @@
                 <tbody>
                     <tr>
                         <td>Objective of Goal ($)</td>
-                        <td><input type="number" class="form-control" id="objective-client1" name="objective-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="objective-dependent1" name="objective-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="objective_client1" name="objective_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="objective_dependent1" name="objective_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Goal Description</td>
-                        <td><input type="text" class="form-control" id="description-client1" name="description-client1" placeholder="" value="" ></td>
-                        <td><input type="text" class="form-control" id="description-dependent1" name="description-dependent1" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="description_client1" name="description_client1" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="description_dependent1" name="description_dependent1" placeholder="" value="" ></td>
                     </tr>
                     <tr>
                         <td>Years to Reach Goal</td>
-                        <td><input type="number" class="form-control" id="years-client1" name="years-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="years-dependent1" name="years-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_client1" name="years_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_dependent1" name="years_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Less: Future Value of Existing Resources for Goal ($)</td>
-                        <td><input type="number" class="form-control" id="future-client1" name="future-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="future-dependent1" name="future-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="future_client1" name="future_client1" placeholder="$" value="" ></td>3333
+                        <td><input type="number" class="form-control" id="future_dependent1" name="future_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Net Amount Required ($)</td>
-                        <td><input type="number" class="form-control" id="net-amount-client1" name="net-amount-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent1" name="net-amount-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_client1" name="net_amount_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent1" name="net_amount_dependent1" placeholder="$" value="" ></td>
                     </tr>
                      <tr>
                         <td>Additional Notes</td>

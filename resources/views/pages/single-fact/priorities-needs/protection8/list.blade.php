@@ -19,28 +19,28 @@
                 <tbody>
                     <tr>
                         <td>Desired Monthly Cash Payout ($)</td>
-                        <td><input type="number" class="form-control" id="desired-monthly-client1" name="desired-monthly-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="desired-monthly-dependent1" name="desired-monthly-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="desired_monthly_client1" name="desired_monthly_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="desired_monthly_dependent1" name="desired_monthly_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Name of Existing Long Term Care Insurance (if any)</td>
-                        <td><input type="text" class="form-control" id="existing-long-client1" name="existing-long-client1" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
-                        <td><input type="text" class="form-control" id="existing-long-dependent1" name="existing-long-dependent1" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_long_client1" name="existing_long_client1" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_long_dependent1" name="existing_long_dependent1" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
                     </tr>
                     <tr>
                         <td>Less: Existing Insurance Benefit Payout ($)</td>
-                        <td><input type="number" class="form-control" id="existing-insurance-client1" name="existing-insurance-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="existing-insurance-dependent1" name="existing-insurance-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_insurance_client1" name="existing_insurance_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_insurance_dependent1" name="existing_insurance_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Net Amount Required ($)</td>
-                        <td><input type="number" class="form-control" id="net-amount-client1" name="net-amount-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent1" name="net-amount-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_client1" name="net_amount_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent1" name="net_amount_dependent1" placeholder="$" value="" ></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>Additional Notes</td>
                         <td><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
-                         <td><textarea class="form-control" id="additional-dependent1" name="additional-dependent1"></textarea></td>
+                        <td><textarea class="form-control" id="additional-dependent1" name="additional-dependent1"></textarea></td>
                     </tr>
                 </tbody>
             </table>
