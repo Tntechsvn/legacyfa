@@ -445,6 +445,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'as' => 'single_fact.priorities_needs.priotection_9',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionNine'
 			]);
+			Route::get('priotection-10', [
+				'as' => 'single_fact.priorities_needs.priotection_10',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTeen'
+			]);
+			Route::get('priotection-11', [
+				'as' => 'single_fact.priorities_needs.priotection_11',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionEleven'
+			]);
 		});
 	});
 
