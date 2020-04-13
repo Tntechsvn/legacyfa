@@ -22,6 +22,7 @@ class CashFlowController extends Controller
 		$totalIncome = 0;
 		$totalExpenses = 0;
 		$infoCashFlow = $this->cashFlow->infoCashFlowForPfr($idPfr);
+		$income = [];$expenses = [];
 		if ($infoCashFlow) {
 			$dataIncome = json_decode($infoCashFlow->income, true);
 			$income = $dataIncome[0];
