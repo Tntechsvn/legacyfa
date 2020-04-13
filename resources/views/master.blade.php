@@ -35,7 +35,7 @@
                 <a href="{{route('home')}}"><img src="{{asset('images/logo-icon-menu.png')}}" alt="" title=""/></a>
             </div>
             <div class="action-sidebar">
-                <a href="#" class="js-sidebar-open">
+                <a href="#" class="js-sidebar-open" data-title="OPEN MENU">
                     <i class="fas fa-bars"></i>
                    <!--  <svg class="olymp-menu-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="OPEN MENU"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-menu-icon')}}"></use></svg> -->
                 </a>
@@ -49,7 +49,7 @@
                 <a href="{{route('home')}}"><img src="{{asset('images/logo-full-sidebar.png')}}" alt="" title=""/></a>
             </div>
             <div class="action-sidebar-full">
-                <a href="#" class="js-sidebar-open">
+                <a href="#" class="js-sidebar-open" data-title="CLOSE MENU">
                     <i class="fas fa-times"></i>
                     <span>Collapse menu</span>
                 </a>

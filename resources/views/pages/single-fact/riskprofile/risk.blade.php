@@ -21,7 +21,7 @@
                             @foreach($q->answers as $key_answer=>$a)
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="q_{{$key_question+1}}" value="{{$key_answer}}" <?php
-                                if(isset($infoPfr)){
+                                if(isset($infoPfr) && $dataRiskProfile){
                                     foreach($dataRiskProfile[0] as $key=>$val){
                                         if($key == "q_".($key_question+1) && $val == $key_answer){
                                             echo "checked";
