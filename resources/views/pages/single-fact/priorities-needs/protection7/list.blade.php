@@ -19,18 +19,18 @@
                 <tbody>
                     <tr>
                         <td>Amount Needed ($)</td>
-                        <td><input type="number" class="form-control" id="amount-needed-client1" name="amount-needed-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="amount-needed-dependent1" name="amount-needed-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="amount_needed_client1" name="amount_needed_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="amount_needed_dependent1" name="amount_needed_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Less: Existing Personal Accident Benefits ($)</td>
-                        <td><input type="number" class="form-control" id="existing-personal-client1" name="existing-personal-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="existing-personal-dependent1" name="existing-personal-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_personal_client1" name="existing_personal_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_personal_dependent1" name="existing_personal_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Net Amount Required ($)</td>
-                        <td><input type="number" class="form-control" id="net-amount-client1" name="net-amount-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent1" name="net-amount-dependent1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_client1" name="net_amount_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent1" name="net_amount_dependent1" placeholder="$" value="" ></td>
                     </tr>
                      <tr>
                         <td>Additional Notes</td>

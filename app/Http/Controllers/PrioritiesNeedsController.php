@@ -201,24 +201,41 @@ class PrioritiesNeedsController extends Controller
 
 	/*public function addProtectionTwo(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
-			'annual_amount' => '',
-			'year' => '',
-			'net_rate' => '',
-			'final_expenses' => '',
-			'emergency_fund' => '',
-			'mortgage' => '',
-			'personal_debts' => '',
-			'others' => '',
-			'insurance' => '',
-			'resources' => '',
-			'amount ' => '',
-			'note' => ''
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			'annual_amount' => "",
+			'years_needed' => "",
+			'net_rate' => "",
+			'medical_expenses' => "",
+			'mortgage' => "",
+			'loan_others' => "",
+			'insurance_coverage' => "",
+			'existing_resources' => "",
+			'net_amount' => ""
 		);
+		$data = $request->except('_token');
+		$param = array('annual_amount', 'years_needed', 'net_rate', 'medical_expenses', 'mortgage', 'loan_others', 'insurance_coverage', 'existing_resources', 'net_amount');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$fund_disability[] = $client1;
-		$fund_disability[] = $client2;
-		$fund_disability[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_disability[] = $group1;
+		$fund_disability[] = $group2;
 
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
@@ -257,22 +274,41 @@ class PrioritiesNeedsController extends Controller
 
 	/*public function addProtectionThree(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
-			'annual_amount' => '',
-			'year' => '',
-			'net_rate' => '',
-			'medical_expenses' => '',
-			'mortgage' => '',
-			'others' => '',
-			'insurance' => '',
-			'resources' => '',
-			'amount ' => '',
-			'note' => ''
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			'annual_amount' => "",
+			'years_needed' => "",
+			'net_rate' => "",
+			'medical_expenses' => "",
+			'mortgage' => "",
+			'loan_others' => "",
+			'insurance_coverage' => "",
+			'existing_resources' => "",
+			'net_amount' => ""
 		);
+		$data = $request->except('_token');
+		$param = array('annual_amount', 'years_needed', 'net_rate', 'medical_expenses', 'mortgage', 'loan_others', 'insurance_coverage', 'existing_resources', 'net_amount');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$fund_critical[] = $client1;
-		$fund_critical[] = $client2;
-		$fund_critical[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_critical[] = $group1;
+		$fund_critical[] = $group2;
 
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
@@ -309,6 +345,63 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection4.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionFour(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			
+		);
+		$data = $request->except('_token');
+		$param = array();
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
+
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_children[] = $group1;
+		$fund_children[] = $group2;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_children != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_children' => json_encode($fund_children)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund children successfully" : "Add new fund children successfully";
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund children error" : "Add new fund children error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionFive($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
@@ -317,18 +410,37 @@ class PrioritiesNeedsController extends Controller
 
 	/*public function addProtectionFive(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
-			'objective' => '',
-			'description' => '',
-			'year' => '',
-			'future' => '',
-			'net_amount' => '',
-			'note' => ''
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			'objective' => "",
+			'description' => "",
+			'years' => "",
+			'future' => "",
+			'net_amount' => ""
 		);
+		$data = $request->except('_token');
+		$param = array('objective', 'description', 'years', 'future', 'net_amount');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$fund_saving[] = $client1;
-		$fund_saving[] = $client2;
-		$fund_saving[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_saving[] = $group1;
+		$fund_saving[] = $group2;
 
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
@@ -365,6 +477,63 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection6.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionSix(Request $request, $idPfr)
+	{
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			
+		);
+		$data = $request->except('_token');
+		$param = array();
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
+
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_retirement[] = $group1;
+		$fund_retirement[] = $group2;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->fund_retirement != null){
+				$edit = true;
+			}
+			$param = [
+				'fund_retirement' => json_encode($fund_retirement)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit fund retirement successfully" : "Add new fund retirement successfully";
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit fund retirement error" : "Add new fund retirement error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionSeven($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
@@ -373,16 +542,35 @@ class PrioritiesNeedsController extends Controller
 
 	/*public function addProtectionSeven(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
-			'amount' => '',
-			'accident' => '',
-			'net_amount' => '',
-			'note' => ''
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			'amount_needed' => "",
+			'existing_personal' => "",
+			'net_amount' => ""
 		);
+		$data = $request->except('_token');
+		$param = array('amount_needed', 'existing_personal', 'net_amount');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$cover[] = $client1;
-		$cover[] = $client2;
-		$cover[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$cover[] = $group1;
+		$cover[] = $group2;
 
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
@@ -421,17 +609,36 @@ class PrioritiesNeedsController extends Controller
 
 	/*public function addProtectionEight(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
-			'desired' => '',
-			'care_insurance' => '',
-			'insurance_benefit' => '',
-			'net_amount' => '',
-			'note' => ''
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
+			'desired_monthly' => "",
+			'existing_long' => "",
+			'existing_insurance' => "",
+			'net_amount' => ""
 		);
+		$data = $request->except('_token');
+		$param = array('desired_monthly', 'existing_long', 'existing_insurance', 'net_amount');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$fund_care[] = $client1;
-		$fund_care[] = $client2;
-		$fund_care[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_care[] = $group1;
+		$fund_care[] = $group2;
 
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
@@ -470,13 +677,33 @@ class PrioritiesNeedsController extends Controller
 
 	/*public function addProtectionNine(Request $request, $idPfr)
 	{
-		$client1 = $client2 = $dependent1 = array(
+		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
 			
 		);
+		$data = $request->except('_token');
+		$param = array();
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			$dependent1 = $this->addDataProtection2Arr($data, $dependent1, $val, "dependent1");
+			$dependent2 = $this->addDataProtection2Arr($data, $dependent2, $val, "dependent2");
+			$dependent3 = $this->addDataProtection2Arr($data, $dependent3, $val, "dependent3");
+			$dependent4 = $this->addDataProtection2Arr($data, $dependent4, $val, "dependent4");
+		}
+		$data1[] = $client1;
+		$data1[] = $client2;
+		$group1['data'] = $data1;
+		$group1['note'] = "";
 
-		$fund_hospital[] = $client1;
-		$fund_hospital[] = $client2;
-		$fund_hospital[] = $dependent1;
+		$data2[] = $dependent1;
+		$data2[] = $dependent2;
+		$data2[] = $dependent3;
+		$data2[] = $dependent4;
+		$group2['data'] = $data2;
+		$group2['note'] = "";
+
+		$fund_hospital[] = $group1;
+		$fund_hospital[] = $group2;
 
 		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
 		$edit = false;
