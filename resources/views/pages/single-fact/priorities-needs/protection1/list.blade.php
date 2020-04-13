@@ -89,7 +89,7 @@
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td colspan="2"><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional_group1" name="additional_group1"></textarea></td>
                     </tr>
                 </tbody>
             </table>
@@ -190,7 +190,7 @@
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td colspan="3"><textarea class="form-control" id="additional-dependent2" name="additional-dependent2"></textarea></td>
+                        <td colspan="3"><textarea class="form-control" id="additional_group2" name="additional_group2"></textarea></td>
                     </tr>
                 </tbody>
             </table>

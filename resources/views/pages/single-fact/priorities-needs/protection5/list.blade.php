@@ -44,7 +44,7 @@
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td colspan="2"><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional_group1" name="additional_group2"></textarea></td>
                     </tr>
                 </tbody>
             </table>
@@ -60,37 +60,37 @@
                 <tbody>
                     <tr>
                         <td>Objective of Goal ($)</td>
-                        <td><input type="number" class="form-control" id="objective-dependent2" name="objective-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="objective-dependent3" name="objective-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="objective-dependent4" name="objective-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="objective_dependent2" name="objective_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="objective_dependent3" name="objective_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="objective_dependent4" name="objective_dependent4" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Goal Description</td>
-                        <td><input type="text" class="form-control" id="description-dependent2" name="description-dependent2" placeholder="" value="" ></td>
-                        <td><input type="text" class="form-control" id="description-dependent3" name="description-dependent3" placeholder="" value="" ></td>
-                        <td><input type="text" class="form-control" id="description-dependent4" name="description-dependent4" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="description_dependent2" name="description_dependent2" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="description_dependent3" name="description_dependent3" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="description_dependent4" name="description_dependent4" placeholder="" value="" ></td>
                     </tr>
                     <tr>
                         <td>Years to Reach Goal</td>
-                        <td><input type="number" class="form-control" id="years-dependent2" name="years-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="years-dependent3" name="years-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="years-dependent4" name="years-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_dependent2" name="years_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_dependent3" name="years_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_dependent4" name="years_dependent4" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Less: Future Value of Existing Resources for Goal ($)</td>
-                        <td><input type="number" class="form-control" id="future-dependent2" name="future-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="future-dependent3" name="future-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="future-dependent4" name="future-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="future_dependent2" name="future_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="future_dependent3" name="future_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="future_dependent4" name="future_dependent4" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Net Amount Required ($)</td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent2" name="net-amount-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent3" name="net-amount-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent4" name="net-amount-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent2" name="net_amount_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent3" name="net_amount_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent4" name="net_amount_dependent4" placeholder="$" value="" ></td>
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td colspan="3"><textarea class="form-control" id="additional-dependent2" name="additional-dependent2"></textarea></td>
+                        <td colspan="3"><textarea class="form-control" id="additional_group2" name="additional_group2"></textarea></td>
                     </tr>
                 </tbody>
             </table>

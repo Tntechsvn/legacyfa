@@ -19,94 +19,94 @@
                 <tbody>
                     <tr>
                         <td>Expected Retirement Age</td>
-                        <td><input type="number" class="form-control" id="retirement-client1" name="retirement-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="retirement-dependent" name="retirement-dependent" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="retirement_client1" name="retirement_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="retirement_dependent1" name="retirement_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>No. of Years to Retirement</td>
-                        <td><input type="number" class="form-control" id="years-retirement-client1" name="years-retirement-client1" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="years-retirement-dependent" name="years-retirement-dependent" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_retirement_client1" name="years_retirement_client1" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="years_retirement_dependent1" name="years_retirement_dependent1" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Select Method of Calculation</td>
                         <td>
-                            <select name="method-calculation-client1" id="method-calculation-client1" class="form-control" data-parsley-trigger="change" required="">
+                            <select name="method_calculation_client1" id="method_calculation_client1" class="form-control" data-parsley-trigger="change" required="">
                                 <option value="">Select</option>
-                                <option value="Mr">Income Method</option>
-                                <option value="Mrs">Expense Method</option>
+                                <option value="IM">Income Method</option>
+                                <option value="EM">Expense Method</option>
                             </select>
                         </td>
                         <td>
-                            <select name="method-calculation-dependent" id="method-calculation-dependent" class="form-control" data-parsley-trigger="change" required="">
+                            <select name="method_calculation_dependent1" id="method_calculation_dependent1" class="form-control" data-parsley-trigger="change" required="">
                                 <option value="">Select</option>
-                                <option value="Mr">Income Method</option>
-                                <option value="Mrs">Expense Method</option>
+                                <option value="IM">Income Method</option>
+                                <option value="EM">Expense Method</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>Annual Income ($)</td>
                         <td><input type="number" class="form-control" id="annual-income-client1" name="annual-income-client1" placeholder="$" value="" readonly></td>
-                        <td><input type="number" class="form-control" id="annual-income-dependent" name="annual-income-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="annual_income_dependent1" name="annual-income-dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Rate of Income Increment (%)</td>
-                        <td><input type="number" class="form-control" id="increment-income-client1" name="increment-income-client1" placeholder="$" value="" readonly></td>
-                        <td><input type="number" class="form-control" id="increment-income-dependent" name="increment-income-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="increment_income_client1" name="increment_income_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="increment_income_dependent1" name="increment_income_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Income at Retirement Age ($)</td>
-                        <td><input type="number" class="form-control" id="retirement-income-client1" name="retirement-income-client1" placeholder="$" value="" readonly></td>
-                        <td><input type="number" class="form-control" id="retirement-income-dependent" name="retirement-income-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="retirement_income_client1" name="retirement_income_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="retirement_income_dependent1" name="retirement_income_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>(%) Income Required at Retirement Age</td>
-                        <td><input type="number" class="form-control" id="retirement-income-client1" name="retirement-age-client1" placeholder="$" value="" readonly></td>
-                        <td><input type="number" class="form-control" id="retirement-income-dependent" name="retirement-income-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="retirement_age_client1" name="retirement_age_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="retirement_age_dependent1" name="retirement_age_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Retirement Expenses (in today's) ($)</td>
-                        <td><input type="number" class="form-control" id="retirement-expenses-client1" name="retirement-expenses-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="retirement-expenses-dependent" name="retirement-expenses-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="retirement_expenses_client1" name="retirement_expenses_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="retirement_expenses_dependent1" name="retirement_expenses_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Inflation Rate (%)</td>
-                        <td><input type="number" class="form-control" id="inflation-rate-client1" name="inflation-rate-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="inflation-rate-dependent" name="inflation-rate-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="inflation_rate_client1" name="inflation_rate_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="inflation_rate_dependent1" name="inflation_rate_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Expenses AT Retirement ($)</td>
-                        <td><input type="number" class="form-control" id="expenses-at-client1" name="expenses-at-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="expenses-at-dependent" name="expenses-at-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="expenses_at_client1" name="expenses_at_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="expenses_at_dependent1" name="expenses_at_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Years to Receive Retirement Income</td>
-                        <td><input type="number" class="form-control" id="receive-retirement-client1" name="expenses-at-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="receive-retirement-dependent" name="receive-retirement-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="receive_retirement_client1" name="receive_retirement_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="receive_retirement_dependent1" name="receive_retirement_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Net Rate of Return (adjusted for inflation)</td>
-                        <td><input type="number" class="form-control" id="rate-return-client1" name="rate-return-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="rate-return-dependent" name="rate-return-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="rate_return_client1" name="rate_return_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="rate_return_dependent1" name="rate_return_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Amount Needed at Retirement Age ($)</td>
-                        <td><input type="number" class="form-control" id="amount-retirement-client1" name="amount-retirement-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="amount-retirement-dependent" name="amount-retirement-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="amount_retirement_client1" name="amount_retirement_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="amount_retirement_dependent1" name="amount_retirement_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Less: Future Value of Existing Resources for retirement($)</td>
-                        <td><input type="number" class="form-control" id="future-existing-client1" name="future-existing-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="future-existing-dependent" name="future-existing-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="future_existing_client1" name="future_existing_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="future_existing_dependent1" name="future_existing_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Net Amount Required ($)</td>
-                        <td><input type="number" class="form-control" id="amount-required-client1" name="amount-required-client1" placeholder="$" value=""></td>
-                        <td><input type="number" class="form-control" id="amount-required-dependent" name="amount-required-dependent" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="amount_required_client1" name="amount_required_client1" placeholder="$" value="" readonly></td>
+                        <td><input type="number" class="form-control" id="amount_required_dependent1" name="amount_required_dependent1" placeholder="$" value="" readonly></td>
                     </tr>
                     <tr>
                         <td>Additional Notes</td>
-                        <td colspan="2"><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional_group1" name="additional_group1"></textarea></td>
                     </tr>
                 </tbody>
             </table>

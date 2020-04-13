@@ -170,6 +170,4 @@ class Pfr extends Model
             return route('join-fact.edit', $this->id);
         }
     }
-
-
 }
