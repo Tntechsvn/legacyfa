@@ -22,6 +22,7 @@ class BalanceController extends Controller
 		$totalAssets = 0;
 		$totalLiabilities = 0;
 		$infoBalance = $this->balance->infoBalanceForPfr($idPfr);
+		$assets = []; $liabilities = [];
 		if ($infoBalance) {
 			$dataAssets = json_decode($infoBalance->assets, true);
 			$assets = $dataAssets[0];

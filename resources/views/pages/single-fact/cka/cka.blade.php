@@ -24,7 +24,7 @@
                             @foreach($q->answers as $key_answer=>$a)
                             <div class="checkbox">
                                 <label><input type="checkbox" name="q_{{$key_question+1}}[]" value="{{$key_answer}}" <?php
-                                if(isset($infoPfr)){
+                                if(isset($infoPfr) && $dataCka){
                                     foreach($dataCka[0] as $key=>$value){
                                         if($key == "q_".($key_question+1)){
                                             foreach($value as $val){
