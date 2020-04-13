@@ -54,8 +54,10 @@
                 <input type="text" class="form-control" id="reason" name="reason" placeholder="" value="{{$dataRiskProfile[0]['reason']}}">
             </div>
         </div>
-        <button class="btn btn-primary mb-2">Back</button>
-        <button type="submit" class="btn btn-primary mb-2">Next</button>
+        <div class="nav-step">
+            <button class="btn btn-primary mb-2">Back</button>
+            <button type="submit" class="btn btn-primary mb-2">Next</button>
+        </div>
     </form>      
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

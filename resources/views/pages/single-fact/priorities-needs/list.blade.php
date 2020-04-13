@@ -5,11 +5,11 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Priorities & Needs Rating</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <p class="note-alert-step7">Please rate all categories according to your priority:</p>
         <form name="priorities_need_form" id='priorities_need_form' class="" method="post" action="{{route('single_fact.priorities_needs.rate_category', $infoPfr->id)}}" data-parsley-validate>
             @csrf
-            <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
+            <table id="protection0-1" class="table table-content table-style1 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <td></td>
@@ -146,7 +146,7 @@
                 </tbody>
             </table>
 
-            <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
+            <table id="protection0-1" class="table table-content table-style1 protection-st protection-st2" style="width:100%">
                   <thead>
                     <tr>
                         <td></td>
@@ -241,11 +241,11 @@
                     @endforeach
                 </tbody>
             </table>
-
-            <button class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
-            <button class="btn btn-primary mb-2">Reset All</button>
-
+            <div class="nav-step">
+                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+                <button class="btn btn-primary mb-2 style-button1">Reset All</button>
+            </div>     
         </form>      
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

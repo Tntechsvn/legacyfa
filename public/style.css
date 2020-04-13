@@ -1344,3 +1344,16 @@ body.show_form_login{
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
+.note-alert-step7{
+	text-align: center;
+	font-style: italic;
+	padding-bottom: 15px;
+	display: block;
+	width: 100%;
+}
+.protection-st thead td{
+	font-weight: 700;
+}
+.protection-st2{
+	margin-top:30px;
+}
