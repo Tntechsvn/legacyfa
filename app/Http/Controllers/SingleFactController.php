@@ -87,7 +87,7 @@ class SingleFactController extends Controller
                 return response()->json([
                     'error' => false,
                     'message' => "Add new client successfully",
-                    'url' => "{{route('singlefact.dependants.list', $resultAddPfr->id)}}"
+                    'url' => route('singlefact.dependant.list', $resultAddPfr->id)
                 ], 200);
             } else {
                 return response()->json([
@@ -108,6 +108,4 @@ class SingleFactController extends Controller
         if(!$infoPfr) return abort(404);
         return view('pages.single-fact.add-new', compact('infoPfr'));
     }
-
-
 }

@@ -153,13 +153,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $client2;
 		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group1;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$income[] = $group1;
 		$income[] = $group2;
@@ -226,13 +226,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $client2;
 		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group1;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_disability[] = $group1;
 		$fund_disability[] = $group2;
@@ -299,13 +299,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $client2;
 		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group1;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_critical[] = $group1;
 		$fund_critical[] = $group2;
@@ -372,13 +372,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $child2;
 		$data1[] = $child3;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group1;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $child4;
 		$data2[] = $child5;
 		$data2[] = $child6;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_children[] = $group1;
 		$fund_children[] = $group2;
@@ -439,13 +439,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $client2;
 		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group1;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_saving[] = $group1;
 		$fund_saving[] = $group2;
@@ -488,10 +488,12 @@ class PrioritiesNeedsController extends Controller
 	/*public function addProtectionSix(Request $request, $idPfr)
 	{
 		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
-			
+			'retirement' => '',
+			'years_retirement' => '',
+			'method_calculation' => ''
 		);
 		$data = $request->except('_token');
-		$param = array();
+		$param = array('retirement_client1', 'years_retirement_client1', 'method_calculation_client1');
 		foreach($param as $val){
 			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
 			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
@@ -502,15 +504,15 @@ class PrioritiesNeedsController extends Controller
 		}
 		$data1[] = $client1;
 		$data1[] = $client2;
+		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = "";
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
-		$data2[] = $dependent1;
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = "";
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_retirement[] = $group1;
 		$fund_retirement[] = $group2;
@@ -569,13 +571,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $client2;
 		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group1;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$cover[] = $group1;
 		$cover[] = $group2;
@@ -637,13 +639,13 @@ class PrioritiesNeedsController extends Controller
 		$data1[] = $client2;
 		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = $request->additional_group2;
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = $request->additional_group2;
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_care[] = $group1;
 		$fund_care[] = $group2;
@@ -686,10 +688,16 @@ class PrioritiesNeedsController extends Controller
 	/*public function addProtectionNine(Request $request, $idPfr)
 	{
 		$client1 = $client2 = $dependent1 = $dependent2 = $dependent3 = $dependent4 = array(
-			
+			'hospital_type_desired' => '',
+			'ward_class' => '',
+			'type_cover_desired' => '',
+			'existing_plan' => '',
+			'hospital_covered' => '',
+			'ward_cover' => '',
+			'type_cover_existing' => '',
 		);
 		$data = $request->except('_token');
-		$param = array();
+		$param = array('hospital_type_desired', 'ward_class', 'type_cover_desired', 'existing_plan', 'hospital_covered', 'ward_cover', 'type_cover_existing');
 		foreach($param as $val){
 			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
 			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
@@ -700,15 +708,15 @@ class PrioritiesNeedsController extends Controller
 		}
 		$data1[] = $client1;
 		$data1[] = $client2;
+		$data1[] = $dependent1;
 		$group1['data'] = $data1;
-		$group1['note'] = "";
+		$group1['note'] = $request->additional_group1 != null ? $request->additional_group1 : "";
 
-		$data2[] = $dependent1;
 		$data2[] = $dependent2;
 		$data2[] = $dependent3;
 		$data2[] = $dependent4;
 		$group2['data'] = $data2;
-		$group2['note'] = "";
+		$group2['note'] = $request->additional_group2 != null ? $request->additional_group2 : "";
 
 		$fund_hospital[] = $group1;
 		$fund_hospital[] = $group2;
@@ -739,6 +747,18 @@ class PrioritiesNeedsController extends Controller
 			], 200);
 		}
 	}*/
+
+	public function showFormAddProtectionTen($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection10.list', compact('infoPfr'));
+	}
+
+	public function showFormAddProtectionEleven($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.priorities-needs.protection11.list', compact('infoPfr'));
+	}
 
 	private function addDataRate2Arr($request, $goPlan, $arr, $position, $type, $val)
 	{
