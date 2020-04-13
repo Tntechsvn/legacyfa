@@ -102,4 +102,12 @@ class SingleFactController extends Controller
             ], 200);
         }
     }
+
+    public function editSingleFact(Request $request) {
+        $pfr = $this->pfr->find($request->id);
+        if(!$pfr) return abort(404);
+        return view('pages.single-fact.add-new', compact('pfr'));
+    }
+
+
 }

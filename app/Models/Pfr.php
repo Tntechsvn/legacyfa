@@ -153,4 +153,23 @@ class Pfr extends Model
         return $query->join('clients', 'pfrs.id', '=', 'clients.pfr_id')
         ->where('clients.name', 'LIKE', '%'.$keyword.'%');
     }
+
+    public function client2() {
+        return $this->hasOne('App\Models\Client')->latest();
+    }
+    
+    public function client1() {
+        return $this->hasOne('App\Models\Client')->latest();
+    }
+
+    public function permalink()
+    {
+        if ($this->type == 0) {
+            return route('single_fact.edit', $this->id);
+        }else {
+            return route('join-fact.edit', $this->id);
+        }
+    }
+
+
 }
