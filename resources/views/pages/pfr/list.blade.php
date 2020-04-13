@@ -8,11 +8,13 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <form class="pull-left" method="get" action="">
-                <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                <i class="fa fa-search"></i>
-            </form>
-            <a class="link-trash textright" href="{{route('pfr.list_trash')}}">Trash</a>
+            <a class="link-trash textright" href="{{route('pfr.list_trash')}}"><i class="fas fa-trash"></i></a>
+            <div class="search-fn search-innerpage">
+                <form class="pull-left" method="get" action="">
+                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                    <i class="fa fa-search radius_2"></i>
+                </form>
+            </div>
         </div>
         <table id="list-pfr-page" class="table table-content table-style1" style="width:100%">
             <thead>

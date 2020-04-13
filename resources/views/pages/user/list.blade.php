@@ -9,11 +9,13 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
             <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"><i class="fas fa-plus-circle"></i> Add User</button>
-            <form class="pull-right" method="get" action="">
-                <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                <i class="fa fa-search"></i>
-            </form>
-            <a class="pull-right link-trash textright" href="{{route('user.list_trash')}}">Trash</a>
+            <a class="pull-right link-trash textright" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
+            <div class="search-fn search-innerpage">
+                <form class="pull-right" method="get" action="">
+                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                    <i class="fa fa-search adius_2"></i>
+                </form>
+            </div>
         </div>
         <table id="list-user" class="table table-content table-style1" style="width:100%">
             <thead>

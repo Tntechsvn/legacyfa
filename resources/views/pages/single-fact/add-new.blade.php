@@ -28,12 +28,21 @@
         </div>
       </div>
       <div class="form-group form-layout-row">
+        <label for="single_name">Gender<span>*</span></label>
         <div class="custom-input-layout-row">
-          <label class="radio-inline">
-            <input type="radio" name="sex" id="male" value="0" checked>Male
+          <label class="radio-inline custom-style-radio1">
+            <div class="style-checked">
+                <i class="fas fa-check-circle"></i>
+                <input type="radio" name="sex" id="male" value="0" checked>
+            </div>
+            Male
           </label>
-          <label class="radio-inline">
-            <input type="radio" name="sex" id="female" value="1">Female 
+          <label class="radio-inline custom-style-radio1">
+            <div class="style-checked">
+            <i class="far fa-circle"></i>
+            <input type="radio" name="sex" id="female" value="1">
+            </div>
+            Female
           </label>
         </div>
       </div>
@@ -278,12 +287,20 @@
       <div class="form-group form-layout-row">
         <label for="smoker1">Smoker<span>*</span></label>
         <div class="custom-input-layout-row">
-          <label class="radio-inline">
-            <input type="radio" name="smoker" value="0" checked>Yes
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="smoker" value="1">No 
-          </label>
+            <label class="radio-inline custom-style-radio1">
+                <div class="style-checked">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="radio" name="smoker" value="0" checked>
+                </div>
+                Yes
+            </label>
+            <label class="radio-inline custom-style-radio1">
+                <div class="style-checked">
+                    <i class="far fa-circle"></i>
+                    <input type="radio" name="smoker" value="1">
+                </div>
+                No 
+            </label>
         </div>
       </div>
       <hr  class="hr-fullcontent"/>
@@ -377,7 +394,9 @@
           <span class="noti-alert">(if different from Residential Address)</span>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+      <div class="action-form">
+          <button type="submit" class="btn btn-primary mb-2 radius_2 style-button1">Next</button>
+      </div>
     </form>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

@@ -75,7 +75,8 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="{{asset('js/base-init-new.js')}}"></script>
-    <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
+    <!-- <script src="{{asset('js/bootstrap.bundle.js')}}"></script> -->
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
@@ -85,6 +86,15 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <script src="{{asset('js/parsley.min.js')}}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".style-checked").click(function(){
+                $(this).closest('.custom-input-layout-row').find('i').removeClass('fas').removeClass('fa-check-circle').addClass('far').addClass('fa-circle');
+                $(this).find('i').removeClass('far').removeClass('fa-circle').addClass('fas').addClass('fa-check-circle');
+            });
+        }); 
+    </script>
 
 
     <script type="text/javascript">

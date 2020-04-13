@@ -67,7 +67,24 @@ var CRUMINA = {};
         $(this).closest($sidebar).toggleClass('open');
         return false;
     });
-
-
+	$(".has-submenu").on('click', function () {
+		if($(this).hasClass('fa-plus')){
+			$(this).removeClass('fa-plus').addClass('fa-minus');
+		}else{
+			$(this).removeClass('fa-minus').addClass('fa-plus');
+		}
+		
+		$(this).closest('li').find('.sub-menu').toggle();
+	});
+	
+	$(".search-fn i").on('click', function () {
+		if($(this).hasClass('no-boder')){
+			$(this).removeClass('no-boder');
+		}else{
+			$(this).addClass('no-boder');
+		}
+		$(this).closest('form').find('input').toggle();
+	});
+	
 
 })(jQuery);

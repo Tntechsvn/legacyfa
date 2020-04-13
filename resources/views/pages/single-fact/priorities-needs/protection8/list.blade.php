@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
             @csrf
-            <table id="blance-table" class="table table-content table-style1" style="width:100%">
+            <table id="protection8-1" class="table table-content table-style1 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <th>Fund Long Term Care</th>
@@ -39,8 +39,47 @@
                     </tr>
                     <tr>
                         <td>Additional Notes</td>
-                        <td><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
-                        <td><textarea class="form-control" id="additional-dependent1" name="additional-dependent1"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional_group1" name="additional_group1"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table id="protection8-2" class="table table-content table-style1 protection-st2" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Fund Long Term Care</th>
+                        <th>Dependent 2</th>
+                        <th>Dependent 3</th>
+                        <th>Dependent 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Desired Monthly Cash Payout ($)</td>
+                        <td><input type="number" class="form-control" id="desired_monthly_dependent2" name="desired_monthly_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="desired_monthly_dependent3" name="desired_monthly_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="desired_monthly_dependent4" name="desired_monthly_dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Name of Existing Long Term Care Insurance (if any)</td>
+                        <td><input type="text" class="form-control" id="existing_long_dependent2" name="existing_long_dependent2" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_long_dependent3" name="existing_long_dependent3" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_long_dependent4" name="existing_long_dependent4" placeholder="Name of Existing Long Term Care Insurance" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Less: Existing Insurance Benefit Payout ($)</td>
+                        <td><input type="number" class="form-control" id="existing_insurance_dependent2" name="existing_insurance_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_insurance_dependent3" name="existing_insurance_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_insurance_dependent4" name="existing_insurance_dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Net Amount Required ($)</td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent2" name="net_amount_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent3" name="net_amount_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent4" name="net_amount_dependent4" placeholder="$" value="" ></td>
+                    </tr>
+                     <tr>
+                        <td>Additional Notes</td>
+                        <td colspan="3"><textarea class="form-control" id="additional_group2" name="additional_group2"></textarea></td>
                     </tr>
                 </tbody>
             </table>
