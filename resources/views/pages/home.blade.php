@@ -7,7 +7,7 @@
         <h4>Please select your desired application:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 borderfullwidth link-action-addnew">
-        <a class="textcenter radius_4" href=""><i class="fas fa-user"></i>Single Fact Find</a>
+        <a class="textcenter radius_4" href="{{route('single-fact.show_form_add_new')}}"><i class="fas fa-user"></i>Single Fact Find</a>
         <a class="textcenter radius_4" href=""><i class="fas fa-users"></i>Joint Fact Find</a>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

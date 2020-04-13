@@ -16,7 +16,7 @@
                 </form>
             </div>
         </div>
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="dependants-list" class="table  table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SL</th>
