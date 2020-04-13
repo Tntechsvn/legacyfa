@@ -6,39 +6,63 @@
         <h4>Client Accompaniment Assessment:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form name="form_assessment" id='form_assessment' class="form-control parsley-form" method="post" action="{{route('single-fact.add_new_assessment', $infoPfr->id)}}" data-parsley-validate>
+        <form name="form_assessment" id='form_assessment' class="parsley-form form-style2" method="post" action="{{route('single-fact.add_new_assessment', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <h3>Client 1</h3>
             <div class="form-group  form-layout-row">
                 <label for="below_62">Age</label>
                 <div class="custom-input-layout-row">
-                    <label class="radio-inline">
-                        <input type="radio" name="age" id="below_62" value="0" checked>Below 62
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="age" id="below_62" value="0" checked>
+                        </div>
+                        Below 62
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="age" value="above_62">62 or above 
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="age" value="above_62">
+                        </div>
+                        62 or above 
                     </label>
                 </div>
             </div>
             <div class="form-group  form-layout-row">
                 <label for="pro_spoken">English Language Proficiency (Spoken)</label>
                 <div class="custom-input-layout-row">
-                    <label class="radio-inline">
-                        <input type="radio" name="spoken_en" id="pro_spoken" value="0" checked>Proficient
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
+                        </div>
+                        Proficient
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">NOT Proficient
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">
+                        </div>
+                            NOT Proficient
                     </label>
                 </div>
             </div>
             <div class="form-group  form-layout-row">
                 <label for="pro_written">English Language Proficiency (Written)</label>
                 <div class="custom-input-layout-row">
-                    <label class="radio-inline">
-                        <input type="radio" name="written_en" id="pro_written" value="0" checked>Proficient
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="written_en" id="pro_written" value="0" checked>
+                        </div>
+                        Proficient
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="written_en" id="not_pro_written" value="1">NOT Proficient 
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="written_en" id="not_pro_written" value="1">
+                        </div>
+                        NOT Proficient 
                     </label>
                 </div>
             </div>
@@ -46,26 +70,49 @@
                 <label for="primary">Education Level</label>
                 <div class="custom-input-layout-row">
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="primary" value="0" checked>
-                        <label class="form-check-label" for="primary">
-                            Primary
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="fas fa-check-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="primary" value="0" checked>
+                            </div>
+                            <label class="form-check-label" for="n&o">Primary</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" id="secondary" name="education" value="1">
-                        <label class="form-check-label" for="secondary">Secondary</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="secondary" value="1" checked>
+                            </div>
+                            <label class="form-check-label" for="n&o">Secondary</label>
+                        </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="n&o" value="2">
-                        <label class="form-check-label" for="n&o">GCE 'N' or "O" Level Certificate or Equivalent</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="n&o" value="1" checked>
+                            </div>
+                           <label class="form-check-label" for="n&o"> GCE 'N' or "O" Level Certificate or Equivalent</label>
+                        </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="pre" value="3">
-                        <label class="form-check-labes" for="pre">Pre-Tertiary</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="pre" value="1" checked>
+                            </div>
+                           <label class="form-check-label" for="n&o">Pre-Tertiary</label>
+                        </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="tertiary" value="4">
-                        <label class="form-check-label" for="tertiary">Tertiary and above</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="tertiary" value="1" checked>
+                            </div>
+                           <label class="form-check-label" for="n&o">Tertiary and above</label>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -73,8 +120,11 @@
                 RESULT:<br>
                 You do not need to be accompanied by a TRUSTED INDIVIDUAL
             </div>
-            <button type="button" class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
+            <div class="nav-step">
+                <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            </div>
+            <div class="clear"></div>
         </form>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

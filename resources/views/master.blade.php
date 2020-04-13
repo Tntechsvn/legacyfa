@@ -87,6 +87,15 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
     <script src="{{asset('js/parsley.min.js')}}"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".style-checked").click(function(){
+                $(this).closest('.custom-input-layout-row').find('i').removeClass('fas').removeClass('fa-check-circle').addClass('far').addClass('fa-circle');
+                $(this).find('i').removeClass('far').removeClass('fa-circle').addClass('fas').addClass('fa-check-circle');
+            });
+        }); 
+    </script>
+
 
     <script type="text/javascript">
         $(document).ready(function(){

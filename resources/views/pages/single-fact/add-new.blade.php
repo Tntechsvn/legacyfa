@@ -417,17 +417,6 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".style-checked").click(function(){
-                $(this).closest('.custom-input-layout-row').find('i').removeClass('fas').removeClass('fa-check-circle').addClass('far').addClass('fa-circle');
-                $(this).find('i').removeClass('far').removeClass('fa-circle').addClass('fas').addClass('fa-check-circle');
-            });
-        }); 
-    </script>
-
-
-
 <script type="text/javascript">
   $(document).ready(function(){
     $('#title').change(function(){
