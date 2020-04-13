@@ -122,7 +122,7 @@
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked">
                                     <i class="fas fa-check-circle"></i>
-                                    <input type="radio" name="sex" id="male" value="0" checked>
+                                    <input type="radio" name="sex" id="male" value="0">
                                 </div>
                                 Male
                             </label>
