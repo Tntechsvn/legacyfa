@@ -476,8 +476,10 @@
                         <label for="intention_investment">Intention with Investment</label>
                         <textarea class="form-control" id="intention_investment" name="intention_investment" placeholder="Intention with Investment" value="" ></textarea>
                     </div>
-                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <div class="nav-step">
+                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                    </div> 
                 </form>
             </div>
         </div>

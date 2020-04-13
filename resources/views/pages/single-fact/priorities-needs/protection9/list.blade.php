@@ -27,14 +27,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="status1-client1" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_type_desired_client1" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="status1-client1" id="female" value="1">
+                                        <input type="radio" name="hospital_type_desired_client1" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -45,14 +45,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="status1-dependent1" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_type_desired_dependent1" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="status1-dependent1" id="female" value="1">
+                                        <input type="radio" name="hospital_type_desired_dependent1" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -66,28 +66,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="choice-ward-client1"  value="0" checked>
+                                        <input type="radio" name="ward_class_client1" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-client1"  value="1">
+                                        <input type="radio" name="ward_class_client1" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-client1"  value="1">
+                                        <input type="radio" name="ward_class_client1" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-client1"  value="1">
+                                        <input type="radio" name="ward_class_client1" value="C">
                                     </div>
                                     C
                                 </label>
@@ -98,28 +98,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent1"  value="0" checked>
+                                        <input type="radio" name="ward_class_dependent1" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent1"  value="1">
+                                        <input type="radio" name="ward_class_dependent1"  value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent1"  value="1">
+                                        <input type="radio" name="ward_class_dependent1"  value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent1"  value="1">
+                                        <input type="radio" name="ward_class_dependent1"  value="C">
                                     </div>
                                     C
                                 </label>
@@ -131,21 +131,21 @@
                         <td>Type of Cover</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-client1" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_client1" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-client1" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_client1" value="R">
                                 Rider
                             </div>
                         </td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent1" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent1" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent1" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent1" value="R">
                                 Rider
                             </div>
                         </td>
@@ -155,11 +155,9 @@
                     </tr>
                     <tr>
                         <td>Existing Plan Name</td>
-                        <td><input type="text" class="form-control" id="existing-plan-client1" name="existing-plan-client1" placeholder="" value="" ></td>
-                        <td><input type="text" class="form-control" id="existing-plan-dependent1" name="existing-plan-dependent1" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_plan_client1" name="existing_plan_client1" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_plan_dependent1" name="existing_plan_dependent1" placeholder="" value="" ></td>
                     </tr>
-
-
                     <tr>
                         <td>Type of Hospital Covered</td>
                         <td>
@@ -167,14 +165,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="hospital-covered-client1" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_covered_client1" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="hospital-covered-client1" id="female" value="1">
+                                        <input type="radio" name="hospital_covered_client1" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -185,14 +183,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent1" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_covered_dependent1" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent1" id="female" value="1">
+                                        <input type="radio" name="hospital_covered_dependent1" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -206,28 +204,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="class-ward-client1"  value="0" checked>
+                                        <input type="radio" name="ward_cover_client1" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-client1"  value="1">
+                                        <input type="radio" name="ward_cover_client1" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-client1"  value="1">
+                                        <input type="radio" name="ward_cover_client1" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-client1"  value="1">
+                                        <input type="radio" name="ward_cover_client1" value="C">
                                     </div>
                                     C
                                 </label>
@@ -238,28 +236,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="class-ward-dependent1"  value="0" checked>
+                                        <input type="radio" name="ward_cover_dependent1" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent1"  value="1">
+                                        <input type="radio" name="ward_cover_dependent1" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent1"  value="1">
+                                        <input type="radio" name="ward_cover_dependent1" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent1"  value="1">
+                                        <input type="radio" name="ward_cover_dependent1" value="C">
                                     </div>
                                     C
                                 </label>
@@ -271,28 +269,28 @@
                         <td>Type of Cover</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-client1" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_client1" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-client1" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_client1" value="R">
                                 Rider
                             </div>
                         </td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent1" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent1" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent1" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent1" value="R">
                                 Rider
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Additional Notes</td>
-                        <td colspan="2"><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional_group1" name="additional_group1"></textarea></td>
                     </tr>
                 </tbody>
             </table>
@@ -318,14 +316,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="status1-dependent2" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_type_desired_dependent2" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="status1-dependent2" id="female" value="1">
+                                        <input type="radio" name="hospital_type_desired_dependent2" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -336,14 +334,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="status1-dependent3" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_type_desired_dependent3" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="status1-dependent3" id="female" value="1">
+                                        <input type="radio" name="hospital_type_desired_dependent3" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -354,14 +352,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="status1-dependent4" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_type_desired_dependent4" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="status1-dependent4" id="female" value="1">
+                                        <input type="radio" name="hospital_type_desired_dependent4" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -375,28 +373,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent2"  value="0" checked>
+                                        <input type="radio" name="ward_class_dependent2" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent2"  value="1">
+                                        <input type="radio" name="ward_class_dependent2" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent2"  value="1">
+                                        <input type="radio" name="ward_class_dependent2" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent2"  value="1">
+                                        <input type="radio" name="ward_class_dependent2" value="C">
                                     </div>
                                     C
                                 </label>
@@ -407,28 +405,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent3"  value="0" checked>
+                                        <input type="radio" name="ward_class_dependent3" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent3"  value="1">
+                                        <input type="radio" name="ward_class_dependent3" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent3"  value="1">
+                                        <input type="radio" name="ward_class_dependent3" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent3"  value="1">
+                                        <input type="radio" name="ward_class_dependent3" value="C">
                                     </div>
                                     C
                                 </label>
@@ -439,28 +437,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent4"  value="0" checked>
+                                        <input type="radio" name="ward_class_dependent4" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent4"  value="1">
+                                        <input type="radio" name="ward_class_dependent4" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent4"  value="1">
+                                        <input type="radio" name="ward_class_dependent4" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="choice-ward-dependent4"  value="1">
+                                        <input type="radio" name="ward_class_dependent4" value="C">
                                     </div>
                                     C
                                 </label>
@@ -472,31 +470,31 @@
                         <td>Type of Cover</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent2" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent2" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent2" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent2" value="R">
                                 Rider
                             </div>
                         </td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent3" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent3" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent3" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent3" value="R">
                                 Rider
                             </div>
                         </td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent4" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent4" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover-dependent4" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_desired_dependent4" value="R">
                                 Rider
                             </div>
                         </td>
@@ -506,12 +504,10 @@
                     </tr>
                     <tr>
                         <td>Existing Plan Name</td>
-                        <td><input type="text" class="form-control" id="existing-plan-dependent2" name="existing-plan-dependent2" placeholder="" value="" ></td>
-                        <td><input type="text" class="form-control" id="existing-plan-dependent3" name="existing-plan-dependent3" placeholder="" value="" ></td>
-                        <td><input type="text" class="form-control" id="existing-plan-dependent4" name="existing-plan-dependent4" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_plan_dependent2" name="existing_plan_dependent2" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_plan_dependent3" name="existing_plan_dependent3" placeholder="" value="" ></td>
+                        <td><input type="text" class="form-control" id="existing_plan_dependent4" name="existing_plan_dependent4" placeholder="" value="" ></td>
                     </tr>
-
-
                     <tr>
                         <td>Type of Hospital Covered</td>
                         <td>
@@ -519,14 +515,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent2" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_covered_dependent2" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent2" id="female" value="1">
+                                        <input type="radio" name="hospital_covered_dependent2"  value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -537,14 +533,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent3" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_covered_dependent3" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent3" id="female" value="1">
+                                        <input type="radio" name="hospital_covered_dependent3" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -555,14 +551,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent4" id="male" value="0" checked>
+                                        <input type="radio" name="hospital_covered_dependent4" value="PR" checked>
                                     </div>
                                     Private
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="hospital-covered-dependent4" id="female" value="1">
+                                        <input type="radio" name="hospital_covered_dependent4" value="PU">
                                     </div>
                                     Public
                                 </label>
@@ -576,28 +572,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="class-ward-dependent2"  value="0" checked>
+                                        <input type="radio" name="ward_cover_dependent2" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent2"  value="1">
+                                        <input type="radio" name="ward_cover_dependent2" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent2"  value="1">
+                                        <input type="radio" name="ward_cover_dependent2" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent2"  value="1">
+                                        <input type="radio" name="ward_cover_dependent2" value="C">
                                     </div>
                                     C
                                 </label>
@@ -608,28 +604,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="class-ward-dependent3"  value="0" checked>
+                                        <input type="radio" name="ward_cover_dependent3" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent3"  value="1">
+                                        <input type="radio" name="ward_cover_dependent3" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent3"  value="1">
+                                        <input type="radio" name="ward_cover_dependent3" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent3"  value="1">
+                                        <input type="radio" name="ward_cover_dependent3" value="C">
                                     </div>
                                     C
                                 </label>
@@ -640,28 +636,28 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="class-ward-dependent4"  value="0" checked>
+                                        <input type="radio" name="ward_cover_dependent4" value="A" checked>
                                     </div>
                                     A
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent4"  value="1">
+                                        <input type="radio" name="ward_cover_dependent4" value="B1">
                                     </div>
                                     B1
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent4"  value="1">
+                                        <input type="radio" name="ward_cover_dependent4" value="B2">
                                     </div>
                                     B2
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="class-ward-dependent4"  value="1">
+                                        <input type="radio" name="ward_cover_dependent4" value="C">
                                     </div>
                                     C
                                 </label>
@@ -673,38 +669,38 @@
                         <td>Type of Cover</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent2" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent2" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent2" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent2" value="R">
                                 Rider
                             </div>
                         </td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent3" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent3" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent3" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent3" value="R">
                                 Rider
                             </div>
                         </td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent4" value="option1">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent4" value="B">
                                 Basic
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox"  name="type-cover2-dependent4" value="option2">
+                                <input class="form-check-input" type="checkbox" name="type_cover_existing_dependent4" value="R">
                                 Rider
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Additional Notes</td>
-                        <td colspan="3"><textarea class="form-control" id="additional-client1" name="additional-client1"></textarea></td>
+                        <td colspan="3"><textarea class="form-control" id="additional_group2" name="additional_group2"></textarea></td>
                     </tr>
                 </tbody>
             </table>
@@ -724,4 +720,3 @@
     </div>
 </div>
 @endsection
-

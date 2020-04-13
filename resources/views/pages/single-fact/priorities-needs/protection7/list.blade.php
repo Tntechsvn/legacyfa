@@ -34,7 +34,7 @@
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td colspan="2"><textarea class="form-control" id="additional-dependent2" name="additional-dependent2"></textarea></td>
+                        <td colspan="2"><textarea class="form-control" id="additional_group1" name="additional_group1"></textarea></td>
                     </tr>
                 </tbody>
             </table>
@@ -50,25 +50,25 @@
                 <tbody>
                     <tr>
                         <td>Amount Needed ($)</td>
-                        <td><input type="number" class="form-control" id="amount-needed-dependent2" name="amount-needed-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="amount-needed-dependent3" name="amount-needed-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="amount-needed-dependent4" name="amount-needed-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="amount_needed_dependent2" name="amount_needed_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="amount_needed_dependent3" name="amount_needed_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="amount_needed_dependent4" name="amount_needed_dependent4" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Less: Existing Personal Accident Benefits ($)</td>
-                        <td><input type="number" class="form-control" id="existing-personal-dependent2" name="existing-personal-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="existing-personal-dependent3" name="existing-personal-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="existing-personal-dependent4" name="existing-personal-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_personal_dependent2" name="existing_personal_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_personal_dependent3" name="existing_personal_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="existing_personal_dependent4" name="existing_personal_dependent4" placeholder="$" value="" ></td>
                     </tr>
                     <tr>
                         <td>Net Amount Required ($)</td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent2" name="net-amount-dependent2" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent3" name="net-amount-dependent3" placeholder="$" value="" ></td>
-                        <td><input type="number" class="form-control" id="net-amount-dependent4" name="net-amount-dependent4" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent2" name="net_amount_dependent2" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent3" name="net_amount_dependent3" placeholder="$" value="" ></td>
+                        <td><input type="number" class="form-control" id="net_amount_dependent4" name="net_amount_dependent4" placeholder="$" value="" ></td>
                     </tr>
                      <tr>
                         <td>Additional Notes</td>
-                        <td colspan="3"><textarea class="form-control" id="additional-dependent2" name="additional-dependent2"></textarea></td>
+                        <td colspan="3"><textarea class="form-control" id="additional_group2" name="additional_group2"></textarea></td>
                     </tr>
                 </tbody>
             </table>

@@ -29,6 +29,8 @@ class CreatePrioritiesNeedsTable extends Migration
             $table->json('cover')->nullable();
             $table->json('fund_care')->nullable();
             $table->json('fund_hospital')->nullable();
+            $table->json('estate_planning')->nullable();
+            $table->json('other_insurance')->nullable();
             $table->timestamps();
         });
     }

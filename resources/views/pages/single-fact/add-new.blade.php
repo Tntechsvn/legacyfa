@@ -32,16 +32,16 @@
         <label for="single_name">Gender<span>*</span></label>
         <div class="custom-input-layout-row">
           <label class="radio-inline custom-style-radio1">
-            <div class="style-checked">
-                <i class="fas fa-check-circle"></i>
+            <div class="style-checked style-radio-custom">
                 <input type="radio" name="sex" id="male" value="0" checked>
+                <span class="checkmark-radio"></span>
             </div>
             Male
           </label>
           <label class="radio-inline custom-style-radio1">
-            <div class="style-checked">
-            <i class="far fa-circle"></i>
-            <input type="radio" name="sex" id="female" value="1">
+            <div class="style-checked style-radio-custom">
+              <input type="radio" name="sex" id="female" value="1">
+              <span class="checkmark-radio"></span>
             </div>
             Female
           </label>
