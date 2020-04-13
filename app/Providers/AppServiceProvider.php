@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            ['master'], 
+            ['pages.*'], 
             'App\Http\ViewComposers\ViewShareComposer'
         );
     }

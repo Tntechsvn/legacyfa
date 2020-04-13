@@ -42,7 +42,7 @@
                 @foreach($listPfr as $pfr)
                     <tr>
                         <td>{{$pfr->id}}</td>
-                        <td>{{$pfr->nameClient}}</td>
+                        <td><a href="{{$pfr->permalink()}}">{{$pfr->nameClient}}</a></td>
                         <td>{{$pfr->nameUserAdd}}</td>
                         <td>{{$pfr->createDate}}</td>
                         <td>{{$pfr->typePfr}}</td>
