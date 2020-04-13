@@ -104,9 +104,9 @@ class SingleFactController extends Controller
     }
 
     public function editSingleFact(Request $request) {
-        $pfr = $this->pfr->find($request->id);
-        if(!$pfr) return abort(404);
-        return view('pages.single-fact.add-new', compact('pfr'));
+        $infoPfr = $this->pfr->find($request->id);
+        if(!$infoPfr) return abort(404);
+        return view('pages.single-fact.add-new', compact('infoPfr'));
     }
 
 
