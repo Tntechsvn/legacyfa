@@ -239,7 +239,7 @@
       </div>
     </form>
   </div>
-<!--   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
     <ul>
       @if(!$infoPfr)
       <li class="active"><a href="javascript:;">1</a></li>
@@ -256,7 +256,7 @@
         @include('pages.navigation', ['id' => $infoPfr->id])
       @endif
     </ul>
-  </div> -->
+  </div>
 </div>
 @endsection
 
