@@ -241,7 +241,7 @@
   </div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
     <ul>
-      @if(!$infoPfr)
+      @if(!isset($infoPfr))
       <li class="active"><a href="javascript:;">1</a></li>
       <li><a href="javascript:;">2</a></li>
       <li><a href="javascript:;">3</a></li>
@@ -266,11 +266,11 @@
     $('#title').change(function(){
       var title = $(this).val();
       if(title == "Mrs" || title == "Ms" || title == "Mdm"){
-        $('#female').prop('checked', true);
-        $('#male').prop('checked', false);
+        $('#female').prop('checked', true).siblings('i').addClass('fas fa-check-circle').removeClass('far fa-circle');
+        $('#male').prop('checked', false).siblings('i').addClass('far fa-circle').removeClass('fas fa-check-circle');
       }else{
-        $('#female').prop('checked', false);
-        $('#male').prop('checked', true);
+        $('#female').prop('checked', false).siblings('i').addClass('far fa-circle').removeClass('fas fa-check-circle');
+        $('#male').prop('checked', true).siblings('i').addClass('fas fa-check-circle').removeClass('far fa-circle');
       }
     });
 
