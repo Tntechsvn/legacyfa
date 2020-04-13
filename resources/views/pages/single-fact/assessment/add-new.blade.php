@@ -5,8 +5,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Client Accompaniment Assessment:</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form name="form_assessment" id='form_assessment' class="form-control parsley-form" method="post" action="{{route('single-fact.add_new_assessment', $infoPfr->id)}}" data-parsley-validate>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
+        <form name="form_assessment" id='form_assessment' class="parsley-form form-style2" method="post" action="{{route('single-fact.add_new_assessment', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <h3>Client 1</h3>
             <div class="form-group  form-layout-row">
@@ -70,26 +70,49 @@
                 <label for="primary">Education Level</label>
                 <div class="custom-input-layout-row">
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="primary" value="0" checked>
-                        <label class="form-check-label" for="primary">
-                            Primary
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="fas fa-check-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="primary" value="0" checked>
+                            </div>
+                            <label class="form-check-label" for="n&o">Primary</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" id="secondary" name="education" value="1">
-                        <label class="form-check-label" for="secondary">Secondary</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="secondary" value="1" checked>
+                            </div>
+                            <label class="form-check-label" for="n&o">Secondary</label>
+                        </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="n&o" value="2">
-                        <label class="form-check-label" for="n&o">GCE 'N' or "O" Level Certificate or Equivalent</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="n&o" value="1" checked>
+                            </div>
+                           <label class="form-check-label" for="n&o"> GCE 'N' or "O" Level Certificate or Equivalent</label>
+                        </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="pre" value="3">
-                        <label class="form-check-labes" for="pre">Pre-Tertiary</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="pre" value="1" checked>
+                            </div>
+                           <label class="form-check-label" for="n&o">Pre-Tertiary</label>
+                        </label>
                     </div>
                     <div class="radio-hoz">
-                        <input class="form-check-input" type="radio" name="education" id="tertiary" value="4">
-                        <label class="form-check-label" for="tertiary">Tertiary and above</label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="education" id="tertiary" value="1" checked>
+                            </div>
+                           <label class="form-check-label" for="n&o">Tertiary and above</label>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -97,23 +120,19 @@
                 RESULT:<br>
                 You do not need to be accompanied by a TRUSTED INDIVIDUAL
             </div>
-            <button type="button" class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
+            <div class="nav-step">
+                <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            </div>
             <div class="clear"></div>
         </form>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
       <ul>
-          <li><a href="javascript:;">1</a></li>
-          <li><a href="javascript:;">2</a></li>
-          <li><a href="javascript:;">3</a></li>
-          <li><a href="javascript:;">4</a></li>
-          <li><a href="javascript:;">5</a></li>
-          <li><a href="javascript:;">6</a></li>
-          <li><a href="javascript:;">7</a></li>
-          <li><a href="javascript:;">8</a></li>
-          <li><a href="javascript:;">9</a></li>
-          <li><a href="javascript:;">10</a></li>
+            @if(!$infoPfr)
+            @else
+                @include('pages.navigation', ['id' => $infoPfr->id])
+            @endif
       </ul>
   </div>
 </div>

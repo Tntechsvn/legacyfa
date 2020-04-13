@@ -1,25 +1,5 @@
-<?php
-namespace App\Http\ViewComposers;
-
-use View;
-use DB;
-
-use App\Models\User;
-
-class ViewShareComposer
-{
-
-    /**
-     * Bind data to the view.
-     *
-     * @param  View  $view
-     * @return void
-     */
-    public function compose()
-    {
-        // $user = User::all();
-        $vvv = "vkl";
-        $nationalities =
+@php
+$nationality =
         [
                 'afghan' => 'Afghan',
                 'albanian' => 'Albanian',
@@ -214,7 +194,6 @@ class ViewShareComposer
                 'zambian' => 'Zambian',
                 'zimbabwean' => 'Zimbabwean'
         ] ; 
- 
-        View::share(['vvv'=> $vvv, 'nationalities'=> $nationalities]);
-    }
-}
+@endphp  
+
+

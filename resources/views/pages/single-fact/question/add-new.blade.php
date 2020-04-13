@@ -5,8 +5,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Trusted Individual Questionnaire :</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form name="form_question" id='form_question' class="form-control parsley-form" method="post" action="{{route('single-fact.add_new_question', $infoPfr->id)}}" data-parsley-validate>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
+        <form name="form_question" id='form_question' class="parsley-form form-style2" method="post" action="{{route('single-fact.add_new_question', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <div class="form-group form-layout-row">
                 <label for="name">Name of Client's Trusted Individual<span>*</span></label>
@@ -29,16 +29,56 @@
             <div class="form-group form-layout-row">
                 <label for="eng">Language Used *</label>
                 <div class="custom-input-layout-row">
-                    <input class="form-check-input" type="radio" name="language" id="eng" value="ENG" checked>
-                    <label class="form-check-label" for="eng">English</label>
-                    <input class="form-check-input" type="radio" name="language" id="man" value="MAN">
-                    <label class="form-check-label" for="mal">Malay</label>
-                    <input class="form-check-input" type="radio" name="language" id="mal" value="MAL">
-                    <label class="form-check-label" for="tam">Tamil</label>
-                    <input class="form-check-input" type="radio" name="language" id="tam" value="TAM">
-                    <label class="form-check-label" for="man">Mandarin</label>
-                    <input class="form-check-label" type="radio" name="language" id="Ot" value="Ot">
-                    <label class="form-check-label" for="other_language">Others (Please specify):</label>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="fas fa-check-circle"></i>
+                                <input class="form-check-input" type="radio" name="language" id="eng" value="ENG" checked>
+                            </div>
+                            <label class="form-check-label" for="eng">English</label>
+                        </label>
+                    </div>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="language" id="man" value="MAN">
+                            </div>
+                            <label class="form-check-label" for="mal">Malay</label>
+                        </label>
+                    </div>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="language" id="mal" value="MAL">
+                            </div>
+                            <label class="form-check-label" for="tam">Tamil</label>
+                        </label>
+                    </div>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-input" type="radio" name="language" id="tam" value="TAM">
+                            </div>
+                            <label class="form-check-label" for="man">Mandarin</label>
+                        </label>
+                    </div>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                                <input class="form-check-label" type="radio" name="language" id="Ot" value="Ot">
+                            </div>
+                            <label class="form-check-label" for="other_language">Others (Please specify):</label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-layout-row">
+                <label for="other_language"></label>
+                <div class="custom-input-layout-row">
                     <input type="text" class="form-control" id="other_language" name="other_language" placeholder="Others (Please specify)" value="" >
                 </div>
             </div>
@@ -48,7 +88,7 @@
                     <input type="tel" class="form-control" id="contact_number" name="contact_number" placeholder="Contact Number" value="" data-parsley-trigger="change" required="">
                 </div>
             </div>
-            <div class="form-group page-step-action">
+            <div class="nav-step">
                 <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
@@ -56,16 +96,10 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
       <ul>
-          <li><a href="javascript:;">1</a></li>
-          <li><a href="javascript:;">2</a></li>
-          <li><a href="javascript:;">3</a></li>
-          <li><a href="javascript:;">4</a></li>
-          <li><a href="javascript:;">5</a></li>
-          <li><a href="javascript:;">6</a></li>
-          <li><a href="javascript:;">7</a></li>
-          <li><a href="javascript:;">8</a></li>
-          <li><a href="javascript:;">9</a></li>
-          <li><a href="javascript:;">10</a></li>
+        @if(!$infoPfr)
+        @else
+            @include('pages.navigation', ['id' => $infoPfr->id])
+        @endif
       </ul>
     </div>
 </div>

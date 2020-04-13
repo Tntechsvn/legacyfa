@@ -5,11 +5,11 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Priorities & Needs Rating</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <p class="note-alert-step7">Please rate all categories according to your priority:</p>
         <form name="priorities_need_form" id='priorities_need_form' class="" method="post" action="{{route('single_fact.priorities_needs.rate_category', $infoPfr->id)}}" data-parsley-validate>
             @csrf
-            <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
+            <table id="protection0-1" class="table table-content table-style1 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <td></td>
@@ -66,18 +66,22 @@
                             $goPlan = substr($val, -1, 1);
                             $checkGoPlan = $goPlan == 1 ? "checked" : "";
                         }?>
-                        <td>
-                            <input type="radio" name="client1rate{{$key+1}}" value="L" {{$checkRateL}}>
+                        <td class="style-checked-table">
+                                <input type="radio" name="client1rate{{$key+1}}" value="L" {{$checkRateL}}>
+                                <span class="checkmark"></span>
                         </td>
-                        <td>
-                            <input type="radio" name="client1rate{{$key+1}}" value="M" {{$checkRateM}}>
+                         <td class="style-checked-table">
+                                <input type="radio" name="client1rate{{$key+1}}" value="M" {{$checkRateM}}>
+                                <span class="checkmark"></span>
                         </td>
-                        <td>
-                            <input type="radio" name="client1rate{{$key+1}}" value="H" {{$checkRateH}}>
+                        <td class="style-checked-table">
+                                <input type="radio" name="client1rate{{$key+1}}" value="H" {{$checkRateH}}>
+                                <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table2">
                             <!-- <input type="radio" name="client1goplan{{$key+1}}" id="goplanclient1{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="goplanclient1{{$key+1}}" class="form-check-input" value="1" name="client1goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
+                            <span class="checkmark"></span>
                         </td>
 
                         <?php
@@ -91,18 +95,22 @@
                             $goPlan = substr($val, -1, 1);
                             $checkGoPlan = $goPlan == 1 ? "checked" : "";
                         }?>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="client2rate{{$key+1}}" value="L" {{$checkRateL}}>
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="client2rate{{$key+1}}" value="M" {{$checkRateM}}>
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="client2rate{{$key+1}}" value="H" {{$checkRateH}}>
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table2">
                             <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="goplanclient2{{$key+1}}" class="form-check-input" value="1" name="client2goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
+                            <span class="checkmark"></span>
                         </td>
 
                         <?php
@@ -116,25 +124,29 @@
                             $goPlan = substr($val, -1, 1);
                             $checkGoPlan = $goPlan == 1 ? "checked" : "";
                         }?>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent1rate{{$key+1}}" value="L" {{$checkRateL}}>
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent1rate{{$key+1}}" value="M" {{$checkRateM}}>
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent1rate{{$key+1}}" value="H" {{$checkRateH}}>
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table2">
                             <!-- <input type="radio" name="dependent1goplan{{$key+1}}" id="dependent1goplan{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="dependent1goplan{{$key+1}}" class="form-check-input" value="1" name="dependent1goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
+                            <span class="checkmark"></span>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
 
-            <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
+            <table id="protection0-1" class="table table-content table-style1 protection-st protection-st2" style="width:100%">
                   <thead>
                     <tr>
                         <td></td>
@@ -174,68 +186,74 @@
                     @foreach( $arr as $key=>$name )
                     <tr>
                         <td>{{ $name }}</td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent2rate{{$key+1}}" value="L">
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent2rate{{$key+1}}" value="M" >
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent2rate{{$key+1}}" value="H" >
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table2">
                             <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="dependent2goplan{{$key+1}}" class="form-check-input" value="1" name="dependent2goplan{{$key+1}}" type="checkbox">
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent3rate{{$key+1}}" value="L">
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent3rate{{$key+1}}" value="M" >
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent3rate{{$key+1}}" value="H" >
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table2">
                             <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="dependent3goplan{{$key+1}}" class="form-check-input" value="1" name="dependent3goplan{{$key+1}}" type="checkbox">
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent4rate{{$key+1}}" value="L">
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent4rate{{$key+1}}" value="M" >
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <input type="radio" name="dependent4rate{{$key+1}}" value="H" >
+                            <span class="checkmark"></span>
                         </td>
-                        <td>
+                        <td class="style-checked-table">
                             <!-- <input type="radio" name="client2goplan{{$key+1}}" id="goplanclient2{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="dependent4goplan{{$key+1}}" class="form-check-input" value="1" name="dependent4goplan{{$key+1}}" type="checkbox">
+                            <span class="checkmark"></span>
                         </td>
                     </tr>    
                     @endforeach
                 </tbody>
             </table>
-
-            <button class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
-            <button class="btn btn-primary mb-2">Reset All</button>
-
+            <div class="nav-step">
+                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+                <button class="btn btn-primary mb-2 style-button1">Reset All</button>
+            </div>     
         </form>      
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
-            <li><a href="javascript:;">1</a></li>
-            <li><a href="{{route('single_fact.balance.list', $infoPfr->id)}}">2</a></li>
-            <li><a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}">3</a></li>
-            <li><a href="{{route('portfolio.list', $infoPfr->id)}}">4</a></li>
-            <li><a href="{{route('single_fact.risk_profile.list', $infoPfr->id)}}">5</a></li>
-            <li><a href="{{route('single_fact.cka.list', $infoPfr->id)}}">6</a></li>
-            <li><a href="{{route('single_fact.priorities_needs.show_form_rate_category', $infoPfr->id)}}">7</a></li>
-            <li><a href="javascript:;">8</a></li>
-            <li><a href="javascript:;">9</a></li>
-            <li><a href="javascript:;">10</a></li>
+            @if(!$infoPfr)
+            @else
+                @include('pages.navigation', ['id' => $infoPfr->id])
+            @endif
         </ul>
     </div>
 </div>

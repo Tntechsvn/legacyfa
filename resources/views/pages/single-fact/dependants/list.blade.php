@@ -16,7 +16,7 @@
                 </form>
             </div>
         </div>
-        <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
+        <table id="dependants-list" class="table  table-content table-style1" style="width:100%">
             <thead>
                 <tr>
                     <th>SL</th>
@@ -53,16 +53,10 @@
     <div>{{$listDependant->links()}}</div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
       <ul>
-          <li><a href="javascript:;">1</a></li>
-          <li><a href="javascript:;">2</a></li>
-          <li><a href="javascript:;">3</a></li>
-          <li><a href="javascript:;">4</a></li>
-          <li><a href="javascript:;">5</a></li>
-          <li><a href="javascript:;">6</a></li>
-          <li><a href="javascript:;">7</a></li>
-          <li><a href="javascript:;">8</a></li>
-          <li><a href="javascript:;">9</a></li>
-          <li><a href="javascript:;">10</a></li>
+          @if(!$infoPfr)
+          @else
+            @include('pages.navigation', ['id' => $infoPfr->id])
+          @endif
       </ul>
   </div>
 </div>
@@ -122,7 +116,7 @@
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked">
                                     <i class="fas fa-check-circle"></i>
-                                    <input type="radio" name="sex" id="male" value="0" checked>
+                                    <input type="radio" name="sex" id="male" value="0">
                                 </div>
                                 Male
                             </label>

@@ -27,9 +27,15 @@ class UserController extends Controller
 
 	public function login(Request $request)
 	{
+		$user = User::where('email', '=', $request->email)->first();
+		if ($user === null) {
+			session()->put('error', "Your email not exist");
+			return redirect()->back();
+		}
 		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 			return redirect()->route('home');
 		} else {
+			session()->put('error', "Your password not correct");
 			return redirect()->back();
 		}
 	}

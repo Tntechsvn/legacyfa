@@ -209,10 +209,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			'uses' => 'SingleFactController@addNewSingleFact'
 		]);
 
-		// Route::post('edit/{id}', [
-		// 	'as' => 'single-fact.edit',
-		// 	'uses' => 'SingleFactController@editSingleFact'
-		// ]);
+		Route::get('{id}', [
+			'as' => 'single_fact.edit',
+			'uses' => 'SingleFactController@editSingleFact'
+		]);
 		
 		Route::group(['prefix' => 'dependants/{id_pfr}'], function(){
 			Route::get('/', [
@@ -462,6 +462,11 @@ Route::group(['prefix' => 'joint-fact'], function(){
 		// 	'as' => 'ListSingleFact',
 		// 	'uses' => 'JointFactController@listJointFact'
 		// ]);
+
+	Route::post('{id}', [
+		'as' => 'join-fact.edit',
+		'uses' => 'SingleFactController@editSingleFact'
+	]);
 
 	Route::get('add-new', [
 		'as' => 'joint-fact.show_form_add_new',
