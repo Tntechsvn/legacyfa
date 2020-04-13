@@ -16,7 +16,7 @@
             @endphp
           <select name="title" id="title" class="form-control" data-parsley-trigger="change" required="">
             @foreach($array_title as $title)
-              <option value="{{$title}}" {{isset($pfr->client1->title) && $pfr->client1->title == $title ? 'selected' : ''}}>{{$title}}</option>
+              <option value="{{$title}}" {{isset($infoPfr->client1->title) && $infoPfr->client1->title == $title ? 'selected' : ''}}>{{$title}}</option>
             @endforeach
           </select>
         </div>
@@ -24,7 +24,7 @@
       <div class="form-group form-layout-row">
         <label for="single_name">Name<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="single_name" name="single_name" placeholder="Name" value="{{$pfr->client1->name ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="single_name" name="single_name" placeholder="Name" value="{{$infoPfr->client1->name ?? ""}}" data-parsley-trigger="change" required="">
           <span class="noti-alert">(as in NRIC / Passport)</span>
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div class="form-group form-layout-row">
         <label for="passport_no">NRIC/Passport No<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="passport_no" name="passport_no" placeholder="NRIC/Passport No" value="{{$pfr->client1->nric_passport ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="passport_no" name="passport_no" placeholder="NRIC/Passport No" value="{{$infoPfr->client1->nric_passport ?? ""}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
@@ -59,7 +59,7 @@
           <select id="select_nationality" name="select_nationality" data-parsley-trigger="change" required="">
             <option value="">-- select one --</option>
             @foreach($nationalities as $key=>$n)
-              <option value="{{$key}}" {{isset($pfr->client1->nationality) && $pfr->client1->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
+              <option value="{{$key}}" {{isset($infoPfr->client1->nationality) && $infoPfr->client1->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
             @endforeach
           </select>
         </div>
@@ -80,7 +80,7 @@
                 ];
             @endphp
             @foreach($residency as $key=>$value)
-                <option value="{{$key}}" {{isset($pfr->client1->select_residency) && $pfr->client1->select_residency == $key ? 'selected' : ''}}>{{$value}}</option>
+                <option value="{{$key}}" {{isset($infoPfr->client1->select_residency) && $infoPfr->client1->select_residency == $key ? 'selected' : ''}}>{{$value}}</option>
             @endforeach
           </select> 
           <span class="noti-alert">(To fill up if nationality is not Singaporean)</span>
@@ -89,7 +89,7 @@
       <div class="form-group form-layout-row">
         <label for="birthday">Date of Birth<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="{{$pfr->client1->dob ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="{{$infoPfr->client1->dob ?? ""}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
@@ -105,7 +105,7 @@
                 ];
             @endphp
             @foreach($maritals as $key=>$value)
-                <option value="{{$key}}" {{isset($pfr->client1->marital_status) && $pfr->client1->marital_status == $key ? 'selected' : ''}}>{{$value}}</option>
+                <option value="{{$key}}" {{isset($infoPfr->client1->marital_status) && $infoPfr->client1->marital_status == $key ? 'selected' : ''}}>{{$value}}</option>
             @endforeach
           </select> 
         </div>
@@ -145,7 +145,7 @@
                 ];
             @endphp
             @foreach($employments_status as $key=>$e)
-                <option value="{{$key}}" {{isset($pfr->client1->employment_status) && $pfr->client1->employment_status == $key ? 'selected' : ''}}>{{$e}}</option>
+                <option value="{{$key}}" {{isset($infoPfr->client1->employment_status) && $infoPfr->client1->employment_status == $key ? 'selected' : ''}}>{{$e}}</option>
             @endforeach
           </select> 
         </div>
@@ -153,20 +153,20 @@
       <div class="form-group form-layout-row">
         <label for="occupation">Occupation<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation" value="{{$pfr->client1->occupation ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation" value="{{$infoPfr->client1->occupation ?? ""}}" data-parsley-trigger="change" required="">
           <span class="noti-alert">(If Retired, please indicate previous occupation)</span>
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="company_name">Company Name<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" value="{{$pfr->client1->company ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" value="{{$infoPfr->client1->company ?? ""}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="business_nature">Business Nature<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="business_nature" name="business_nature" placeholder="Business Nature" value="{{$pfr->client1->business_nature ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="business_nature" name="business_nature" placeholder="Business Nature" value="{{$infoPfr->client1->business_nature ?? ""}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
@@ -184,7 +184,7 @@
                 ];
             @endphp
             @foreach($annual_income as $key=>$value)
-                <option value="{{$key}}" {{isset($pfr->client1->income_range) && $pfr->client1->income_range == $key ? 'selected' : ''}}>{{$value}}</option>
+                <option value="{{$key}}" {{isset($infoPfr->client1->income_range) && $infoPfr->client1->income_range == $key ? 'selected' : ''}}>{{$value}}</option>
             @endforeach
           </select> 
         </div>
@@ -193,44 +193,44 @@
       <div class="form-group form-layout-row">
         <label for="details_home">Contact Details - Home</label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="details_home" name="details_home" placeholder="Contact Details" value="{{$pfr->client1->contact_home ?? ""}}">
+          <input type="text" class="form-control" id="details_home" name="details_home" placeholder="Contact Details" value="{{$infoPfr->client1->contact_home ?? ""}}">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="details_mobile">Contact Details - Mobile<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="tel" class="form-control" id="details_mobile" name="details_mobile" placeholder="Contact Details" value="{{$pfr->client1->contact_mobile ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="tel" class="form-control" id="details_mobile" name="details_mobile" placeholder="Contact Details" value="{{$infoPfr->client1->contact_mobile ?? ""}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="details_office">Contact Details - Office</label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="details_office" name="details_office" placeholder="Contact Details" value="{{$pfr->client1->contact_office ?? ""}}">
+          <input type="text" class="form-control" id="details_office" name="details_office" placeholder="Contact Details" value="{{$infoPfr->client1->contact_office ?? ""}}">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="details_fax">Contact Details - Fax</label>
         <div class="custom-input-layout-row">
-          <input type="tel" class="form-control" id="details_fax" name="details_fax" placeholder="Contact Details" value="{{$pfr->client1->contact_fax ?? ""}}">
+          <input type="tel" class="form-control" id="details_fax" name="details_fax" placeholder="Contact Details" value="{{$infoPfr->client1->contact_fax ?? ""}}">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="email_address">E-mail Address</label>
         <div class="custom-input-layout-row">
-          <input type="email" class="form-control" id="email_address"  name="email_address" placeholder="E-mail Address" value="{{$pfr->client1->email ?? ""}}">
+          <input type="email" class="form-control" id="email_address"  name="email_address" placeholder="E-mail Address" value="{{$infoPfr->client1->email ?? ""}}">
           <span class="noti-alert">(Compulsory for Investment Products)</span>
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="residential_address">Residential Address<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="residential_address" name="residential_address" placeholder="Residential Address" value="{{$pfr->client1->residential_address ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="residential_address" name="residential_address" placeholder="Residential Address" value="{{$infoPfr->client1->residential_address ?? ""}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="mailing_address">Mailing Address</label>
         <div class="custom-input-layout-row">
-          <input type="email" class="form-control" id="mailing_address" name="mailing_address" placeholder="Mailing Address" value="{{$pfr->client1->mailing_address ?? ""}}" data-parsley-trigger="change">
+          <input type="email" class="form-control" id="mailing_address" name="mailing_address" placeholder="Mailing Address" value="{{$infoPfr->client1->mailing_address ?? ""}}" data-parsley-trigger="change">
           <span class="noti-alert">(if different from Residential Address)</span>
         </div>
       </div>
@@ -241,7 +241,7 @@
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
     <ul>
-      @if(!$pfr)
+      @if(!$infoPfr)
       <li class="active"><a href="javascript:;">1</a></li>
       <li><a href="javascript:;">2</a></li>
       <li><a href="javascript:;">3</a></li>
@@ -253,7 +253,7 @@
       <li><a href="javascript:;">9</a></li>
       <li><a href="javascript:;">10</a></li>
       @else
-        @include('pages.navigation', ['id' => $pfr->id])
+        @include('pages.navigation', ['id' => $infoPfr->id])
       @endif
     </ul>
   </div>
