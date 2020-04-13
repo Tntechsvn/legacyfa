@@ -44,12 +44,20 @@
                         </div>
                         <div class="form-group login-checkbox-style">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="0" name="remember">
                                 <label class="form-check-label" for="inlineCheckbox1">
                                     <span>This is a public computer, do not cache my personal</span> information.
                                 </label>
                             </div>
                         </div>
+                        <div class="clear"></div>
+                        @if(session('error'))
+                        <!-- Alert Message -->
+                            <div class="alert alert-danger">
+                                {{session('error')}}
+                            </div>
+                        @endif
+                        @php session()->forget('error') @endphp
                         <div class="form-group form-group-submit">
                             <button type="submit" class="btn radius_4">
                                 Authenticate
