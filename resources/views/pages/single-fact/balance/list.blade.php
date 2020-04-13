@@ -5,7 +5,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Balance Sheet:</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="balance_form" id='balance_form' class="" method="post" action="{{route('single_fact.balance.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <div class="form-group form-layout-row">
@@ -32,7 +32,7 @@
                 <textarea class="form-control" id="reason" name="reason" placeholder="Please state reason:" >@if(isset($infoBalance)){{$infoBalance->reason}}@endif</textarea>
             </div>
             <h3>ASSETS</h3>
-            <table id="blance-table" class="table table-content table-style1" style="width:100%">
+            <table id="blance-table" class="table table-bordered table-content table-style2" style="width:100%">
                 <tbody>
                     <tr>
                         <td rowspan="2">Property</td>
@@ -107,7 +107,7 @@
                 </tbody>
             </table>
             <h3>Liabilities</h3>
-            <table id="blance-table" class="table table-content table-style1" style="width:100%">
+            <table id="blance-table" class="table table-bordered table-content table-style2" style="width:100%">
                 <tbody>
                     <tr>
                         <td rowspan="7">Loans</td>
@@ -149,9 +149,9 @@
                 </tbody>
             </table>
             <div class="nav-step">
-                <button class="btn btn-primary mb-2">Back</button>
-                <button type="submit" class="btn btn-primary mb-2">Next</button>
-            </div>
+                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            </div>  
         </form>      
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
