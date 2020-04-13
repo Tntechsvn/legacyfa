@@ -211,6 +211,24 @@ textarea.parsley-error{
 }
 
 
+.parsley-form1 input.parsley-error, 
+.parsley-form1 select.parsley-error, 
+.parsley-form1 textarea.parsley-error{
+	border-color:#ff0303 !important; 
+}
+.parsley-form1 input.parsley-success{
+	border-color:#0054a4 !important; 
+}
+.parsley-form input.parsley-error, 
+.parsley-form select.parsley-error, 
+.parsley-form textarea.parsley-error{
+	border-color:#ff0303 !important; 
+}
+.parsley-form input.parsley-success{
+	border-color:#0054a4 !important; 
+}
+
+
 /* STYLE THEMES */
 body{
 	background:#f4f4f1;
