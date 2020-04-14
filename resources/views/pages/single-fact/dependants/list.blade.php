@@ -11,7 +11,7 @@
             <a class="link-trash textright" href="{{route('singlefact.dependant.list_trash', $infoPfr->id)}}"><i class="fas fa-trash"></i></a>
             <div class="search-fn search-innerpage">
                 <form class="pull-right" method="get" action="">
-                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
+                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ''}}">
                     <i class="fa fa-search radius_2"></i>
                 </form>
             </div>
@@ -83,7 +83,7 @@
                                 <option value="Ms">Ms</option>
                                 <option value="Dr">Dr</option>
                                 <option value="Mdm">Mdm</option>
-                            </select> 
+                            </select>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
@@ -115,7 +115,7 @@
                         <div class="custom-input-modal">
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input type="radio" name="sex" id="male" value="0">
+                                    <input type="radio" name="sex" id="male" value="0" checked>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Male
