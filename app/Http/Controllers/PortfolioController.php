@@ -104,6 +104,71 @@ class PortfolioController extends Controller
 		}
 	}
 
+	public function editProperty(Request $request, $idPfr, $position)
+	{
+		$rules = [
+			'client_property' => 'required|integer|min:1',
+			'category_property' => 'required|in:R,I',
+			'type_property' => 'required|in:HDBDP,HDBR,CON,LAN,COM,Ot',
+			'market_property' => 'required',
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		if ($infoPfr) {
+			$data = array(
+				'client_property' => $request->client_property,
+				'category_property' => $request->category_property,
+				'type_property' => $request->type_property,
+				'year_property' => $request->year_property != null ? $request->year_property : "",
+				'price_property' => $request->price_property != null ? $request->price_property : "",
+				'loan_property' => $request->loan_property != null ? $request->loan_property : "",
+				'outstanding_loan' => $request->outstanding_loan != null ? $request->outstanding_loan : "",
+				'monthly_loan' => $request->monthly_loan != null ? $request->monthly_loan : "",
+				'monthly_loan_cpf' => $request->monthly_loan_cpf != null ? $request->monthly_loan_cpf : "",
+				'market_property' => $request->market_property,
+				'intention' => $request->intention != null ? $request->intention : ""
+			);
+			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+			if ($infoPortfolio) {
+				$property = (array) json_decode($infoPortfolio->property);
+				$property[$position - 1] = $data;
+				$param = array(
+					'property' => json_encode($property)
+				);
+				$result = $this->portfolio->editPortfolio($idPfr, $param);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Property not found"
+				], 200);
+			}
+			if ($result) {
+				return response()->json([
+					'error' => false,
+					'message' => "Edit property successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Edit property error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Pfr not found"
+			], 200);
+		}
+	}
+
 	public function deleteProperty($idPfr, $position)
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
@@ -191,6 +256,67 @@ class PortfolioController extends Controller
 			return response()->json([
 				'error' => true,
 				'message' => "Error"
+			], 200);
+		}
+	}
+
+	public function editInvestment(Request $request, $idPfr, $position)
+	{
+		$rules = [
+			'client_investment' => 'required|integer|min:1',
+			'type_investment' => 'required|in:SS,B,CI,SP,BO,Ot',
+			'market_investment' => 'required',
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		if ($infoPfr) {
+			$data = array(
+				'client_investment' => $request->client_investment,
+				'type_investment' => $request->type_investment,
+				'company_investment' => $request->company_investment != null ? $request->company_investment : "",
+				'invested_investment' => $request->invested_investment != null ? $request->invested_investment : "",
+				'amount_investment' => $request->amount_investment != null ? $request->amount_investment : "",
+				'market_investment' => $request->market_investment,
+				'source_investment' => $request->source_investment != null ? $request->source_investment : "",
+				'intention_investment' => $request->intention_investment != null ? $request->intention_investment : ""
+			);
+			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+			if ($infoPortfolio) {
+				$investment = (array) json_decode($infoPortfolio->investment);
+				$investment[$position - 1] = $data;
+				$param = array(
+					'investment' => json_encode($investment)
+				);
+				$result = $this->portfolio->editPortfolio($idPfr, $param);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Investment not found"
+				], 200);
+			}
+			if ($result) {
+				return response()->json([
+					'error' => false,
+					'message' => "Edit investment successfully"
+				], 200);
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Edit investment error"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Pfr not found"
 			], 200);
 		}
 	}
