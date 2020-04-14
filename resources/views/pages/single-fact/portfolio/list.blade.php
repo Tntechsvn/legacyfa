@@ -328,12 +328,14 @@
             </tbody>
         </table>
     </div>
+</div>
+<div class="bottom-step">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
-        @if(!$infoPfr)
-        @else
-            @include('pages.navigation', ['id' => $infoPfr->id])
-        @endif
+            @if(!$infoPfr)
+            @else
+                @include('pages.navigation', ['id' => $infoPfr->id])
+            @endif
         </ul>
     </div>
 </div>

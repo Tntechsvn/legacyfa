@@ -44,30 +44,32 @@
             </div>
             <div class="form-group form-layout-row">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="state" id="state" value="1" @if($dataRiskProfile[0]['reason'] != ""){{'checked'}}@endif>
-                  <label class="form-check-label" for="state">N/A</label>
-              </div>
-          </div>
-          <div class="form-group form-layout-row">
-            <label for="details_home">Reason</label>
-            <div class="custom-input-layout-row">
-                <input type="text" class="form-control" id="reason" name="reason" placeholder="" value="{{$dataRiskProfile[0]['reason']}}">
+                    <input class="form-check-input" type="checkbox" name="state" id="state" value="1" @if($dataRiskProfile[0]['reason'] != ""){{'checked'}}@endif>
+                    <label class="form-check-label" for="state">N/A</label>
+                </div>
+             </div>
+            <div class="form-group form-layout-row">
+                <label for="details_home">Reason</label>
+                <div class="custom-input-layout-row">
+                    <input type="text" class="form-control" id="reason" name="reason" placeholder="" value="{{$dataRiskProfile[0]['reason']}}">
+                </div>
             </div>
-        </div>
-        <div class="nav-step">
-            <button class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
-        </div>
-    </form>      
+            <div class="nav-step">
+                <button class="btn btn-primary mb-2">Back</button>
+                <button type="submit" class="btn btn-primary mb-2">Next</button>
+            </div>
+        </form>      
+    </div>
 </div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-    <ul>
-        @if(!$infoPfr)
-        @else
-            @include('pages.navigation', ['id' => $infoPfr->id])
-        @endif
-    </ul>
-</div>
+<div class="bottom-step">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
+        <ul>
+            @if(!$infoPfr)
+            @else
+                @include('pages.navigation', ['id' => $infoPfr->id])
+            @endif
+        </ul>
+    </div>
 </div>
 @endsection
 

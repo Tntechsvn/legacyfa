@@ -49,16 +49,22 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="paginate-style">{{$listDependant->links()}}</div>
+        <div class="nav-step">
+            <button class="btn btn-primary mb-2 style-button1">Back</button>
+            <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+        </div> 
     </div>
-    <div>{{$listDependant->links()}}</div>
+</div>
+<div class="bottom-step">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-      <ul>
-          @if(!$infoPfr)
-          @else
-            @include('pages.navigation', ['id' => $infoPfr->id])
-          @endif
-      </ul>
-  </div>
+        <ul>
+            @if(!$infoPfr)
+            @else
+                @include('pages.navigation', ['id' => $infoPfr->id])
+            @endif
+        </ul>
+    </div>
 </div>
 <!-- modal ADD NEW DEPENDANTS -->
 <div class="modal fade" id="modal_add_new" tabindex="-1" role="dialog" aria-labelledby="modal_add_new" aria-hidden="true">

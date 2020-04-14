@@ -227,7 +227,9 @@ textarea.parsley-error{
 .parsley-form input.parsley-success{
 	border-color:#0054a4 !important; 
 }
-
+textarea{
+	resize: none;
+}
 
 /* STYLE THEMES */
 body{
@@ -559,6 +561,7 @@ li.has-child{
 	margin-bottom:15px;
 	background:#fff;
 	float:left;
+	padding-bottom:30px;
 }
 .titlesection{
 	padding-top:14px;
@@ -795,8 +798,26 @@ table.table-style2.table-bordered > thead > tr > th{
 	margin-top: 20px;
 }
 
-
-
+/* Style */
+.directional-action{
+	width: 100%;
+	float: left;
+}
+.title-dir{
+	width:33.3333%;
+	float: left;
+}
+.directional-radio{
+	width:66.66666%;
+	float: left;
+}
+.directional-radio .custom-input-layout-row{
+	width: 100%;
+	margin-bottom:10px;
+}
+.custom-input-layout-row .radio-inline:first-child{
+	padding-left: 0;
+}
 
 .pdflink{
 	color:#02c39a;
@@ -1046,6 +1067,8 @@ button.style-button1{
 }
 .nav-step button{
 	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 /* HOME SEARCH TABLE */
 .header-table-style1{
@@ -1532,4 +1555,11 @@ body.show_form_login{
   border: 8px solid transparent;	
   border-right: 8px solid #1c7397;
   z-index:9999;
+}
+
+.bottom-step{
+	width:100%;
+	margin-bottom:20px;
+	background: none; 
+	float: left;
 }
