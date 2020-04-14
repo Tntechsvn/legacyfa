@@ -198,7 +198,7 @@
                             <input type="number" class="form-control" id="age_edit" name="age_edit" placeholder="Age" value="" >
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_sex">
                         <label for="age">Gender<span>*</span></label>
                         <div class="custom-input-modal">
                             <label class="radio-inline custom-style-radio1">

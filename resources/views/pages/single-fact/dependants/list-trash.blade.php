@@ -5,7 +5,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>List Trash Dependants:</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <table id="example" class="table table-striped table-bordered table-content" style="width:100%">
             <thead>
                 <tr>

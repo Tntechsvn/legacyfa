@@ -40,7 +40,7 @@
                     <td>{{$property->outstanding_loan}}</td>
                     <td>{{$property->market_property}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#property_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_property" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -327,6 +327,10 @@
                 @endif
             </tbody>
         </table>
+        <div class="nav-step">
+            <button class="btn btn-primary mb-2 style-button1">Back</button>
+            <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+        </div> 
     </div>
 </div>
 <div class="bottom-step">
@@ -435,8 +439,10 @@
                             <textarea class="form-control" id="intention" name="intention" placeholder="Intention with Property" value="" ></textarea>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <div class="nav-step form-group-modal">
+                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -583,8 +589,10 @@
                             <textarea class="form-control" id="intention_saving" name="intention_saving" placeholder="Intention for the Savings" value="" ></textarea>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <div class="nav-step form-group-modal">
+                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                    </div> 
                 </form>
             </div>
         </div>
@@ -638,8 +646,10 @@
                             <input type="text" class="form-control" id="retirement_account" name="retirement_account" placeholder="Retirement Account ($)" value="" >
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <div class="nav-step form-group-modal">
+                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                    </div> 
                 </form>
             </div>
         </div>
@@ -824,8 +834,10 @@
                             <textarea class="form-control" id="additional_insurance" name="additional_insurance" placeholder="Additional Notes" value="" ></textarea>
                         </div>
                     </div>  
-                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <div class="nav-step form-group-modal">
+                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                    </div> 
                 </form>
             </div>
         </div>
@@ -911,8 +923,10 @@
                             <input type="text" class="form-control" id="repayment_cash" name="repayment_cash" placeholder="Monthly Loan Repayment - Cash ($)" value="" >
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary mb-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <div class="nav-step form-group-modal">
+                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                    </div> 
                 </form>
             </div>
         </div>
@@ -1237,9 +1251,10 @@
             }
         });
 
-        $('.edit_loan').click(function(){
-            $('#form_loan').modal('show');
+        $('.edit_property').click(function(){
+            $('#property_modal').modal('show');
         })
+
     });
 </script>
 @endsection

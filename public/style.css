@@ -759,6 +759,7 @@ li.has-child{
 .table-style1 > thead > tr > th{
 	padding:20px 5px;
 	text-align: left;
+	vertical-align: middle;
 }
 .table-style1 tbody tr:hover td{
 	background:#f1f3f3;
@@ -830,12 +831,28 @@ table.td50 tr td:last-child{
 .pdflink{
 	color:#02c39a;
 }
+.status-pfr{
+	width:100px;
+	height:35px;
+	display: inline-block;
+	line-height: 35px;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+}
+.status-pending{
+	background:#ccc;
+}
+.status-draft{
+	background:#ffbf27;
+}
 .restore{
 	border: none;
 	background: none;
 	color: blue;
 	font-size: 16px;
 }
+
 /* INNER PAGE */
 .addnewelm{
 	width:100%;
