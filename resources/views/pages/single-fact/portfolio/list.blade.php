@@ -40,11 +40,8 @@
                     <td>{{$property->outstanding_loan}}</td>
                     <td>{{$property->market_property}}</td>
                     <td>
-<<<<<<< HEAD
-                        <a href="javascript:;" class="editstyle1 edit_property" data-title="Edit"><i class="fas fa-edit"></i></a>
-=======
                         <a href="javascript:;" class="editstyle1 edit_property" data-client="{{$property->client_property}}" data-category="{{$property->category_property}}" data-type="{{$property->type_property}}" data-year="{{$property->year_property}}" data-price="{{$property->price_property}}" data-loan="{{$property->loan_property}}" data-outstanding="{{$property->outstanding_loan}}" data-monthly-loan="{{$property->monthly_loan}}" data-monthly-loan-cpf="{{$property->monthly_loan_cpf}}" data-market="{{$property->market_property}}" data-intention="{{$property->intention}}" data-url="{{route('portfolio.edit_property', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
->>>>>>> origin/manhtu
+
                         <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -1339,21 +1336,12 @@
             }
         });
 
-<<<<<<< HEAD
         $('.edit_property').click(function(){
             $('#property_modal').modal('show');
-=======
-        $('.edit_loan').click(function(){
-            $('#loan_modal').modal('show');
         })
 
         $('.edit_loan').click(function(){
             $('#loan_modal').modal('show');
-        })
-
-        $('.edit_loan').click(function(){
-            $('#loan_modal').modal('show');
->>>>>>> origin/manhtu
         })
 
     });

@@ -146,8 +146,10 @@
             </div>
 
             <div class="nav-step">
-                <button class="btn btn-primary mb-2 style-button1 style-button1">Back</button>
-                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+                <!-- <button class="btn btn-primary mb-2 style-button1 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button> -->
+                <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Back</a>
+                <a href="{{route('portfolio.list', $infoPfr->id)}}" class="style-button1">Next</a>
             </div>
         </form>      
     </div>

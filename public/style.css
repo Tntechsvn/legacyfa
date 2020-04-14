@@ -1017,6 +1017,7 @@ table.td50 tr td:last-child{
 .form-layout-row input{
 	border-color:#e3e3e3;
 }
+
 button.style-button1{
 	width:100px;
 	height:40px;
@@ -1030,6 +1031,20 @@ button.style-button1{
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+}
+a.style-button1{
+	width:100px;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+	text-align:center;
+	background:#02c39a;
+	font-weight: 400;
+	border:none;
+	padding:0;
+	margin-left: 5px;
+	margin-right: 5px;
+	display: inline-block;
 }
 .noti-alert{
 	color:#ff0202;

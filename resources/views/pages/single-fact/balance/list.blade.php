@@ -153,8 +153,10 @@
                 </tbody>
             </table>
             <div class="nav-step">
-                <button class="btn btn-primary mb-2 style-button1">Back</button>
-                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+                <!-- <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button> -->
+                <a href="{{route('single-fact.show_form_add_new_assessment', $infoPfr->id)}}" class="style-button1">Back</a>
+                <a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}" class="style-button1">Next</a>
             </div>  
         </form>      
     </div>
