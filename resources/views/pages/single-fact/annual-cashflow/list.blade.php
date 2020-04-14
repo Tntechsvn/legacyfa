@@ -8,14 +8,24 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.cash_flow.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
-            <div class="form-group">
-                <p>Would you like your cash flow to be taken into consideration for the Needs Analysis and Recommendation(s)?</p>
-                <label class="radio-hoz">
-                    <input type="radio" name="state_cash_flow" value="0" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow != null){{'checked'}} @endif @else {{'checked'}} @endif >Yes (Please fill in the details below)
-                </label>
-                <label class="radio-hoz">
-                    <input type="radio" name="state_cash_flow" value="1" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow == null){{'checked'}} @endif @endif>No (Please state reason):
-                </label>
+            <div class="form-group form-layout-row">
+                <label class="radio-inline">Would you like your cash flow to be taken into consideration for the Needs Analysis and Recommendation(s)?</label>
+                <div class="custom-input-layout-row">
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="state_cash_flow" value="0" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow != null){{'checked'}} @endif @else {{'checked'}} @endif >
+                        </div>
+                        Yes (Please fill in the details below)
+                    </label>
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="state_cash_flow" value="1" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow == null){{'checked'}} @endif @endif>
+                        </div>
+                        No (Please state reason):
+                    </label>
+                </div>
             </div>
             <div class="form-group">
                 <textarea class="form-control" id="reason_cash_flow" name="reason_cash_flow" placeholder="Please state reason:" >@if(isset($infoCashFlow)){{$infoCashFlow->reason_cash_flow}}@endif</textarea>
@@ -120,8 +130,10 @@
                 </tr>
             </tbody>
         </table>
-        <button class="btn btn-primary mb-2">Back</button>
-        <button type="submit" class="btn btn-primary mb-2">Next</button>
+        <div class="nav-step">
+            <button class="btn btn-primary mb-2 style-button1 style-button1">Back</button>
+            <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+        </div>
     </form>      
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

@@ -5,7 +5,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Customer Knowledge Assessment (CKA):</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.cka.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             @php $questions = json_decode(json_encode(config('constants.CKA_Questionnaire')));
@@ -60,8 +60,11 @@
                     <input type="text" class="form-control" id="reason" name="reason" placeholder="" value="{{$infoPfr->reasonCka}}">
                 </div>
             </div>
-            <button class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
+            <div class="nav-step">
+                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            </div>
+
         </form>      
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

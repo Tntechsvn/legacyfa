@@ -5,22 +5,34 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Balance Sheet:</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="balance_form" id='balance_form' class="" method="post" action="{{route('single_fact.balance.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
-            <div class="form-group">
+            <div class="form-group form-layout-row">
                 <label class="radio-inline">Would you like your assets and liabilities to be taken into consideration for the Needs Analysis and Recommendation(s)
-                    <input type="radio" name="state" value="0" @if(isset($infoBalance)) @if($infoBalance->reason == null){{'checked'}}@endif @else {{'checked'}} @endif>Yes (Please fill in the details below)
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="state" value="1" @if(isset($infoBalance)) @if($infoBalance->reason != null){{'checked'}}@endif @endif>No (Please state reason):
-                </label>
+                <div class="custom-input-layout-row">
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="radio" name="state" value="0" @if(isset($infoBalance)) @if($infoBalance->reason == null){{'checked'}}@endif @else {{'checked'}} @endif>
+                        </div>
+                        Yes (Please fill in the details below)
+                    </label>
+                    <label class="radio-inline custom-style-radio1">
+                        <div class="style-checked">
+                            <i class="far fa-circle"></i>
+                            <input type="radio" name="state" value="1" @if(isset($infoBalance)) @if($infoBalance->reason != null){{'checked'}}@endif @endif> 
+                        </div>
+                        No(Please state reason):
+                    </label>
+                </div>
             </div>
             <div class="form-group">
                 <textarea class="form-control" id="reason" name="reason" placeholder="Please state reason:" >@if(isset($infoBalance)){{$infoBalance->reason}}@endif</textarea>
             </div>
             <h3>ASSETS</h3>
-            <table id="blance-table" class="table table-content table-style1" style="width:100%">
+            <table id="blance-table" class="table table-bordered table-content table-style2" style="width:100%">
                 <tbody>
                     <tr>
                         <td rowspan="2">Property</td>
@@ -95,7 +107,7 @@
                 </tbody>
             </table>
             <h3>Liabilities</h3>
-            <table id="blance-table" class="table table-content table-style1" style="width:100%">
+            <table id="blance-table" class="table table-bordered table-content table-style2" style="width:100%">
                 <tbody>
                     <tr>
                         <td rowspan="7">Loans</td>
@@ -136,8 +148,10 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary mb-2">Back</button>
-            <button type="submit" class="btn btn-primary mb-2">Next</button>
+            <div class="nav-step">
+                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            </div>  
         </form>      
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">

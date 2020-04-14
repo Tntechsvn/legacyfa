@@ -211,6 +211,24 @@ textarea.parsley-error{
 }
 
 
+.parsley-form1 input.parsley-error, 
+.parsley-form1 select.parsley-error, 
+.parsley-form1 textarea.parsley-error{
+	border-color:#ff0303 !important; 
+}
+.parsley-form1 input.parsley-success{
+	border-color:#0054a4 !important; 
+}
+.parsley-form input.parsley-error, 
+.parsley-form select.parsley-error, 
+.parsley-form textarea.parsley-error{
+	border-color:#ff0303 !important; 
+}
+.parsley-form input.parsley-success{
+	border-color:#0054a4 !important; 
+}
+
+
 /* STYLE THEMES */
 body{
 	background:#f4f4f1;
@@ -579,12 +597,17 @@ li.has-child{
 }
 
 .deletestyle1 i{
-	color:#ff2a2a;	
+	color:#ff2a2a;
+	display: inline-block;
+	position: relative;	
 }
 .editstyle1{
 	color:#08b1f0;
 	margin-right:5px;
+	display: inline-block;
+	position: relative;
 }
+
 .list-noti{
 	position:absolute;
 	left:0;
@@ -732,6 +755,14 @@ li.has-child{
 }
 .table-style1 tbody tr:hover td:first-child{
 	border-left:2px solid #1b98e0;
+}
+table.table-style2.table-bordered > tbody > tr > td, 
+table.table-style2.table-bordered > tbody > tr > th,
+table.table-style2.table-bordered > tfoot > tr > td,
+table.table-style2.table-bordered > tfoot > tr > th,
+table.table-style2.table-bordered > thead > tr > td, 
+table.table-style2.table-bordered > thead > tr > th{
+	vertical-align: middle;
 }
 .pdflink{
 	color:#02c39a;
@@ -938,6 +969,7 @@ button.style-button1{
 	margin-right: 15px;
 	line-height: 20px;
 	margin-top: 8px;
+	line-height: 25px;
 }
 .style-checked input{
 	position: absolute;
@@ -1332,6 +1364,8 @@ body.show_form_login{
   display: block;
 }
 
+
+
 /* Style the checkmark/indicator */
 .style-checked-table2 .checkmark:after {
 	left: 7px;
@@ -1344,6 +1378,77 @@ body.show_form_login{
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
+
+/* */
+.style-radio-custom{
+	position: relative;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+}
+.style-radio-custom input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+/* Create a custom radio button */
+.checkmark-radio {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border:2px solid #02c39a;
+}
+
+/* On mouse-over, add a grey background color */
+.style-radio-custom:hover input ~ .checkmark-radio {
+ 
+}
+
+/* When the radio button is checked, add a blue background */
+.style-radio-custom input:checked ~ .checkmark-radio {
+  background-color: #02c39a;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.style-radio-custom input:checked ~ .checkmark-radio:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.style-radio-custom .checkmark-radio:after {
+	left: 5px;
+	top: 2px;
+	width: 6px;
+	height: 12px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+
+
+
+
+
+
 .note-alert-step7{
 	text-align: center;
 	font-style: italic;
