@@ -274,7 +274,7 @@ body{
 .action-sidebar a i{
 	line-height:59px;
 	font-size: 24px;
-	color:#ccc;
+	color:#555;
 	text-align: center;
 	display: block;
 	width: 100%;
@@ -310,7 +310,7 @@ body{
 .menuicon > nav > ul > li > a i{
 	line-height:59px;
 	font-size: 24px;
-	color:#ccc;
+	color:#555;
 	text-align: center;
 	display: block;
 	width: 100%;
@@ -318,7 +318,22 @@ body{
 .menuicon > nav  ul.sub-menu{
 	display: none;
 }
-
+/* hover menu */
+.mainmenu li:hover > a{
+	color:#02c39a;
+}
+.mainmenu li:hover > a > i{
+	color:#02c39a;
+}
+.action-sidebar a:hover i{
+	color:#02c39a;
+}
+.action-sidebar-full a:hover{
+	color:#02c39a;
+}
+.action-sidebar-full a:hover i{
+	color:#02c39a;
+}
 /* FULL SIDEBAR */
 .logo-full{
 	width: 100%;
@@ -334,7 +349,7 @@ body{
 	line-height: 55px;
 	display: block;
 	width: 100%;
-	color: #9a9fbf;
+	color: #555;
 }
 .action-sidebar-full a i{
 	width: 60px;
@@ -343,7 +358,7 @@ body{
 	font-size: 20px;
 	float:left;
 	display: block;
-	color: #9a9fbf;
+	color: #555;
 	text-align: center;
 }
 .action-sidebar-full a span{
@@ -360,7 +375,7 @@ body{
 	background:#f5f5f5;
 }
 .titlemenu-sidebar strong{
-	color:#9a9fbf;
+	color:#555;
 	padding-left:15px;
 	line-height:53px;
 	display: block;
@@ -382,7 +397,7 @@ body{
 	float: left;
 }
 .fullmenu nav > ul  li  a{
-	color:#9a9fbf;
+	color:#555;
 	font-weight: bold;
 	line-height: 55px
 }
@@ -393,7 +408,7 @@ body{
 	font-size: 22px;
 	float:left;
 	display: block;
-	color: #9a9fbf;
+	color: #555;
 	text-align: center;
 }
 .fullmenu nav > ul  li  ul.sub-menu a i{
@@ -413,8 +428,8 @@ li.has-child{
 .fullmenu nav > ul > li.has-child i.has-submenu{
 	width: 22px;
 	height:22px;
-	color: #9a9fbf;
-	border:1px solid #9a9fbf;
+	color: #555;
+	border:1px solid #555;
 	position: absolute;
 	right:10px;
 	top:16px;
@@ -764,6 +779,16 @@ table.table-style2.table-bordered > thead > tr > td,
 table.table-style2.table-bordered > thead > tr > th{
 	vertical-align: middle;
 }
+/* table-style2 input */
+
+.form-table2 .table-style2 td input{
+	height:35px;
+	line-height: 33px;
+	padding-right: 0px 5px;
+}
+
+
+
 .pdflink{
 	color:#02c39a;
 }

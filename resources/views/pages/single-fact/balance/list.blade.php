@@ -6,7 +6,7 @@
         <h4>Balance Sheet:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="balance_form" id='balance_form' class="" method="post" action="{{route('single_fact.balance.add_new', $infoPfr->id)}}" data-parsley-validate>
+        <form name="balance_form" id='balance_form' class="form-table2" method="post" action="{{route('single_fact.balance.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <div class="form-group form-layout-row">
                 <label class="radio-inline">Would you like your assets and liabilities to be taken into consideration for the Needs Analysis and Recommendation(s)

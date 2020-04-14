@@ -196,16 +196,16 @@
                         <label for="age">Gender<span>*</span></label>
                         <div class="custom-input-modal">
                             <label class="radio-inline custom-style-radio1">
-                                <div class="style-checked">
-                                    <i class="fas fa-check-circle"></i>
-                                   <input type="radio" name="sex_edit" id="male_edit" value="0">
+                                <div class="style-checked style-radio-custom">
+                                    <input type="radio" name="sex_edit" id="male_edit" value="0">
+                                    <span class="checkmark-radio"></span>
                                 </div>
                                 Male
                             </label>
                             <label class="radio-inline custom-style-radio1">
-                                <div class="style-checked">
-                                    <i class="far fa-circle"></i>
+                                <div class="style-checked style-radio-custom">
                                     <input type="radio" name="sex_edit" id="female_edit" value="1"> 
+                                    <span class="checkmark-radio"></span>
                                 </div>
                                 Female
                             </label>
@@ -217,9 +217,7 @@
                             <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" >
                         </div>
                     </div>
-                    <div class="nav-step">
-                        <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
             </div>
         </div>
