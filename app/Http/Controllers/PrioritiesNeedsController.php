@@ -43,10 +43,11 @@ class PrioritiesNeedsController extends Controller
 				$position = substr($key, -1, 1);
 				$type = substr($key, 7, 4);
 				$goPlan = $str.$client."goplan".$position;
+				$rateClient = $str.$client."rate".$position;
 				if ($client == 1) {
-					$client1 = $this->addDataRate2Arr($data, $goPlan, $client1, $position, $type, $val);
+					$client1 = $this->addDataRate2Arr($data, $goPlan, $client1, $position, $type, $rateClient);
 				} else {
-					$client2 = $this->addDataRate2Arr($data, $goPlan, $client2, $position, $type, $val);
+					$client2 = $this->addDataRate2Arr($data, $goPlan, $client2, $position, $type, $rateClient);
 				}
 			} else {
 				$str = substr($key, 0, 9);
@@ -55,14 +56,15 @@ class PrioritiesNeedsController extends Controller
 					$position = substr($key, -1, 1);
 					$type = substr($key, 10, 4);
 					$goPlan = $str.$dependent."goplan".$position;
+					$rateDependent = $str.$dependent."rate".$position;
 					if ($dependent == 1) {
-						$dependent1 = $this->addDataRate2Arr($data, $goPlan, $dependent1, $position, $type, $val);
+						$dependent1 = $this->addDataRate2Arr($data, $goPlan, $dependent1, $position, $type, $rateDependent);
 					} else if ($dependent == 2){
-						$dependent2 = $this->addDataRate2Arr($data, $goPlan, $dependent2, $position, $type, $val);
+						$dependent2 = $this->addDataRate2Arr($data, $goPlan, $dependent2, $position, $type, $rateDependent);
 					} else if ($dependent == 3){
-						$dependent3 = $this->addDataRate2Arr($data, $goPlan, $dependent3, $position, $type, $val);
+						$dependent3 = $this->addDataRate2Arr($data, $goPlan, $dependent3, $position, $type, $rateDependent);
 					} else if ($dependent == 4){
-						$dependent4 = $this->addDataRate2Arr($data, $goPlan, $dependent4, $position, $type, $val);
+						$dependent4 = $this->addDataRate2Arr($data, $goPlan, $dependent4, $position, $type, $rateDependent);
 					}
 				}
 			}
@@ -760,46 +762,80 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection11.list', compact('infoPfr'));
 	}
 
-	private function addDataRate2Arr($request, $goPlan, $arr, $position, $type, $val)
+	private function addDataRate2Arr($request, $goPlan, $arr, $position, $type, $rate)
 	{
-		if ($type == "rate") {
-			switch($position){
-				case 1:
-				$arr['income'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 2:
-				$arr['fund_disability'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 3:
-				$arr['fund_critical'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 4:
-				$arr['fund_children'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 5:
-				$arr['fund_saving'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 6:
-				$arr['fund_retirement'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 7:
-				$arr['cover'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 8:
-				$arr['fund_care'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
-
-				case 9:
-				$arr['fund_hospital'] = $this->checkGoPlan($request, $goPlan) ? $val."1" : $val."0";
-				break;
+		switch($position){
+			case 1:
+			if(isset($request[$rate])){
+				$arr['income'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['income'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
 			}
+			break;
+
+			case 2:
+			if(isset($request[$rate])){
+				$arr['fund_disability'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_disability'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 3:
+			if(isset($request[$rate])){
+				$arr['fund_critical'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_critical'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 4:
+			if(isset($request[$rate])){
+				$arr['fund_children'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_children'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 5:
+			if(isset($request[$rate])){
+				$arr['fund_saving'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_saving'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 6:
+			if(isset($request[$rate])){
+				$arr['fund_retirement'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_retirement'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 7:
+			if(isset($request[$rate])){
+				$arr['cover'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['cover'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 8:
+			if(isset($request[$rate])){
+				$arr['fund_care'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_care'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
+
+			case 9:
+			if(isset($request[$rate])){
+				$arr['fund_hospital'] = $this->checkGoPlan($request, $goPlan) ? $request[$rate]."1" : $request[$rate]."0";
+			}else{
+				$arr['fund_hospital'] = $this->checkGoPlan($request, $goPlan) ? 1 : 0;
+			}
+			break;
 		}
 		return $arr;
 	}
