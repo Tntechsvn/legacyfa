@@ -109,18 +109,79 @@ class SingleFactController extends Controller
         return view('pages.single-fact.add-new', compact('infoPfr'));
     }
 
-    public function postEditSingleFact(Request $request) {
-        $infoPfr = $this->pfr->find($request->id);
-        if(!$infoPfr) {
-            return response()->json([
-                'error' => false,
-                'message' => "Edit new client successfully",
-                'url' => route('singlefact.dependant.list', $infoPfr->id)
-            ], 200);
-        }else {
+    public function postEditSingleFact(Request $request, $idPfr) {
+        $rules = [
+            'title' => 'required',
+            'single_name' => 'required',
+            'sex' => 'required',
+            'passport_no' => 'required',
+            'select_nationality' => 'required',
+            'select_residency' => 'required',
+            'birthday' => 'required',
+            'select_marital' => 'required',
+            'smoker' => 'required',
+            'select_employment' => 'required',
+            'occupation' => 'required',
+            'company_name' => 'required',
+            'business_nature' => 'required',
+            'select_annual_income' => 'required',
+            'details_mobile' => 'required',
+            'residential_address' => 'required',
+            'email_address' => 'nullable|email',
+            'mailing_address' => 'email'
+        ];
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
             return response()->json([
                 'error' => true,
-                'message' => "Edit pfr error"
+                'message' => $validator->errors()
+            ], 200);
+        }
+
+        $paramClient = array(
+            'title' => $request->title,
+            'name' => $request->single_name,
+            'gender' => $request->sex,
+            'nric_passport' => $request->passport_no,
+            'nationality' => $request->select_nationality,
+            'dob' => $request->birthday,
+            'marital_status' => $request->select_marital,
+            'smoker' => $request->smoker,
+            'employment_status' => $request->select_employment,
+            'occupation' => $request->occupation,
+            'company' => $request->company_name,
+            'business_nature' => $request->business_nature,
+            'income_range' => $request->select_annual_income,
+            'contact_home' => $request->details_home,
+            'contact_mobile' => $request->details_mobile,
+            'contact_office' => $request->details_office,
+            'contact_fax' => $request->details_fax,
+            'email' => $request->email_address,
+            'residential_address' => $request->residential_address,
+            'mailing_address' => $request->mailing_address,
+        );
+
+        $infoPfr = $this->pfr->infoPfrById($idPfr);
+        if ($infoPfr) {
+            $listClient = $infoPfr->clients;
+            $resultEditClient = $this->client->editClient($listClient[0]->id, $paramClient);
+            if($resultEditClient) {
+                return response()->json([
+                    'error' => false,
+                    'message' => "Edit client successfully",
+                    'url' => route('singlefact.dependant.list', $infoPfr->id)
+                ], 200);
+            }else {
+                return response()->json([
+                    'error' => true,
+                    'message' => "Edit pfr error"
+                ], 200);
+            }
+        } else {
+            return response()->json([
+                'error' => true,
+                'message' => "Pfr not found"
             ], 200);
         }
     }
