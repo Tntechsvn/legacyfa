@@ -121,8 +121,10 @@
                 You do not need to be accompanied by a TRUSTED INDIVIDUAL
             </div>
             <div class="nav-step">
-                <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
-                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+                <!-- <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button> -->
+                <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
+                <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Next</a>
             </div>
             <div class="clear"></div>
         </form>

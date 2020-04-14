@@ -286,6 +286,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@addNewProperty'
 			]);
 
+			Route::post('edit-property/{position}', [
+				'as' => 'portfolio.edit_property',
+				'uses' => 'PortfolioController@editProperty'
+			]);
+
 			Route::get('delete-property/{position}', [
 				'as' => 'portfolio.delete_property',
 				'uses' => 'PortfolioController@deleteProperty'
@@ -294,6 +299,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			Route::post('add-new-investment', [
 				'as' => 'portfolio.add_new_investment',
 				'uses' => 'PortfolioController@addNewInvestment'
+			]);
+
+			Route::post('edit-investment/{position}', [
+				'as' => 'portfolio.edit_investment',
+				'uses' => 'PortfolioController@editInvestment'
 			]);
 
 			Route::get('delete-investment/{position}', [

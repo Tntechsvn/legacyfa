@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>PROPERTY</h3>
-            <a  class="btn btn-primary" id="add_new_element" class="" data-toggle="modal" data-target="#property_modal"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary" id="add_new_property" data-url="{{route('portfolio.add_new_property', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="property-table" class="table table-style1 table-content" style="width:100%">
             <thead>
@@ -40,7 +40,8 @@
                     <td>{{$property->outstanding_loan}}</td>
                     <td>{{$property->market_property}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_property" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_property" data-client="{{$property->client_property}}" data-category="{{$property->category_property}}" data-type="{{$property->type_property}}" data-year="{{$property->year_property}}" data-price="{{$property->price_property}}" data-loan="{{$property->loan_property}}" data-outstanding="{{$property->outstanding_loan}}" data-monthly-loan="{{$property->monthly_loan}}" data-monthly-loan-cpf="{{$property->monthly_loan_cpf}}" data-market="{{$property->market_property}}" data-intention="{{$property->intention}}" data-url="{{route('portfolio.edit_property', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
+
                         <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -54,7 +55,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INVESTMENT</h3>
-            <a class="btn btn-primary" id="add_new_investment" class="" data-toggle="modal" data-target="#investment_modal"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary" id="add_new_investment" data-url="{{route('portfolio.add_new_investment', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="investment-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -82,7 +83,7 @@
                     <td>{{$investment->amount_investment}}</td>
                     <td>{{$investment->market_investment}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_investment" data-toggle="modal" data-target="#investment_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_investment" data-client="{{$investment->client_investment}}" data-type="{{$investment->type_investment}}" data-company="{{$investment->company_investment}}" data-invested="{{$investment->invested_investment}}" data-amount="{{$investment->amount_investment}}" data-market="{{$investment->market_investment}}" data-source="{{$investment->source_investment}}" data-intention="{{$investment->intention_investment}}" data-url="{{route('portfolio.edit_investment', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -338,7 +339,7 @@
         <ul>
             @if(!$infoPfr)
             @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
+            @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
         </ul>
     </div>
@@ -358,7 +359,7 @@
             <div class="modal-body">
                 <form name="form_add_new_property" id='form_add_new_property' class="form-control-popup parsley-form1" method="post" action="{{route('portfolio.add_new_property', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_client_property">
                         <label for="client_property">Client<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="client_property" id="client_property" class="form-control">
@@ -367,17 +368,17 @@
                             </select> 
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_category_property">
                         <label for="category_property">Category<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="category_property" id="category_property" class="form-control">
                                 <option value="">Select</option>
                                 <option value="R">Residence</option>
                                 <option value="I">Investment</option>
-                            </select> 
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_type_property">
                         <label for="type_property">Type of Property<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="type_property" id="type_property" class="form-control">
@@ -463,7 +464,7 @@
             <div class="modal-body">
                 <form name="form_add_new_investment" id='form_add_new_investment' class="form-control-popup" method="post" action="{{route('portfolio.add_new_investment', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_client_investment">
                         <label for="client_investment">Client<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="client_investment" id="client_investment" class="form-control">
@@ -472,7 +473,7 @@
                             </select> 
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_type_investment">
                         <label for="type_investment">Type of Investment<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="type_investment" id="type_investment" class="form-control">
@@ -937,6 +938,52 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        $('#add_new_property').click(function(){
+            var url = $(this).data('url');
+            $('#property_modal').modal('show');
+            $('#form_add_new_property').attr('action', url);
+            $("div#form_client_property select").val('');
+            $("div#form_category_property select").val('');
+            $("div#form_type_property select").val('');
+            $('#year_property').val('');
+            $('#price_property').val('');
+            $('#loan_property').val('');
+            $('#outstanding_loan').val('');
+            $('#monthly_loan').val('');
+            $('#monthly_loan_cpf').val('');
+            $('#market_property').val('');
+            $('#intention').val('');
+        });
+
+        $('.edit_property').click(function(){
+            var client = $(this).data('client');
+            var category = $(this).data('category');
+            var type = $(this).data('type');
+            var year = $(this).data('year');
+            var price = $(this).data('price');
+            var loan = $(this).data('loan');
+            var outstanding = $(this).data('outstanding');
+            var monthly_loan = $(this).data('monthly-loan');
+            var monthly_loan_cpf = $(this).data('monthly-loan-cpf');
+            var market = $(this).data('market');
+            var intention = $(this).data('intention');
+            var url = $(this).data('url');
+
+            $('#property_modal').modal('show');
+            $('#form_add_new_property').attr('action', url);
+            $("div#form_client_property select").val(client);
+            $("div#form_category_property select").val(category);
+            $("div#form_type_property select").val(type);
+            $('#year_property').val(year);
+            $('#price_property').val(price);
+            $('#loan_property').val(loan);
+            $('#outstanding_loan').val(outstanding);
+            $('#monthly_loan').val(monthly_loan);
+            $('#monthly_loan_cpf').val(monthly_loan_cpf);
+            $('#market_property').val(market);
+            $('#intention').val(intention);
+        });
+
         $('#form_add_new_property').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
@@ -987,6 +1034,44 @@
                     }
                 });
             }
+        });
+
+        $('#add_new_investment').click(function(){
+            var url = $(this).data('url');
+            $('#investment_modal').modal('show');
+            $('#form_add_new_investment').attr('action', url);
+            $("div#form_client_investment select").val('');
+            $("div#form_type_investment select").val('');
+            $('#company_investment').val('');
+            $('#invested_investment').val('');
+            $('#amount_investment').val('');
+            $('#market_investment').val('');
+            $('#source_investment').val('');
+            $('#intention_investment').val('');
+        });
+
+        $('.edit_investment').click(function(){
+            var client = $(this).data('client');
+            var type = $(this).data('type');
+            var company = $(this).data('company');
+            var invested = $(this).data('invested');
+            var amount = $(this).data('amount');
+            var market = $(this).data('market');
+            var source = $(this).data('source');
+            var intention = $(this).data('intention');
+            var url = $(this).data('url');
+
+            $('#investment_modal').modal('show');
+            $('#form_add_new_investment').attr('action', url);
+
+            $("div#form_client_investment select").val(client);
+            $("div#form_type_investment select").val(type);
+            $('#company_investment').val(company);
+            $('#invested_investment').val(invested);
+            $('#amount_investment').val(amount);
+            $('#market_investment').val(market);
+            $('#source_investment').val(source);
+            $('#intention_investment').val(intention);
         });
 
         $('#form_add_new_investment').on('submit', function(e){
@@ -1253,6 +1338,10 @@
 
         $('.edit_property').click(function(){
             $('#property_modal').modal('show');
+        })
+
+        $('.edit_loan').click(function(){
+            $('#loan_modal').modal('show');
         })
 
     });
