@@ -14,17 +14,17 @@
                 </div>
                 <div class="directional-radio">
                     <div class="custom-input-layout-row">
-                        <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="fas fa-check-circle"></i>
-                                <input class="state_cash_flow" type="radio" name="state_cash_flow" value="0" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow != null){{'checked'}} @endif @else {{'checked'}} @endif >
+                        <label class="radio-inline custom-style-radio1 pdl0">
+                            <div class="style-checked style-radio-custom">
+                                <input class="state_cash_flow" type="radio" name="state_cash_flow" value="0" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow == null){{'checked'}} @endif @else {{'checked'}} @endif >
+                                <span class="checkmark-radio"></span>
                             </div>
                             Yes (Please fill in the details below)
                         </label>
-                        <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="far fa-circle"></i>
-                                <input class="state_cash_flow" type="radio" name="state_cash_flow" value="1" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow == null){{'checked'}} @endif @endif> 
+                        <label class="radio-inline custom-style-radio1 pdl0">
+                            <div class="style-checked style-radio-custom">
+                                <input class="state_cash_flow" type="radio" name="state_cash_flow" value="1" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow != null){{'checked'}} @endif @endif>
+                                <span class="checkmark-radio"></span>
                             </div>
                             No (Please state reason):
                         </label>
@@ -39,23 +39,23 @@
                 <tbody>
                     <tr>
                         <td>Annual Gross Income</td>
-                        <td><input type="number" class="form-control" id="gross_income" name="gross_income" placeholder="$" value="@if(isset($income)){{$income['gross_income'] ?? ""}}@endif"></td>
+                        <td><input type="number" class="form-control" id="gross_income" name="gross_income" placeholder="$" value="@if(isset($income)){{$income['gross_income'] ?? ''}}@endif"></td>
                     </tr>
                     <tr>
                         <td>Additional Wages<br/>
                             <i>(eg. Bonus, Leave Pay)</i>
                         </td>
-                        <td><input type="number" class="form-control" id="wages_income" name="wages_income" placeholder="$" value="@if(isset($income)){{$income['wages_income'] ?? ""}}@endif"></td>
+                        <td><input type="number" class="form-control" id="wages_income" name="wages_income" placeholder="$" value="@if(isset($income)){{$income['wages_income'] ?? ''}}@endif"></td>
                     </tr>
                     <tr>
                         <td>Less: Employee's CPF Contribution</td>
-                        <td><input type="number" class="form-control" id="employee_income" name="employee_income" placeholder="$" value="@if(isset($income)){{$income['employee_income'] ?? ""}}@endif"></td>
+                        <td><input type="number" class="form-control" id="employee_income" name="employee_income" placeholder="$" value="@if(isset($income)){{$income['employee_income'] ?? ''}}@endif"></td>
                     </tr>
                     <tr>
                         <td>Others, Please specify:Rental<br/>
                             <i>(eg. Rent, Dividend, Interest, Profits)</i>
                         </td>
-                        <td><input type="number" class="form-control" id="orther_income" name="orther_income" placeholder="$" value="@if(isset($income)){{$income['orther_income'] ?? ""}}@endif" ></td>
+                        <td><input type="number" class="form-control" id="orther_income" name="orther_income" placeholder="$" value="@if(isset($income)){{$income['orther_income'] ?? ''}}@endif" ></td>
                     </tr>
                     <tr>
                         <td><h4>Total Annual Income:</h4></td>
@@ -68,28 +68,28 @@
                 <tbody>
                     <tr>
                         <td>Household</td>
-                        <td><input type="number" class="form-control" id="household_expenses" name="household_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['household_expenses'] ?? ""}}@endif"></td>
+                        <td><input type="number" class="form-control" id="household_expenses" name="household_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['household_expenses'] ?? ''}}@endif"></td>
                     </tr>
                     <tr>
                         <td>Transportation</i>
                         </td>
-                        <td><input type="number" class="form-control" id="transportation_expenses" name="transportation_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['transportation_expenses'] ?? ""}}@endif"></td>
+                        <td><input type="number" class="form-control" id="transportation_expenses" name="transportation_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['transportation_expenses'] ?? ''}}@endif"></td>
                     </tr>
                     <tr>
                         <td>Telco</td>
-                        <td><input type="number" class="form-control" id="telco_expenses" name="telco_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['telco_expenses'] ?? ""}}@endif"></td>
+                        <td><input type="number" class="form-control" id="telco_expenses" name="telco_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['telco_expenses'] ?? ''}}@endif"></td>
                     </tr>
                     <tr>
                         <td>Dependants</td>
-                        <td><input type="number" class="form-control" id="dependants_expenses" name="dependants_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['dependants_expenses'] ?? ""}}@endif" ></td>
+                        <td><input type="number" class="form-control" id="dependants_expenses" name="dependants_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['dependants_expenses'] ?? ''}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Personal</td>
-                        <td><input type="number" class="form-control" id="personal_expenses" name="personal_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['personal_expenses'] ?? ""}}@endif" ></td>
+                        <td><input type="number" class="form-control" id="personal_expenses" name="personal_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['personal_expenses'] ?? ''}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Luxury</td>
-                        <td><input type="number" class="form-control" id="luxury_expenses" name="luxury_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['luxury_expenses'] ?? ""}}@endif" ></td>
+                        <td><input type="number" class="form-control" id="luxury_expenses" name="luxury_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['luxury_expenses'] ?? ''}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Insurance Premiums</td>
@@ -97,11 +97,11 @@
                     </tr>
                     <tr>
                         <td>Loan Repayments</td>
-                        <td><input type="number" class="form-control" id="repayments_expenses" name="repayments_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['repayments_expenses'] ?? ""}}@endif" ></td>
+                        <td><input type="number" class="form-control" id="repayments_expenses" name="repayments_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['repayments_expenses'] ?? ''}}@endif" ></td>
                     </tr>
                     <tr>
                         <td>Others, Please specify:</td>
-                        <td><input type="number" class="form-control" id="orther_expenses" name="orther_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['orther_expenses'] ?? ""}}@endif" ></td>
+                        <td><input type="number" class="form-control" id="orther_expenses" name="orther_expenses" placeholder="$" value="@if(isset($expenses)){{$expenses['orther_expenses'] ?? ''}}@endif" ></td>
                     </tr>
                     <tr>
                         <td><h4>Total Annual Expenses:</h4></td>
@@ -124,17 +124,17 @@
                 </div>
                 <div class="directional-radio">
                     <div class="custom-input-layout-row">
-                        <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="fas fa-check-circle"></i>
-                               <input class="state-plan" type="radio" name="state_plan" value="0" checked>
+                        <label class="radio-inline custom-style-radio1 pdl0">
+                            <div class="style-checked style-radio-custom">
+                                <input class="state-plan" type="radio" name="state_plan" value="0" checked>
+                                <span class="checkmark-radio"></span>
                             </div>
                             No
                         </label>
-                        <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="far fa-circle"></i>
-                               <input class="state-plan" type="radio" name="state_plan" value="1">
+                        <label class="radio-inline custom-style-radio1 pdl0">
+                            <div class="style-checked style-radio-custom">
+                                <input class="state-plan" type="radio" name="state_plan" value="1">
+                                <span class="checkmark-radio"></span>
                             </div>
                             Yes (Please state details)
                         </label>
@@ -211,8 +211,8 @@
                                 return false;
                             });
                         }
-                    }else{
-                        location.reload();
+                    }else{                        
+                        window.location.href = res['url'];
                         alert(res['message']);
                     }
                 }

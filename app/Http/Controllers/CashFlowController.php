@@ -36,7 +36,7 @@ class CashFlowController extends Controller
 			}
 		}
 		$totalAnnual = $totalIncome + $totalExpenses;
-		return view('pages.single-fact.annual-cashflow.list', compact('infoPfr', 'totalIncome', 'totalExpenses', 'totalAnnual', 'income', 'expenses'));
+		return view('pages.single-fact.annual-cashflow.list', compact('infoPfr', 'totalIncome', 'totalExpenses', 'totalAnnual', 'income', 'expenses', 'infoCashFlow'));
 	}
 
 	public function addNewCashFlow(Request $request, $idPfr)
@@ -123,7 +123,8 @@ class CashFlowController extends Controller
 			$message = $edit ? "Edit cash flow successfully" : "Add new cash flow successfully";
 			return response()->json([
 				'error' => false,
-				'message' => $message
+				'message' => $message,
+				'url' => route('portfolio.list', $idPfr)
 			], 200);
 		} else {
 			$message = $edit ? "Edit cash flow error" : "Add new cash flow error";

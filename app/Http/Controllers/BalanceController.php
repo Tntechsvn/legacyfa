@@ -139,7 +139,8 @@ class BalanceController extends Controller
 			$message = $edit ? "Edit balance successfully" : "Add new balance successfully";
 			return response()->json([
 				'error' => false,
-				'message' => $message
+				'message' => $message,
+				'url' => route('single_fact.cash_flow.list', $idPfr)
 			], 200);
 		} else {
 			$message = $edit ? "Edit balance error" : "Add new balance error";

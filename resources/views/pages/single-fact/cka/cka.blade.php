@@ -6,7 +6,7 @@
         <h4>Customer Knowledge Assessment (CKA):</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.cka.add_new', $infoPfr->id)}}" data-parsley-validate>
+        <form name="cka_form" id='cka_form' class="" method="post" action="{{route('single_fact.cka.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             @php $questions = json_decode(json_encode(config('constants.CKA_Questionnaire')));
             $dataCka = json_decode($infoPfr->dataCka, true);
@@ -16,17 +16,17 @@
                     @foreach($questions as $key_question=>$q)
                     <tr>
                         <td>{{$key_question+1}}. {{$q->name}}</td>
-                        <td>
+                        <td class="action-checkbox">
                             <label class="radio-inline custom-style-radio1 pdl0">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="name{{$key_question}}" type="radio" name="name{{$key_question}}" value="0" checked>
+                                    <input class="showcheckbox" type="radio" name="name{{$key_question}}" value="0" checked>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
                             </label>
                             @foreach($q->answers as $key_answer=>$a)
                             <div class="checkbox">
-                                <label><input type="checkbox" name="q_{{$key_question+1}}[]" value="{{$key_answer}}" <?php
+                                <label><input  disabled="disabled" type="checkbox" name="q_{{$key_question+1}}[]" value="{{$key_answer}}" <?php
                                 if(isset($infoPfr) && $dataCka){
                                     foreach($dataCka[0] as $key=>$value){
                                         if($key == "q_".($key_question+1)){
@@ -42,7 +42,7 @@
                             @endforeach
                             <label class="radio-inline custom-style-radio1 pdl0">
                                 <div class="style-checked style-radio-custom">
-                                    <input type="radio" name="name{{$key_question}}" value="1">
+                                    <input class="showcheckbox" type="radio" name="name{{$key_question}}" value="1">
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
@@ -90,7 +90,18 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#cashflow_form').on('submit', function(e){
+        $('.showcheckbox').click(function(){
+         var rBtnVal = $(this).val();
+            if(rBtnVal == "1"){
+                $(this).closest('.action-checkbox').find('input[type=checkbox]').prop("disabled", true);
+            }else{ 
+                $(this).closest('.action-checkbox').find('input[type=checkbox]').prop("disabled", false);
+            }
+       });
+
+
+
+        $('#cka_form').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
