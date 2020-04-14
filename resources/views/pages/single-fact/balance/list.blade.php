@@ -17,26 +17,26 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="fas fa-check-circle"></i>
-                                <input type="radio" name="state" value="0" @if(isset($infoBalance)) @if($infoBalance->reason == null){{'checked'}}@endif @else {{'checked'}} @endif>
+                                <input  class="balance-radio" type="radio" name="balance_radio" id="rd_yes" value="0" @if(isset($infoBalance)) @if($infoBalance->reason == null){{'checked'}}@endif @else {{'checked'}} @endif>
                             </div>
                             Yes (Please fill in the details below)
                         </label>
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input type="radio" name="state" value="1" @if(isset($infoBalance)) @if($infoBalance->reason != null){{'checked'}}@endif @endif> 
+                                <input class="balance-radio" type="radio" name="balance_radio" id="rd_no" value="1" @if(isset($infoBalance)) @if($infoBalance->reason != null){{'checked'}}@endif @endif> 
                             </div>
                             No(Please state reason):
                         </label>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="reason" name="reason" placeholder="Please state reason:" >@if(isset($infoBalance)){{$infoBalance->reason}}@endif</textarea>
+                        <textarea class="form-control" id="reason" name="reason" placeholder="Please state reason:" readonly="readonly">@if(isset($infoBalance)){{$infoBalance->reason}}@endif</textarea>
                     </div>
                 </div>  
             </div>
-           
+
             <h3>ASSETS</h3>
-            <table id="blance-table" class="table table-bordered table-content table-style2" style="width:100%">
+            <table id="blance-table" class="table table-bordered table-content table-style2 td50" style="width:100%">
                 <tbody>
                     <tr>
                         <td rowspan="2">Property</td>
@@ -111,7 +111,7 @@
                 </tbody>
             </table>
             <h3>Liabilities</h3>
-            <table id="blance-table" class="table table-bordered table-content table-style2" style="width:100%">
+            <table id="blance-table" class="table table-bordered table-content table-style2 td50" style="width:100%">
                 <tbody>
                     <tr>
                         <td rowspan="7">Loans</td>
@@ -164,7 +164,7 @@
         <ul>
             @if(!$infoPfr)
             @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
+            @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
         </ul>
     </div>
@@ -174,6 +174,19 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+       $('.balance-radio').click(function(){
+         var rBtnVal = $(this).val();
+         if(rBtnVal == "1"){
+             $("#reason").attr("readonly", false); 
+             $("input[type=number]").val("");
+         }
+         else{ 
+             $("#reason").attr("readonly", true); 
+         }
+       });
+
+
+
         $('#balance_form').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();

@@ -804,18 +804,26 @@ table.table-style2.table-bordered > thead > tr > th{
 	float: left;
 }
 .title-dir{
-	width:33.3333%;
+	width:50%;
 	float: left;
+	padding-right: 15px;
 }
 .directional-radio{
-	width:66.66666%;
+	width:50%;
 	float: left;
+	padding-right: 15px;
+}
+table.td50 tr td:last-child{
+	width:50%;
 }
 .directional-radio .custom-input-layout-row{
 	width: 100%;
 	margin-bottom:10px;
 }
 .custom-input-layout-row .radio-inline:first-child{
+	padding-left: 0;
+}
+.pdl0{
 	padding-left: 0;
 }
 

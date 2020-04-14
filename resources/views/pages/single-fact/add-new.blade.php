@@ -239,24 +239,16 @@
       </div>
     </form>
   </div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-    <ul>
-      @if(!isset($infoPfr))
-      <li class="active"><a href="javascript:;">1</a></li>
-      <li><a href="javascript:;">2</a></li>
-      <li><a href="javascript:;">3</a></li>
-      <li><a href="javascript:;">4</a></li>
-      <li><a href="javascript:;">5</a></li>
-      <li><a href="javascript:;">6</a></li>
-      <li><a href="javascript:;">7</a></li>
-      <li><a href="javascript:;">8</a></li>
-      <li><a href="javascript:;">9</a></li>
-      <li><a href="javascript:;">10</a></li>
-      @else
-        @include('pages.navigation', ['id' => $infoPfr->id])
-      @endif
-    </ul>
-  </div>
+</div>
+<div class="bottom-step">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
+        <ul>
+            @if(!$infoPfr)
+            @else
+                @include('pages.navigation', ['id' => $infoPfr->id])
+            @endif
+        </ul>
+    </div>
 </div>
 @endsection
 

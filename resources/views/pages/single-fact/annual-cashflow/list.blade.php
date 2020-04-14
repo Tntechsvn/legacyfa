@@ -5,8 +5,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
         <h4>Cash Flow:</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.cash_flow.add_new', $infoPfr->id)}}" data-parsley-validate>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
+        <form name="cashflow_form" id='cashflow_form' class="form-table2" method="post" action="{{route('single_fact.cash_flow.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <div class="directional-action">
                 <div class="title-dir">
@@ -17,25 +17,25 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="fas fa-check-circle"></i>
-                                <input type="radio" name="state_cash_flow" value="0" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow != null){{'checked'}} @endif @else {{'checked'}} @endif >
+                                <input class="state_cash_flow" type="radio" name="state_cash_flow" value="0" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow != null){{'checked'}} @endif @else {{'checked'}} @endif >
                             </div>
                             Yes (Please fill in the details below)
                         </label>
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input type="radio" name="state_cash_flow" value="1" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow == null){{'checked'}} @endif @endif> 
+                                <input class="state_cash_flow" type="radio" name="state_cash_flow" value="1" @if(isset($infoCashFlow)) @if($infoCashFlow->reason_cash_flow == null){{'checked'}} @endif @endif> 
                             </div>
                             No (Please state reason):
                         </label>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="reason_cash_flow" name="reason_cash_flow" placeholder="Please state reason:" >@if(isset($infoCashFlow)){{$infoCashFlow->reason_cash_flow}}@endif</textarea>
+                        <textarea class="form-control" id="reason_cash_flow" name="reason_cash_flow" placeholder="Please state reason:" readonly="readonly">@if(isset($infoCashFlow)){{$infoCashFlow->reason_cash_flow}}@endif</textarea>
                     </div>
                 </div>  
             </div>
             <h3> Annual Income</h3>
-            <table id="annual-income-table" class="table table-content table-style1" style="width:100%">
+            <table id="annual-income-table" class="table table-bordered table-content table-style2 td50" style="width:100%">
                 <tbody>
                     <tr>
                         <td>Annual Gross Income</td>
@@ -64,7 +64,7 @@
                 </tbody>
             </table>
             <h3>Annual Expenses</h3>
-            <table id="annual-expenses-table" class="table table-content table-style1" style="width:100%">
+            <table id="annual-expenses-table" class="table table-content table-bordered table-style2 td50" style="width:100%">
                 <tbody>
                     <tr>
                         <td>Household</td>
@@ -110,7 +110,7 @@
                 </tbody>
             </table>
             <h3>Annual Net Cashflow</h3>
-            <table id="annual-expenses-table" class="table table-content table-style1" style="width:100%">
+            <table id="annual-expenses-table" class="table table-content table-bordered table-style2 td50" style="width:100%">
                 <tbody>
                     <tr>
                         <td><h4>Annual Surplus/Shortfall:</h4></td>
@@ -118,22 +118,33 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="annual-expenses-table" class="table table-content table-style1" style="width:100%">
-                <tbody>
-                    <tr>
-                        <td>Do you have any plans or are there any factors within the next 12 months which may significantly increase or decrease your current income and expenditure position (eg. Receiving an inheritance or borrowing money for investment or purchase of a holiday home, etc.)?</td>
-                        <td>
-                            <label class="radio-hoz">
-                               <input type="radio" name="state_plan" value="0" checked>No 
-                           </label>
-                           <label class="radio-hoz">
-                                <input type="radio" name="state_plan" value="1">Yes (Please state details)
-                            </label>
-                            <textarea class="form-control" id="reason_plan" name="reason_plan"></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="directional-action">
+                <div class="title-dir">
+                    Do you have any plans or are there any factors within the next 12 months which may significantly increase or decrease your current income and expenditure position (eg. Receiving an inheritance or borrowing money for investment or purchase of a holiday home, etc.)?
+                </div>
+                <div class="directional-radio">
+                    <div class="custom-input-layout-row">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="fas fa-check-circle"></i>
+                               <input class="state-plan" type="radio" name="state_plan" value="0" checked>
+                            </div>
+                            No
+                        </label>
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked">
+                                <i class="far fa-circle"></i>
+                               <input class="state-plan" type="radio" name="state_plan" value="1">
+                            </div>
+                            Yes (Please state details)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="reason_plan" name="reason_plan" placeholder="Please state details" readonly="readonly"></textarea>
+                    </div>
+                </div>  
+            </div>
+
             <div class="nav-step">
                 <button class="btn btn-primary mb-2 style-button1 style-button1">Back</button>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
@@ -156,6 +167,32 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        $('.state_cash_flow').click(function(){
+         var rBtnVal = $(this).val();
+         if(rBtnVal == "1"){
+             $("#reason_cash_flow").attr("readonly", false); 
+             $("input[type=number]").val("");
+         }
+         else{ 
+             $("#reason_cash_flow").attr("readonly", true); 
+         }
+       });
+
+        $('.state-plan').click(function(){
+         var stateVal = $(this).val();
+         if(stateVal == "1"){
+             $("#reason_plan").attr("readonly", false); 
+         }
+         else{ 
+             $("#reason_plan").attr("readonly", true); 
+             $("#reason_plan").val("");
+         }
+       });
+
+
+
+        
+
         $('#cashflow_form').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();

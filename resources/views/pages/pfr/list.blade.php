@@ -12,9 +12,9 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
-            <a class="link-trash textright" href="{{route('pfr.list_trash')}}"><i class="fas fa-trash"></i></a>
+            <a class="pull-right link-trash textright" href="{{route('pfr.list_trash')}}"><i class="fas fa-trash"></i></a>
             <div class="search-fn search-innerpage">
-                <form class="pull-left" method="get" action="">
+                <form class="pull-right" method="get" action="">
                     <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
                     <i class="fa fa-search radius_2"></i>
                 </form>
