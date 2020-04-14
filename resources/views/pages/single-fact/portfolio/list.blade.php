@@ -40,7 +40,7 @@
                     <td>{{$property->outstanding_loan}}</td>
                     <td>{{$property->market_property}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_property"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -82,7 +82,7 @@
                     <td>{{$investment->amount_investment}}</td>
                     <td>{{$investment->market_investment}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_investment"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -97,7 +97,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>SAVINGS</h3>
-            <a  class="btn btn-primary" id="add_new_saving"  class="" data-toggle="modal" data-target="#saving_modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_saving" class="" data-toggle="modal" data-target="#saving_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="saving-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -123,7 +123,7 @@
                     <td>{{$saving->deposit_year}}</td>
                     <td>{{$saving->amount_saving}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_saving"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
@@ -138,7 +138,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>CPF</h3>
-            <a  class="btn btn-primary" id="add_new_cpf"  class="" data-toggle="modal" data-target="#cpf_modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_cpf" class="" data-toggle="modal" data-target="#cpf_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="cpf-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -164,7 +164,7 @@
                     <td>{{$cpf->medisave_account}}</td>
                     <td>{{$cpf->retirement_account}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_cpf"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
@@ -179,7 +179,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INSURANCE</h3>
-            <a  class="btn btn-primary" id="add_new_insurance"  class="" data-toggle="modal" data-target="#insurance_modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_insurance" class="" data-toggle="modal" data-target="#insurance_modal"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="insurance-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -223,7 +223,7 @@
                     <td>{{$insurance->maturity_year}}</td>
                     <td>{{$insurance->estimated_current_cash}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -270,7 +270,7 @@
                     <td>{{$insurance->year_purchased}}</td>
                     <td>{{$insurance->premium_insurance}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -318,7 +318,7 @@
                     <td>{{$loan->lender_loan}}</td>
                     <td>{{$loan->interest_rate}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_loan"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
@@ -1118,6 +1118,10 @@
                 });
             }
         });
+
+        $('.edit_loan').click(function(){
+            $('#form_loan').modal('show');
+        })
     });
 </script>
 @endsection
