@@ -108,4 +108,20 @@ class SingleFactController extends Controller
         if(!$infoPfr) return abort(404);
         return view('pages.single-fact.add-new', compact('infoPfr'));
     }
+
+    public function postEditSingleFact(Request $request) {
+        $infoPfr = $this->pfr->find($request->id);
+        if(!$infoPfr) {
+            return response()->json([
+                'error' => false,
+                'message' => "Edit new client successfully",
+                'url' => route('singlefact.dependant.list', $infoPfr->id)
+            ], 200);
+        }else {
+            return response()->json([
+                'error' => true,
+                'message' => "Edit pfr error"
+            ], 200);
+        }
+    }
 }

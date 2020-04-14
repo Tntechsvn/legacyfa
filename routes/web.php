@@ -213,6 +213,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			'as' => 'single_fact.edit',
 			'uses' => 'SingleFactController@editSingleFact'
 		]);
+
+		Route::post('{id}', [
+			'as' => 'single_fact.postedit',
+			'uses' => 'SingleFactController@postEditSingleFact'
+		]);
 		
 		Route::group(['prefix' => 'dependants/{id_pfr}'], function(){
 			Route::get('/', [

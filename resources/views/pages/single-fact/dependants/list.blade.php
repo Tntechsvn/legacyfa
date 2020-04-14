@@ -31,9 +31,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($listDependant as $dependant)
+                @foreach($listDependant as $key=>$dependant)
                 <tr>
-                    <td>{{$dependant->id}}</td>
+                    <td>{{$key+1}}</td>
                     <td>{{$dependant->title}}</td>
                     <td>{{$dependant->name}}</td>
                     <td>{{$dependant->relationship}}</td>
