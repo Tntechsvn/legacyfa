@@ -40,8 +40,8 @@
                     <td>{{$property->outstanding_loan}}</td>
                     <td>{{$property->market_property}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_property"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1" data-toggle="modal" data-target="#property_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @php $i++; @endphp
@@ -82,8 +82,8 @@
                     <td>{{$investment->amount_investment}}</td>
                     <td>{{$investment->market_investment}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_investment"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_investment" data-toggle="modal" data-target="#investment_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @php $i++; @endphp
@@ -123,8 +123,8 @@
                     <td>{{$saving->deposit_year}}</td>
                     <td>{{$saving->amount_saving}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_saving"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_saving" data-toggle="modal" data-target="#saving_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -164,8 +164,8 @@
                     <td>{{$cpf->medisave_account}}</td>
                     <td>{{$cpf->retirement_account}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_cpf"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_cpf" data-toggle="modal" data-target="#cpf_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -223,8 +223,8 @@
                     <td>{{$insurance->maturity_year}}</td>
                     <td>{{$insurance->estimated_current_cash}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_insurance"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance" data-toggle="modal" data-target="#insurance_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endif
@@ -270,8 +270,8 @@
                     <td>{{$insurance->year_purchased}}</td>
                     <td>{{$insurance->premium_insurance}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_insurance"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance" data-toggle="modal" data-target="#insurance_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @endif
@@ -318,8 +318,8 @@
                     <td>{{$loan->lender_loan}}</td>
                     <td>{{$loan->interest_rate}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_loan"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_loan" data-toggle="modal" data-target="#loan_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -352,66 +352,88 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_add_new_property" id='form_add_new_property' class="form-control-popup" method="post" action="{{route('portfolio.add_new_property', $infoPfr->id)}}" data-parsley-validate>
+                <form name="form_add_new_property" id='form_add_new_property' class="form-control-popup parsley-form1" method="post" action="{{route('portfolio.add_new_property', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="client_property">Client<span>*</span></label>
-                        <select name="client_property" id="client_property" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1">Client1</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="client_property" id="client_property" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1">Client1</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="category_property">Category<span>*</span></label>
-                        <select name="category_property" id="category_property" class="form-control">
-                            <option value="">Select</option>
-                            <option value="R">Residence</option>
-                            <option value="I">Investment</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="category_property" id="category_property" class="form-control">
+                                <option value="">Select</option>
+                                <option value="R">Residence</option>
+                                <option value="I">Investment</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="type_property">Type of Property<span>*</span></label>
-                        <select name="type_property" id="type_property" class="form-control">
-                            <option value="">Select</option>
-                            <option value="HDBDP">HDB direct purchase</option>
-                            <option value="HDBR">HDB resale</option>
-                            <option value="CON">Condo</option>
-                            <option value="LAN">Landed</option>
-                            <option value="COM">Commercial</option>
-                            <option value="Ot">Others</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="type_property" id="type_property" class="form-control">
+                                <option value="">Select</option>
+                                <option value="HDBDP">HDB direct purchase</option>
+                                <option value="HDBR">HDB resale</option>
+                                <option value="CON">Condo</option>
+                                <option value="LAN">Landed</option>
+                                <option value="COM">Commercial</option>
+                                <option value="Ot">Others</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="year_property">Year Purchased</label>
-                        <input type="text" class="form-control" id="year_property" name="year_property" placeholder="Year Purchased" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="year_property" name="year_property" placeholder="Year Purchased" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="price_property">Purchase Price ($)</label>
-                        <input type="text" class="form-control" id="price_property" name="price_property" placeholder="Purchase Price" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="price_property" name="price_property" placeholder="Purchase Price" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="loan_property">Loan Taken ($)</label>
-                        <input type="text" class="form-control" id="loan_property" name="loan_property" placeholder="Loan Taken" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="loan_property" name="loan_property" placeholder="Loan Taken" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="outstanding_loan">Current Outstanding Loan ($)</label>
-                        <input type="text" class="form-control" id="outstanding_loan" name="outstanding_loan" placeholder="Current Outstanding Loan" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="outstanding_loan" name="outstanding_loan" placeholder="Current Outstanding Loan" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="monthly_loan">Monthly Loan Repayment - Cash ($)</label>
-                        <input type="text" class="form-control" id="monthly_loan" name="monthly_loan" placeholder="Monthly Loan Repayment - Cash" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="monthly_loan" name="monthly_loan" placeholder="Monthly Loan Repayment - Cash" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="monthly_loan_cpf">Monthly Loan Repayment - CPF ($)</label>
-                        <input type="text" class="form-control" id="monthly_loan_cpf" name="monthly_loan_cpf" placeholder="Monthly Loan Repayment - CPF" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="monthly_loan_cpf" name="monthly_loan_cpf" placeholder="Monthly Loan Repayment - CPF" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="market_property">Current Market Value ($)</label>
-                        <input type="text" class="form-control" id="market_property" name="market_property" placeholder="Current Market Value" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="market_property" name="market_property" placeholder="Current Market Value" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="intention">Intention with Property</label>
-                        <textarea class="form-control" id="intention" name="intention" placeholder="Intention with Property" value="" ></textarea>
+                        <div class="custom-input-modal">
+                            <textarea class="form-control" id="intention" name="intention" placeholder="Intention with Property" value="" ></textarea>
+                        </div>
                     </div>
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -435,50 +457,66 @@
             <div class="modal-body">
                 <form name="form_add_new_investment" id='form_add_new_investment' class="form-control-popup" method="post" action="{{route('portfolio.add_new_investment', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="client_investment">Client<span>*</span></label>
-                        <select name="client_investment" id="client_investment" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1">Client1</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="client_investment" id="client_investment" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1">Client1</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="type_investment">Type of Investment<span>*</span></label>
-                        <select name="type_investment" id="type_investment" class="form-control">
-                            <option value="">Select</option>
-                            <option value="SS">Stocks & Shares</option>
-                            <option value="B">Bonds</option>
-                            <option value="CI">Collective Investment Scheme</option>
-                            <option value="SP">Structured Products</option>
-                            <option value="BO">Business Ownership</option>
-                            <option value="Ot">Others</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="type_investment" id="type_investment" class="form-control">
+                                <option value="">Select</option>
+                                <option value="SS">Stocks & Shares</option>
+                                <option value="B">Bonds</option>
+                                <option value="CI">Collective Investment Scheme</option>
+                                <option value="SP">Structured Products</option>
+                                <option value="BO">Business Ownership</option>
+                                <option value="Ot">Others</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="company_investment">Company</label>
-                        <input type="text" class="form-control" id="company_investment" name="company_investment" placeholder="Company" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="company_investment" name="company_investment" placeholder="Company" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="invested_investment">Year Invested</label>
-                        <input type="text" class="form-control" id="invested_investment" name="invested_investment" placeholder="Year Invested" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="invested_investment" name="invested_investment" placeholder="Year Invested" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="amount_investment">Investment Amount ($)</label>
-                        <input type="text" class="form-control" id="amount_investment" name="amount_investment" placeholder="Investment Amount ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="amount_investment" name="amount_investment" placeholder="Investment Amount ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="market_investment">Current Market Value ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="market_investment" name="market_investment" placeholder="Current Market Value ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="market_investment" name="market_investment" placeholder="Current Market Value ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="source_investment">Source of Funds</label>
-                        <input type="text" class="form-control" id="source_investment" name="source_investment" placeholder="Source of Funds" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="source_investment" name="source_investment" placeholder="Source of Funds" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="intention_investment">Intention with Investment</label>
-                        <textarea class="form-control" id="intention_investment" name="intention_investment" placeholder="Intention with Investment" value="" ></textarea>
+                        <div class="custom-input-modal">
+                            <textarea class="form-control" id="intention_investment" name="intention_investment" placeholder="Intention with Investment" value="" ></textarea>
+                        </div>
                     </div>
-                    <div class="nav-step">
+                    <div class="nav-step form-group-modal">
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
@@ -502,36 +540,48 @@
             <div class="modal-body">
                 <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="{{route('portfolio.add_new_saving', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="client_saving">Client<span>*</span></label>
-                        <select name="client_saving" id="client_saving" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1">Client1</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="client_saving" id="client_saving" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1">Client1</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="type_deposit">Type of Deposit<span>*</span></label>
-                        <select name="type_deposit" id="type_deposit" class="form-control">
-                            <option value="">Select</option>
-                            <option value="BSA">Savings Account</option>
-                            <option value="FD">Fixed Deposit</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="type_deposit" id="type_deposit" class="form-control">
+                                <option value="">Select</option>
+                                <option value="BSA">Savings Account</option>
+                                <option value="FD">Fixed Deposit</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="bank_saving">Bank</label>
-                        <input type="text" class="form-control" id="bank_saving" name="bank_saving" placeholder="Bank" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="bank_saving" name="bank_saving" placeholder="Bank" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="deposit_year">Deposit Year</label>
-                        <input type="text" class="form-control" id="deposit_year" name="deposit_year" placeholder="Deposit Year" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="deposit_year" name="deposit_year" placeholder="Deposit Year" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="amount_saving">Savings Amount ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="amount_saving" name="amount_saving" placeholder="Savings Amount ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="amount_saving" name="amount_saving" placeholder="Savings Amount ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="intention_saving">Intention for the Savings</label>
-                        <textarea class="form-control" id="intention_saving" name="intention_saving" placeholder="Intention for the Savings" value="" ></textarea>
+                        <div class="custom-input-modal">
+                            <textarea class="form-control" id="intention_saving" name="intention_saving" placeholder="Intention for the Savings" value="" ></textarea>
+                        </div>
                     </div>
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -555,28 +605,38 @@
             <div class="modal-body">
                 <form name="form_cpf" id='form_cpf' class="form-control-popup" method="post" action="{{route('portfolio.add_new_cpf', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="client_cpf">Client<span>*</span></label>
-                        <select name="client_cpf" id="client_cpf" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1">Client1</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="client_cpf" id="client_cpf" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1">Client1</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="ordinary_account">Ordinary Account ($)</label>
-                        <input type="text" class="form-control" id="ordinary_account" name="ordinary_account" placeholder="Ordinary Account ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="ordinary_account" name="ordinary_account" placeholder="Ordinary Account ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="special_account">Special Account ($)</label>
-                        <input type="text" class="form-control" id="special_account" name="special_account" placeholder="Special Account ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="special_account" name="special_account" placeholder="Special Account ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="medisave_account">Medisave Account ($)</label>
-                        <input type="text" class="form-control" id="medisave_account" name="medisave_account" placeholder="Medisave Account ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="medisave_account" name="medisave_account" placeholder="Medisave Account ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="retirement_account">Retirement Account ($)</label>
-                        <input type="text" class="form-control" id="retirement_account" name="retirement_account" placeholder="Retirement Account ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="retirement_account" name="retirement_account" placeholder="Retirement Account ($)" value="" >
+                        </div>
                     </div>
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -600,129 +660,169 @@
             <div class="modal-body">
                 <form name="form_insurance" id='form_insurance' class="form-control-popup" method="post" action="{{route('portfolio.add_new_insurance', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="client_insurance">Client<span>*</span></label>
-                        <select name="client_insurance" id="client_insurance" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1">Client1</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="client_insurance" id="client_insurance" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1">Client1</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="status_insurance">Status<span>*</span></label>
-                        <select name="status_insurance" id="status_insurance" class="form-control">
-                            <option value="PO & INS">Both Policy Owner & Insured</option>
-                            <option value="INS">Insured</option>
-                            <option value="PO">Policy Owner</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="status_insurance" id="status_insurance" class="form-control">
+                                <option value="PO & INS">Both Policy Owner & Insured</option>
+                                <option value="INS">Insured</option>
+                                <option value="PO">Policy Owner</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="insurer_insurance">Insurer</label>
-                        <input type="text" class="form-control" id="insurer_insurance" name="insurer_insurance" placeholder="Insurer" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="insurer_insurance" name="insurer_insurance" placeholder="Insurer" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="policy_type">Policy Type</label>
-                        <select name="policy_type" id="policy_type" class="form-control">
-                            <option value="WL">Wholelife</option>
-                            <option value="IL">Investment-linked</option>
-                            <option value="EN">Endowment</option>
-                            <option value="TE">Term</option>
-                            <option value="AC">Accident</option>
-                            <option value="HO">Hospitalization</option>
-                            <option value="DI">Disability Income</option>
-                            <option value="Ot">Others</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="policy_type" id="policy_type" class="form-control">
+                                <option value="WL">Wholelife</option>
+                                <option value="IL">Investment-linked</option>
+                                <option value="EN">Endowment</option>
+                                <option value="TE">Term</option>
+                                <option value="AC">Accident</option>
+                                <option value="HO">Hospitalization</option>
+                                <option value="DI">Disability Income</option>
+                                <option value="Ot">Others</option>
+                            </select> 
+                        </div>
                     </div>
                     <div class="custom-input-form1">
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="sa_death">Sum Assured: Death ($)</label>
-                            <input type="text" class="form-control" id="sa_death" name="sa_death" placeholder="Sum Assured: Death ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="sa_death" name="sa_death" placeholder="Sum Assured: Death ($)" value="" >
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="sa_tpd">Sum Assured: TPD ($)</label>
-                            <input type="text" class="form-control" id="sa_tpd" name="sa_tpd" placeholder="Sum Assured: TPD ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="sa_tpd" name="sa_tpd" placeholder="Sum Assured: TPD ($)" value="" >
+                            </div>
                         </div>  
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="sa_ci">Sum Assured: CI ($)</label>
-                            <input type="text" class="form-control" id="sa_ci" name="sa_ci" placeholder="Sum Assured: CI ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="sa_ci" name="sa_ci" placeholder="Sum Assured: CI ($)" value="" >
+                            </div>
                         </div>  
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="sa_accident">Sum Assured: Accident ($)</label>
-                            <input type="text" class="form-control" id="sa_accident" name="sa_accident" placeholder="Sum Assured: Accident ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="sa_accident" name="sa_accident" placeholder="Sum Assured: Accident ($)" value="" >
+                            </div>
                         </div> 
                     </div>
                     <div class="custom-input-form-all">
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="year_purchased">Year Purchased</label>
-                            <input type="text" class="form-control" id="year_purchased" name="year_purchased" placeholder="Year Purchased" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="year_purchased" name="year_purchased" placeholder="Year Purchased" value="" >
+                            </div>
                         </div> 
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="policy_term">Policy Term</label>
-                            <input type="text" class="form-control" id="policy_term" name="policy_term" placeholder="Policy Term" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="policy_term" name="policy_term" placeholder="Policy Term" value="" >
+                            </div>
                         </div> 
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="frequency_insurance">Frequency</label>
-                            <select name="frequency_insurance" id="frequency_insurance" class="form-control">
-                                <option value="M">Monthly</option>
-                                <option value="A">Annual</option>
-                                <option value="S">Single</option>
-                                <option value="H">Half-Yearly</option>
-                                <option value="Q">Quarterly</option>
-                            </select> 
+                            <div class="custom-input-modal">
+                                <select name="frequency_insurance" id="frequency_insurance" class="form-control">
+                                    <option value="M">Monthly</option>
+                                    <option value="A">Annual</option>
+                                    <option value="S">Single</option>
+                                    <option value="H">Half-Yearly</option>
+                                    <option value="Q">Quarterly</option>
+                                </select> 
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="source_fund">Source Of Fund</label>
-                            <select name="source_fund" id="source_fund" class="form-control">
-                                <option value="Cash">Cash</option>
-                                <option value="CPF">CPF</option>
-                                <option value="SRS">SRS</option>
-                            </select> 
+                            <div class="custom-input-modal">
+                                <select name="source_fund" id="source_fund" class="form-control">
+                                    <option value="Cash">Cash</option>
+                                    <option value="CPF">CPF</option>
+                                    <option value="SRS">SRS</option>
+                                </select> 
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="premium_insurance">Premium ($)</label>
-                            <input type="text" class="form-control" id="premium_insurance" name="premium_insurance" placeholder="Premium ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="premium_insurance" name="premium_insurance" placeholder="Premium ($)" value="" >
+                            </div>
                         </div>
                     </div>
                     <div class="custom-input-form1 custom-input-form2"> 
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="maturity_year">Maturity Year</label>
-                            <input type="text" class="form-control" id="maturity_year" name="maturity_year" placeholder="Maturity Year" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="maturity_year" name="maturity_year" placeholder="Maturity Year" value="" >
+                            </div>
                         </div> 
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="estimated_maturity">Estimated Maturity Value ($)</label>
-                            <input type="text" class="form-control" id="estimated_maturity" name="estimated_maturity" placeholder="Estimated Maturity Value ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="estimated_maturity" name="estimated_maturity" placeholder="Estimated Maturity Value ($)" value="" >
+                            </div>
                         </div> 
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="estimated_current_cash">Estimated Current Cash Value ($)<span>*</span></label>
-                            <input type="text" class="form-control" id="estimated_current_cash" name="estimated_current_cash" placeholder="Estimated Current Cash Value ($)" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="estimated_current_cash" name="estimated_current_cash" placeholder="Estimated Current Cash Value ($)" value="" >
+                            </div>
                         </div> 
                     </div>
                     <div class="custom-input-form3">
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="existing_plan">Name of Existing Plan</label>
-                            <input type="text" class="form-control" id="existing_plan" name="existing_plan" placeholder="Name of Existing Plan" value="" >
+                            <div class="custom-input-modal">
+                                <input type="text" class="form-control" id="existing_plan" name="existing_plan" placeholder="Name of Existing Plan" value="" >
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="">Type of Hospital Covered</label>
-                            <label class="radio-inline">
-                                <input type="radio" name="insurance_hospital" id="private" value="0" checked>PRIVATE
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="insurance_hospital" id="pubic" value="1">PUBLIC 
-                            </label>
+                            <div class="custom-input-modal">
+                                <label class="radio-inline">
+                                    <input type="radio" name="insurance_hospital" id="private" value="0" checked>PRIVATE
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="insurance_hospital" id="pubic" value="1">PUBLIC 
+                                </label>
+                            </div>
                         </div> 
-                        <div class="form-group">
+                        <div class="form-group form-group-modal">
                             <label for="ward_covered">Class of Ward Covered</label>
-                            <select name="ward_covered" id="ward_covered" class="form-control">
-                                <option value="A">A</option>
-                                <option value="B1">B1</option>
-                                <option value="B2">B2</option>
-                                <option value="C">C</option>
-                            </select> 
+                            <div class="custom-input-modal">
+                                <select name="ward_covered" id="ward_covered" class="form-control">
+                                    <option value="A">A</option>
+                                    <option value="B1">B1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="C">C</option>
+                                </select> 
+                            </div>
                         </div> 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="additional_insurance">Additional Notes</label>
-                        <textarea class="form-control" id="additional_insurance" name="additional_insurance" placeholder="Additional Notes" value="" ></textarea>
+                        <div class="custom-input-modal">
+                            <textarea class="form-control" id="additional_insurance" name="additional_insurance" placeholder="Additional Notes" value="" ></textarea>
+                        </div>
                     </div>  
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
@@ -746,52 +846,70 @@
             <div class="modal-body">
                 <form name="form_loan" id='form_loan' class="form-control-popup" method="post" action="{{route('portfolio.add_new_loan', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="client_loan">Client<span>*</span></label>
-                        <select name="client_loan" id="client_loan" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1">Client1</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="client_loan" id="client_loan" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1">Client1</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="type_loan">Type of Loan <span>*</span></label>
-                        <select name="type_loan" id="type_loan" class="form-control">
-                            <option value="V">Vehicle</option>
-                            <option value="R">Renovation</option>
-                            <option value="E">Education</option>
-                            <option value="CC">Credit Card</option>
-                            <option value="PL">Personal Loans</option>
-                            <option value="O">Overdrafts</option>
-                            <option value="Ot">Others</option>
-                        </select> 
+                        <div class="custom-input-modal">
+                            <select name="type_loan" id="type_loan" class="form-control">
+                                <option value="V">Vehicle</option>
+                                <option value="R">Renovation</option>
+                                <option value="E">Education</option>
+                                <option value="CC">Credit Card</option>
+                                <option value="PL">Personal Loans</option>
+                                <option value="O">Overdrafts</option>
+                                <option value="Ot">Others</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="term_loan">Loan Term</label>
-                        <input type="text" class="form-control" id="term_loan" name="term_loan" placeholder="Type of Loan" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="term_loan" name="term_loan" placeholder="Type of Loan" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="year_loan">Year of Loan Taken</label>
-                        <input type="text" class="form-control" id="year_loan" name="year_loan" placeholder="Year of Loan Taken" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="year_loan" name="year_loan" placeholder="Year of Loan Taken" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="amount_borrowed">Amount Borrowed ($)</label>
-                        <input type="text" class="form-control" id="amount_borrowed" name="amount_borrowed" placeholder="Amount Borrowed ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="amount_borrowed" name="amount_borrowed" placeholder="Amount Borrowed ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="outstanding_amount">Current Outstanding Amount ($)<span>*</span></label>
-                        <input type="text" class="form-control" id="outstanding_amount" name="outstanding_amount" placeholder="Current Outstanding Amount ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="outstanding_amount" name="outstanding_amount" placeholder="Current Outstanding Amount ($)" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="lender_loan">Lender</label>
-                        <input type="text" class="form-control" id="lender_loan" name="lender_loan" placeholder="Lender" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="lender_loan" name="lender_loan" placeholder="Lender" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="interest_rate">Interest Rate</label>
-                        <input type="text" class="form-control" id="interest_rate" name="interest_rate" placeholder="Interest Rate" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="interest_rate" name="interest_rate" placeholder="Interest Rate" value="" >
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-modal">
                         <label for="repayment_cash">Monthly Loan Repayment - Cash ($)</label>
-                        <input type="text" class="form-control" id="repayment_cash" name="repayment_cash" placeholder="Monthly Loan Repayment - Cash ($)" value="" >
+                        <div class="custom-input-modal">
+                            <input type="text" class="form-control" id="repayment_cash" name="repayment_cash" placeholder="Monthly Loan Repayment - Cash ($)" value="" >
+                        </div>
                     </div>
                     <button type="button" class="btn btn-primary mb-2">Cancel</button>
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>

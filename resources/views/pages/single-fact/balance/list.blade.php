@@ -177,11 +177,11 @@
        $('.balance-radio').click(function(){
          var rBtnVal = $(this).val();
          if(rBtnVal == "1"){
-             $("#reason").attr("readonly", false); 
-             $("input[type=number]").val("");
+            $("#reason").attr("readonly", false); 
+            $("input[type=number]").val("");
          }
-         else{ 
-             $("#reason").attr("readonly", true); 
+        else{ 
+            $("#reason").attr("readonly", true); 
          }
        });
         $('#balance_form').on('submit', function(e){
