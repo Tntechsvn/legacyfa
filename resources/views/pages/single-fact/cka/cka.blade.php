@@ -15,7 +15,7 @@
                 <tbody>
                     @foreach($questions as $key_question=>$q)
                     <tr>
-                        <td>{{$key_question+1}}. {{$q->name}}</td>
+                        <td><strong>{{$key_question+1}}. {{$q->name}}</strong></td>
                         <td class="action-checkbox">
                             <label class="radio-inline custom-style-radio1 pdl0">
                                 <div class="style-checked style-radio-custom">
@@ -26,7 +26,7 @@
                             </label>
                             @foreach($q->answers as $key_answer=>$a)
                             <div class="checkbox">
-                                <label><input  disabled="disabled" type="checkbox" name="q_{{$key_question+1}}[]" value="{{$key_answer}}" <?php
+                                <label><input   class="form-check-input" type="checkbox" name="q_{{$key_question+1}}[]" value="{{$key_answer}}" <?php
                                 if(isset($infoPfr) && $dataCka){
                                     foreach($dataCka[0] as $key=>$value){
                                         if($key == "q_".($key_question+1)){
@@ -53,15 +53,17 @@
                 </tbody>
             </table>
             <div class="custom-bg-text">
-                <h4>RESULT:</h4>   
-                YOU HAVE MET the Customer Knowledge Assessment criteria and am deemed to posses the knowledge or experience for transactions In a Collective Investment Scheme or an Investment Linked Policy.
-                <div class="form-group form-layout-row">
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="state" id="state" value="1" @if($infoPfr->reasonCka != null){{'checked'}}@endif>
-                      <label class="form-check-label" for="state">N/A</label>
-                  </div>
+                <div class="text-custom-show">
+                    <h4>RESULT:</h4>   
+                    YOU HAVE MET the Customer Knowledge Assessment criteria and am deemed to posses the knowledge or experience for transactions In a Collective Investment Scheme or an Investment Linked Policy.
                 </div>
-                <div class="form-group form-layout-row">
+            </div>
+            <div class="custom-bg-text">
+                <div class="left-checkbox width50">
+                    <input class="form-check-input form-check-checkbox" type="checkbox" name="state" id="state" value="1" @if($infoPfr->reasonCka != null){{'checked'}}@endif>
+                      <label class="form-check-label" for="state">N/A</label>
+                </div>
+                <div class="right-checkbox width50 showinput">
                     <label for="details_home">Reason</label>
                     <div class="custom-input-layout-row">
                         <input type="text" class="form-control" id="reason" name="reason" placeholder="" value="{{$infoPfr->reasonCka}}">
@@ -69,9 +71,9 @@
                 </div>
             </div>
             <div class="nav-step">
-                    <button class="btn btn-primary mb-2 style-button1">Back</button>
-                    <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
-                </div>
+                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            </div>
         </form>      
     </div>
 </div>
@@ -98,6 +100,29 @@
                 $(this).closest('.action-checkbox').find('input[type=checkbox]').prop("disabled", false);
             }
        });
+
+
+        if($('.form-check-checkbox').is(':checked')){
+                $('.showinput').show();
+                $('.text-custom-show').hide();
+                $('table input').prop("disabled", true);
+
+            }else{
+                 $('.showinput').hide();
+                 $('.text-custom-show').show();
+                 $('table input').prop("disabled", false);
+            } 
+        $('.form-check-checkbox').on('change', function(){
+            if($('.form-check-input').is(':checked')){
+                 $('.showinput').show();
+                 $('.text-custom-show').hide();
+                 $('table input').prop("disabled", true);
+            }else{
+                 $('.showinput').hide();
+                 $('.text-custom-show').show();
+                 $('table input').prop("disabled", false);
+            }
+        });
 
 
 
