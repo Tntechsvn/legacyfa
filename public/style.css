@@ -230,7 +230,11 @@ textarea.parsley-error{
 textarea{
 	resize: none;
 }
-
+.parsley-form,
+.parsley-:form{
+	width:100%;
+	float:left;
+}
 /* STYLE THEMES */
 body{
 	background:#f4f4f1;
@@ -911,6 +915,9 @@ table.td50 tr td:last-child{
 }
 .modal-header{
 	position: relative;
+	color:#fff;
+	text-align: center;
+	background: #02c39a;
 }
 .modal-header .close{
 	width:24px;
@@ -923,7 +930,7 @@ table.td50 tr td:last-child{
 	position: absolute;
 	right:15px;
 	top:15px;
-
+	display: none;
 }
 .modal-body button{
 	margin-left:auto;
@@ -1104,6 +1111,9 @@ a.style-button1{
 	text-align: center;
 	float: left;
 	margin-top: 20px;
+}
+.nav-step.form-group-modal{
+	float: none;
 }
 .nav-step button{
 	display: inline-block;
@@ -1602,4 +1612,30 @@ body.show_form_login{
 	margin-bottom:20px;
 	background: none; 
 	float: left;
+}
+
+
+/* Risk page */
+.list-qa{
+	margin-top:8px;
+	margin-bottom:8px;
+}
+.list-qa label{
+	font-weight: 400;
+}
+.custom-bg-text{
+    color: #616f77;
+    background-color: #f0f9fc;
+    width: 100%;
+    padding: 15px;
+    float: left;
+    margin-bottom: 20px;
+}
+.width50{
+	width:50%;
+	float: left;
+}
+input.form-check-input[type=checkbox]{
+	width: 15px;
+	height: 15px;
 }
