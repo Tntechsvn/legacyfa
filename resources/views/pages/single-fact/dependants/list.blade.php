@@ -2,8 +2,11 @@
 
 @section('content')
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>Dependants Information:</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+        <h4>Step 1 - Personal Information:</h4>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sub-title-step">
+        <p class="stlstep">1.2 - Dependants Information:</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">

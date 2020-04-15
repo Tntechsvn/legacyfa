@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>Risk Profile:</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+        <h4>Step 5 - Risk Profile:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.risk_profile.add_new', $infoPfr->id)}}" data-parsley-validate>

@@ -1735,3 +1735,61 @@ input.form-check-input[type=checkbox]{
 	float: left;
 	margin-right: 15px;
 }
+
+/* step title */
+.step-title{
+	height:60px;
+	padding:0px 15px;
+	position: relative;
+	border-bottom:none;
+}
+.step-title h4{
+	font-size: 16px;
+	color: #fff;
+	width: auto;
+	line-height: 50px;
+	background:#00ab87;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: inline-block;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	-moz-border-radius: 4px 4px 0px 0px;
+	-o-border-radius: 4px 4px 0px 0px;
+	border-radius: 4px 4px 0px 0px;
+	margin-top:10px;
+	float: left;
+}
+.step-title::after{
+	height:1px;
+	left: 15px;
+	right: 15px;
+	bottom:0;
+	content:"";
+	display: block;
+	position: absolute;
+	width: auto;
+	background:#00ab87;
+}
+
+.sub-title-step{
+	height:43px;
+	width: 100%;
+	float: left;
+	padding-top: 3px;
+}
+.sub-title-step p{
+	color:#333;
+	line-height: 40px;
+	position: relative;
+	display: block;
+	font-weight: 700;
+}
+.sub-title-step p:after{
+	width: 50px;
+	bottom:0;
+	left: 0;
+	background: #02c39a;
+	content: "";
+	display: block;
+	height: 3px;
+}
