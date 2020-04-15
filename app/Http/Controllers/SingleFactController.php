@@ -106,6 +106,8 @@ class SingleFactController extends Controller
     public function editSingleFact(Request $request) {
         $infoPfr = $this->pfr->find($request->id);
         if(!$infoPfr) return abort(404);
+        if($infoPfr->type != 0)
+            return redirect(route('join-fact.edit', $infoPfr->id));
         return view('pages.single-fact.add-new', compact('infoPfr'));
     }
 

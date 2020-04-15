@@ -159,7 +159,15 @@ class Pfr extends Model
     }
     
     public function client1() {
-        return $this->hasOne('App\Models\Client')->latest();
+        return $this->hasOne('App\Models\Client')->oldest();
+    }
+
+    public function client_first() {
+        return $this->clients()->first();
+    }
+
+    public function client_second() {
+        return $this->clients()->skip(1)->first();
     }
 
     public function permalink()
