@@ -55,7 +55,8 @@ class PfrController extends Controller
 			if ($resultEditPfr) {
 				return response()->json([
 					'error' => false,
-					'message' => "Add new trush individual successfully"
+					'message' => "Add new trush individual successfully",
+					'url' => route('single_fact.balance.list', $idPfr)
 				], 200);
 			} else {
 				return response()->json([

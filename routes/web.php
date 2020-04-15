@@ -281,6 +281,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@listPortfolioSingle'
 			]);
 
+			/*property*/
 			Route::post('add-new-property', [
 				'as' => 'portfolio.add_new_property',
 				'uses' => 'PortfolioController@addNewProperty'
@@ -296,6 +297,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@deleteProperty'
 			]);
 
+			/*investment*/
 			Route::post('add-new-investment', [
 				'as' => 'portfolio.add_new_investment',
 				'uses' => 'PortfolioController@addNewInvestment'
@@ -311,9 +313,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@deleteInvestment'
 			]);
 
+			/*saving*/
 			Route::post('add-new-saving', [
 				'as' => 'portfolio.add_new_saving',
 				'uses' => 'PortfolioController@addNewSaving'
+			]);
+
+			Route::post('edit-saving/{position}', [
+				'as' => 'portfolio.edit_saving',
+				'uses' => 'PortfolioController@editSaving'
 			]);
 
 			Route::get('delete-saving/{position}', [
@@ -321,9 +329,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@deleteSaving'
 			]);
 
+			/*cpf*/
 			Route::post('add-new-cpf', [
 				'as' => 'portfolio.add_new_cpf',
 				'uses' => 'PortfolioController@addNewCpf'
+			]);
+
+			Route::post('edit-cpf/{position}', [
+				'as' => 'portfolio.edit_cpf',
+				'uses' => 'PortfolioController@editCpf'
 			]);
 
 			Route::get('delete-cpf/{position}', [
@@ -331,9 +345,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@deleteCpf'
 			]);
 
+			/*insurance*/
 			Route::post('add-new-insurance', [
 				'as' => 'portfolio.add_new_insurance',
 				'uses' => 'PortfolioController@addNewInsurance'
+			]);
+
+			Route::post('edit-insurance/{position}', [
+				'as' => 'portfolio.edit_insurance',
+				'uses' => 'PortfolioController@editInsurance'
 			]);
 
 			Route::get('delete-insurance/{position}', [
@@ -341,9 +361,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PortfolioController@deleteInsurance'
 			]);
 
+			/*loan*/
 			Route::post('add-new-loan', [
 				'as' => 'portfolio.add_new_loan',
 				'uses' => 'PortfolioController@addNewLoan'
+			]);
+
+			Route::post('edit-loan/{position}', [
+				'as' => 'portfolio.edit_loan',
+				'uses' => 'PortfolioController@editLoan'
 			]);
 
 			Route::get('delete-loan/{position}', [
