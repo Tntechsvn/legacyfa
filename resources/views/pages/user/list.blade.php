@@ -185,8 +185,18 @@
 
         $('.delete').on('click', function(){
             var tr = $(this).closest('tr');
-            if(confirm('Do you want delete this user??')){
-                var url = $(this).data('url');
+            var url = $(this).data('url');
+            swal({
+              title: "Are you sure?",
+              text: "Do you want delete this user?",
+              icon: "warning",
+              buttons: [
+                'No, cancel it!',
+                'Yes, I am sure!'
+              ],
+              dangerMode: true,
+            }).then(function(isConfirm) {
+              if (isConfirm) {
                 $.ajax({
                     type: "GET",
                     url: url,
@@ -194,20 +204,23 @@
                     success: function(res){
                         if(res['error']){
                             if(!$.isPlainObject(res.message)){
-                                alert(res.message);
+                                swal(res.message);
                             }else{
                                 $.each(res.message, function(key,value){
-                                    alert(value[0]);
+                                    swal(value[0]);
                                     return false;
                                 });
                             }
                         }else{
                             tr.remove();
-                            alert(res['message']);
+                            swal(res['message']);
                         }
                     }
                 });
-            }
+              } else {
+                swal("Cancelled", "error");
+              }
+            })
         });
     });
 </script>

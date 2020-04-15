@@ -54,10 +54,10 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        swal(res['message']);
                     }else{
                         tr.remove();
-                        alert(res['message']);
+                        swal(res['message']);
                     }
                 }
             });
