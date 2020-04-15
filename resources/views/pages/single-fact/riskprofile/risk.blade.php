@@ -81,7 +81,7 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){ 
-            if($('.form-check-checkbox').is(':checked')){
+        if($('.form-check-checkbox').is(':checked')){
                 $('.showinput').show();
                 $('.text-custom-show').hide();
                 $('input[type=radio]').prop("disabled", true);

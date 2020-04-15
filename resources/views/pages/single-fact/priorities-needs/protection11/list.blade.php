@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
             @csrf
-            <table id="protection10-1" class="table table-content table-style1 protection-st" style="width:100%">
+            <table id="protection10-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <th></th>

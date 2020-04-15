@@ -6,9 +6,10 @@
         <h4>Estate Planning</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
+        <form name="protection10" id='protection10' class="" method="post" action="" data-parsley-validate>
             @csrf
-            <table id="protection10-1" class="table table-content table-style1 protection-st" style="width:100%">
+
+            <table id="protection10-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <th></th>
@@ -17,7 +18,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="3">Do you have a Will written?</td>
+                        <td>Do you have a Will written?</td>
                         <td>
                             <div class="custom-input-layout-row">
                                 <label class="radio-inline custom-style-radio1">
@@ -45,6 +46,7 @@
                     </tr>
                     <tr>
                         <td>Were there any provisions made for special needs dependant?</td>
+                        <td>
                             <div class="custom-input-layout-row">
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
@@ -86,12 +88,12 @@
                     </tr>
                     <tr>
                         <td>Have you done your CPF nominations?</td>
-                        </td>
+                        <td>
                             <div class="custom-input-layout-row">
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="cpf-client1" id="male" value="0" checked>
+                                        <input type="radio" name="cpf-client1" id="male" value="0" checked >
                                     </div>
                                     Yes
                                 </label>

@@ -8,7 +8,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
             @csrf
-            <table id="protection3-1" class="table table-content table-style1 protection-st" style="width:100%">
+            <table id="protection3-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <th>Fund Critical Illness Expenses</th>
@@ -84,7 +84,7 @@
                 </tbody>
             </table>
 
-            <table id="protection3-2" class="table table-content table-style1 protection-st protection-st2" style="width:100%">
+            <table id="protection3-2" class="table table-content table-bordered table-style2 protection-st protection-st2" style="width:100%">
                 <thead>
                     <tr>
                         <th>Fund Critical Illness Expenses</th>

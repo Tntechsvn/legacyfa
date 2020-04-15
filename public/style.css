@@ -622,12 +622,17 @@ li.has-child{
 	color:#ff2a2a;
 	display: inline-block;
 	position: relative;	
+	font-size: 18px;
+	padding-right:8px;
 }
 .editstyle1{
 	color:#08b1f0;
-	margin-right:5px;
+	padding-right:8px;
 	display: inline-block;
 	position: relative;
+}
+.editstyle1 i{
+	font-size: 18px;
 }
 
 .list-noti{
@@ -918,6 +923,19 @@ table.td50 tr td:last-child{
 	color:#fff;
 	text-align: center;
 	background: #02c39a;
+	padding-top: 10px;
+	padding-bottom:10px; 
+	-webkit-border-radius: 4px 4px 0px 0px; 
+	-moz-border-radius: 4px 4px 0px 0px;
+	-o-border-radius: 4px 4px 0px 0px;
+	 border-radius: 4px 4px 0px 0px;
+}
+.modal-header h5{
+	font-size: 16px;
+	line-height: 20px;
+}
+.modal-header h5{
+
 }
 .modal-header .close{
 	width:24px;
@@ -1638,4 +1656,82 @@ body.show_form_login{
 input.form-check-input[type=checkbox]{
 	width: 15px;
 	height: 15px;
+}
+
+/* style alert custom */
+.swal-title{
+	height:40px;
+	width: 100%;
+	line-height: 40px;
+	padding:0;
+	background: #02c39a;
+	color: #fff;
+	font-size: 16px;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	-moz-border-radius: 4px 4px 0px 0px;
+	-o-border-radius: 4px 4px 0px 0px;
+	border-radius: 4px 4px 0px 0px;
+	margin-top:0 !important;
+}
+.swal-text{
+	line-height: 28px;
+	padding:0px 15px 0px 30px;
+	background:url(images/icon-warning.png) no-repeat left top;
+	display: inline-block;
+	margin-top:15px;
+}
+
+.swal-icon {
+	display: none;
+}
+.swal-footer{
+	text-align: center;
+}
+.swal-button-container{
+	width:95px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	background:none;
+	border:none;
+}
+.swal-button-container .swal-button--cancel{
+	border:1px solid #959595;
+	width:95px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	background: #fff;
+	padding: 0;
+}
+.swal-button-container .swal-button--danger{
+	border:1px solid #f52020;
+	width:95px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	background: #f52020;
+	padding: 0;
+}
+.swal-button--confirm{
+	border:1px solid #02c39a;
+	width:95px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	background: #02c39a;
+	padding: 0;
+}
+.swal-text{
+	font-weight: 14px;
+	color: #333;
+}
+
+.table-style2 .custom-input-layout-row {
+    width: auto;
+    float: left;
+}
+.table-style2 .form-check.form-check-inline{
+	float: left;
+	margin-right: 15px;
 }
