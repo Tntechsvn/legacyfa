@@ -555,6 +555,62 @@ class PortfolioController extends Controller
 		}
 	}
 
+	public function editCpf(Request $request, $idPfr, $position)
+	{
+		$rules = [
+			'client_cpf' => 'required|integer|min:1',
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		if ($infoPfr) {
+			$data = array(
+				'client_cpf' => $request->client_cpf,
+				'ordinary_account' => $request->ordinary_account != null ? $request->ordinary_account : "",
+				'special_account' => $request->special_account != null ? $request->special_account : "",
+				'medisave_account' => $request->medisave_account != null ? $request->medisave_account : "",
+				'retirement_account' => $request->retirement_account != null ? $request->retirement_account : "",
+			);
+			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+			if ($infoPortfolio) {
+				$cpf = (array) json_decode($infoPortfolio->cpf);
+				$cpf[$position - 1] = $data;
+				$param = array(
+					'cpf' => json_encode($cpf)
+				);
+				$result = $this->portfolio->editPortfolio($idPfr, $param);
+
+				if ($result) {
+					return response()->json([
+						'error' => false,
+						'message' => "Edit cpf successfully"
+					], 200);
+				} else {
+					return response()->json([
+						'error' => true,
+						'message' => "Edit cpf error"
+					], 200);
+				}
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Cpf not found"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Pfr not found"
+			], 200);
+		}
+	}
+
 	public function deleteCpf($idPfr, $position)
 	{
 		$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
@@ -612,7 +668,7 @@ class PortfolioController extends Controller
 				'insurer_insurance' => $request->insurer_insurance,
 				'policy_type' => $request->policy_type != null ? $request->policy_type : "",
 				'sa_death' => $request->sa_death != null ? $request->sa_death : "",
-				'sa_tpd' => $request->sa_tpd != null ? $request->tpd : "",
+				'sa_tpd' => $request->sa_tpd != null ? $request->sa_tpd : "",
 				'sa_ci' => $request->sa_ci != null ? $request->sa_ci : "",
 				'sa_accident' => $request->sa_accident != null ? $request->sa_accident : "",
 				'year_purchased' => $request->year_purchased != null ? $request->year_purchased : "",
@@ -658,6 +714,84 @@ class PortfolioController extends Controller
 			return response()->json([
 				'error' => true,
 				'message' => "Error"
+			], 200);
+		}
+	}
+
+	public function editInsurance(Request $request, $idPfr, $position)
+	{
+		$rules = [
+			'client_insurance' => 'required|integer|min:1',
+			'status_insurance' => 'required|in:PO & INS,INS,PO',
+			'policy_type' => 'in:WL,IL,EN,TE,AC,HO,DI,Ot',
+			'frequency_insurance' => 'in:M,A,S,H,Q',
+			'source_fund' => 'in:Cash,CPF,SRS',
+			'estimated_current_cash' => 'required_if:policy_type,HO',
+			'insurance_hospital' => 'sometimes|min:0|max:1',
+			'ward_covered' => 'in:A,B1,B2,C',
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		if ($infoPfr) {
+			$data = array(
+				'client_insurance' => $request->client_insurance,
+				'status_insurance' => $request->status_insurance,
+				'insurer_insurance' => $request->insurer_insurance,
+				'policy_type' => $request->policy_type != null ? $request->policy_type : "",
+				'sa_death' => $request->sa_death != null ? $request->sa_death : "",
+				'sa_tpd' => $request->sa_tpd != null ? $request->sa_tpd : "",
+				'sa_ci' => $request->sa_ci != null ? $request->sa_ci : "",
+				'sa_accident' => $request->sa_accident != null ? $request->sa_accident : "",
+				'year_purchased' => $request->year_purchased != null ? $request->year_purchased : "",
+				'policy_term' => $request->policy_term != null ? $request->policy_term : "",
+				'frequency_insurance' => $request->frequency_insurance,
+				'source_fund' => $request->source_fund,
+				'premium_insurance' => $request->premium_insurance != null ? $request->premium_insurance : "",
+				'maturity_year' => $request->maturity_year != null ? $request->maturity_year : "",
+				'estimated_maturity' => $request->estimated_maturity != null ? $request->estimated_maturity : "",
+				'estimated_current_cash' => $request->estimated_current_cash,
+				'existing_plan' => $request->existing_plan != null ? $request->existing_plan : "",
+				'insurance_hospital' => $request->insurance_hospital,
+				'ward_covered' => $request->ward_covered,
+				'additional_insurance' => $request->additional_insurance != null ? $request->additional_insurance : "",
+			);
+			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+			if ($infoPortfolio) {
+				$insurance = (array) json_decode($infoPortfolio->insurance);
+				$insurance[$position - 1] = $data;
+				$param = array(
+					'insurance' => json_encode($insurance)
+				);
+				$result = $this->portfolio->editPortfolio($idPfr, $param);
+
+				if ($result) {
+					return response()->json([
+						'error' => false,
+						'message' => "Edit insurance successfully"
+					], 200);
+				} else {
+					return response()->json([
+						'error' => true,
+						'message' => "Edit insurance error"
+					], 200);
+				}
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Insurance not found"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Pfr not found"
 			], 200);
 		}
 	}
@@ -749,6 +883,68 @@ class PortfolioController extends Controller
 			return response()->json([
 				'error' => true,
 				'message' => "Error"
+			], 200);
+		}
+	}
+
+	public function editLoan(Request $request, $idPfr, $position)
+	{
+		$rules = [
+			'client_loan' => 'required|integer|min:1',
+			'type_loan' => 'required|in:V,R,E,CC,PL,O,Ot',
+			'outstanding_amount' => 'required'
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		if ($infoPfr) {
+			$data = array(
+				'client_loan' => $request->client_loan,
+				'type_loan' => $request->type_loan,
+				'term_loan' => $request->term_loan != null ? $request->term_loan : "",
+				'year_loan' => $request->year_loan != null ? $request->year_loan : "",
+				'amount_borrowed' => $request->amount_borrowed != null ? $request->amount_borrowed : "",
+				'outstanding_amount' => $request->outstanding_amount,
+				'lender_loan' => $request->lender_loan != null ? $request->lender_loan : "",
+				'interest_rate' => $request->interest_rate != null ? $request->interest_rate : "",
+				'repayment_cash' => $request->repayment_cash != null ? $request->repayment_cash : ""
+			);
+			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+			if ($infoPortfolio) {
+				$loan = (array) json_decode($infoPortfolio->loan);
+				$loan[$position - 1] = $data;
+				$param = array(
+					'loan' => json_encode($loan)
+				);
+				$result = $this->portfolio->editPortfolio($idPfr, $param);
+
+				if ($result) {
+					return response()->json([
+						'error' => false,
+						'message' => "Edit loan successfully"
+					], 200);
+				} else {
+					return response()->json([
+						'error' => true,
+						'message' => "Edit loan error"
+					], 200);
+				}
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Loan not found"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Pfr not found"
 			], 200);
 		}
 	}

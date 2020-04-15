@@ -139,7 +139,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>CPF</h3>
-            <a  class="btn btn-primary" id="add_new_cpf" class="" data-toggle="modal" data-target="#cpf_modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_cpf" data-url="{{route('portfolio.add_new_cpf', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="cpf-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -165,7 +165,7 @@
                     <td>{{$cpf->medisave_account}}</td>
                     <td>{{$cpf->retirement_account}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_cpf" data-toggle="modal" data-target="#cpf_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_cpf" data-client="{{$cpf->client_cpf}}" data-ordinary="{{$cpf->ordinary_account}}" data-special="{{$cpf->special_account}}" data-medisave="{{$cpf->medisave_account}}" data-retiment="{{$cpf->retirement_account}}" data-url="{{route('portfolio.edit_cpf', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
@@ -180,7 +180,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INSURANCE</h3>
-            <a  class="btn btn-primary" id="add_new_insurance" class="" data-toggle="modal" data-target="#insurance_modal"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary" id="add_new_insurance" data-url="{{route('portfolio.add_new_insurance', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="insurance-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -224,7 +224,7 @@
                     <td>{{$insurance->maturity_year}}</td>
                     <td>{{$insurance->estimated_current_cash}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_insurance" data-toggle="modal" data-target="#insurance_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance" data-client="{{$insurance->client_insurance}}" data-status="{{$insurance->status_insurance}}" data-insurer="{{$insurance->insurer_insurance}}" data-policy-type="{{$insurance->policy_type}}" data-death="{{$insurance->sa_death}}" data-tpd="{{$insurance->sa_tpd}}" data-ci="{{$insurance->sa_ci}}" data-accident="{{$insurance->sa_accident}}" data-purcharsed="{{$insurance->year_purchased}}" data-policy-term="{{$insurance->policy_term}}" data-frequency="{{$insurance->frequency_insurance}}" data-source-fund="{{$insurance->source_fund}}" data-premium-insurance="{{$insurance->premium_insurance}}" data-maturity-year="{{$insurance->maturity_year}}" data-estimated-maturity="{{$insurance->estimated_maturity}}" data-estimated-current-cash="{{$insurance->estimated_current_cash}}" data-existing-plan="{{$insurance->existing_plan}}" data-insurance-hospital="{{$insurance->insurance_hospital}}" data-ward-covered="{{$insurance->ward_covered}}" data-additional-insurance="{{$insurance->additional_insurance}}" data-url="{{route('portfolio.edit_insurance', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -271,7 +271,7 @@
                     <td>{{$insurance->year_purchased}}</td>
                     <td>{{$insurance->premium_insurance}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_insurance" data-toggle="modal" data-target="#insurance_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance" data-client="{{$insurance->client_insurance}}" data-status="{{$insurance->status_insurance}}" data-insurer="{{$insurance->insurer_insurance}}" data-policy-type="{{$insurance->policy_type}}" data-death="{{$insurance->sa_death}}" data-tpd="{{$insurance->sa_tpd}}" data-ci="{{$insurance->sa_ci}}" data-accident="{{$insurance->sa_accident}}" data-purcharsed="{{$insurance->year_purchased}}" data-policy-term="{{$insurance->policy_term}}" data-frequency="{{$insurance->frequency_insurance}}" data-source-fund="{{$insurance->source_fund}}" data-premium-insurance="{{$insurance->premium_insurance}}" data-maturity-year="{{$insurance->maturity_year}}" data-estimated-maturity="{{$insurance->estimated_maturity}}" data-estimated-current-cash="{{$insurance->estimated_current_cash}}" data-existing-plan="{{$insurance->existing_plan}}" data-insurance-hospital="{{$insurance->insurance_hospital}}" data-ward-covered="{{$insurance->ward_covered}}" data-additional-insurance="{{$insurance->additional_insurance}}" data-url="{{route('portfolio.edit_insurance', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
@@ -287,7 +287,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>LOAN</h3>
-            <a  class="btn btn-primary" id="add_new_loan"  class="" data-toggle="modal" data-target="#loan_modal"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary" id="add_new_loan" data-url="{{route('portfolio.add_new_loan', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="loan-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -319,7 +319,7 @@
                     <td>{{$loan->lender_loan}}</td>
                     <td>{{$loan->interest_rate}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_loan" data-toggle="modal" data-target="#loan_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_loan" data-client="{{$loan->client_loan}}" data-type="{{$loan->type_loan}}" data-term="{{$loan->term_loan}}" data-year="{{$loan->year_loan}}" data-borrowed="{{$loan->amount_borrowed}}" data-outstanding="{{$loan->outstanding_amount}}" data-lender="{{$loan->lender_loan}}" data-interest="{{$loan->interest_rate}}" data-repayment="{{$loan->repayment_cash}}" data-url="{{route('portfolio.edit_loan', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
@@ -359,18 +359,18 @@
             <div class="modal-body">
                 <form name="form_add_new_property" id='form_add_new_property' class="form-control-popup parsley-form1" method="post" action="{{route('portfolio.add_new_property', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group form-group-modal" id="form_client_property">
+                    <div class="form-group form-group-modal">
                         <label for="client_property">Client<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_client_property">
                             <select name="client_property" id="client_property" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Client1</option>
                             </select> 
                         </div>
                     </div>
-                    <div class="form-group form-group-modal" id="form_category_property">
+                    <div class="form-group form-group-modal">
                         <label for="category_property">Category<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_category_property">
                             <select name="category_property" id="category_property" class="form-control">
                                 <option value="">Select</option>
                                 <option value="R">Residence</option>
@@ -378,9 +378,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group form-group-modal" id="form_type_property">
+                    <div class="form-group form-group-modal">
                         <label for="type_property">Type of Property<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_type_property">
                             <select name="type_property" id="type_property" class="form-control">
                                 <option value="">Select</option>
                                 <option value="HDBDP">HDB direct purchase</option>
@@ -440,7 +440,7 @@
                             <textarea class="form-control" id="intention" name="intention" placeholder="Intention with Property" value="" ></textarea>
                         </div>
                     </div>
-                    <div class="nav-step form-group-modal" style="clear: both;">
+                    <div class="nav-step form-group-modal">
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div>
@@ -464,18 +464,18 @@
             <div class="modal-body">
                 <form name="form_add_new_investment" id='form_add_new_investment' class="form-control-popup" method="post" action="{{route('portfolio.add_new_investment', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group form-group-modal" id="form_client_investment">
+                    <div class="form-group form-group-modal">
                         <label for="client_investment">Client<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_client_investment">
                             <select name="client_investment" id="client_investment" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Client1</option>
                             </select> 
                         </div>
                     </div>
-                    <div class="form-group form-group-modal" id="form_type_investment">
+                    <div class="form-group form-group-modal">
                         <label for="type_investment">Type of Investment<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_type_investment">
                             <select name="type_investment" id="type_investment" class="form-control">
                                 <option value="">Select</option>
                                 <option value="SS">Stocks & Shares</option>
@@ -547,18 +547,18 @@
             <div class="modal-body">
                 <form name="form_add_new_saving" id='form_add_new_saving' class="form-control-popup" method="post" action="{{route('portfolio.add_new_saving', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group form-group-modal" id="form_client_saving">
+                    <div class="form-group form-group-modal">
                         <label for="client_saving">Client<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_client_saving">
                             <select name="client_saving" id="client_saving" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Client1</option>
                             </select> 
                         </div>
                     </div>
-                    <div class="form-group form-group-modal" id="form_deposit_saving">
+                    <div class="form-group form-group-modal">
                         <label for="type_deposit">Type of Deposit<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_deposit_saving">
                             <select name="type_deposit" id="type_deposit" class="form-control">
                                 <option value="">Select</option>
                                 <option value="BSA">Savings Account</option>
@@ -612,11 +612,11 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_cpf" id='form_cpf' class="form-control-popup" method="post" action="{{route('portfolio.add_new_cpf', $infoPfr->id)}}" data-parsley-validate>
+                <form name="form_add_new_cpf" id='form_add_new_cpf' class="form-control-popup" method="post" action="{{route('portfolio.add_new_cpf', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group form-group-modal">
                         <label for="client_cpf">Client<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_client_cpf">
                             <select name="client_cpf" id="client_cpf" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Client1</option>
@@ -669,11 +669,11 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_insurance" id='form_insurance' class="form-control-popup" method="post" action="{{route('portfolio.add_new_insurance', $infoPfr->id)}}" data-parsley-validate>
+                <form name="form_add_new_insurance" id='form_add_new_insurance' class="form-control-popup" method="post" action="{{route('portfolio.add_new_insurance', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group form-group-modal">
                         <label for="client_insurance">Client<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_client_insurance">
                             <select name="client_insurance" id="client_insurance" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Client1</option>
@@ -682,7 +682,7 @@
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="status_insurance">Status<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_status_insurance">
                             <select name="status_insurance" id="status_insurance" class="form-control">
                                 <option value="PO & INS">Both Policy Owner & Insured</option>
                                 <option value="INS">Insured</option>
@@ -698,7 +698,7 @@
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="policy_type">Policy Type</label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_policy_type">
                             <select name="policy_type" id="policy_type" class="form-control">
                                 <option value="WL">Wholelife</option>
                                 <option value="IL">Investment-linked</option>
@@ -752,7 +752,7 @@
                         </div> 
                         <div class="form-group form-group-modal">
                             <label for="frequency_insurance">Frequency</label>
-                            <div class="custom-input-modal">
+                            <div class="custom-input-modal" id="form_frequency">
                                 <select name="frequency_insurance" id="frequency_insurance" class="form-control">
                                     <option value="M">Monthly</option>
                                     <option value="A">Annual</option>
@@ -764,7 +764,7 @@
                         </div>
                         <div class="form-group form-group-modal">
                             <label for="source_fund">Source Of Fund</label>
-                            <div class="custom-input-modal">
+                            <div class="custom-input-modal" id="form_source_fund">
                                 <select name="source_fund" id="source_fund" class="form-control">
                                     <option value="Cash">Cash</option>
                                     <option value="CPF">CPF</option>
@@ -819,7 +819,7 @@
                         </div> 
                         <div class="form-group form-group-modal">
                             <label for="ward_covered">Class of Ward Covered</label>
-                            <div class="custom-input-modal">
+                            <div class="custom-input-modal" id="form_ward_covered">
                                 <select name="ward_covered" id="ward_covered" class="form-control">
                                     <option value="A">A</option>
                                     <option value="B1">B1</option>
@@ -857,11 +857,11 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_loan" id='form_loan' class="form-control-popup" method="post" action="{{route('portfolio.add_new_loan', $infoPfr->id)}}" data-parsley-validate>
+                <form name="form_add_new_loan" id='form_add_new_loan' class="form-control-popup" method="post" action="{{route('portfolio.add_new_loan', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
                     <div class="form-group form-group-modal">
                         <label for="client_loan">Client<span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_client_loan">
                             <select name="client_loan" id="client_loan" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Client1</option>
@@ -870,7 +870,7 @@
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="type_loan">Type of Loan <span>*</span></label>
-                        <div class="custom-input-modal">
+                        <div class="custom-input-modal" id="form_type_loan">
                             <select name="type_loan" id="type_loan" class="form-control">
                                 <option value="V">Vehicle</option>
                                 <option value="R">Renovation</option>
@@ -984,32 +984,6 @@
             $('#intention').val(intention);
         });
 
-        $('#form_add_new_property').on('submit', function(e){
-            e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: data,
-                dataType: 'json',
-                success: function(res){
-                    if(res['error']){
-                        if(!$.isPlainObject(res.message)){
-                            alert(res.message);
-                        }else{
-                            $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                        }
-                    }else{
-                        location.reload();
-                        alert(res['message']);
-                    }
-                }
-            });
-        });
-
         $('.delete_property').click(function(){
             if(confirm('Do you want delete this property??')){
                 var url = $(this).data('url');
@@ -1074,32 +1048,6 @@
             $('#intention_investment').val(intention);
         });
 
-        $('#form_add_new_investment').on('submit', function(e){
-            e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: data,
-                dataType: 'json',
-                success: function(res){
-                    if(res['error']){
-                        if(!$.isPlainObject(res.message)){
-                            alert(res.message);
-                        }else{
-                            $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                        }
-                    }else{
-                        location.reload();
-                        alert(res['message']);
-                    }
-                }
-            });
-        });
-
         $('.delete_investment').click(function(){
             if(confirm('Do you want delete this investment??')){
                 var url = $(this).data('url');
@@ -1158,32 +1106,6 @@
             $('#intention_saving').val(intention);
         });
 
-        $('#form_saving').on('submit', function(e){
-            e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: data,
-                dataType: 'json',
-                success: function(res){
-                    if(res['error']){
-                        if(!$.isPlainObject(res.message)){
-                            alert(res.message);
-                        }else{
-                            $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                        }
-                    }else{
-                        location.reload();
-                        alert(res['message']);
-                    }
-                }
-            });
-        });
-
         $('.delete_saving').click(function(){
             if(confirm('Do you want delete this saving??')){
                 var url = $(this).data('url');
@@ -1210,30 +1132,32 @@
             }
         });
 
-        $('#form_cpf').on('submit', function(e){
-            e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: data,
-                dataType: 'json',
-                success: function(res){
-                    if(res['error']){
-                        if(!$.isPlainObject(res.message)){
-                            alert(res.message);
-                        }else{
-                            $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                        }
-                    }else{
-                        location.reload();
-                        alert(res['message']);
-                    }
-                }
-            });
+        $('#add_new_cpf').click(function(){
+            var url = $(this).data('url');
+            $('#cpf_modal').modal('show');
+            $("div#form_client_cpf select").val('');
+            $('#ordinary_account').val('');
+            $('#special_account').val('');
+            $('#medisave_account').val('');
+            $('#retirement_account').val('');
+        });
+
+        $('.edit_cpf').click(function(){
+            var client = $(this).data('client');
+            var ordinary = $(this).data('ordinary');
+            var special = $(this).data('special');
+            var medisave = $(this).data('medisave');
+            var retiment = $(this).data('retiment');
+            var url = $(this).data('url');
+
+            $('#cpf_modal').modal('show');
+            $('#form_add_new_cpf').attr('action', url);
+
+            $("div#form_client_cpf select").val(client);
+            $('#ordinary_account').val(ordinary);
+            $('#special_account').val(special);
+            $('#medisave_account').val(medisave);
+            $('#retirement_account').val(retiment);
         });
 
         $('.delete_cpf').click(function(){
@@ -1262,30 +1186,83 @@
             }
         });
 
-        $('#form_insurance').on('submit', function(e){
-            e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: data,
-                dataType: 'json',
-                success: function(res){
-                    if(res['error']){
-                        if(!$.isPlainObject(res.message)){
-                            alert(res.message);
-                        }else{
-                            $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                        }
-                    }else{
-                        location.reload();
-                        alert(res['message']);
-                    }
-                }
-            });
+        $('#add_new_insurance').click(function(){
+            var url = $(this).data('url');
+            $('#insurance_modal').modal('show');
+            $('#form_add_new_insurance').attr('action', url);
+
+            $("div#form_client_insurance select").val('');
+            $("div#form_status_insurance select").val('PO & INS');
+            $('#insurer_insurance').val('');
+            $("div#form_policy_type select").val('WL');
+            $('#sa_death').val('');
+            $('#sa_tpd').val('');
+            $('#sa_ci').val('');
+            $('#sa_accident').val('');
+            $('#year_purchased').val('');
+            $('#policy_term').val('');
+            $("div#form_frequency select").val('M');
+            $("div#form_source_fund select").val('Cash');
+            $('#premium_insurance').val('');
+            $('#maturity_year').val('');
+            $('#estimated_current_cash').val('');
+            $('#estimated_maturity').val('');
+            $('#existing_plan').val('');
+            $('#private').prop("checked", true);
+            $("div#form_ward_covered select").val('A');
+            $('#additional_insurance').val('');
+        });
+
+        $('.edit_insurance').click(function(){
+            var client = $(this).data('client');
+            var status = $(this).data('status');
+            var insurer = $(this).data('insurer');
+            var policy_type = $(this).data('policy-type');
+            var death = $(this).data('death');
+            var tpd = $(this).data('tpd');
+            var ci = $(this).data('ci');
+            var accident = $(this).data('accident');
+            var purcharsed = $(this).data('purcharsed');
+            var policy_term = $(this).data('policy-term');
+            var frequency = $(this).data('frequency');
+            var source_fund = $(this).data('source-fund');
+            var premium_insurance = $(this).data('premium-insurance');
+            var maturity_year = $(this).data('maturity-year');
+            var estimated_maturity = $(this).data('estimated-maturity');
+            var estimated_current_cash = $(this).data('estimated-current-cash');
+            var existing_plan = $(this).data('existing-plan');
+            var insurance_hospital = $(this).data('insurance-hospital');
+            var ward_covered = $(this).data('ward-covered');
+            var additional_insurance = $(this).data('additional-insurance');
+            var url = $(this).data('url');
+
+            $('#insurance_modal').modal('show');
+            $('#form_add_new_insurance').attr('action', url);
+
+            $("div#form_client_insurance select").val(client);
+            $("div#form_status_insurance select").val('PO & INS');
+            $('#insurer_insurance').val(insurer);
+            $("div#form_policy_type select").val("WL");
+            $('#sa_death').val(death);
+            $('#sa_tpd').val(tpd);
+            $('#sa_ci').val(ci);
+            $('#sa_accident').val(accident);
+            $('#year_purchased').val(purcharsed);
+            $('#policy_term').val(policy_term);
+            $("div#form_frequency select").val(frequency);
+            $("div#form_source_fund select").val(source_fund);
+            $('#premium_insurance').val(premium_insurance);
+            $('#maturity_year').val(maturity_year);
+            $('#estimated_current_cash').val(estimated_current_cash);
+            $('#estimated_maturity').val(estimated_maturity);
+            $('#existing_plan').val(existing_plan);
+            if(insurance_hospital == 0){
+                $('#private').prop("checked", true);
+            }else{
+                $('#pubic').prop("checked", true);
+            }
+            $("div#form_ward_covered select").val(ward_covered);
+            $('#additional_insurance').val(additional_insurance);
         });
 
         $('.delete_insurance').on('click', function(){
@@ -1315,31 +1292,44 @@
             }
         });
 
-        $('#form_loan').on('submit', function(e){
-            e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: data,
-                dataType: 'json',
-                success: function(res){
-                    console.log(res);
-                    if(res['error']){
-                        if(!$.isPlainObject(res.message)){
-                            alert(res.message);
-                        }else{
-                            $.each(res.message, function(key,value){
-                                alert(value[0]);
-                                return false;
-                            });
-                        }
-                    }else{
-                        location.reload();
-                        alert(res['message']);
-                    }
-                }
-            });
+        $('#add_new_loan').click(function(){
+            var url = $(this).data('url');
+            $('#loan_modal').modal('show');
+            $('#form_add_new_loan').attr('action', url);
+            $("div#form_client_loan select").val('');
+            $("div#form_type_loan select").val('V');
+            $('#term_loan').val('');
+            $('#year_loan').val('');
+            $('#amount_borrowed').val('');
+            $('#outstanding_amount').val('');
+            $('#lender_loan').val('');
+            $('#interest_rate').val('');
+            $('#repayment_cash').val('');
+        });
+
+        $('.edit_loan').click(function(){
+            var client = $(this).data('client');
+            var type = $(this).data('type');
+            var term = $(this).data('term');
+            var year = $(this).data('year');
+            var borrowed = $(this).data('borrowed');
+            var outstanding = $(this).data('outstanding');
+            var lender = $(this).data('lender');
+            var interest = $(this).data('interest');
+            var repayment = $(this).data('repayment');
+            var url = $(this).data('url');
+
+            $('#loan_modal').modal('show');
+            $('#form_add_new_loan').attr('action', url);
+            $("div#form_client_loan select").val(client);
+            $("div#form_type_loan select").val(type);
+            $('#term_loan').val(term);
+            $('#year_loan').val(year);
+            $('#amount_borrowed').val(borrowed);
+            $('#outstanding_amount').val(outstanding);
+            $('#lender_loan').val(lender);
+            $('#interest_rate').val(interest);
+            $('#repayment_cash').val(repayment);
         });
 
         $('.delete_loan').on('click', function(){
@@ -1368,14 +1358,32 @@
             }
         });
 
-        $('.edit_property').click(function(){
-            $('#property_modal').modal('show');
-        })
-
-        $('.edit_loan').click(function(){
-            $('#loan_modal').modal('show');
-        })
-
+        $('#form_add_new_property, #form_add_new_investment, #form_add_new_saving, #form_add_new_cpf, #form_add_new_insurance, #form_add_new_loan').on('submit', function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: data,
+                dataType: 'json',
+                success: function(res){
+                    console.log(res);
+                    if(res['error']){
+                        if(!$.isPlainObject(res.message)){
+                            alert(res.message);
+                        }else{
+                            $.each(res.message, function(key,value){
+                                alert(value[0]);
+                                return false;
+                            });
+                        }
+                    }else{
+                        location.reload();
+                        alert(res['message']);
+                    }
+                }
+            });
+        });
     });
 </script>
 @endsection
