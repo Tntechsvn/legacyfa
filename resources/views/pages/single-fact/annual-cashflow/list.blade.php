@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>Cash Flow:</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+        <h4>Step 3 - Cash Flow:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="cashflow_form" id='cashflow_form' class="form-table2" method="post" action="{{route('single_fact.cash_flow.add_new', $infoPfr->id)}}" data-parsley-validate>

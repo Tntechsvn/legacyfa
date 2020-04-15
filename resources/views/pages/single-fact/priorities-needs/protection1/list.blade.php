@@ -2,13 +2,16 @@
 
 @section('content')
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>PROTECTION - Income Protection Upon Death</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+        <h4>Step 7 - Priorities & Needs Rating</h4>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sub-title-step">
+        <p class="stlstep">7.1 - PROTECTION <span>(Income Protection Upon Death)</span></p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="protection1" id='protection1' class="" method="post" action="{{route('single_fact.priorities-needs.priotection_1', $infoPfr->id)}}" data-parsley-validate>
             @csrf
-            <table id="protection1-1" class="table table-content table-style1 protection-st" style="width:100%">
+            <table id="protection1-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
                     <tr>
                         <th>Income Protection Upon Death</th>
@@ -94,7 +97,7 @@
                 </tbody>
             </table>
 
-            <table id="protection1-2" class="table table-content table-style1 protection-st protection-st2" style="width:100%">
+            <table id="protection1-2" class="table table-content table-bordered table-style2 protection-st protection-st2" style="width:100%">
                 <thead>
                     <tr>
                         <th>Income Protection Upon Death</th>

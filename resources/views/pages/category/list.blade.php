@@ -173,12 +173,12 @@
         var tr = $(this).closest('tr');
         var url = $(this).data('url');
         swal({
-              title: "Are you sure?",
+              title: "Confirm",
               text: "Do you want delete this category plan?",
-              icon: "warning",
+              // icon: "warning",
               buttons: [
-                'No, cancel it!',
-                'Yes, I am sure!'
+                'No',
+                'Yes'
               ],
               dangerMode: true,
             }).then(function(isConfirm) {
