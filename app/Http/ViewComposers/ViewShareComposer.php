@@ -213,8 +213,10 @@ class ViewShareComposer
                 'yemenite' => 'Yemenite',
                 'zambian' => 'Zambian',
                 'zimbabwean' => 'Zimbabwean'
-        ] ; 
+        ];
+
+        $array_title_name = ['Mr', 'Mrs', 'Ms', 'Dr', 'Mdm'];
  
-        View::share(['vvv'=> $vvv, 'nationalities'=> $nationalities]);
+        View::share(['vvv'=> $vvv, 'nationalities'=> $nationalities, 'array_title_name'=> $array_title_name]);
     }
 }

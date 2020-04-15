@@ -11,11 +11,8 @@
       <div class="form-group form-layout-row">
         <label for="title">Title<span>*</span></label>
         <div class="custom-input-layout-row">
-            @php
-                $array_title = ['Mr', 'Mrs', 'Ms', 'Dr', 'Mdm']
-            @endphp
           <select name="title" id="title" class="form-control" data-parsley-trigger="change" required="">
-            @foreach($array_title as $title)
+            @foreach($array_title_name as $title)
               <option value="{{$title}}" {{isset($infoPfr->client1->title) && $infoPfr->client1->title == $title ? 'selected' : ''}}>{{$title}}</option>
             @endforeach
           </select>

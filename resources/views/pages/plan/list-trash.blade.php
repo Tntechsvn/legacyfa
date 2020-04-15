@@ -52,10 +52,10 @@
                 dataType: 'json',
                 success: function(res){
                     if(res['error']){
-                        alert(res['message']);
+                        swal(res['message']);
                     }else{
                         location.reload();
-                        alert(res['message']);
+                        swal(res['message']);
                     }
                 }
             });
