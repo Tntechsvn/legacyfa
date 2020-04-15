@@ -440,7 +440,7 @@
                             <textarea class="form-control" id="intention" name="intention" placeholder="Intention with Property" value="" ></textarea>
                         </div>
                     </div>
-                    <div class="nav-step form-group-modal">
+                    <div class="nav-step form-group-modal" style="clear: both;">
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div>
