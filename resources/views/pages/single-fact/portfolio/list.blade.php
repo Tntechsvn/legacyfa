@@ -98,7 +98,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>SAVINGS</h3>
-            <a  class="btn btn-primary" id="add_new_saving" class="" data-toggle="modal" data-target="#saving_modal"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary" id="add_new_saving" data-url="{{route('portfolio.add_new_saving', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
         </div>
         <table id="saving-table" class="table table-content table-style1" style="width:100%">
             <thead>
@@ -124,7 +124,7 @@
                     <td>{{$saving->deposit_year}}</td>
                     <td>{{$saving->amount_saving}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_saving" data-toggle="modal" data-target="#saving_modal" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_saving" data-client="{{$saving->client_saving}}" data-type="{{$saving->type_deposit}}" data-bank="{{$saving->bank_saving}}" data-year="{{$saving->deposit_year}}" data-amount="{{$saving->amount_saving}}" data-intention="{{$saving->intention_saving}}" data-url="{{route('portfolio.edit_saving', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                     @php $i++; @endphp
@@ -545,9 +545,9 @@
             </div>
 
             <div class="modal-body">
-                <form name="form_saving" id='form_saving' class="form-control-popup" method="post" action="{{route('portfolio.add_new_saving', $infoPfr->id)}}" data-parsley-validate>
+                <form name="form_add_new_saving" id='form_add_new_saving' class="form-control-popup" method="post" action="{{route('portfolio.add_new_saving', $infoPfr->id)}}" data-parsley-validate>
                     @csrf
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_client_saving">
                         <label for="client_saving">Client<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="client_saving" id="client_saving" class="form-control">
@@ -556,7 +556,7 @@
                             </select> 
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal" id="form_deposit_saving">
                         <label for="type_deposit">Type of Deposit<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="type_deposit" id="type_deposit" class="form-control">
@@ -1124,6 +1124,38 @@
                     }
                 });
             }
+        });
+
+        $('#add_new_saving').click(function(){
+            var url = $(this).data('url');
+            $('#saving_modal').modal('show');
+            $('#form_add_new_saving').attr('action', url);
+            $("div#form_client_saving select").val('');
+            $("div#form_deposit_saving select").val('');
+            $('#bank_saving').val('');
+            $('#deposit_year').val('');
+            $('#amount_saving').val('');
+            $('#intention_saving').val('');
+        });
+
+        $('.edit_saving').click(function(){
+            var client = $(this).data('client');
+            var type = $(this).data('type');
+            var bank = $(this).data('bank');
+            var year = $(this).data('year');
+            var amount = $(this).data('amount');
+            var intention = $(this).data('intention');
+            var url = $(this).data('url');
+
+            $('#saving_modal').modal('show');
+            $('#form_add_new_saving').attr('action', url);
+
+            $("div#form_client_saving select").val(client);
+            $("div#form_deposit_saving select").val(type);
+            $('#bank_saving').val(bank);
+            $('#deposit_year').val(year);
+            $('#amount_saving').val(amount);
+            $('#intention_saving').val(intention);
         });
 
         $('#form_saving').on('submit', function(e){

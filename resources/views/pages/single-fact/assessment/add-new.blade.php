@@ -22,7 +22,7 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="age" value="above_62">
+                            <input type="radio" name="age" id="above_62" value="1">
                         </div>
                         62 or above 
                     </label>
@@ -91,7 +91,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="n&o" value="1" checked>
+                                <input class="form-check-input" type="radio" name="education" id="n&o" value="2" checked>
                             </div>
                            <label class="form-check-label" for="n&o"> GCE 'N' or "O" Level Certificate or Equivalent</label>
                         </label>
@@ -100,7 +100,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="pre" value="1" checked>
+                                <input class="form-check-input" type="radio" name="education" id="pre" value="3" checked>
                             </div>
                            <label class="form-check-label" for="n&o">Pre-Tertiary</label>
                         </label>
@@ -109,7 +109,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="tertiary" value="1" checked>
+                                <input class="form-check-input" type="radio" name="education" id="tertiary" value="4" checked>
                             </div>
                            <label class="form-check-label" for="n&o">Tertiary and above</label>
                         </label>
@@ -122,9 +122,10 @@
             </div>
             <div class="nav-step">
                 <!-- <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
-                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button> -->
+                 -->
                 <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
-                <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Next</a>
+                <!-- <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Next</a> -->
+                <button type="submit" class="style-button1">Next</button>
             </div>
             <div class="clear"></div>
         </form>
@@ -133,7 +134,7 @@
 <div class="bottom-step">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
-            @if(!$infoPfr)
+            @if(! isset($infoPfr))
             @else
                 @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
@@ -164,7 +165,7 @@
                             });
                         }
                     }else{
-                        location.reload();
+                        window.location.href = res['url'];
                         alert(res['message']);
                     }
                 }

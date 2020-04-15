@@ -193,44 +193,44 @@
       <div class="form-group form-layout-row">
         <label for="details_home">Contact Details - Home</label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="details_home" name="details_home" placeholder="Contact Details" value="{{$infoPfr->client1->contact_home ?? ""}}">
+          <input type="text" class="form-control" id="details_home" name="details_home" placeholder="Contact Details" value="{{$infoPfr->client1->contact_home ?? ''}}">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="details_mobile">Contact Details - Mobile<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="tel" class="form-control" id="details_mobile" name="details_mobile" placeholder="Contact Details" value="{{$infoPfr->client1->contact_mobile ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="tel" class="form-control" id="details_mobile" name="details_mobile" placeholder="Contact Details" value="{{$infoPfr->client1->contact_mobile ?? ''}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="details_office">Contact Details - Office</label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="details_office" name="details_office" placeholder="Contact Details" value="{{$infoPfr->client1->contact_office ?? ""}}">
+          <input type="text" class="form-control" id="details_office" name="details_office" placeholder="Contact Details" value="{{$infoPfr->client1->contact_office ?? ''}}">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="details_fax">Contact Details - Fax</label>
         <div class="custom-input-layout-row">
-          <input type="tel" class="form-control" id="details_fax" name="details_fax" placeholder="Contact Details" value="{{$infoPfr->client1->contact_fax ?? ""}}">
+          <input type="tel" class="form-control" id="details_fax" name="details_fax" placeholder="Contact Details" value="{{$infoPfr->client1->contact_fax ?? ''}}">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="email_address">E-mail Address</label>
         <div class="custom-input-layout-row">
-          <input type="email" class="form-control" id="email_address"  name="email_address" placeholder="E-mail Address" value="{{$infoPfr->client1->email ?? ""}}">
+          <input type="email" class="form-control" id="email_address"  name="email_address" placeholder="E-mail Address" value="{{$infoPfr->client1->email ?? ''}}">
           <span class="noti-alert">(Compulsory for Investment Products)</span>
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="residential_address">Residential Address<span>*</span></label>
         <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="residential_address" name="residential_address" placeholder="Residential Address" value="{{$infoPfr->client1->residential_address ?? ""}}" data-parsley-trigger="change" required="">
+          <input type="text" class="form-control" id="residential_address" name="residential_address" placeholder="Residential Address" value="{{$infoPfr->client1->residential_address ?? ''}}" data-parsley-trigger="change" required="">
         </div>
       </div>
       <div class="form-group form-layout-row">
         <label for="mailing_address">Mailing Address</label>
         <div class="custom-input-layout-row">
-          <input type="email" class="form-control" id="mailing_address" name="mailing_address" placeholder="Mailing Address" value="{{$infoPfr->client1->mailing_address ?? ""}}" data-parsley-trigger="change">
+          <input type="email" class="form-control" id="mailing_address" name="mailing_address" placeholder="Mailing Address" value="{{$infoPfr->client1->mailing_address ?? ''}}" data-parsley-trigger="change">
           <span class="noti-alert">(if different from Residential Address)</span>
         </div>
       </div>
@@ -243,7 +243,7 @@
 <div class="bottom-step">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
-            @if(!$infoPfr)
+            @if(!isset($infoPfr))
             @else
                 @include('pages.navigation', ['id' => $infoPfr->id])
             @endif

@@ -144,21 +144,22 @@ class PortfolioController extends Controller
 					'property' => json_encode($property)
 				);
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
+
+				if ($result) {
+					return response()->json([
+						'error' => false,
+						'message' => "Edit property successfully"
+					], 200);
+				} else {
+					return response()->json([
+						'error' => true,
+						'message' => "Edit property error"
+					], 200);
+				}
 			} else {
 				return response()->json([
 					'error' => true,
 					'message' => "Property not found"
-				], 200);
-			}
-			if ($result) {
-				return response()->json([
-					'error' => false,
-					'message' => "Edit property successfully"
-				], 200);
-			} else {
-				return response()->json([
-					'error' => true,
-					'message' => "Edit property error"
 				], 200);
 			}
 		} else {
@@ -296,21 +297,22 @@ class PortfolioController extends Controller
 					'investment' => json_encode($investment)
 				);
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
+
+				if ($result) {
+					return response()->json([
+						'error' => false,
+						'message' => "Edit investment successfully"
+					], 200);
+				} else {
+					return response()->json([
+						'error' => true,
+						'message' => "Edit investment error"
+					], 200);
+				}
 			} else {
 				return response()->json([
 					'error' => true,
 					'message' => "Investment not found"
-				], 200);
-			}
-			if ($result) {
-				return response()->json([
-					'error' => false,
-					'message' => "Edit investment successfully"
-				], 200);
-			} else {
-				return response()->json([
-					'error' => true,
-					'message' => "Edit investment error"
 				], 200);
 			}
 		} else {
@@ -398,13 +400,72 @@ class PortfolioController extends Controller
 			} else {
 				return response()->json([
 					'error' => true,
-					'message' => "Error"
+					'message' => "Add new saving error"
 				], 200);
 			}
 		} else {
 			return response()->json([
 				'error' => true,
-				'message' => "Error"
+				'message' => "Pfr not found"
+			], 200);
+		}
+	}
+
+	public function editSaving(Request $request, $idPfr, $position)
+	{
+		$rules = [
+			'client_saving' => 'required|integer|min:1',
+			'type_deposit' => 'required|in:BSA,FD',
+			'amount_saving' => 'required',
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		if ($infoPfr) {
+			$data = array(
+				'client_saving' => $request->client_saving,
+				'type_deposit' => $request->type_deposit,
+				'bank_saving' => $request->bank_saving != null ? $request->bank_saving : "",
+				'deposit_year' => $request->deposit_year != null ? $request->deposit_year : "",
+				'amount_saving' => $request->amount_saving,
+				'intention_saving' => $request->intention_saving != null ? $request->intention_saving : "",
+			);
+			$infoPortfolio = $this->portfolio->infoPortfolioForPfr($idPfr);
+			if ($infoPortfolio) {
+				$saving = (array) json_decode($infoPortfolio->saving);
+				$saving[$position - 1] = $data;
+				$param = array(
+					'saving' => json_encode($saving)
+				);
+				$result = $this->portfolio->editPortfolio($idPfr, $param);
+				
+				if ($result) {
+					return response()->json([
+						'error' => false,
+						'message' => "Edit saving successfully"
+					], 200);
+				} else {
+					return response()->json([
+						'error' => true,
+						'message' => "Edit saving error"
+					], 200);
+				}
+			} else {
+				return response()->json([
+					'error' => true,
+					'message' => "Saving not found"
+				], 200);
+			}
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Pfr not found"
 			], 200);
 		}
 	}
