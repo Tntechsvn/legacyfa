@@ -12,16 +12,16 @@
             <a href="javascript:;"><i class="fas fa-user-circle"></i>{{Auth::user()->full_name}}</a>
         </div>
         <div class="logout-user">
-            <a href="{{route('logout')}}"><img src="{{asset('images/logout.png')}}" alt="" title=""/></a>
+            <a href="{{route('logout')}}"><img src="{{asset('images/logout.png')}}" data-title="Logout" alt=""/></a>
         </div>
         <div class="panel-collapse collapse list-noti" id="noti-user">
             <ul>
-               <li><a href="javascript:;"><i class="far fa-bell"></i><span class="title-noti">Notification 1</span><span class="time-distance">A few year</span></a></li> 
+               <li><a href="javascript:;"><i class="far fa-bell"></i><span class="title-noti">Notification 1</span><span class="time-distance">A few year 1</span></a></li> 
                <li><a href="javascript:;"><i class="far fa-bell"></i><span class="title-noti">Notification 1</span><span class="time-distance">A few year</span></a></li> 
                <li><a href="javascript:;"><i class="far fa-bell"></i><span class="title-noti">Notification 1</span><span class="time-distance">A few year</span></a></li> 
                <li><a href="javascript:;"><i class="far fa-bell"></i><span class="title-noti">Notification 1</span><span class="time-distance">A few year</span></a></li> 
             </ul>
-            <div class="clear"><a href="javascript:;" class="clear-noti">Clear</a></div>
+            <div class="clear"><a href="javascript:;" class="clear-noti" data-title="Logout">Clear</a></div>
         </div>
     </div>
     <div class="clear"></div>

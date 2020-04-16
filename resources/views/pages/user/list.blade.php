@@ -17,6 +17,23 @@
                 </form>
             </div>
         </div>
+        <div class="header-table-style1">
+            <div class="title-table-home">
+                <a class="link-innerpage" href="{{route('pfr.list')}}">
+                    <span class="name-table">List User:</span>
+                </a>
+            </div>
+            <div class="action-table-style">
+                <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"><i class="fas fa-plus-circle"></i> Add User</button>
+                <div class="search-table-home search-fn">
+                    <form class="pull-right" method="get" action="{{route('pfr.list')}}">
+                        <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                        <i class="fa fa-search radius_2"></i>
+                    </form>
+                </div>
+                <a class="pull-right link-trash textright" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
+            </div>
+        </div>
         <table id="list-user" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>
