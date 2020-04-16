@@ -99,7 +99,8 @@ class PrioritiesNeedsController extends Controller
 			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
-				'message' => $message
+				'message' => $message,
+				'url' => $nextUrl
 			], 200);
 		} else {
 			$message = $edit ? "Edit priorities need error" : "Add new priorities need error";
@@ -756,11 +757,101 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection10.list', compact('infoPfr'));
 	}
 
+	/*public function addProtectionTen(Request $request, $idPfr)
+	{
+		$client1 = $client2 = array(
+			'written' => '',
+			'time_updated' => '',
+			'attorney' => '',
+			'beneficiaries' => ''
+		);
+		$data = $request->except('_token');
+		$param = array('written', 'time_updated', 'attorney', 'beneficiaries');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+		}
+		$estate_planning[] = $client1;
+		$estate_planning[] = $client2;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->estate_planning != null){
+				$edit = true;
+			}
+			$param = [
+				'estate_planning' => json_encode($estate_planning)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit estate planning successfully" : "Add new estate planning successfully";
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit estate planning error" : "Add new estate planning error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
+
 	public function showFormAddProtectionEleven($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		return view('pages.single-fact.priorities-needs.protection11.list', compact('infoPfr'));
 	}
+
+	/*public function addProtectionEleven(Request $request, $idPfr)
+	{
+		$client1 = $client2 = array(
+			'frequency' => '',
+			'type_travel' => '',
+			'company' => '',
+			'renewal' => '',
+			'mortgage_insurance' => '',
+			'group_insurance' => ''
+		);
+		$data = $request->except('_token');
+		$param = array('frequency', 'type_travel', 'company', 'renewal', 'mortgage_insurance', 'group_insurance');
+		foreach($param as $val){
+			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
+			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+		}
+		$other_insurance[] = $client1;
+		$other_insurance[] = $client2;
+
+		$infoPrioritiesNeedForPfr = $this->prioritiesNeed->infoPrioritiesNeedForPfr($idPfr);
+		$edit = false;
+		if ($infoPrioritiesNeedForPfr) {
+			if($infoPrioritiesNeedForPfr->other_insurance != null){
+				$edit = true;
+			}
+			$param = [
+				'other_insurance' => json_encode($other_insurance)
+			];
+			$resultAddPrioritiesNeed = $this->prioritiesNeed->editPrioritiesNeed($idPfr, $param);
+		}
+		
+		if ($resultAddPrioritiesNeed) {
+			$message = $edit ? "Edit other insurance successfully" : "Add new other insurance successfully";
+			return response()->json([
+				'error' => false,
+				'message' => $message
+			], 200);
+		} else {
+			$message = $edit ? "Edit other insurance error" : "Add new other insurance error";
+			return response()->json([
+				'error' => true,
+				'message' => $message
+			], 200);
+		}
+	}*/
 
 	private function addDataRate2Arr($request, $goPlan, $arr, $position, $type, $rate)
 	{

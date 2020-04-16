@@ -23,14 +23,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="written-client1" id="male" value="0" checked>
+                                        <input type="radio" name="written_client1" id="yes_written" value="0" checked>
                                     </div>
                                     Yes
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="written-client1" id="female" value="1">
+                                        <input type="radio" name="written_client1" id="no_written" value="1">
                                     </div>
                                     No
                                 </label>
@@ -40,7 +40,7 @@
                     <tr>
                         <td>When was it last updated?</td>
                         <td>
-                           <input type="text" class="form-control" id="time-updated-client1" name="time-updated-client1" placeholder="N/A" value="" readonly="">
+                           <input type="text" class="form-control" id="time_updated_client1" name="time_updated_client1" placeholder="N/A" value="" readonly="">
                         </td>
                     </tr>
                     <tr>
@@ -49,14 +49,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="provisions-client1" id="male" value="0" checked>
+                                        <input type="radio" name="provisions_client1" id="yes_provision" value="0" checked>
                                     </div>
                                     Yes
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="provisions-client1" id="female" value="1">
+                                        <input type="radio" name="provisions_client1" id="no_provision" value="1">
                                     </div>
                                     No
                                 </label>
@@ -70,14 +70,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="attorney-client1" id="male" value="0" checked>
+                                        <input type="radio" name="attorney_client1" id="yes_attorney" value="0" checked>
                                     </div>
                                     Yes
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="attorney-client1" id="female" value="1">
+                                        <input type="radio" name="attorney_client1" id="no_attorney" value="1">
                                     </div>
                                     No
                                 </label>
@@ -91,14 +91,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="cpf-client1" id="male" value="0" checked>
+                                        <input type="radio" name="cpf_client1" id="yes_cpf" value="0" checked>
                                     </div>
                                     Yes
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="cpf-client1" id="female" value="1">
+                                        <input type="radio" name="cpf_client1" id="no_cpf" value="1">
                                     </div>
                                     No
                                 </label>
@@ -112,14 +112,14 @@
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="fas fa-check-circle"></i>
-                                        <input type="radio" name="beneficiaries-client1" id="male" value="0" checked>
+                                        <input type="radio" name="beneficiaries_client1" id="yes_beneficiaries" value="0" checked>
                                     </div>
                                     Yes
                                 </label>
                                 <label class="radio-inline custom-style-radio1">
                                     <div class="style-checked">
                                         <i class="far fa-circle"></i>
-                                        <input type="radio" name="beneficiaries-client1" id="female" value="1">
+                                        <input type="radio" name="beneficiaries_client1" id="no_beneficiaries" value="1">
                                     </div>
                                     No
                                 </label>
@@ -138,7 +138,7 @@
 <div class="bottom-step">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
-            @if(!$infoPfr)
+            @if(!isset($infoPfr))
             @else
                 @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
