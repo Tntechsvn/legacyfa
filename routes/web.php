@@ -225,11 +225,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'DependantController@listDependantSingle'
 			]);
 
-			Route::get('trash', [
-				'as' => 'singlefact.dependant.list_trash',
-				'uses' => 'DependantController@listDependantTrashSingle'
-			]);
-
 			Route::post('add-new', [
 				'as' => 'singlefact.dependant.add_new',
 				'uses' => 'DependantController@addNewDependant'
@@ -443,7 +438,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-1', [
-				'as' => 'single_fact.priorities-needs.priotection_1',
+				'as' => 'single_fact.priorities-needs.add_priotection_1',
 				'uses' => 'PrioritiesNeedsController@addProtectionOne'
 			]);
 
@@ -452,9 +447,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTwo'
 			]);
 
+			Route::post('add-priotection-2', [
+				'as' => 'single_fact.priorities-needs.add_priotection_2',
+				'uses' => 'PrioritiesNeedsController@addProtectionTwo'
+			]);
+
 			Route::get('priotection-3', [
 				'as' => 'single_fact.priorities_needs.priotection_3',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionThree'
+			]);
+
+			Route::post('add-priotection-3', [
+				'as' => 'single_fact.priorities-needs.add_priotection_3',
+				'uses' => 'PrioritiesNeedsController@addProtectionThree'
 			]);
 
 			Route::get('priotection-4', [
@@ -462,9 +467,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionFour'
 			]);
 
+			Route::post('add-priotection-4', [
+				'as' => 'single_fact.priorities-needs.add_priotection_4',
+				'uses' => 'PrioritiesNeedsController@addProtectionFour'
+			]);
+
 			Route::get('priotection-5', [
 				'as' => 'single_fact.priorities_needs.priotection_5',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionFive'
+			]);
+
+			Route::post('add-priotection-5', [
+				'as' => 'single_fact.priorities-needs.add_priotection_5',
+				'uses' => 'PrioritiesNeedsController@addProtectionFive'
 			]);
 
 			Route::get('priotection-6', [
@@ -472,9 +487,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionSix'
 			]);
 
+			Route::post('add-priotection-6', [
+				'as' => 'single_fact.priorities-needs.add_priotection_6',
+				'uses' => 'PrioritiesNeedsController@addProtectionSix'
+			]);
+
 			Route::get('priotection-7', [
 				'as' => 'single_fact.priorities_needs.priotection_7',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionSeven'
+			]);
+
+			Route::post('add-priotection-7', [
+				'as' => 'single_fact.priorities-needs.add_priotection_7',
+				'uses' => 'PrioritiesNeedsController@addProtectionSeven'
 			]);
 
 			Route::get('priotection-8', [
@@ -482,9 +507,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionEight'
 			]);
 
+			Route::post('add-priotection-8', [
+				'as' => 'single_fact.priorities-needs.add_priotection_8',
+				'uses' => 'PrioritiesNeedsController@addProtectionEight'
+			]);
+
 			Route::get('priotection-9', [
 				'as' => 'single_fact.priorities_needs.priotection_9',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionNine'
+			]);
+
+			Route::post('add-priotection-9', [
+				'as' => 'single_fact.priorities-needs.add_priotection_9',
+				'uses' => 'PrioritiesNeedsController@addProtectionNine'
 			]);
 
 			Route::get('priotection-10', [
@@ -492,9 +527,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTen'
 			]);
 
+			Route::post('add-priotection-10', [
+				'as' => 'single_fact.priorities-needs.add_priotection_10',
+				'uses' => 'PrioritiesNeedsController@addProtectionTen'
+			]);
+
 			Route::get('priotection-11', [
 				'as' => 'single_fact.priorities_needs.priotection_11',
 				'uses' => 'PrioritiesNeedsController@showFormAddProtectionEleven'
+			]);
+
+			Route::post('add-priotection-11', [
+				'as' => 'single_fact.priorities-needs.add_priotection_11',
+				'uses' => 'PrioritiesNeedsController@addProtectionEleven'
+			]);
+		});
+		Route::group(['prefix' => 'affordability/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.affordability',
+				'uses' => 'AffordabilityController@listAffordability'
 			]);
 		});
 	});
@@ -538,25 +589,6 @@ Route::group(['prefix' => 'joint-fact'], function(){
 				'uses' => 'DependantController@listDependantTrashSingle'
 			]);
 
-			Route::post('add-new', [
-				'as' => 'singlefact.dependant.add_new',
-				'uses' => 'DependantController@addNewDependant'
-			]);
-
-			Route::post('edit/{id_dependant}', [
-				'as' => 'singlefact.dependant.edit',
-				'uses' => 'DependantController@editDependant'
-			]);
-
-			Route::get('move-to-trash/{id_dependant}', [
-				'as' => 'singlefact.dependant.move_to_trash',
-				'uses' => 'DependantController@softDeleteDependant'
-			]);
-
-			Route::get('restore/{id_dependant}', [
-				'as' => 'singlefact.dependant.restore',
-				'uses' => 'DependantController@restoreDependant'
-			]);
 		});
 
 		Route::group(['prefix' => 'assessment'], function(){
@@ -566,7 +598,7 @@ Route::group(['prefix' => 'joint-fact'], function(){
 			]);
 
 			Route::post('/', [
-				'as' => 'single-fact.add_new_assessment',
+				'as' => 'jointfact.add_new_assessment',
 				'uses' => 'AssessmentController@addNewSingleAssessment'
 			]);
 		});

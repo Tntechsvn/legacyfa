@@ -18,14 +18,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input type="radio" name="age" id="below_62" value="0" checked>
+                            <input class="option_step_14" type="radio" name="age" id="below_62" value="0" checked>
                         </div>
                         Below 62
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="age" id="above_62" value="1">
+                            <input class="option_step_14" type="radio" name="age" id="above_62" value="1">
                         </div>
                         62 or above 
                     </label>
@@ -37,14 +37,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
+                            <input class="option_step_14" type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
                         </div>
                         Proficient
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">
+                            <input class="option_step_14" type="radio" name="spoken_en" id="not_pro_spoken" value="1">
                         </div>
                             NOT Proficient
                     </label>
@@ -56,14 +56,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input type="radio" name="written_en" id="pro_written" value="0" checked>
+                            <input class="option_step_14" type="radio" name="written_en" id="pro_written" value="0" checked>
                         </div>
                         Proficient
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="written_en" id="not_pro_written" value="1">
+                            <input class="option_step_14" type="radio" name="written_en" id="not_pro_written" value="1">
                         </div>
                         NOT Proficient 
                     </label>
@@ -121,7 +121,8 @@
             </div>
             <div class="option-show-next-step">            
                 RESULT:<br>
-                You do not need to be accompanied by a TRUSTED INDIVIDUAL
+                <p class="alert-text-step1 no_has_14">You do not need to be accompanied by a TRUSTED INDIVIDUAL</p>
+                <p class="alert-text-step1 has_14">It is compulsory for you to be accompanied by a TRUSTED INDIVIDUAL</p>
             </div>
             <div class="nav-step">
                 <!-- <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
@@ -137,7 +138,7 @@
 <div class="bottom-step">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
         <ul>
-            @if(! isset($infoPfr))
+            @if(!isset($infoPfr))
             @else
                 @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
@@ -149,6 +150,21 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        $('.option_step_14').click(function(){
+            var val_show = $(this).val();
+            if(val_show == "1"){
+                $(".no_has_14").hide(); 
+                $(".has_14").show(); 
+            }
+            else{ 
+                $(".no_has_14").show(); 
+                $(".has_14").hide(); 
+            }
+        });
+
+
+
+
         $('#form_assessment').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
