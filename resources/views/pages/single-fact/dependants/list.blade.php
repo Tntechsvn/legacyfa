@@ -2,8 +2,11 @@
 
 @section('content')
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>Dependants Information:</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+        <h4>Step 1 - Personal Information:</h4>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sub-title-step">
+        <p class="stlstep">1.2 - Dependants Information:</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm">
@@ -86,36 +89,34 @@
                         <label for="title">Title<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="title" id="title" class="form-control">
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Ms">Ms</option>
-                                <option value="Dr">Dr</option>
-                                <option value="Mdm">Mdm</option>
+                                @foreach($array_title_name as $title)
+                                  <option value="{{$title}}">{{$title}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="name">Name<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" >
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="relationship">Relationship<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Name" value="" >
+                            <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Name" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="birthday">Date of Birth<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="" >
+                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="age">Age<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="number" class="form-control" id="age" name="age" placeholder="Age" value="" >
+                            <input type="number" class="form-control" id="age" name="age" placeholder="Age" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
@@ -140,7 +141,7 @@
                     <div class="form-group form-group-modal">
                         <label for="year_sp">Years to Support<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="number" class="form-control" id="year_sp"  name="year_sp" placeholder="Years to Support" value="" >
+                            <input type="number" class="form-control" id="year_sp"  name="year_sp" placeholder="Years to Support" value="" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
@@ -168,30 +169,28 @@
                         <label for="title_edit">Title<span>*</span></label>
                         <div class="custom-input-modal">
                             <select name="title_edit" id="title_edit" class="form-control">
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Ms">Ms</option>
-                                <option value="Dr">Dr</option>
-                                <option value="Mdm">Mdm</option>
+                                @foreach($array_title_name as $title)
+                                  <option value="{{$title}}">{{$title}}</option>
+                                @endforeach
                             </select> 
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="name_edit">Name<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Name" value="" >
+                            <input type="text" class="form-control" id="name_edit" name="name_edit" placeholder="Name" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="relationship_edit">Relationship<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="text" class="form-control" id="relationship_edit" name="relationship_edit" placeholder="Name" value="" >
+                            <input type="text" class="form-control" id="relationship_edit" name="relationship_edit" placeholder="Name" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
                         <label for="birthday_edit">Date of Birth<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="date" class="form-control" id="birthday_edit" name="birthday_edit" placeholder="Date of Birth" value="" >
+                            <input type="date" class="form-control" id="birthday_edit" name="birthday_edit" placeholder="Date of Birth" value="" required>
                         </div>
                     </div>
                     <div class="form-group form-group-modal">
@@ -222,7 +221,7 @@
                     <div class="form-group form-group-modal">
                         <label for="year_sp_edit">Years to Support<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" >
+                            <input type="number" class="form-control" id="year_sp_edit"  name="year_sp_edit" placeholder="Years to Support" value="" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>

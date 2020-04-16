@@ -74,6 +74,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{asset('js/base-init-new.js')}}"></script>
     <!-- <script src="{{asset('js/bootstrap.bundle.js')}}"></script> -->
     

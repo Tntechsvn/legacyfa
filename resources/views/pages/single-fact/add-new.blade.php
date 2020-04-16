@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="maincontent">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-    <h4>Personal Information:</h4>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+    <h4>Step 1 - Personal Information:</h4>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <form name="addsinglefact_form" id='addsinglefact_form' class="parsley-form" method="post" action="{{!isset($infoPfr) ? route('single-fact.add_new') : route('single_fact.postedit', $infoPfr->id)}}" data-parsley-validate>
@@ -11,11 +11,8 @@
       <div class="form-group form-layout-row">
         <label for="title">Title<span>*</span></label>
         <div class="custom-input-layout-row">
-            @php
-                $array_title = ['Mr', 'Mrs', 'Ms', 'Dr', 'Mdm']
-            @endphp
           <select name="title" id="title" class="form-control" data-parsley-trigger="change" required="">
-            @foreach($array_title as $title)
+            @foreach($array_title_name as $title)
               <option value="{{$title}}" {{isset($infoPfr->client1->title) && $infoPfr->client1->title == $title ? 'selected' : ''}}>{{$title}}</option>
             @endforeach
           </select>

@@ -2,8 +2,11 @@
 
 @section('content')
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>Trusted Individual Questionnaire :</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
+        <h4>Step 1 - Personal Information:</h4>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sub-title-step">
+        <p class="stlstep">1.4 - Trusted Individual Questionnaire :</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="form_question" id='form_question' class="parsley-form form-style2" method="post" action="{{route('single-fact.add_new_question', $infoPfr->id)}}" data-parsley-validate>

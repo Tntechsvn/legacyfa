@@ -115,16 +115,16 @@
                 success: function(res){
                     if(res['error']){
                         if(!$.isPlainObject(res.message)){
-                            alert(res.message);
+                            swal(res.message);
                         }else{
                             $.each(res.message, function(key,value){
-                                alert(value[0]);
+                                swal(value[0]);
                                 return false;
                             });
                         }
                     }else{
                         location.reload();
-                        alert(res['message']);
+                        swal(res['message']);
                     }
                 }
             });
@@ -151,24 +151,35 @@
                 success: function(res){
                     if(res['error']){
                         if(!$.isPlainObject(res.message)){
-                            alert(res.message);
+                            swal(res.message);
                         }else{
                             $.each(res.message, function(key,value){
-                                alert(value[0]);
+                                swal(value[0]);
                                 return false;
                             });
                         }
                     }else{
                         location.reload();
-                        alert(res['message']);
+                        swal(res['message']);
                     }
                 }
             });
         });
 
         $('.delete').on('click', function(){
-            if(confirm('Do you want delete this company??')){
-                var url = $(this).data('url');
+            var tr = $(this).closest('tr');
+            var url = $(this).data('url');
+            swal({
+              title: "Are you sure?",
+              text: "Do you want delete this company?",
+              icon: "warning",
+              buttons: [
+                'No, cancel it!',
+                'Yes, I am sure!'
+              ],
+              dangerMode: true,
+            }).then(function(isConfirm) {
+              if (isConfirm) {
                 $.ajax({
                     type: "GET",
                     url: url,
@@ -176,20 +187,23 @@
                     success: function(res){
                         if(res['error']){
                             if(!$.isPlainObject(res.message)){
-                                alert(res.message);
+                                swal(res.message);
                             }else{
                                 $.each(res.message, function(key,value){
-                                    alert(value[0]);
+                                    swal(value[0]);
                                     return false;
                                 });
                             }
                         }else{
-                            location.reload();
-                            alert(res['message']);
+                            tr.remove();
+                            swal(res['message']);
                         }
                     }
                 });
-            }
+              } else {
+                swal("Cancelled", "error");
+              }
+            })
         });
     });
 </script>
