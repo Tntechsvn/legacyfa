@@ -955,17 +955,16 @@ class PrioritiesNeedsController extends Controller
 			}
 			$j = 1;
 			foreach($item as $val){
-				$rate = substr($val, 0, 1);
 				$goPlan = substr($val, -1, 1);
 				if ($j > $nextStep && $goPlan == 1 && $j < $count) {
 					$minVal = $j;
 				}
 				$j++;
+				if ($minVal < $min && $min > 0) {
+					$min = $minVal;
+				}
 			}
 			$i++;
-			if ($minVal < $min && $min > 0) {
-				$min = $minVal;
-			}
 		}
 		return $min;
 	}
