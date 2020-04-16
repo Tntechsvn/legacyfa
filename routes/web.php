@@ -225,11 +225,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'DependantController@listDependantSingle'
 			]);
 
-			Route::get('trash', [
-				'as' => 'singlefact.dependant.list_trash',
-				'uses' => 'DependantController@listDependantTrashSingle'
-			]);
-
 			Route::post('add-new', [
 				'as' => 'singlefact.dependant.add_new',
 				'uses' => 'DependantController@addNewDependant'
