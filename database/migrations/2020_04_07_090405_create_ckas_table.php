@@ -13,16 +13,18 @@ class CreateCkasTable extends Migration
      */
     public function up()
     {
-        Schema::create('ckas', function (Blueprint $table) {
-            $table->id();
-            if (Schema::hasTable('pfrs')) {
-                $table->bigInteger('pfr_id')->unsigned();
-                $table->foreign('pfr_id')->references('id')->on('pfrs');
-            }
-            $table->json('data')->nullable();
-            $table->text('reason')->nullable();
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('ckas')) {
+            Schema::create('ckas', function (Blueprint $table) {
+                $table->id();
+                if (Schema::hasTable('pfrs')) {
+                    $table->bigInteger('pfr_id')->unsigned();
+                    $table->foreign('pfr_id')->references('id')->on('pfrs');
+                }
+                $table->json('data')->nullable();
+                $table->text('reason')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

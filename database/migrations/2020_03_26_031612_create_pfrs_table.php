@@ -13,17 +13,20 @@ class CreatePfrsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pfrs', function (Blueprint $table) {
-            $table->id();
-            if (Schema::hasTable('users')) {
-                $table->bigInteger('user_id')->unsigned();
-                $table->foreign('user_id')->references('id')->on('users');
-            }
-            $table->tinyInteger('type')->unsigned()->default(0);
-            $table->json('trusted_individual')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (! Schema::hasTable('pfrs')) {
+            Schema::create('pfrs', function (Blueprint $table) {
+                $table->id();
+                if (Schema::hasTable('users')) {
+                    $table->bigInteger('user_id')->unsigned();
+                    $table->foreign('user_id')->references('id')->on('users');
+                }
+                $table->tinyInteger('type')->unsigned()->default(0);
+                $table->json('trusted_individual')->nullable();
+                $table->tinyInteger('status')->unsigned()->default(0);
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

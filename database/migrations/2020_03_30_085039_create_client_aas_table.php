@@ -13,18 +13,20 @@ class CreateClientAasTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_aas', function (Blueprint $table) {
-            $table->id();
-            if (Schema::hasTable('clients')) {
-                $table->bigInteger('client_id')->unsigned();
-                $table->foreign('client_id')->references('id')->on('clients');
-            }
-            $table->tinyInteger('age')->unsigned()->default(0);
-            $table->tinyInteger('english_spoken')->unsigned()->default(0);
-            $table->tinyInteger('english_written')->unsigned()->default(0);
-            $table->tinyInteger('education_level')->unsigned()->default(0);
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('client_aas')) {
+            Schema::create('client_aas', function (Blueprint $table) {
+                $table->id();
+                if (Schema::hasTable('clients')) {
+                    $table->bigInteger('client_id')->unsigned();
+                    $table->foreign('client_id')->references('id')->on('clients');
+                }
+                $table->tinyInteger('age')->unsigned()->default(0);
+                $table->tinyInteger('english_spoken')->unsigned()->default(0);
+                $table->tinyInteger('english_written')->unsigned()->default(0);
+                $table->tinyInteger('education_level')->unsigned()->default(0);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

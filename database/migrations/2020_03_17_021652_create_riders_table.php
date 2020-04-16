@@ -13,14 +13,16 @@ class CreateRidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('riders', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('slug');
-            $table->text('featured');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (! Schema::hasTable('riders')) {
+            Schema::create('riders', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('slug');
+                $table->text('featured');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

@@ -13,22 +13,24 @@ class CreatePlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('plans', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('slug');
-            if (Schema::hasTable('companies')) {
-                $table->bigInteger('company_id')->unsigned();
-                $table->foreign('company_id')->references('id')->on('companies');
-            }
-            if (Schema::hasTable('category_plans')) {
-                $table->bigInteger('category_plan_id')->unsigned();
-                $table->foreign('category_plan_id')->references('id')->on('category_plans');
-            }
-            $table->text('featured')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (! Schema::hasTable('plans')) {
+            Schema::create('plans', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('slug');
+                if (Schema::hasTable('companies')) {
+                    $table->bigInteger('company_id')->unsigned();
+                    $table->foreign('company_id')->references('id')->on('companies');
+                }
+                if (Schema::hasTable('category_plans')) {
+                    $table->bigInteger('category_plan_id')->unsigned();
+                    $table->foreign('category_plan_id')->references('id')->on('category_plans');
+                }
+                $table->text('featured')->nullable();
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**
