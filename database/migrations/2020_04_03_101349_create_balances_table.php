@@ -13,17 +13,19 @@ class CreateBalancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('balances', function (Blueprint $table) {
-            $table->id();
-            if (Schema::hasTable('pfrs')) {
-                $table->bigInteger('pfr_id')->unsigned();
-                $table->foreign('pfr_id')->references('id')->on('pfrs');
-            }
-            $table->json('assets')->nullable();
-            $table->json('liabilities')->nullable();
-            $table->text('reason')->nullable();
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('balances')) {
+            Schema::create('balances', function (Blueprint $table) {
+                $table->id();
+                if (Schema::hasTable('pfrs')) {
+                    $table->bigInteger('pfr_id')->unsigned();
+                    $table->foreign('pfr_id')->references('id')->on('pfrs');
+                }
+                $table->json('assets')->nullable();
+                $table->json('liabilities')->nullable();
+                $table->text('reason')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

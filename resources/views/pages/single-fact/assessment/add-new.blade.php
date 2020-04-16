@@ -46,7 +46,7 @@
                             <i class="far fa-circle"></i>
                             <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">
                         </div>
-                            NOT Proficient
+                        NOT Proficient
                     </label>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                                 <i class="fas fa-check-circle"></i>
                                 <input class="form-check-input" type="radio" name="education" id="primary" value="0" checked>
                             </div>
-                            <label class="form-check-label" for="n&o">Primary</label>
+                            <label class="form-check-label" for="primary">Primary</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
@@ -87,7 +87,7 @@
                                 <i class="far fa-circle"></i>
                                 <input class="form-check-input" type="radio" name="education" id="secondary" value="1" checked>
                             </div>
-                            <label class="form-check-label" for="n&o">Secondary</label>
+                            <label class="form-check-label" for="secondary">Secondary</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
@@ -96,7 +96,7 @@
                                 <i class="far fa-circle"></i>
                                 <input class="form-check-input" type="radio" name="education" id="n&o" value="2" checked>
                             </div>
-                           <label class="form-check-label" for="n&o"> GCE 'N' or "O" Level Certificate or Equivalent</label>
+                            <label class="form-check-label" for="n&o"> GCE 'N' or "O" Level Certificate or Equivalent</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
@@ -105,7 +105,7 @@
                                 <i class="far fa-circle"></i>
                                 <input class="form-check-input" type="radio" name="education" id="pre" value="3" checked>
                             </div>
-                           <label class="form-check-label" for="n&o">Pre-Tertiary</label>
+                            <label class="form-check-label" for="pre">Pre-Tertiary</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
@@ -114,18 +114,18 @@
                                 <i class="far fa-circle"></i>
                                 <input class="form-check-input" type="radio" name="education" id="tertiary" value="4" checked>
                             </div>
-                           <label class="form-check-label" for="n&o">Tertiary and above</label>
+                            <label class="form-check-label" for="tertiary">Tertiary and above</label>
                         </label>
                     </div>
                 </div>
             </div>
             <div class="option-show-next-step">            
                 RESULT:<br>
-                You do not need to be accompanied by a TRUSTED INDIVIDUAL
+                <span id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</span>
             </div>
             <div class="nav-step">
                 <!-- <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
-                 -->
+                -->
                 <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
                 <!-- <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Next</a> -->
                 <button type="submit" class="style-button1">Next</button>
@@ -139,7 +139,7 @@
         <ul>
             @if(!isset($infoPfr))
             @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
+            @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
         </ul>
     </div>
@@ -173,6 +173,18 @@
                     }
                 }
             });
+        });
+
+        $("[name='age'], [name='spoken_en'], [name='written_en'], [name='education']").on('change', function(){
+            var age = $("input[name=age]:checked").val();
+            var spoken_en = $("input[name=spoken_en]:checked").val();
+            var written_en = $("input[name=written_en]:checked").val();
+            var education = $("input[name=education]:checked").val();
+            var result = "You do not need to be accompanied by a TRUSTED INDIVIDUAL";
+            if ( ( age == 1 && (spoken_en == 1 || written_en == 1 ) ) || ( age == 1 && ( education == 0 || education == 1) ) || ( ( spoken_en == 1 || written_en == 1 ) && ( education == 0 || education == 1 ) ) || ( spoken_en == 1 || written_en == 1 ) ) {
+                result = "It is compulsory for you to be accompanied by a TRUSTED INDIVIDUAL";
+            }
+            $('#result').text(result);
         });
     });
 </script>

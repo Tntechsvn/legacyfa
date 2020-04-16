@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePortfoliosTable extends Migration
+class CreateAffordabilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class CreatePortfoliosTable extends Migration
      */
     public function up()
     {
-        if (! Schema::hasTable('portfolios')) {
-            Schema::create('portfolios', function (Blueprint $table) {
+        if (! Schema::hasTable('affordabilities')) {
+            Schema::create('affordabilities', function (Blueprint $table) {
                 $table->id();
                 if (Schema::hasTable('pfrs')) {
                     $table->bigInteger('pfr_id')->unsigned();
                     $table->foreign('pfr_id')->references('id')->on('pfrs');
                 }
-                $table->json('property')->nullable();
-                $table->json('investment')->nullable();
-                $table->json('saving')->nullable();
-                $table->json('cpf')->nullable();
-                $table->json('insurance')->nullable();
-                $table->json('loan')->nullable();
+                $table->json('payor_detail')->nullable();
+                $table->json('budget')->nullable();
+                $table->text('reason')->nullable();
                 $table->timestamps();
             });
         }
@@ -38,6 +35,6 @@ class CreatePortfoliosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portfolios');
+        Schema::dropIfExists('affordabilities');
     }
 }
