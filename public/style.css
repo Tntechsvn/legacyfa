@@ -1793,3 +1793,7 @@ input.form-check-input[type=checkbox]{
 	display: block;
 	height: 3px;
 }
+/* Step1 */
+.has_14{
+	display: none;
+}

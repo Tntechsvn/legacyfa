@@ -168,15 +168,15 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.state_cash_flow').click(function(){
-         var rBtnVal = $(this).val();
-         if(rBtnVal == "1"){
-             $("#reason_cash_flow").attr("readonly", false); 
-             $("input[type=number]").val("");
-         }
-         else{ 
-             $("#reason_cash_flow").attr("readonly", true); 
-         }
-     });
+            var rBtnVal = $(this).val();
+            if(rBtnVal == "1"){
+                $("#reason_cash_flow").attr("readonly", false); 
+                $("input[type=number]").val("");
+            }
+            else{ 
+                $("#reason_cash_flow").attr("readonly", true); 
+            }
+        });
 
         $('.state-plan').click(function(){
             var stateVal = $(this).val();
