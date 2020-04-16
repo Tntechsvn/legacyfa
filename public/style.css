@@ -759,6 +759,7 @@ li.has-child{
 /* Table custom */
 .table-style1 > thead > tr > th{
 	font-weight: 700;
+	background:#f3f3f3;
 }
 .table-style1 > tbody > tr > td,
 .table-style1 > tbody > tr > th,
@@ -774,7 +775,7 @@ li.has-child{
 	background:#f1f3f3;
 }
 .table-style1 tbody tr td:first-child{
-	text-align: center;
+	text-align: left;
 	border-left:2px solid rgba(0,0,0,0);
 	font-weight: bold;
 }
@@ -1792,4 +1793,14 @@ input.form-check-input[type=checkbox]{
 	content: "";
 	display: block;
 	height: 3px;
+}
+/* Step1 */
+.has_14{
+	display: none;
+}
+
+/*  */
+.affordability50{
+	width: 50%;
+	float: left;
 }

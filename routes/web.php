@@ -542,6 +542,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@addProtectionEleven'
 			]);
 		});
+
+		Route::group(['prefix' => 'affordability/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.affordability.list',
+				'uses' => 'AffordabilityController@listAffordability'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.affordability.add_new',
+				'uses' => 'AffordabilityController@addNewAffordability'
+			]);
+		});
 	});
 
 /*Joint Fact*/
@@ -583,25 +595,6 @@ Route::group(['prefix' => 'joint-fact'], function(){
 				'uses' => 'DependantController@listDependantTrashSingle'
 			]);
 
-			Route::post('add-new', [
-				'as' => 'singlefact.dependant.add_new',
-				'uses' => 'DependantController@addNewDependant'
-			]);
-
-			Route::post('edit/{id_dependant}', [
-				'as' => 'singlefact.dependant.edit',
-				'uses' => 'DependantController@editDependant'
-			]);
-
-			Route::get('move-to-trash/{id_dependant}', [
-				'as' => 'singlefact.dependant.move_to_trash',
-				'uses' => 'DependantController@softDeleteDependant'
-			]);
-
-			Route::get('restore/{id_dependant}', [
-				'as' => 'singlefact.dependant.restore',
-				'uses' => 'DependantController@restoreDependant'
-			]);
 		});
 
 		Route::group(['prefix' => 'assessment'], function(){
@@ -611,7 +604,7 @@ Route::group(['prefix' => 'joint-fact'], function(){
 			]);
 
 			Route::post('/', [
-				'as' => 'single-fact.add_new_assessment',
+				'as' => 'jointfact.add_new_assessment',
 				'uses' => 'AssessmentController@addNewSingleAssessment'
 			]);
 		});

@@ -18,14 +18,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input type="radio" name="age" id="below_62" value="0" checked>
+                            <input class="option_step_14" type="radio" name="age" id="below_62" value="0" checked>
                         </div>
                         Below 62
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="age" id="above_62" value="1">
+                            <input class="option_step_14" type="radio" name="age" id="above_62" value="1">
                         </div>
                         62 or above 
                     </label>
@@ -37,14 +37,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
+                            <input class="option_step_14" type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
                         </div>
                         Proficient
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="spoken_en" id="not_pro_spoken" value="1">
+                            <input class="option_step_14" type="radio" name="spoken_en" id="not_pro_spoken" value="1">
                         </div>
                         NOT Proficient
                     </label>
@@ -56,14 +56,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input type="radio" name="written_en" id="pro_written" value="0" checked>
+                            <input class="option_step_14" type="radio" name="written_en" id="pro_written" value="0" checked>
                         </div>
                         Proficient
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input type="radio" name="written_en" id="not_pro_written" value="1">
+                            <input class="option_step_14" type="radio" name="written_en" id="not_pro_written" value="1">
                         </div>
                         NOT Proficient 
                     </label>
@@ -121,13 +121,10 @@
             </div>
             <div class="option-show-next-step">            
                 RESULT:<br>
-                <span id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</span>
+                <p class="alert-text-step1" id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</p>
             </div>
             <div class="nav-step">
-                <!-- <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
-                -->
                 <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
-                <!-- <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Next</a> -->
                 <button type="submit" class="style-button1">Next</button>
             </div>
             <div class="clear"></div>
