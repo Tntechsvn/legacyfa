@@ -556,11 +556,6 @@ Route::group(['prefix' => 'joint-fact'], function(){
 		// 	'uses' => 'JointFactController@listJointFact'
 		// ]);
 
-	Route::post('{id}', [
-		'as' => 'join-fact.edit',
-		'uses' => 'SingleFactController@editSingleFact'
-	]);
-
 	Route::get('add-new', [
 		'as' => 'joint-fact.show_form_add_new',
 		'uses' => 'JointFactController@showFormAddNewJointFact'
@@ -571,10 +566,66 @@ Route::group(['prefix' => 'joint-fact'], function(){
 		'uses' => 'JointFactController@addNewJointFact'
 	]);
 
-	// 	Route::post('edit/{id}', [
-	// 		'as' => 'joint-fact.edit',
-	// 		'uses' => 'JointFactController@editJointFact'
-	// 	]);	
+	Route::get('{id}', [
+		'as' => 'join-fact.edit',
+		'uses' => 'JointFactController@editJointFact'
+	]);
+
+	Route::post('{id}', [
+		'as' => 'join-fact.postedit',
+		'uses' => 'JointFactController@postEditJointFact'
+	]);
+		
+	Route::group(['prefix' => '{id_pfr}'], function(){
+		Route::group(['prefix' => 'dependants'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.dependant.list',
+				'uses' => 'DependantController@listDependantSingle'
+			]);
+
+			Route::get('trash', [
+				'as' => 'singlefact.dependant.list_trash',
+				'uses' => 'DependantController@listDependantTrashSingle'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'singlefact.dependant.add_new',
+				'uses' => 'DependantController@addNewDependant'
+			]);
+
+			Route::post('edit/{id_dependant}', [
+				'as' => 'singlefact.dependant.edit',
+				'uses' => 'DependantController@editDependant'
+			]);
+
+			Route::get('move-to-trash/{id_dependant}', [
+				'as' => 'singlefact.dependant.move_to_trash',
+				'uses' => 'DependantController@softDeleteDependant'
+			]);
+
+			Route::get('restore/{id_dependant}', [
+				'as' => 'singlefact.dependant.restore',
+				'uses' => 'DependantController@restoreDependant'
+			]);
+		});
+
+		Route::group(['prefix' => 'assessment'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.show_form_add_new_assessment',
+				'uses' => 'AssessmentController@showFormAddNewSingleAssessment'
+			]);
+
+			Route::post('/', [
+				'as' => 'single-fact.add_new_assessment',
+				'uses' => 'AssessmentController@addNewSingleAssessment'
+			]);
+		});
+
+
+
+	});
+
+	
 });
 
 /* USER */

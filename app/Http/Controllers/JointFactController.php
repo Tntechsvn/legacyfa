@@ -155,4 +155,24 @@ class JointFactController extends Controller
 			], 200);
 		}
 	}
+
+    public function editJointFact(Request $request) {
+        $infoPfr = $this->pfr->find($request->id);
+        if(!$infoPfr) return abort(404);
+        if($infoPfr->type == 0)
+            return redirect(route('single_fact.edit', $infoPfr->id));
+        return view('pages.joint-fact.add-new', compact('infoPfr'));
+    }
+
+    public function postEditJointFact(Request $request) {
+        $infoPfr = $this->pfr->find($request->id);
+        if(!$infoPfr) {
+        	return response()->json([
+					'error' => false,
+					'message' => "Edit client successfully",
+                    'url' => route('jointfact.dependant.list', $infoPfr->id)
+				], 200);
+    	}
+    }
+
 }
