@@ -3,23 +3,27 @@
 @section('content')
 
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>List PFR:</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="header-table-style2">
+            <div class="title-table-style2">
+                <h3>List Trash User</h3>
+            </div>
+            <div class="action-table-style">
+                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('pfr.list_trash')}}"><i class="fas fa-trash"></i></a>
+                <div class="search-table search-fn">
+                    <form class="radius_4" method="get" action="{{route('pfr.list')}}">
+                        <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                        <i class="fa fa-search radius_2"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 borderfullwidth link-action-addnew">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 link-action-addnew">
         <a class="textcenter radius_4" href="{{route('single-fact.show_form_add_new')}}"><i class="fas fa-user"></i>Single Fact Find</a>
         <a class="textcenter radius_4" href=""><i class="fas fa-users"></i>Joint Fact Find</a>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="addnewelm">
-            <a class="pull-right link-trash textright" href="{{route('pfr.list_trash')}}"><i class="fas fa-trash"></i></a>
-            <div class="search-fn search-innerpage">
-                <form class="pull-right" method="get" action="">
-                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                    <i class="fa fa-search radius_2"></i>
-                </form>
-            </div>
-        </div>
         <table id="list-pfr-page" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>

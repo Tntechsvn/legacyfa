@@ -548,6 +548,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'AffordabilityController@listAffordability'
 			]);
 		});
+		Route::group(['prefix' => 'analysis-recommendations/{id_pfr}'], function(){
+			Route::get('/client-overview', [
+				'as' => 'single_fact.analysis_recommendations.client_overview',
+				'uses' => 'AnalysisRecommendationsController@clientOverview'
+			]);
+			Route::get('/plans-recommended', [
+				'as' => 'single_fact.analysis_recommendations.plans-recommended',
+				'uses' => 'AnalysisRecommendationsController@plansRecommended'
+			]);
+		});
 	});
 
 /*Joint Fact*/

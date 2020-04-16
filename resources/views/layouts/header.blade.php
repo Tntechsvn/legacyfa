@@ -12,7 +12,7 @@
             <a href="javascript:;"><i class="fas fa-user-circle"></i>{{Auth::user()->full_name}}</a>
         </div>
         <div class="logout-user">
-            <a href="{{route('logout')}}"><img src="{{asset('images/logout.png')}}" data-title="Logout" alt=""/></a>
+            <a href="{{route('logout')}}"><img src="{{asset('images/logout.png')}}"  alt=""/></a>
         </div>
         <div class="panel-collapse collapse list-noti" id="noti-user">
             <ul>
