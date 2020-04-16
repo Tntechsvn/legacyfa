@@ -13,15 +13,17 @@ class CreateRiskProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('risk_profiles', function (Blueprint $table) {
-            $table->id();
-            if (Schema::hasTable('pfrs')) {
-                $table->bigInteger('pfr_id')->unsigned();
-                $table->foreign('pfr_id')->references('id')->on('pfrs');
-            }
-            $table->json('data')->nullable();
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('risk_profiles')) {
+            Schema::create('risk_profiles', function (Blueprint $table) {
+                $table->id();
+                if (Schema::hasTable('pfrs')) {
+                    $table->bigInteger('pfr_id')->unsigned();
+                    $table->foreign('pfr_id')->references('id')->on('pfrs');
+                }
+                $table->json('data')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

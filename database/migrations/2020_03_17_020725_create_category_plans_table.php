@@ -13,13 +13,15 @@ class CreateCategoryPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_plans', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('slug');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (! Schema::hasTable('category_plans')) {
+            Schema::create('category_plans', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('slug');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

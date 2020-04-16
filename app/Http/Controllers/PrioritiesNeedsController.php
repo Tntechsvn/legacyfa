@@ -1008,6 +1008,14 @@ class PrioritiesNeedsController extends Controller
 			$url = route('single_fact.priorities_needs.priotection_9', $idPfr);
 			break;
 
+			case 10:
+			$url = route('single_fact.priorities_needs.priotection_10', $idPfr);
+			break;
+
+			case 11:
+			$url = route('single_fact.priorities_needs.priotection_11', $idPfr);
+			break;
+
 			default:
 			$url = "";
 		}

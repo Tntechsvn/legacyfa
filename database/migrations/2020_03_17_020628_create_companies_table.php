@@ -13,13 +13,15 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('slug');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (! Schema::hasTable('companies')) {
+            Schema::create('companies', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('slug');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

@@ -13,18 +13,20 @@ class CreateRisksTable extends Migration
      */
     public function up()
     {
-        Schema::create('risks', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('slug');
-            $table->text('detail');
-            if (Schema::hasTable('riders')) {
-                $table->bigInteger('rider_id')->unsigned();
-                $table->foreign('rider_id')->references('id')->on('riders');
-            }
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        if (! Schema::hasTable('risks')) {
+            Schema::create('risks', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('slug');
+                $table->text('detail');
+                if (Schema::hasTable('riders')) {
+                    $table->bigInteger('rider_id')->unsigned();
+                    $table->foreign('rider_id')->references('id')->on('riders');
+                }
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
     }
 
     /**

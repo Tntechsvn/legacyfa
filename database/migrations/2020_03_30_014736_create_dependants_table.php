@@ -14,22 +14,24 @@ class CreateDependantsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('dependants')) {
-            Schema::create('dependants', function (Blueprint $table) {
-                $table->id();
-                if (Schema::hasTable('pfrs')) {
-                    $table->bigInteger('pfr_id')->unsigned();
-                    $table->foreign('pfr_id')->references('id')->on('pfrs');
-                }
-                $table->string('title');
-                $table->string('name');
-                $table->string('relationship');
-                $table->date('dob')->nullable();
-                $table->tinyInteger('age')->unsigned();
-                $table->tinyInteger('gender')->unsigned()->defaul(0);
-                $table->string('year_to_support');
-                $table->timestamps();
-                $table->softDeletes();
-            });
+            if (! Schema::hasTable('dependants')) {
+                Schema::create('dependants', function (Blueprint $table) {
+                    $table->id();
+                    if (Schema::hasTable('pfrs')) {
+                        $table->bigInteger('pfr_id')->unsigned();
+                        $table->foreign('pfr_id')->references('id')->on('pfrs');
+                    }
+                    $table->string('title');
+                    $table->string('name');
+                    $table->string('relationship');
+                    $table->date('dob')->nullable();
+                    $table->tinyInteger('age')->unsigned();
+                    $table->tinyInteger('gender')->unsigned()->defaul(0);
+                    $table->string('year_to_support');
+                    $table->timestamps();
+                    $table->softDeletes();
+                });
+            }
         }
     }
 

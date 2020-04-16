@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Plan::class, function (Faker $faker) {
     return [
-        'name' => $faker->text,
+        'name' => $faker->word,
         'slug' => function (array $plan){
         	return Str::slug($plan['name']);
         },

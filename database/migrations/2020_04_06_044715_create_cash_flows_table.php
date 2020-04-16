@@ -13,18 +13,20 @@ class CreateCashFlowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cash_flows', function (Blueprint $table) {
-            $table->id();
-            if (Schema::hasTable('pfrs')) {
-                $table->bigInteger('pfr_id')->unsigned();
-                $table->foreign('pfr_id')->references('id')->on('pfrs');
-            }
-            $table->json('income')->nullable();
-            $table->json('expenses')->nullable();
-            $table->text('reason_cash_flow')->nullable();
-            $table->text('reason_plan')->nullable();
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('cash_flows')) {
+            Schema::create('cash_flows', function (Blueprint $table) {
+                $table->id();
+                if (Schema::hasTable('pfrs')) {
+                    $table->bigInteger('pfr_id')->unsigned();
+                    $table->foreign('pfr_id')->references('id')->on('pfrs');
+                }
+                $table->json('income')->nullable();
+                $table->json('expenses')->nullable();
+                $table->text('reason_cash_flow')->nullable();
+                $table->text('reason_plan')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

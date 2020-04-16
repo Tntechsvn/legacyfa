@@ -13,16 +13,18 @@ class CreatePlanRiderTable extends Migration
      */
     public function up()
     {
-        Schema::create('plan_rider', function (Blueprint $table) {
-            if (Schema::hasTable('plans')) {
-                $table->bigInteger('plan_id')->unsigned();
-                $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
-            }
-            if (Schema::hasTable('riders')) {
-                $table->bigInteger('rider_id')->unsigned();
-                $table->foreign('rider_id')->references('id')->on('riders')->onDelete('cascade');
-            }
-        });
+        if (! Schema::hasTable('plan_rider')) {
+            Schema::create('plan_rider', function (Blueprint $table) {
+                if (Schema::hasTable('plans')) {
+                    $table->bigInteger('plan_id')->unsigned();
+                    $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
+                }
+                if (Schema::hasTable('riders')) {
+                    $table->bigInteger('rider_id')->unsigned();
+                    $table->foreign('rider_id')->references('id')->on('riders')->onDelete('cascade');
+                }
+            });
+        }
     }
 
     /**
