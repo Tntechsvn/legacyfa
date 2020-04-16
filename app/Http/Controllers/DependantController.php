@@ -79,13 +79,13 @@ class DependantController extends Controller
 	public function editDependant(Request $request, $idPfr, $idDependant)
 	{
 		$rules = [
-			'title_edit' => 'required',
-			'name_edit' => 'required',
-			'relationship_edit' => 'required',
-			'birthday_edit' => 'required|date_format:Y-m-d',
-			'age_edit' => 'required|integer|min:0',
-			'sex_edit' => 'required|min:0|max:1',
-			'year_sp_edit' => 'required',
+			'title' => 'required',
+			'name' => 'required',
+			'relationship' => 'required',
+			'birthday' => 'required|date_format:Y-m-d',
+			'age' => 'required|integer|min:0',
+			'sex' => 'required|min:0|max:1',
+			'year_sp' => 'required',
 		];
 		$validator = Validator::make($request->all(), $rules);
 
@@ -100,13 +100,13 @@ class DependantController extends Controller
 		if ($infoDependant) {
 			$param = [
 				'pfr_id' => $idPfr,
-				'title' => $request->title_edit,
-				'name' => $request->name_edit,
-				'relationship' => $request->relationship_edit,
-				'dob' => $request->birthday_edit,
-				'age' => $request->age_edit,
-				'gender' => $request->sex_edit,
-				'year_to_support' => $request->year_sp_edit,
+				'title' => $request->title,
+				'name' => $request->name,
+				'relationship' => $request->relationship,
+				'dob' => $request->birthday,
+				'age' => $request->age,
+				'gender' => $request->sex,
+				'year_to_support' => $request->year_sp,
 			];
 
 			$resultEditDependant = $this->dependant->editDependant($idDependant, $param);
