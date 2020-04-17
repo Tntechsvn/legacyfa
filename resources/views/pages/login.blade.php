@@ -46,7 +46,7 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="0" name="remember">
                                 <label class="form-check-label" for="inlineCheckbox1">
-                                    <span>This is a public computer, do not cache my personal</span> information.
+                                    <span>This is a public computer, do not cache my personal information.</span> 
                                 </label>
                             </div>
                         </div>
