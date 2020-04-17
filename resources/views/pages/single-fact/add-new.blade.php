@@ -84,11 +84,11 @@
             <span class="noti-alert">(To fill up if nationality is not Singaporean)</span>
           </div>
         </div>
-      </div>
-      <div class="form-group form-layout-row">
-        <label for="birthday">Date of Birth<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="{{$infoPfr->client1->dob ?? ''}}" data-parsley-trigger="change" required="">
+        <div class="form-group form-layout-row">
+          <label for="birthday">Date of Birth<span>*</span></label>
+          <div class="custom-input-layout-row">
+            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="Date of Birth" value="{{$infoPfr->client1->dob ?? ''}}" data-parsley-trigger="change" required="">
+          </div>
         </div>
         <div class="form-group form-layout-row">
           <label for="select_marital">Marital Status<span>*</span></label>
@@ -148,24 +148,26 @@
             </select> 
           </div>
         </div>
-      </div>
-      <div class="form-group form-layout-row">
-        <label for="occupation">Occupation<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation" value="{{$infoPfr->client1->occupation ?? ''}}" data-parsley-trigger="change" required="">
-          <span class="noti-alert">(If Retired, please indicate previous occupation)</span>
+        <div class="form-group form-layout-row">
+          <label for="occupation">Occupation<span>*</span></label>
+          <div class="custom-input-layout-row">
+            <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation" value="{{$infoPfr->client1->occupation ?? ''}}" data-parsley-trigger="change" required="">
+            <span class="noti-alert">(If Retired, please indicate previous occupation)</span>
+          </div>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="company_name">Company Name<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" value="{{$infoPfr->client1->company ?? ''}}" data-parsley-trigger="change" required="">
+      <div class="single-fact-colum">
+        <div class="form-group form-layout-row">
+          <label for="company_name">Company Name<span>*</span></label>
+          <div class="custom-input-layout-row">
+            <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" value="{{$infoPfr->client1->company ?? ''}}" data-parsley-trigger="change" required="">
+          </div>
         </div>
-      </div>
-      <div class="form-group form-layout-row">
-        <label for="business_nature">Business Nature<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="business_nature" name="business_nature" placeholder="Business Nature" value="{{$infoPfr->client1->business_nature ?? ''}}" data-parsley-trigger="change" required="">
+        <div class="form-group form-layout-row">
+          <label for="business_nature">Business Nature<span>*</span></label>
+          <div class="custom-input-layout-row">
+            <input type="text" class="form-control" id="business_nature" name="business_nature" placeholder="Business Nature" value="{{$infoPfr->client1->business_nature ?? ''}}" data-parsley-trigger="change" required="">
+          </div>
         </div>
         <div class="form-group form-layout-row">
           <label for="select_annual_income">Annual Income Range ($)<span>*</span></label>

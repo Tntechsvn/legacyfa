@@ -14,19 +14,19 @@
             <div class="form-group form-layout-row">
                 <label for="name">Name of Client's Trusted Individual<span>*</span></label>
                 <div class="custom-input-layout-row">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" data-parsley-trigger="change" required="">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{$trush['name']}}" data-parsley-trigger="change" required="">
                 </div>
             </div>
             <div class="form-group form-layout-row">
                 <label for="nric">NRIC of Client's Trusted Individual <span>*</span></label>
                 <div class="custom-input-layout-row">
-                    <input type="text" class="form-control" id="nric" name="nric" placeholder="Name" value="" data-parsley-trigger="change" required="">
+                    <input type="text" class="form-control" id="nric" name="nric" placeholder="Name" value="{{$trush['nric']}}" data-parsley-trigger="change" required="">
                 </div>
             </div>
             <div class="form-group form-layout-row">
                 <label for="relationship">Relationship to Client <span>*</span></label>
                 <div class="custom-input-layout-row">
-                    <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Name" value="" data-parsley-trigger="change" required="">
+                    <input type="text" class="form-control" id="relationship" name="relationship" placeholder="Name" value="{{$trush['relationship']}}" data-parsley-trigger="change" required="">
                 </div>
             </div>
             <div class="form-group form-layout-row">
@@ -35,7 +35,7 @@
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked style-radio-custom">
-                                <input class="form-check-input" type="radio" name="language" id="eng" value="ENG" checked>
+                                <input class="form-check-input" type="radio" name="language" id="eng" value="ENG" @if($trush['language'] == "ENG"  || $trush['relationship'] == ''){{'checked'}}@endif>
                                 <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="eng">English</label>
@@ -44,25 +44,7 @@
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked style-radio-custom">
-                                <input class="form-check-input" type="radio" name="language" id="man" value="MAN">
-                                <span class="checkmark-radio"></span>
-                            </div>
-                            <label class="form-check-label" for="mal">Malay</label>
-                        </label>
-                    </div>
-                    <div class="radio-hoz">
-                        <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked style-radio-custom">
-                                <input class="form-check-input" type="radio" name="language" id="mal" value="MAL">
-                                <span class="checkmark-radio"></span>
-                            </div>
-                            <label class="form-check-label" for="tam">Tamil</label>
-                        </label>
-                    </div>
-                    <div class="radio-hoz">
-                        <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked style-radio-custom">
-                                <input class="form-check-input" type="radio" name="language" id="tam" value="TAM">
+                                <input class="form-check-input" type="radio" name="language" id="man" value="MAN" @if($trush['language'] == "MAN"){{'checked'}}@endif>
                                 <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="man">Mandarin</label>
@@ -71,7 +53,25 @@
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked style-radio-custom">
-                                <input class="form-check-label" type="radio" name="language" id="Ot" value="Ot">
+                                <input class="form-check-input" type="radio" name="language" id="mal" value="MAL" @if($trush['language'] == "MAL"){{'checked'}}@endif>
+                                <span class="checkmark-radio"></span>
+                            </div>
+                            <label class="form-check-label" for="mal">Malay</label>
+                        </label>
+                    </div>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked style-radio-custom">
+                                <input class="form-check-input" type="radio" name="language" id="tam" value="TAM" @if($trush['language'] == "TAM"){{'checked'}}@endif>
+                                <span class="checkmark-radio"></span>
+                            </div>
+                            <label class="form-check-label" for="tam">Tamil</label>
+                        </label>
+                    </div>
+                    <div class="radio-hoz">
+                        <label class="radio-inline custom-style-radio1">
+                            <div class="style-checked style-radio-custom">
+                                <input class="form-check-label" type="radio" name="language" id="Ot" value="Ot" @if($trush['language'] == "Ot"){{'checked'}}@endif>
                                 <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="other_language">Others (Please specify):</label>
@@ -82,13 +82,13 @@
             <div class="form-group form-layout-row">
                 <label for="other_language"></label>
                 <div class="custom-input-layout-row">
-                    <input type="text" class="form-control" id="other_language" name="other_language" placeholder="Others (Please specify)" value="" >
+                    <input type="text" class="form-control" id="other_language" name="other_language" placeholder="Others (Please specify)" value="{{$trush['other_language']}}" >
                 </div>
             </div>
             <div class="form-group form-layout-row">
                 <label for="contact_number">Contact Number<span>*</span></label>
                 <div class="custom-input-layout-row">
-                    <input type="tel" class="form-control" id="contact_number" name="contact_number" placeholder="Contact Number" value="" data-parsley-trigger="change" required="">
+                    <input type="tel" class="form-control" id="contact_number" name="contact_number" placeholder="Contact Number" value="{{$trush['contact_number']}}" data-parsley-trigger="change" required="">
                 </div>
             </div>
             <div class="nav-step">

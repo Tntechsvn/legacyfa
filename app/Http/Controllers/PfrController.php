@@ -17,7 +17,18 @@ class PfrController extends Controller
 	public function showFormQuestion($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.question.add-new', compact('infoPfr'));
+		$trush = array(
+			'name' => '',
+			'nric' => '',
+			'relationship' => '',
+			'language' => 'ENG',
+			'other_language' => '',
+			'contact_number' => ''
+		);
+		if ($infoPfr->trusted_individual != null) {
+			$trush = (array) $infoPfr->trusted_individual;
+		}
+		return view('pages.single-fact.question.add-new', compact('infoPfr', 'trush'));
 	}
 
 	public function addNewQuestion(Request $request, $idPfr)
@@ -41,27 +52,35 @@ class PfrController extends Controller
 
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		if ($infoPfr) {
-			$language = $request->language != "Ot" ? $request->language : $request->other_language;
+			$otherLanguage = $request->language == "Ot" ? $request->other_language : "";
 			$data = array(
 				'name' => $request->name,
 				'nric' => $request->nric,
 				'relationship' => $request->relationship,
-				'language' => $language,
+				'language' => $request->language,
+				'other_language' => $otherLanguage,
+				'contact_number' => $request->contact_number
 			);
 			$param = array(
 				'trusted_individual' => json_encode($data)
 			);
+			$edit = false;
+			if ($infoPfr->trusted_individual != null) {
+				$edit = true;
+			}
 			$resultEditPfr = $this->pfr->editPfr($idPfr, $param);
 			if ($resultEditPfr) {
+				$message = $edit ? "Edit trush individual successfully" : "Add new trush individual successfully";
 				return response()->json([
 					'error' => false,
-					'message' => "Add new trush individual successfully",
+					'message' => $message,
 					'url' => route('single_fact.balance.list', $idPfr)
 				], 200);
 			} else {
+				$message = $edit ? "Edit trush individual error" : "Add new trush individual error";
 				return response()->json([
 					'error' => true,
-					'message' => "Add new trush individual error"
+					'message' => $message
 				], 200);
 			}
 		} else {
