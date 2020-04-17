@@ -23,7 +23,7 @@
                         </label>
                         <label class="radio-inline custom-style-radio1 pdl0">
                             <div class="style-checked style-radio-custom">
-                                 <input class="balance-radio" type="radio" name="state" id="rd_no" value="1" @if(isset($infoBalance)) @if($infoBalance->reason != null){{'checked'}}@endif @endif> 
+                                <input class="balance-radio" type="radio" name="state" id="rd_no" value="1" @if(isset($infoBalance)) @if($infoBalance->reason != null){{'checked'}}@endif @endif> 
                                 <span class="checkmark-radio"></span>
                             </div>
                             No(Please state reason):
@@ -58,7 +58,7 @@
                     </tr>
                     <tr>
                         <td>Stock & Shares</td>
-                        <td><input type="number" class="form-control" id="stockshares_investments" name="stockshares_investments" placeholder="$" value="{{$assets['stockshares_investments'] ?? ""}}" ></td>
+                        <td><input type="number" class="form-control" id="stockshares_investments" name="stockshares_investments" placeholder="$" value="{{$assets['stockshares_investments'] ?? ''}}" ></td>
                     </tr>
                     <tr>
                         <td>Others</td>
@@ -153,10 +153,8 @@
                 </tbody>
             </table>
             <div class="nav-step">
-                <!-- <button class="btn btn-primary mb-2 style-button1">Back</button>
-                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button> -->
                 <a href="{{route('single-fact.show_form_add_new_assessment', $infoPfr->id)}}" class="style-button1">Back</a>
-                <a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}" class="style-button1">Next</a>
+                <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>  
         </form>      
     </div>
@@ -176,16 +174,17 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
-       $('.balance-radio').click(function(){
-         var rBtnVal = $(this).val();
-         if(rBtnVal == "1"){
-            $("#reason").attr("readonly", false); 
-            $("input[type=number]").val("");
-         }
-        else{ 
-            $("#reason").attr("readonly", true); 
-         }
-       });
+        $('.balance-radio').click(function(){
+            var rBtnVal = $(this).val();
+            if(rBtnVal == "1"){
+                $("#reason").attr("readonly", false); 
+                $("input[type=number]").val("");
+            }
+            else{ 
+                $("#reason").attr("readonly", true); 
+            }
+        });
+
         $('#balance_form').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();

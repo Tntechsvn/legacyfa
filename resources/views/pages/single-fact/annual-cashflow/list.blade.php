@@ -147,7 +147,7 @@
 
             <div class="nav-step">
                 <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Back</a>
-                <a href="{{route('portfolio.list', $infoPfr->id)}}" class="style-button1">Next</a>
+                <button type="submit" class="style-button1">Next</button>
             </div>
         </form>      
     </div>

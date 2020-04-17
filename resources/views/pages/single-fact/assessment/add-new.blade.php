@@ -122,17 +122,18 @@
             <div class="option-show-next-step">            
                 RESULT:<br>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <p class="alert-text-step1 no_has_14">You do not need to be accompanied by a TRUSTED INDIVIDUAL</p>
                 <p class="alert-text-step1 has_14">It is compulsory for you to be accompanied by a TRUSTED INDIVIDUAL</p>
 =======
                 <span id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</span>
 >>>>>>> origin/manhtu
+=======
+                <p class="alert-text-step1" id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</p>
+>>>>>>> origin/manhtu
             </div>
             <div class="nav-step">
-                <!-- <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
-                -->
                 <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
-                <!-- <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Next</a> -->
                 <button type="submit" class="style-button1">Next</button>
             </div>
             <div class="clear"></div>
@@ -154,21 +155,6 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.option_step_14').click(function(){
-            var val_show = $(this).val();
-            if(val_show == "1"){
-                $(".no_has_14").hide(); 
-                $(".has_14").show(); 
-            }
-            else{ 
-                $(".no_has_14").show(); 
-                $(".has_14").hide(); 
-            }
-        });
-
-
-
-
         $('#form_assessment').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
