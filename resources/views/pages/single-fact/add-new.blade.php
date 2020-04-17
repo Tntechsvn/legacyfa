@@ -235,7 +235,7 @@
           </div>
         </div>
       </div>
-      <div class="action-form">
+      <div class="nav-step">
           <button type="submit" class="btn btn-primary mb-2 radius_2 style-button1">Next</button>
       </div>
     </form>
