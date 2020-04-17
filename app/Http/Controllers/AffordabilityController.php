@@ -21,6 +21,7 @@ class AffordabilityController extends Controller
 	public function listAffordability($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		$infoAffordability = $this->affordability->infoAffordabilityForPfr($idPfr);
 		$totalAnnualIncome = $infoPfr->totalAnnualIncome;
 		$totalAnnualExpense = $infoPfr->totalAnnualExpense;
 
@@ -29,7 +30,7 @@ class AffordabilityController extends Controller
 
 		$annualSurplusShortfall = $totalAnnualIncome - $totalAnnualExpense;
 		$netWorth = $totalAssets - $totalLiabilities;
-		return view('pages.single-fact.affordability.list', compact('infoPfr', 'totalAnnualIncome', 'totalAnnualExpense', 'annualSurplusShortfall', 'totalAssets', 'totalLiabilities', 'netWorth'));
+		return view('pages.single-fact.affordability.list', compact('infoPfr', 'infoAffordability', 'totalAnnualIncome', 'totalAnnualExpense', 'annualSurplusShortfall', 'totalAssets', 'totalLiabilities', 'netWorth'));
 	}
 
 	public function addNewAffordability(AddNewAffordabilityRequest $request, $idPfr)
@@ -62,17 +63,25 @@ class AffordabilityController extends Controller
 			$budget[] = $arrSource;
 
 			$param = array(
-				'pfr_id' => $idPfr,
 				'payor_detail' => json_encode($payor),
 				'budget' => json_encode($budget),
 				'reason' => $request->reason
 			);
-
-			$resultAddAffordability = $this->affordability->addNewAffordability($param);
-			if ($resultAddAffordability) {
-				return "Add new affordability successfully";
+			$infoAffordability = $this->affordability->infoAffordabilityForPfr($idPfr);
+			$edit = false;
+			if ($infoAffordability) {
+				$edit = true;
+				$resultAddAffordability = $this->affordability->editAffordability($idPfr, $param);
 			} else {
-				return "Add new affordability error";
+				$param['pfr_id'] = $idPfr;
+				$resultAddAffordability = $this->affordability->addNewAffordability($param);
+			}
+			if ($resultAddAffordability) {
+				$message = $edit ? "Edit affordability successfully" : "Add new affordability successfully";
+				return $message;
+			} else {
+				$message = $edit ? "Edit affordability error" : "Add new affordability error";
+				return $message;
 			}
 		} else {
 			return "Pfr not found";

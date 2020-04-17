@@ -18,14 +18,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input class="option_step_14" type="radio" name="age" id="below_62" value="0" checked>
+                            <input class="option_step_14" type="radio" name="age" id="below_62" value="0" @if(isset($infoPfr)) @if($infoPfr->clients[0]->clientAa->age == 0){{'checked'}}@endif @else {{'checked'}} @endif>
                         </div>
                         Below 62
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input class="option_step_14" type="radio" name="age" id="above_62" value="1">
+                            <input class="option_step_14" type="radio" name="age" id="above_62" value="1" @if($infoPfr->clients[0]->clientAa->age == 1){{'checked'}}@endif>
                         </div>
                         62 or above 
                     </label>
@@ -37,14 +37,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input class="option_step_14" type="radio" name="spoken_en" id="pro_spoken" value="0" checked>
+                            <input class="option_step_14" type="radio" name="spoken_en" id="pro_spoken" value="0" @if(isset($infoPfr)) @if($infoPfr->clients[0]->clientAa->english_spoken == 0){{'checked'}}@endif @else {{'checked'}} @endif>
                         </div>
                         Proficient
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input class="option_step_14" type="radio" name="spoken_en" id="not_pro_spoken" value="1">
+                            <input class="option_step_14" type="radio" name="spoken_en" id="not_pro_spoken" value="1" @if($infoPfr->clients[0]->clientAa->english_spoken == 1){{'checked'}}@endif>
                         </div>
                         NOT Proficient
                     </label>
@@ -56,14 +56,14 @@
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="fas fa-check-circle"></i>
-                            <input class="option_step_14" type="radio" name="written_en" id="pro_written" value="0" checked>
+                            <input class="option_step_14" type="radio" name="written_en" id="pro_written" value="0" @if(isset($infoPfr)) @if($infoPfr->clients[0]->clientAa->english_written == 0){{'checked'}}@endif @else {{'checked'}} @endif>
                         </div>
                         Proficient
                     </label>
                     <label class="radio-inline custom-style-radio1">
                         <div class="style-checked">
                             <i class="far fa-circle"></i>
-                            <input class="option_step_14" type="radio" name="written_en" id="not_pro_written" value="1">
+                            <input class="option_step_14" type="radio" name="written_en" id="not_pro_written" value="1" @if($infoPfr->clients[0]->clientAa->english_written == 1){{'checked'}}@endif>
                         </div>
                         NOT Proficient 
                     </label>
@@ -76,7 +76,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="fas fa-check-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="primary" value="0" checked>
+                                <input class="form-check-input" type="radio" name="education" id="primary" value="0" @if(isset($infoPfr)) @if($infoPfr->clients[0]->clientAa->education_level == 0){{'checked'}}@endif @else {{'checked'}} @endif>
                             </div>
                             <label class="form-check-label" for="primary">Primary</label>
                         </label>
@@ -85,7 +85,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="secondary" value="1" checked>
+                                <input class="form-check-input" type="radio" name="education" id="secondary" value="1" @if($infoPfr->clients[0]->clientAa->education_level == 1){{'checked'}}@endif>
                             </div>
                             <label class="form-check-label" for="secondary">Secondary</label>
                         </label>
@@ -94,7 +94,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="n&o" value="2" checked>
+                                <input class="form-check-input" type="radio" name="education" id="n&o" value="2" @if($infoPfr->clients[0]->clientAa->education_level == 2){{'checked'}}@endif>
                             </div>
                             <label class="form-check-label" for="n&o"> GCE 'N' or "O" Level Certificate or Equivalent</label>
                         </label>
@@ -103,7 +103,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="pre" value="3" checked>
+                                <input class="form-check-input" type="radio" name="education" id="pre" value="3" @if($infoPfr->clients[0]->clientAa->education_level == 3){{'checked'}}@endif>
                             </div>
                             <label class="form-check-label" for="pre">Pre-Tertiary</label>
                         </label>
@@ -112,7 +112,7 @@
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked">
                                 <i class="far fa-circle"></i>
-                                <input class="form-check-input" type="radio" name="education" id="tertiary" value="4" checked>
+                                <input class="form-check-input" type="radio" name="education" id="tertiary" value="4" @if($infoPfr->clients[0]->clientAa->education_level == 4){{'checked'}}@endif>
                             </div>
                             <label class="form-check-label" for="tertiary">Tertiary and above</label>
                         </label>
