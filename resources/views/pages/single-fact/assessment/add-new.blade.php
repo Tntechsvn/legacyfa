@@ -172,7 +172,13 @@
             });
         });
 
+        checkTrust();
+
         $("[name='age'], [name='spoken_en'], [name='written_en'], [name='education']").on('change', function(){
+            checkTrust();
+        });
+
+        function checkTrust(){
             var age = $("input[name=age]:checked").val();
             var spoken_en = $("input[name=spoken_en]:checked").val();
             var written_en = $("input[name=written_en]:checked").val();
@@ -182,7 +188,7 @@
                 result = "It is compulsory for you to be accompanied by a TRUSTED INDIVIDUAL";
             }
             $('#result').text(result);
-        });
+        }
     });
 </script>
 @endsection
