@@ -123,14 +123,20 @@
                 RESULT:<br>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/vtn
                 <p class="alert-text-step1 no_has_14">You do not need to be accompanied by a TRUSTED INDIVIDUAL</p>
                 <p class="alert-text-step1 has_14">It is compulsory for you to be accompanied by a TRUSTED INDIVIDUAL</p>
 =======
                 <span id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</span>
 >>>>>>> origin/manhtu
+<<<<<<< HEAD
 =======
                 <p class="alert-text-step1" id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</p>
 >>>>>>> origin/manhtu
+=======
+>>>>>>> origin/vtn
             </div>
             <div class="nav-step">
                 <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
