@@ -564,6 +564,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'AnalysisRecommendationsController@plansRecommended'
 			]);
 		});
+		Route::group(['prefix' => 'switching-replacement/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.switching_replacement',
+				'uses' => 'SwitchingReplacementController@switchingReplacement'
+			]);
+		});
 	});
 
 /*Joint Fact*/
