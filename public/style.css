@@ -176,6 +176,15 @@ img.aligncenter{
 	width: 100%;
 	float: left;
 }
+
+.form-group select{
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+   background-image: url(images/bg_select1.png);   /* Add custom arrow */
+   background-repeat: no-repeat;
+   background-position: right 10px top 16px;
+}
 .form-group select,
 .form-group input{
 	width:100%;
@@ -1311,7 +1320,8 @@ body.show_form_login{
 	height:24px;
 	float:left;
 	display: inline-block;
-	margin-top:0;
+	margin-top:4px;
+	margin-right: 5px;
 }
 .login-checkbox-style label{
 	display: inline-block;
@@ -1517,6 +1527,7 @@ body.show_form_login{
 	text-align: center;
 	width: 20px;
 	height: 20px;
+	margin-right:8px;
 }
 .style-radio-custom input {
   position: absolute;
@@ -1919,4 +1930,22 @@ input.form-check-input[type=checkbox]{
 	padding: 0px 15px 0px 15px;
 	height: 38px;
 	line-height: 38px;
+}
+
+/* SINGLE FACT PFR */
+.single-fact-colum{
+	width: 50%;
+	float: left;
+	height: auto;
+	padding-top: 40px;
+}
+.single-fact-colum .form-layout-row{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.single-fact-colum .form-layout-row > label{
+	width: 33.3333%;
+}
+.single-fact-colum .custom-input-layout-row{
+	width: 66.6666%;
 }
