@@ -1949,3 +1949,7 @@ input.form-check-input[type=checkbox]{
 .single-fact-colum .custom-input-layout-row{
 	width: 66.6666%;
 }
+
+.minwidthlable label{
+	min-width: 100px;
+}

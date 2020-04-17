@@ -34,45 +34,45 @@
                 <div class="custom-input-layout-row">
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="fas fa-check-circle"></i>
+                            <div class="style-checked style-radio-custom">
                                 <input class="form-check-input" type="radio" name="language" id="eng" value="ENG" checked>
+                                <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="eng">English</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="far fa-circle"></i>
+                            <div class="style-checked style-radio-custom">
                                 <input class="form-check-input" type="radio" name="language" id="man" value="MAN">
+                                <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="mal">Malay</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="far fa-circle"></i>
+                            <div class="style-checked style-radio-custom">
                                 <input class="form-check-input" type="radio" name="language" id="mal" value="MAL">
+                                <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="tam">Tamil</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="far fa-circle"></i>
+                            <div class="style-checked style-radio-custom">
                                 <input class="form-check-input" type="radio" name="language" id="tam" value="TAM">
+                                <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="man">Mandarin</label>
                         </label>
                     </div>
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
-                            <div class="style-checked">
-                                <i class="far fa-circle"></i>
+                            <div class="style-checked style-radio-custom">
                                 <input class="form-check-label" type="radio" name="language" id="Ot" value="Ot">
+                                <span class="checkmark-radio"></span>
                             </div>
                             <label class="form-check-label" for="other_language">Others (Please specify):</label>
                         </label>

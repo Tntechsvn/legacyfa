@@ -542,10 +542,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'PrioritiesNeedsController@addProtectionEleven'
 			]);
 		});
+
 		Route::group(['prefix' => 'affordability/{id_pfr}'], function(){
 			Route::get('/', [
-				'as' => 'single_fact.affordability',
+				'as' => 'single_fact.affordability.list',
 				'uses' => 'AffordabilityController@listAffordability'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.affordability.add_new',
+				'uses' => 'AffordabilityController@addNewAffordability'
 			]);
 		});
 		Route::group(['prefix' => 'analysis-recommendations/{id_pfr}'], function(){

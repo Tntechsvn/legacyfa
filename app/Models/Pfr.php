@@ -31,9 +31,19 @@ class Pfr extends Model
         return $this->hasMany('App\Models\Dependant');
     }
 
-    public function portfolios()
+    public function portfolio()
     {
-        return $this->hasMany('App\Models\Portfolio');
+        return $this->hasOne('App\Models\Portfolio');
+    }
+
+    public function balance()
+    {
+        return $this->hasOne('App\Models\Balance');
+    }
+
+    public function cashFlow()
+    {
+        return $this->hasOne('App\Models\CashFlow');
     }
 
     public function riskProfile()
@@ -138,6 +148,66 @@ class Pfr extends Model
     public function getRatePrioritiesNeedAttribute()
     {
         return optional($this->prioritiesNeed)->rate;
+    }
+
+    public function getTotalAnnualIncomeAttribute()
+    {
+        $totalAnnualIncome = 0;
+        $listIncome = $this->cashFlow->income;
+        if ($listIncome != null) {
+            $arrIncome = json_decode($listIncome);
+            foreach($arrIncome as $income){
+                foreach($income as $key=>$value){
+                    $totalAnnualIncome += (int) $value;
+                }
+            }
+        }
+        return $totalAnnualIncome;
+    }
+
+    public function getTotalAnnualExpenseAttribute()
+    {
+        $totalAnnualExpense = 0;
+        $listExpense = $this->cashFlow->expenses;
+        if ($listExpense != null) {
+            $arrExpense = json_decode($listExpense);
+            foreach($arrExpense as $expenses){
+                foreach($expenses as $key=>$value){
+                    $totalAnnualExpense += (int) $value;
+                }
+            }
+        }
+        return $totalAnnualExpense;
+    }
+
+    public function getTotalAssetsAttribute()
+    {
+        $totalAssets = 0;
+        $listAssets = $this->balance->assets;
+        if ($listAssets != null) {
+            $arrAssets = json_decode($listAssets);
+            foreach($arrAssets as $assets){
+                foreach($assets as $key=>$value){
+                    $totalAssets += (int) $value;
+                }
+            }
+        }
+        return $totalAssets;
+    }
+
+    public function getTotalLiabilitiesAttribute()
+    {
+        $totalLiabilities = 0;
+        $listLoan = $this->portfolio->loan;
+        if ($listLoan != null) {
+            $arrLoan = json_decode($listLoan);
+            foreach($arrLoan as $loan){
+                if ($loan->client_loan == 1) {
+                    $totalLiabilities += $loan->outstanding_amount;
+                }
+            }
+        }
+        return $totalLiabilities;
     }
     /*END ATTRIBUTE*/
     

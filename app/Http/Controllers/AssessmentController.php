@@ -41,30 +41,53 @@ class AssessmentController extends Controller
 			], 200);
 		}
 
-		$infoClientOne = $this->client->infoClientOne($idPfr);
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		$infoClientOne = $infoPfr->clients[0];
 		if ($infoClientOne) {
+			$infoClientAa = $infoClientOne->clientAa;
 			$param = array(
-				'client_id' => $infoClientOne->id,
 				'age' => $request->age,
 				'english_spoken' => $request->spoken_en,
 				'english_written' => $request->written_en,
 				'education_level' => $request->education
 			);
-			$resultAddAssessment = $this->assessment->addNewClientAa($param);
+			$edit = false;
+			if ($infoClientAa) {
+				$edit = true;
+				$resultAddAssessment = $this->assessment->editClientAa($infoClientAa->id, $param);
+			} else {
+				$param['client_id'] = $infoClientOne->id;
+				$resultAddAssessment = $this->assessment->addNewClientAa($param);
+			}
 			if ($resultAddAssessment) {
 				$url = route('single_fact.balance.list', $idPfr);
 				if ( ( $request->age == 1 && ($request->spoken_en == 1 || $request->written_en == 1 ) ) || ( $request->age == 1 && ( $request->education == 0 || $request->education == 1) ) || ( ( $request->spoken_en == 1 || $request->written_en == 1 ) && ( $request->education == 0 || $request->education == 1 ) ) || ( $request->spoken_en == 1 || $request->written_en == 1 ) ) {
 					$url = route('single-fact.show_form_question', $idPfr);
+				} else {
+					if ($edit) {
+						$param = array(
+							'trusted_individual' => null
+						);
+						$resultUpdatePfr = $this->pfr->editPfr($idPfr, $param);
+						if (! $resultUpdatePfr) {
+							return response()->json([
+								'error' => true,
+								'message' => "Error"
+							], 200);
+						}
+					}
 				}
+				$message = $edit ? "Edit assessment successfully" : "Add new assessment successfully";
 				return response()->json([
 					'error' => false,
-					'message' => "Add new assessment successfully",
+					'message' => $message,
 					'url' => $url
 				], 200);
 			} else {
+				$message = $edit ? "Edit assessment error" : "Add new assessment error";
 				return response()->json([
 					'error' => true,
-					'message' => "Add new assessment error"
+					'message' => $message
 				], 200);
 			}
 		} else {
