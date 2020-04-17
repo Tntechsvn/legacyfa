@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="form-group form-layout-row">
-                <label for="eng">Language Used *</label>
-                <div class="custom-input-layout-row">
+                <label for="eng">Language Used <span>*</span></label>
+                <div class="custom-input-layout-row language-custom">
                     <div class="radio-hoz">
                         <label class="radio-inline custom-style-radio1">
                             <div class="style-checked style-radio-custom">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group form-layout-row">
+            <div class="form-group form-layout-row other_language_text">
                 <label for="other_language"></label>
                 <div class="custom-input-layout-row">
                     <input type="text" class="form-control" id="other_language" name="other_language" placeholder="Others (Please specify)" value="{{$trush['other_language']}}" >
@@ -103,7 +103,7 @@
         <ul>
             @if(!isset($infoPfr))
             @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
+            @include('pages.navigation', ['id' => $infoPfr->id])
             @endif
         </ul>
     </div>
@@ -113,6 +113,22 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        if($('.other-radio').is(':checked')){
+            $('.other_language_text').show();
+        }else{
+            $('.other_language_text').hide();
+        } 
+
+        $('.language-custom input[type=radio]').click(function(){
+            var rBtnVal = $(this).val();
+            if(rBtnVal == "Ot"){
+                $('.other_language_text').show();
+            }else{ 
+                $('.other_language_text').hide();
+            }
+        });
+
+
         $('#form_question').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();

@@ -6,105 +6,169 @@
     <h4>Joint Personal Information:</h4>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <form name="addsinglefact_form" id='addsinglefact_form' class="parsley-form" method="post" action="{{!isset($infoPfr) ? route('joint-fact.add_new') : route('join-fact.postedit', $infoPfr->id)}}" data-parsley-validate1>
+    <form name="addsinglefact_form" id='addsinglefact_form' class="form-horizontal parsley-form" method="post" action="{{!isset($infoPfr) ? route('joint-fact.add_new') : route('join-fact.postedit', $infoPfr->id)}}" data-parsley-validate1>
       @csrf
-    @for($i=1;$i<=2;$i++)
       @php 
-        if(isset($infoPfr))
-            if($i == 1){
-                $client = $infoPfr->client_first();
-            }else {
-                $client = $infoPfr->client_second();
-            } 
+        if(isset($infoPfr)){
+          $client1 = $infoPfr->client_first();
+          $client2 = $infoPfr->client_second();
+        }
       @endphp
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      {{-- @dump($i,$client) --}}
-        <h4 class="text-center">Client {{$i}}</h4>
-      <div class="form-group form-layout-row">
-        <label for="title">Title<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <select name="title{{$i}}" id="title" class="form-control" data-parsley-trigger="change">
+      <div class="form-group">
+        <label class="col-sm-2"></label>
+        <div class="col-sm-4 text-center">
+          Client 1
+        </div>
+        <div class="col-sm-4 text-center">
+          Client 2
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2">Name<span>*</span></label>
+        <div class="col-sm-4">
+          <select name="title_1" id="title" class="form-control" data-parsley-trigger="change">
             @foreach($array_title_name as $title)
-              <option value="{{$title}}" {{isset($client->title) && $client->title == $title ? 'selected' : ''}}>{{$title}}</option>
+              <option value="{{$title}}" {{isset($client1->title) && $client1->title == $title ? 'selected' : ''}}>{{$title}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select name="title_2" id="title" class="form-control" data-parsley-trigger="change">
+            @foreach($array_title_name as $title)
+              <option value="{{$title}}" {{isset($client2->title) && $client2->title == $title ? 'selected' : ''}}>{{$title}}</option>
             @endforeach
           </select>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="single_name">Name<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="single_name" name="join_name{{$i}}" placeholder="Name" value="{{$client->name ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Title<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="join_name1" placeholder="Name" value="{{$client1->name ?? ""}}" data-parsley-trigger="change">
+          <span class="noti-alert">(as in NRIC / Passport)</span>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="join_name2" placeholder="Name" value="{{$client2->name ?? ""}}" data-parsley-trigger="change">
           <span class="noti-alert">(as in NRIC / Passport)</span>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="single_name">Gender<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <label class="radio-inline custom-style-radio1">
-            <div class="style-checked style-radio-custom">
-                <input type="radio" name="sex{{$i}}" id="male" value="0" checked>
-                <span class="checkmark-radio"></span>
+
+      <div class="form-group">
+        <label class="col-sm-2">Relationship to Client 1<span>*</span></label>
+        @php 
+          $arr_re = [
+            'Spouse', 'Child', 'Parent', 'Others'
+          ];
+        @endphp
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+          @foreach($arr_re as $key=>$re)
+              <label class="radio-inline" for="re_{{$key}}"><input id="re_{{$key}}" type="radio" name="relationship" value="{{$key}}">{{$re}}</option></label>
+          @endforeach
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2">Gender<span>*</span></label>
+        <div class="col-sm-4">
+          <label class="radio-inline">
+            <div class="style-checked1">
+                <input type="radio" name="sex1" id="male" value="0" checked>
+                <span class="checkmark-radio1"></span>
             </div>
             Male
           </label>
-          <label class="radio-inline custom-style-radio1">
-            <div class="style-checked style-radio-custom">
-              <input type="radio" name="sex{{$i}}" id="female" value="1">
-              <span class="checkmark-radio"></span>
+          <label class="radio-inline">
+            <div class="style-checked1">
+              <input type="radio" name="sex1" id="female" value="1">
+              <span class="checkmark-radio1"></span>
+            </div>
+            Female
+          </label>
+        </div>
+        <div class="col-sm-4">
+          <label class="radio-inline">
+            <div class="style-checked1">
+                <input type="radio" name="sex2" id="male2" value="0" checked>
+                <span class="checkmark-radio1"></span>
+            </div>
+            Male
+          </label>
+          <label class="radio-inline">
+            <div class="style-checked1">
+              <input type="radio" name="sex2" id="female2" value="1">
+              <span class="checkmark-radio1"></span>
             </div>
             Female
           </label>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="passport_no">NRIC/Passport No<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="passport_no" name="passport_no{{$i}}" placeholder="NRIC/Passport No" value="{{$client->nric_passport ?? ""}}" data-parsley-trigger="change">
-        </div>
-      </div>
-      <div class="form-group form-layout-row">
-        <label for="select-country">Nationality<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <select id="select_nationality" name="select_nationality{{$i}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Nationality<span>*</span></label>
+        <div class="col-sm-4">
+          <select id="select_nationality" name="select_nationality1" data-parsley-trigger="change">
             <option value="">-- select one --</option>
             @foreach($nationalities as $key=>$n)
-              <option value="{{$key}}" {{isset($client->nationality) && $client->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
+              <option value="{{$key}}" {{isset($client1->nationality) && $client1->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select id="select_nationality" name="select_nationality2" data-parsley-trigger="change">
+            <option value="">-- select one --</option>
+            @foreach($nationalities as $key=>$n)
+              <option value="{{$key}}" {{isset($client2->nationality) && $client2->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
             @endforeach
           </select>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="select_residency">Residency Status<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <select name="select_residency{{$i}}" id="select_residency" class="form-control" data-parsley-trigger="change">
-            @php 
-                $residency = [
-                    'singapore-pr' => 'Singapore PR',
-                    'employment-pass' => 'Employment Pass',
-                    's-pass' => 'S-Pass',
-                    'work-permit' => 'Word Permit',
-                    'dependants-pass' => 'Dependant\'s Pass<',
-                    'student-pass' => 'Student Pass<',
-                    'others' => 'Others'
-                ];
-            @endphp
+
+      <div class="form-group">
+        <label class="col-sm-2">Residency Status<span>*</span></label>
+          @php 
+            $residency = [
+                'singapore-pr' => 'Singapore PR',
+                'employment-pass' => 'Employment Pass',
+                's-pass' => 'S-Pass',
+                'work-permit' => 'Word Permit',
+                'dependants-pass' => 'Dependant\'s Pass<',
+                'student-pass' => 'Student Pass<',
+                'others' => 'Others'
+            ];
+          @endphp
+        <div class="col-sm-4">
+          <select name="select_residency1" class="form-control" data-parsley-trigger="change">
             @foreach($residency as $key=>$value)
-                <option value="{{$key}}" {{isset($client->select_residency) && $client->select_residency == $key ? 'selected' : ''}}>{{$value}}</option>
+                <option value="{{$key}}" {{isset($client1->select_residency) && $client2->select_residency == $key ? 'selected' : ''}}>{{$value}}</option>
+            @endforeach
+          </select> 
+          <span class="noti-alert">(To fill up if nationality is not Singaporean)</span>
+        </div>
+        <div class="col-sm-4">
+          <select name="select_residency2" class="form-control" data-parsley-trigger="change">
+            @foreach($residency as $key=>$value)
+                <option value="{{$key}}" {{isset($client2->select_residency) && $client2->select_residency == $key ? 'selected' : ''}}>{{$value}}</option>
             @endforeach
           </select> 
           <span class="noti-alert">(To fill up if nationality is not Singaporean)</span>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="birthday">Date of Birth<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="date" class="form-control" id="birthday" name="birthday{{$i}}" placeholder="Date of Birth" value="{{$client->dob ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Date of Birth<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="date" class="form-control" name="birthday1" placeholder="Date of Birth" value="{{$client1->dob ?? ""}}" data-parsley-trigger="change">
+        </div>
+        <div class="col-sm-4">
+          <input type="date" class="form-control" name="birthday2" placeholder="Date of Birth" value="{{$client2->dob ?? ""}}" data-parsley-trigger="change">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="select_marital">Marital Status<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <select name="select_marital" id="select_marital" class="form-control" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Marital Status<span>*</span></label>
             @php 
                 $maritals = [
                     'S' => 'Single',
@@ -113,36 +177,58 @@
                     'D' => 'Divorced'
                 ];
             @endphp
+        <div class="col-sm-4">
+          <select name="select_marital" class="form-control" data-parsley-trigger="change">
             @foreach($maritals as $key=>$value)
-                <option value="{{$key}}" {{isset($client->marital_status) && $client->marital_status == $key ? 'selected' : ''}}>{{$value}}</option>
+                <option value="{{$key}}" {{isset($client1->marital_status) && $client1->marital_status == $key ? 'selected' : ''}}>{{$value}}</option>
+            @endforeach
+          </select> 
+        </div>
+        <div class="col-sm-4">
+          <select name="select_marital" class="form-control" data-parsley-trigger="change">
+            @foreach($maritals as $key=>$value)
+                <option value="{{$key}}" {{isset($client2->marital_status) && $client2->marital_status == $key ? 'selected' : ''}}>{{$value}}</option>
             @endforeach
           </select> 
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="smoker1">Smoker<span>*</span></label>
-        <div class="custom-input-layout-row">
-            <label class="radio-inline custom-style-radio1">
-                <div class="style-checked">
-                    <i class="fas fa-check-circle"></i>
-                    <input type="radio" name="smoker{{$i}}" value="0" checked>
+
+      <div class="form-group">
+        <label class="col-sm-2">Smoker<span>*</span></label>
+        <div class="col-sm-4">
+            <label class="radio-inline">
+                <div class="style-checked1">
+                    <input type="radio" name="smoker1" value="0" checked>
                 </div>
                 Yes
             </label>
-            <label class="radio-inline custom-style-radio1">
-                <div class="style-checked">
-                    <i class="far fa-circle"></i>
-                    <input type="radio" name="smoker{{$i}}" value="1">
+            <label class="radio-inline">
+                <div class="style-checked1">
+                    <input type="radio" name="smoker1" value="1">
+                </div>
+                No 
+            </label>
+        </div>
+        <div class="col-sm-4">
+            <label class="radio-inline">
+                <div class="style-checked1">
+                    <input type="radio" name="smoker2" value="0" checked>
+                </div>
+                Yes
+            </label>
+            <label class="radio-inline">
+                <div class="style-checked1">
+                    <input type="radio" name="smoker2" value="1">
                 </div>
                 No 
             </label>
         </div>
       </div>
+
       <hr  class="hr-fullcontent"/>
-      <div class="form-group form-layout-row">
-        <label for="select_employment">Employment Status<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <select name="select_employment{{$i}}" id="select_employment" class="form-control" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Employment Status<span>*</span></label>
             @php 
                 $employments_status = [
                     'FT' => 'Full time',
@@ -153,35 +239,56 @@
                     'Ot' => 'Others',
                 ];
             @endphp
+        <div class="col-sm-4">
+          <select name="select_employment1" class="form-control" data-parsley-trigger="change">
             @foreach($employments_status as $key=>$e)
                 <option value="{{$key}}" {{isset($client->employment_status) && $client->employment_status == $key ? 'selected' : ''}}>{{$e}}</option>
             @endforeach
           </select> 
         </div>
+        <div class="col-sm-4">
+          <select name="select_employment2" class="form-control" data-parsley-trigger="change">
+            @foreach($employments_status as $key=>$e)
+                <option value="{{$key}}" {{isset($client2->employment_status) && $client2->employment_status == $key ? 'selected' : ''}}>{{$e}}</option>
+            @endforeach
+          </select> 
+        </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="occupation">Occupation<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="occupation" name="occupation{{$i}}" placeholder="Occupation" value="{{$client->occupation ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Occupation<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="occupation1" placeholder="Occupation" value="{{$client1->occupation ?? ""}}" data-parsley-trigger="change">
+          <span class="noti-alert">(If Retired, please indicate previous occupation)</span>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="occupation2" placeholder="Occupation" value="{{$client2->occupation ?? ""}}" data-parsley-trigger="change">
           <span class="noti-alert">(If Retired, please indicate previous occupation)</span>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="company_name">Company Name<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="company_name" name="company_name{{$i}}" placeholder="Company Name" value="{{$client->company ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Company Name<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="company1" placeholder="Company Name" value="{{$client1->company ?? ""}}" data-parsley-trigger="change">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="company2" placeholder="Company Name" value="{{$client2->company ?? ""}}" data-parsley-trigger="change">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="business_nature">Business Nature<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="business_nature" name="business_nature{{$i}}" placeholder="Business Nature" value="{{$client->business_nature ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Business Nature<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="business_nature1" placeholder="Business Nature" value="{{$client1->business_nature ?? ""}}" data-parsley-trigger="change">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="business_nature2" placeholder="Business Nature" value="{{$client2->business_nature ?? ""}}" data-parsley-trigger="change">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="select_annual_income">Annual Income Range ($)<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <select name="select_annual_income{{$i}}" id="select_annual_income" class="form-control" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Annual Income Range ($)<span>*</span></label>
             @php 
                 $annual_income = [
                     '0' => '0-29,999',
@@ -192,59 +299,97 @@
                     '300' => '300,000 & above',
                 ];
             @endphp
+        <div class="col-sm-4">
+          <select name="select_annual_income1" class="form-control" data-parsley-trigger="change">
             @foreach($annual_income as $key=>$value)
-                <option value="{{$key}}" {{isset($client->income_range) && $client->income_range == $key ? 'selected' : ''}}>{{$value}}</option>
+                <option value="{{$key}}" {{isset($client1->income_range) && $client1->income_range == $key ? 'selected' : ''}}>{{$value}}</option>
+            @endforeach
+          </select> 
+        </div>
+        <div class="col-sm-4">
+          <select name="select_annual_income2" class="form-control" data-parsley-trigger="change">
+            @foreach($annual_income as $key=>$value)
+                <option value="{{$key}}" {{isset($client2->income_range) && $client2->income_range == $key ? 'selected' : ''}}>{{$value}}</option>
             @endforeach
           </select> 
         </div>
       </div>
       <hr  class="hr-fullcontent"/>
-      <div class="form-group form-layout-row">
-        <label for="details_home">Contact Details - Home</label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="details_home" name="details_home{{$i}}" placeholder="Contact Details" value="{{$client->contact_home ?? ""}}">
+
+      <div class="form-group">
+        <label class="col-sm-2">Contact Details - Home<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_home1" placeholder="Contact Details" value="{{$client1->contact_home ?? ""}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_home2" placeholder="Contact Details" value="{{$client2->contact_home ?? ""}}">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="details_mobile">Contact Details - Mobile<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="tel" class="form-control" id="details_mobile" name="details_mobile{{$i}}" placeholder="Contact Details" value="{{$client->contact_mobile ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Contact Details - Mobile<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_mobile1" placeholder="Contact Details" value="{{$client1->contact_mobile ?? ""}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_mobile2" placeholder="Contact Details" value="{{$client2->contact_mobile ?? ""}}">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="details_office">Contact Details - Office</label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="details_office" name="details_office{{$i}}" placeholder="Contact Details" value="{{$client->contact_office ?? ""}}">
+
+      <div class="form-group">
+        <label class="col-sm-2">Contact Details - Office<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_office1" placeholder="Contact Details" value="{{$client1->contact_office ?? ""}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_office2" placeholder="Contact Details" value="{{$client2->contact_office ?? ""}}">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="details_fax">Contact Details - Fax</label>
-        <div class="custom-input-layout-row">
-          <input type="tel" class="form-control" id="details_fax" name="details_fax{{$i}}" placeholder="Contact Details" value="{{$client->contact_fax ?? ""}}">
+
+      <div class="form-group">
+        <label class="col-sm-2">Contact Details - Fax<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_fax1" placeholder="Contact Details" value="{{$client1->contact_fax ?? ""}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="details_fax2" placeholder="Contact Details" value="{{$client2->contact_fax?? ""}}">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="email_address">E-mail Address</label>
-        <div class="custom-input-layout-row">
-          <input type="email" class="form-control" id="email_address"  name="email_address{{$i}}" placeholder="E-mail Address" value="{{$client->email ?? ""}}">
+
+      <div class="form-group">
+        <label class="col-sm-2">E-mail Address<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="email_address1" placeholder="E-mail Address" value="{{$client1->email ?? ""}}">
+          <span class="noti-alert">(Compulsory for Investment Products)</span>
+        </div>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="email_address2" placeholder="E-mail Address" value="{{$client2->email?? ""}}">
           <span class="noti-alert">(Compulsory for Investment Products)</span>
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="residential_address">Residential Address<span>*</span></label>
-        <div class="custom-input-layout-row">
-          <input type="text" class="form-control" id="residential_address" name="residential_address{{$i}}" placeholder="Residential Address" value="{{$client->residential_address ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Residential Address<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="residential_address1" placeholder="E-mail Address" value="{{$client1->residential_address ?? ""}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="residential_address2" placeholder="E-mail Address" value="{{$client2->residential_address?? ""}}">
         </div>
       </div>
-      <div class="form-group form-layout-row">
-        <label for="mailing_address">Mailing Address</label>
-        <div class="custom-input-layout-row">
-          <input type="email" class="form-control" id="mailing_address" name="mailing_address{{$i}}" placeholder="Mailing Address" value="{{$client->mailing_address ?? ""}}" data-parsley-trigger="change">
+
+      <div class="form-group">
+        <label class="col-sm-2">Mailing Address<span>*</span></label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="mailing_address1" placeholder="Mailing Address" value="{{$client1->mailing_address ?? ""}}">
+          <span class="noti-alert">(Compulsory for Investment Products)</span>
+        </div>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="mailing_address2" placeholder="Mailing Address" value="{{$client2->mailing_address?? ""}}">
           <span class="noti-alert">(if different from Residential Address)</span>
         </div>
       </div>
-    </div>
-    @endfor
+
       <div class="action-form">
           <button type="submit" class="btn btn-primary mb-2 radius_2 style-button1">Next</button>
       </div>
@@ -261,6 +406,9 @@
         </ul>
     </div>
 </div>
+<style type="text/css">
+ label {text-align: right;}
+</style>
 @endsection
 
 @section('script')

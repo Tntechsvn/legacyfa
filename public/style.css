@@ -238,6 +238,7 @@ textarea.parsley-error{
 }
 textarea{
 	resize: none;
+	padding:10px 15px;
 }
 .parsley-form,
 .parsley-:form{
@@ -1145,6 +1146,10 @@ a.style-button1{
 	text-align: center;
 	float: left;
 	margin-top: 20px;
+	padding-right: 50%;
+}
+.nav-step .style-button1{
+
 }
 .nav-step.form-group-modal{
 	float: none;
@@ -1153,6 +1158,10 @@ a.style-button1{
 	display: inline-block;
 	margin-left: 5px;
 	margin-right: 5px;
+}
+
+.nav-step .style-button1{
+	float: left;
 }
 /* HOME SEARCH TABLE */
 .header-table-style1{
@@ -1662,10 +1671,18 @@ body.show_form_login{
 }
 
 .bottom-step{
-	width:100%;
+	width:50%;
 	margin-bottom:20px;
 	background: none; 
-	float: left;
+	float: right;
+	position: relative;
+}
+.bottom-step ul{
+	position: absolute;
+	right: 15px;
+	width: auto;
+	top:-98px;
+	width:auto;
 }
 
 
@@ -1952,4 +1969,10 @@ input.form-check-input[type=checkbox]{
 
 .minwidthlable label{
 	min-width: 100px;
+}
+.step10area{
+	width: 100%;
+}
+.other_language_text{
+	display: none;
 }
