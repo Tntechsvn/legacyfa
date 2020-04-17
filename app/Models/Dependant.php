@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Carbon\Carbon;
+
 class Dependant extends Model
 {
     use SoftDeletes;
@@ -68,6 +70,10 @@ class Dependant extends Model
 		} else{
 			return "Female";
 		}
+	}
+	public function getBirthdayAttribute()
+	{
+		return Carbon::parse($this->dob)->format('d-m-Y');
 	}
 	/*END ATTRIBUTE*/
 }

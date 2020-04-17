@@ -4,10 +4,12 @@
 
 
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>List Trash Of Riders:</h4>
-    </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="header-table-style2">
+            <div class="title-table-style2">
+                <h3>List Trash Of Riders</h3>
+            </div>
+        </div>
         <table id="list-trash-rider" class="table table-content table-style1" style="width:100%">
             <thead>
                 <tr>

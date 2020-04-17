@@ -3,35 +3,20 @@
 @section('content')
 
 <div class="maincontent">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth">
-        <h4>List User:</h4>
-    </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="addnewelm">
-            <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"><i class="fas fa-plus-circle"></i> Add User</button>
-            <a class="pull-right link-trash textright" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
-            <div class="search-fn search-innerpage">
-                <form class="pull-right" method="get" action="">
-                    <input type="text" name="keyword" placeholder="Keyword.." value="{{$_GET['keyword'] ?? ""}}">
-                    <i class="fa fa-search adius_2"></i>
-                </form>
-            </div>
-        </div>
-        <div class="header-table-style1">
-            <div class="title-table-home">
-                <a class="link-innerpage" href="{{route('pfr.list')}}">
-                    <span class="name-table">List User:</span>
-                </a>
+        <div class="header-table-style2">
+            <div class="title-table-style2">
+                <h3>List User</h3>
             </div>
             <div class="action-table-style">
-                <button type="button" class="btn btn-primary add_new" data-url="{{route('user.add_new')}}"><i class="fas fa-plus-circle"></i> Add User</button>
-                <div class="search-table-home search-fn">
-                    <form class="pull-right" method="get" action="{{route('pfr.list')}}">
-                        <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
+                <div class="search-table search-fn">
+                    <form class="radius_4" method="get" action="{{route('pfr.list')}}">
+                        <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
                         <i class="fa fa-search radius_2"></i>
                     </form>
                 </div>
-                <a class="pull-right link-trash textright" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
+                <button type="button" class="btn btn-primary add_new radius_4" data-url="{{route('user.add_new')}}"><i class="fas fa-plus"></i></button> 
             </div>
         </div>
         <table id="list-user" class="table table-content table-style1" style="width:100%">
