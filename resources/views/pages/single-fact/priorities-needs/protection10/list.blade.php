@@ -167,6 +167,7 @@
                 $(".time_updated_text").attr("readonly", false);
             }
         });
+        
         $('.beneficiaries-opsl').click(function(){
             var showsl = $(this).val();
             if(showsl == "1"){
