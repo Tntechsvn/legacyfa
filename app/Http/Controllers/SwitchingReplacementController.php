@@ -18,11 +18,7 @@ class SwitchingReplacementController extends Controller
 	public function switchingReplacement($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		if ($infoPfr->switchingReplacement) {
-			$data = $infoPfr->switchingReplacement->data;
-			$note = $infoPfr->switchingReplacement->note;
-		}
-		return view('pages.single-fact.switchingreplacement.list', compact('infoPfr', 'data', 'note'));
+		return view('pages.single-fact.switchingreplacement.list', compact('infoPfr'));
 	}
 
 	public function addNewAffordabilitySwitchingReplacement(Request $request, $idPfr)
@@ -43,6 +39,7 @@ class SwitchingReplacementController extends Controller
 		$validator = Validator::make($request->all(), $rules);
 
 		if ($validator->fails()) {
+			return redirect()->back()->withErrors($validator->errors());
 			return response()->json([
 				'error' => true,
 				'message' => $validator->errors()
