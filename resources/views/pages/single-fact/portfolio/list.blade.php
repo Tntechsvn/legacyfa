@@ -6,11 +6,11 @@
         <h4>Step 4 - Existing Portfolio:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="addnewelm-style2">
+        <div class="addnewelm-style2 first-addnewelm-style2">
             <h3>PROPERTY</h3>
-            <a class="btn btn-primary" id="add_new_property" data-url="{{route('portfolio.add_new_property', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary addnew-porfolio radius_50" id="add_new_property" data-url="{{route('portfolio.add_new_property', $infoPfr->id)}}"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <table id="property-table" class="table table-style1 table-content" style="width:100%">
+        <table id="property-table" class="table table-bordered table-style1 table-content table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -55,9 +55,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INVESTMENT</h3>
-            <a class="btn btn-primary" id="add_new_investment" data-url="{{route('portfolio.add_new_investment', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary addnew-porfolio radius_50" id="add_new_investment" data-url="{{route('portfolio.add_new_investment', $infoPfr->id)}}"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <table id="investment-table" class="table table-content table-style1" style="width:100%">
+        <table id="investment-table" class="table table-content table-bordered table-style1 table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -98,9 +98,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>SAVINGS</h3>
-            <a class="btn btn-primary" id="add_new_saving" data-url="{{route('portfolio.add_new_saving', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary addnew-porfolio radius_50" id="add_new_saving" data-url="{{route('portfolio.add_new_saving', $infoPfr->id)}}"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <table id="saving-table" class="table table-content table-style1" style="width:100%">
+        <table id="saving-table" class="table table-content table-bordered table-style1 table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -139,9 +139,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>CPF</h3>
-            <a  class="btn btn-primary" id="add_new_cpf" data-url="{{route('portfolio.add_new_cpf', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary addnew-porfolio radius_50" id="add_new_cpf" data-url="{{route('portfolio.add_new_cpf', $infoPfr->id)}}"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <table id="cpf-table" class="table table-content table-style1" style="width:100%">
+        <table id="cpf-table" class="table table-content table-bordered table-style1 table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -180,9 +180,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>INSURANCE</h3>
-            <a  class="btn btn-primary" id="add_new_insurance" data-url="{{route('portfolio.add_new_insurance', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
+            <a  class="btn btn-primary  addnew-porfolio radius_50" id="add_new_insurance" data-url="{{route('portfolio.add_new_insurance', $infoPfr->id)}}"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <table id="insurance-table" class="table table-content table-style1" style="width:100%">
+        <table id="insurance-table" class="table table-content table-bordered table-style1 table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th rowspan="2">SN</th>
@@ -238,7 +238,7 @@
 
     <!-- INSURANCE 2 -->
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <table id="insurance2-table" class="table table-content table-style1" style="width:100%">
+        <table id="insurance2-table" class="table table-content table-bordered table-style1 table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -287,9 +287,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="addnewelm-style2">
             <h3>LOAN</h3>
-            <a class="btn btn-primary" id="add_new_loan" data-url="{{route('portfolio.add_new_loan', $infoPfr->id)}}"><i class="far fa-plus-square"></i></a>
+            <a class="btn btn-primary  addnew-porfolio radius_50" id="add_new_loan" data-url="{{route('portfolio.add_new_loan', $infoPfr->id)}}"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <table id="loan-table" class="table table-content table-style1" style="width:100%">
+        <table id="loan-table" class="table table-content table-bordered table-style1 table-center-text" style="width:100%">
             <thead>
                 <tr>
                     <th>SN</th>
@@ -329,7 +329,7 @@
             </tbody>
         </table>
         <div class="nav-step">
-            <button class="btn btn-primary mb-2 style-button1">Back</button>
+            <a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}" class="style-button1">Back</a>
             <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
         </div> 
     </div>
@@ -441,7 +441,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div>
                     <div class="clear"></div>
@@ -525,7 +525,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -593,7 +593,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -651,7 +651,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -840,7 +840,7 @@
                         </div>
                     </div>  
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -930,7 +930,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                         <div class="clear"></div>
                     </div> 
