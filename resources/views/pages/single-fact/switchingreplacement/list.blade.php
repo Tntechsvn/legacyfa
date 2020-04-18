@@ -8,6 +8,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="protection10" id='protection10' class="" method="post" action="{{route('single_fact.switching_replacement.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
+            @if($errors->any())
+                <h4 class="alert-danger">{{$errors->first()}}</h4>
+            @endif
             <table id="step10" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
                     <tr>
@@ -21,6 +24,7 @@
                             <strong>1a. Have you withdrawn / surrendered / terminated, in part or or in full any existing insurance policy or investment product within the last 12 months? </strong>
                         </td>
                         <td>
+                            @php $data = $infoPfr->switchingReplacement->data ?? []; @endphp
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
                                     <input class="" type="radio" name="name_1a" value="0" @if(isset($data['name_1a'])) @if($data['name_1a'] == 0) {{'checked'}} @endif @else {{'checked'}} @endif>
@@ -190,7 +194,7 @@
                     <tr>
                         <td>Additional Notes</td>
                         <td colspan="2">
-                            <textarea class="step10area" name="note" placeholder="Additional Notes">@if(isset($note)) {{$note}} @endif</textarea>
+                            <textarea class="step10area" name="note" placeholder="Additional Notes">{{$switchingReplacement->note ?? ""}}</textarea>
                         </td>
                     </tr>
                 </tbody>

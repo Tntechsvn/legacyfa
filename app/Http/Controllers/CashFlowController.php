@@ -99,9 +99,9 @@ class CashFlowController extends Controller
 		$edit = false;
 		if ($infoCashFlowForPfr) {
 			$edit = true;
-			$dataIncome = json_decode($infoCashFlowForPfr->income, true);
+			$dataIncome = $infoCashFlowForPfr->income;
 			$dataIncome = $income;
-			$dataExpenses = json_decode($infoCashFlowForPfr->expenses, true);
+			$dataExpenses = $infoCashFlowForPfr->expenses;
 			$dataExpenses = $expenses;
 			$param = [
 				'income' => $dataIncome,
