@@ -11,7 +11,7 @@
             <div class="action-table-style">
                 <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
                 <div class="search-table search-fn">
-                    <form class="radius_4" method="get" action="{{route('pfr.list')}}">
+                    <form class="radius_4" method="get" action="">
                         <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
                         <i class="fa fa-search radius_2"></i>
                     </form>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="form-group form-group-modal reset-label">
                         <label></label>
-                        <a href="javascript:;" class="btn btn-primary mb-2 style-button-reset radius_4 hide-input-password">Click To Change Password?</a>
+                        <a href="javascript:;" class="btn btn-primary mb-2 style-button-reset radius_4 hide-input-password">Click To Change Password <span></span></a>
                     </div>
                     <div class="form-group form-group-modal password-custom-show">
                         <label for="password">Password<span>*</span></label>
@@ -105,8 +105,12 @@
                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="" data-parsley-trigger="change" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
-                    <input type="hidden" id="row" name="row" value="">
+                    <div class="nav-step">
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="radius_4 btn btn-primary mb-2 style-button1">Submit</button>
+                        <input type="hidden" id="row" name="row" value="">
+                    </div>
+                    <div class="clear"></div>
                 </form>
             </div>
         </div>

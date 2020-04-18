@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="nav-step">
-                <button type="button" class="btn btn-primary mb-2 style-button1">Back</button>
+                <a href="{{route('single-fact.show_form_add_new_assessment', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>
