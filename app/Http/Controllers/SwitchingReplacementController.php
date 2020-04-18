@@ -18,9 +18,11 @@ class SwitchingReplacementController extends Controller
 	public function switchingReplacement($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$info = $infoPfr->switchingReplacement->data;
-return $info['name_1a'];
-		return view('pages.single-fact.switchingreplacement.list', compact('infoPfr'));
+		if ($infoPfr->switchingReplacement) {
+			$data = $infoPfr->switchingReplacement->data;
+			$note = $infoPfr->switchingReplacement->note;
+		}
+		return view('pages.single-fact.switchingreplacement.list', compact('infoPfr', 'data', 'note'));
 	}
 
 	public function addNewAffordabilitySwitchingReplacement(Request $request, $idPfr)
@@ -56,6 +58,9 @@ return $info['name_1a'];
 			'name_41' => $request->name_41 != null ? $request->name_41 : "",
 			'name_42' => $request->name_42 != null ? $request->name_42 : "",
 			'name_43' => $request->name_43 != null ? $request->name_43 : "",
+			'name_44' => $request->name_44 != null ? $request->name_44 : "",
+			'name_45' => $request->name_45 != null ? $request->name_45 : "",
+			'name_46' => $request->name_43 != null ? $request->name_46 : "",
 			'name_php0' => $request->name_php0 != null ? $request->name_php0 : "",
 			'name_php1' => $request->name_php1 != null ? $request->name_php1 : "",
 			'name_php2' => $request->name_php2 != null ? $request->name_php2 : "",
@@ -66,16 +71,25 @@ return $info['name_1a'];
 			'name_php7' => $request->name_php7 != null ? $request->name_php7 : "",
 		);
 		$param = array(
-			'pfr_id' => $idPfr,
 			'data' => $data,
 			'note' => $request->note
 		);
-
-		$resultAddNewSwitchingReplacement = $this->switchingReplacement->addNewSwitchingReplacement($param);
-		if ($resultAddNewSwitchingReplacement) {
-			return "success";
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		$infoSwitchingReplacement = $infoPfr->switchingReplacement;
+		$edit = false;
+		if ($infoSwitchingReplacement) {
+			$edit = true;
+			$result = $this->switchingReplacement->editSwitchingReplacement($idPfr, $param);
 		} else {
-			return "error";
+			$param['pfr_id'] = $idPfr;
+			$result = $this->switchingReplacement->addNewSwitchingReplacement($param);
+		}
+		if ($result) {
+			$message = $edit ? "Edit switching replacement successfully" : "Add new switching replacement successfully";
+			return $message;
+		} else {
+			$message = $edit ? "Edit switching replacement error" : "Add new switching replacement error";
+			return $message;
 		}
 	}
 }
