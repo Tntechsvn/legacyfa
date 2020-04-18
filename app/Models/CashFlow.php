@@ -8,6 +8,8 @@ class CashFlow extends Model
 {
     protected $fillable = ['pfr_id', 'income', 'expenses', 'reason_cash_flow', 'reason_plan'];
 
+    protected $casts = ['income' => 'array', 'expenses' => 'array'];
+
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');

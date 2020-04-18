@@ -1,6 +1,6 @@
 @php 
 	$routes = [
-		['single_fact.edit', 'singlefact.dependant.list', 'single-fact.show_form_add_new_assessment'], 
+		['single_fact.edit', 'singlefact.dependant.list', 'single-fact.show_form_add_new_assessment', 'single-fact.show_form_question'], 
 		['single_fact.balance.list'],
 		['single_fact.cash_flow.list'],
 		['portfolio.list'],
@@ -19,16 +19,13 @@
 			'single_fact.priorities_needs.priotection_9',
 			'single_fact.priorities_needs.priotection_10',
 			'single_fact.priorities_needs.priotection_11',
-		]
+		],
+		['single_fact.affordability.list'],
+		['single_fact.analysis_recommendations.client_overview', 'single_fact.analysis_recommendations.plans-recommended'],
+		['single_fact.switching_replacement']
 	];
 @endphp
 @foreach($routes as $key=>$route)
 	@php $active = in_array(Request::route()->getName(), $route) ? 'active' : '' @endphp
 	<li class="{{$active}}"><a href="{{route($route[0], $id)}}">{{$key+1}}</a></li>
 @endforeach
-{{-- @for($i=0;$i<count($routes);$i++)
-	<li class="{{Request::route()->getName() == $routes[$i] ? 'active' : ''}}"><a href="{{route($routes[$i], $id)}}">{{$i+1}}</a></li>
-@endfor --}}
-      <li><a href="javascript:;">8</a></li>
-      <li><a href="javascript:;">9</a></li>
-      <li><a href="javascript:;">10</a></li>
