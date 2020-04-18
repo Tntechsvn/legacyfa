@@ -21,7 +21,7 @@ class AffordabilityController extends Controller
 	public function listAffordability($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$infoAffordability = $this->affordability->infoAffordabilityForPfr($idPfr);
+		$infoAffordability = $infoPfr->affordability;
 		$totalAnnualIncome = $infoPfr->totalAnnualIncome;
 		$totalAnnualExpense = $infoPfr->totalAnnualExpense;
 

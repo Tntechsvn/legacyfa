@@ -21,15 +21,16 @@ class CashFlowController extends Controller
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$totalIncome = 0;
 		$totalExpenses = 0;
-		$infoCashFlow = $this->cashFlow->infoCashFlowForPfr($idPfr);
+		$infoCashFlow = $infoPfr->cashFlow;
+		// $income = (array) $infoPfr->cashFlow->income;
 		$income = [];$expenses = [];
 		if ($infoCashFlow) {
-			$dataIncome = json_decode($infoCashFlow->income, true);
+			$dataIncome = $infoCashFlow->income;
 			$income = $dataIncome[0];
 			foreach($income as $val){
 				$totalIncome += (int) $val;
 			}
-			$dataExpenses = json_decode($infoCashFlow->expenses, true);
+			$dataExpenses = $infoCashFlow->expenses;
 			$expenses = $dataExpenses[0];
 			foreach($expenses as $val){
 				$totalExpenses += (int) $val;
@@ -103,8 +104,8 @@ class CashFlowController extends Controller
 			$dataExpenses = json_decode($infoCashFlowForPfr->expenses, true);
 			$dataExpenses = $expenses;
 			$param = [
-				'income' => json_encode($dataIncome),
-				'expenses' => json_encode($dataExpenses),
+				'income' => $dataIncome,
+				'expenses' => $dataExpenses,
 				'reason_cash_flow' => $reason_cash_flow,
 				'reason_plan' => $reason_plan
 			];
@@ -112,8 +113,8 @@ class CashFlowController extends Controller
 		} else {
 			$param = [
 				'pfr_id' => $idPfr,
-				'income' => json_encode($income),
-				'expenses' => json_encode($expenses),
+				'income' => $income,
+				'expenses' => $expenses,
 				'reason_cash_flow' => $reason_cash_flow,
 				'reason_plan' => $reason_plan
 			];

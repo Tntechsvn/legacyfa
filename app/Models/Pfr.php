@@ -153,9 +153,9 @@ class Pfr extends Model
     public function getTotalAnnualIncomeAttribute()
     {
         $totalAnnualIncome = 0;
-        $listIncome = $this->cashFlow->income;
+        $listIncome = $this->cashFlow->income ?? null;
         if ($listIncome != null) {
-            $arrIncome = json_decode($listIncome);
+            $arrIncome = $listIncome;
             foreach($arrIncome as $income){
                 foreach($income as $key=>$value){
                     $totalAnnualIncome += (int) $value;
@@ -168,9 +168,9 @@ class Pfr extends Model
     public function getTotalAnnualExpenseAttribute()
     {
         $totalAnnualExpense = 0;
-        $listExpense = $this->cashFlow->expenses;
+        $listExpense = $this->cashFlow->expenses ?? null;
         if ($listExpense != null) {
-            $arrExpense = json_decode($listExpense);
+            $arrExpense = $listExpense;
             foreach($arrExpense as $expenses){
                 foreach($expenses as $key=>$value){
                     $totalAnnualExpense += (int) $value;
@@ -183,7 +183,7 @@ class Pfr extends Model
     public function getTotalAssetsAttribute()
     {
         $totalAssets = 0;
-        $listAssets = $this->balance->assets;
+        $listAssets = $this->balance->assets ?? null;
         if ($listAssets != null) {
             $arrAssets = json_decode($listAssets);
             foreach($arrAssets as $assets){
@@ -198,7 +198,7 @@ class Pfr extends Model
     public function getTotalLiabilitiesAttribute()
     {
         $totalLiabilities = 0;
-        $listLoan = $this->portfolio->loan;
+        $listLoan = $this->portfolio->loan ?? null;
         if ($listLoan != null) {
             $arrLoan = json_decode($listLoan);
             foreach($arrLoan as $loan){
