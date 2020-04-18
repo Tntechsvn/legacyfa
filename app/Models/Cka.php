@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cka extends Model
 {
-    protected $fillable = ['pfr_id', 'data', 'reason'];
+	protected $fillable = ['pfr_id', 'data', 'reason'];
 
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
-    public function addNewCka($param)
+	/*QUERY*/
+	public function addNewCka($param)
 	{
 		return static::firstOrCreate($param);
 	}
@@ -27,4 +28,5 @@ class Cka extends Model
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}
+	/*END QUERY*/
 }

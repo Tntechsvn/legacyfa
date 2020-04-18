@@ -61,6 +61,11 @@ class Pfr extends Model
         return $this->hasOne('App\Models\PrioritiesNeed');
     }
 
+    public function switchingReplacement()
+    {
+        return $this->hasOne('App\Models\SwitchingReplacement');
+    }
+
     /*QUERY*/
     public function listPfr($request)
     {

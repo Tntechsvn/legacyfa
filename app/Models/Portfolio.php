@@ -13,6 +13,7 @@ class Portfolio extends Model
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
+	/*QUERY*/
 	public function addNewPortfolio($param)
 	{
 		return static::firstOrCreate($param);
@@ -27,4 +28,5 @@ class Portfolio extends Model
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}
+	/*END QUERY*/
 }

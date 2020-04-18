@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PrioritiesNeed extends Model
+class SwitchingReplacement extends Model
 {
-	protected $fillable = ['pfr_id', 'rate'];
+	protected $fillable = ['pfr_id', 'data', 'note'];
+
+	protected $casts = [
+		'data' => 'array'
+	];
 
 	public function pfr()
 	{
@@ -14,17 +18,17 @@ class PrioritiesNeed extends Model
 	}
 
 	/*QUERY*/
-	public function addNewPrioritiesNeed($param)
+	public function addNewSwitchingReplacement($param)
 	{
 		return static::firstOrCreate($param);
 	}
 
-	public function editPrioritiesNeed($idPfr, $param)
+	public function editSwitchingReplacement($idPfr, $param)
 	{
 		return static::where('pfr_id', $idPfr)->update($param);
 	}
 
-	public function infoPrioritiesNeedForPfr($idPfr)
+	public function infoSwitchingReplacementForPfr($idPfr)
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}

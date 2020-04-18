@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Balance extends Model
 {
-    protected $fillable = ['pfr_id', 'assets', 'liabilities', 'reason'];
+	protected $fillable = ['pfr_id', 'assets', 'liabilities', 'reason'];
 
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
-    public function addNewBalance($param)
+	/*QUERY*/
+	public function addNewBalance($param)
 	{
 		return static::firstOrCreate($param);
 	}
@@ -27,4 +28,5 @@ class Balance extends Model
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}
+	/*END QUERY*/
 }

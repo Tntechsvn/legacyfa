@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClientAa extends Model
 {
-    protected $fillable = ['client_id', 'age', 'english_spoken', 'english_written', 'education_level'];
+	protected $fillable = ['client_id', 'age', 'english_spoken', 'english_written', 'education_level'];
 
-    public function client()
-    {
-    	return $this->belongsTo('App\Models\Client');
-    }
+	public function client()
+	{
+		return $this->belongsTo('App\Models\Client');
+	}
 
-    public function infoClientAaById($id)
+	/*QUERY*/
+	public function infoClientAaById($id)
 	{
 		return static::findOrFail($id);
 	}
@@ -27,4 +28,5 @@ class ClientAa extends Model
 	{
 		return static::where('id', $id)->update($param);
 	}
+	/*END QUERY*/
 }
