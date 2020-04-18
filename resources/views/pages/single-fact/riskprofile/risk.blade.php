@@ -123,7 +123,7 @@
                             });
                         }
                     }else{
-                        location.reload();
+                        window.location.href = res['url'];
                         alert(res['message']);
                     }
                 }
