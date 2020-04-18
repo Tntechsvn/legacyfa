@@ -196,7 +196,7 @@
                 </tbody>
             </table>
             <div class="nav-step">
-                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <a href="{{route('single_fact.analysis_recommendations.plans-recommended', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      

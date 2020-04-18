@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="nav-step">
-                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <a href="{{route('single_fact.risk_profile.list', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      

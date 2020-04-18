@@ -330,7 +330,7 @@
         </table>
         <div class="nav-step">
             <a href="{{route('single_fact.cash_flow.list', $infoPfr->id)}}" class="style-button1">Back</a>
-            <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
+            <a href="{{route('single_fact.risk_profile.list', $infoPfr->id)}}" class="style-button1">Next</a>
         </div> 
     </div>
 </div>
