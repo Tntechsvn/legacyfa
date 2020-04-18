@@ -98,7 +98,7 @@
                 </tbody>
             </table>
             <div class="nav-step">
-                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <a href="javascript:;" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      
