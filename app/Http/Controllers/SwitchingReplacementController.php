@@ -1,13 +1,81 @@
 <?php
 
 namespace App\Http\Controllers;
+use Validator;
+use App\Models\SwitchingReplacement;
+use App\Models\Pfr;
 
 use Illuminate\Http\Request;
 
 class SwitchingReplacementController extends Controller
 {
-    public function switchingReplacement()
+	public function __construct()
 	{
-		return view('pages.single-fact.switchingreplacement.list');
+		$this->pfr = new Pfr;
+		$this->switchingReplacement = new SwitchingReplacement;
+	}
+
+	public function switchingReplacement($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		$info = $infoPfr->switchingReplacement->data;
+return $info['name_1a'];
+		return view('pages.single-fact.switchingreplacement.list', compact('infoPfr'));
+	}
+
+	public function addNewAffordabilitySwitchingReplacement(Request $request, $idPfr)
+	{
+		$rules = [
+			'name_1a' => 'required|in:0,1',
+			'name_1b' => 'required|in:0,1',
+			'name_2' => 'required|in:0,1',
+			'name_php0' => 'required|in:0,1',
+			'name_php1' => 'required|in:0,1',
+			'name_php2' => 'required|in:0,1',
+			'name_php3' => 'required|in:0,1',
+			'name_php4' => 'required|in:0,1',
+			'name_php5' => 'required|in:0,1',
+			'name_php6' => 'required|in:0,1',
+			'name_php7' => 'required|in:0,1'
+		];
+		$validator = Validator::make($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return response()->json([
+				'error' => true,
+				'message' => $validator->errors()
+			], 200);
+		}
+
+		$data = array(
+			'name_1a' => $request->name_1a != null ? $request->name_1a : "",
+			'text_1a' => $request->text_1a != null ? $request->text_1a : "",
+			'name_1b' => $request->name_1b != null ? $request->name_1b : "",
+			'name_2' => $request->name_2 != null ? $request->name_2 : "",
+			'name_3' => $request->name_3 != null ? $request->name_3 : "",
+			'name_41' => $request->name_41 != null ? $request->name_41 : "",
+			'name_42' => $request->name_42 != null ? $request->name_42 : "",
+			'name_43' => $request->name_43 != null ? $request->name_43 : "",
+			'name_php0' => $request->name_php0 != null ? $request->name_php0 : "",
+			'name_php1' => $request->name_php1 != null ? $request->name_php1 : "",
+			'name_php2' => $request->name_php2 != null ? $request->name_php2 : "",
+			'name_php3' => $request->name_php3 != null ? $request->name_php3 : "",
+			'name_php4' => $request->name_php4 != null ? $request->name_php4 : "",
+			'name_php5' => $request->name_php5 != null ? $request->name_php5 : "",
+			'name_php6' => $request->name_php6 != null ? $request->name_php6 : "",
+			'name_php7' => $request->name_php7 != null ? $request->name_php7 : "",
+		);
+		$param = array(
+			'pfr_id' => $idPfr,
+			'data' => $data,
+			'note' => $request->note
+		);
+
+		$resultAddNewSwitchingReplacement = $this->switchingReplacement->addNewSwitchingReplacement($param);
+		if ($resultAddNewSwitchingReplacement) {
+			return "success";
+		} else {
+			return "error";
+		}
 	}
 }

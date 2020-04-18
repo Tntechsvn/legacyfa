@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class RiskProfile extends Model
 {
-    protected $fillable = ['pfr_id', 'data'];
+	protected $fillable = ['pfr_id', 'data'];
 
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
-    public function addNewRiskProfile($param)
+	/*QUERY*/
+	public function addNewRiskProfile($param)
 	{
 		return static::firstOrCreate($param);
 	}
@@ -27,4 +28,5 @@ class RiskProfile extends Model
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}
+	/*END QUERY*/
 }

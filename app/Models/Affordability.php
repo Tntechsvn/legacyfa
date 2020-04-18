@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Affordability extends Model
 {
-    protected $fillable = ['pfr_id', 'payor_detail', 'budget', 'reason'];
+	protected $fillable = ['pfr_id', 'payor_detail', 'budget', 'reason'];
 
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
-    public function addNewAffordability($param)
+	/*QUERY*/
+	public function addNewAffordability($param)
 	{
 		return static::firstOrCreate($param);
 	}
@@ -27,4 +28,5 @@ class Affordability extends Model
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}
+	/*END QUERY*/
 }

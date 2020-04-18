@@ -554,20 +554,28 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'AffordabilityController@addNewAffordability'
 			]);
 		});
+
 		Route::group(['prefix' => 'analysis-recommendations/{id_pfr}'], function(){
 			Route::get('/client-overview', [
 				'as' => 'single_fact.analysis_recommendations.client_overview',
 				'uses' => 'AnalysisRecommendationsController@clientOverview'
 			]);
+
 			Route::get('/plans-recommended', [
 				'as' => 'single_fact.analysis_recommendations.plans-recommended',
 				'uses' => 'AnalysisRecommendationsController@plansRecommended'
 			]);
 		});
+
 		Route::group(['prefix' => 'switching-replacement/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.switching_replacement',
 				'uses' => 'SwitchingReplacementController@switchingReplacement'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.switching_replacement.add_new',
+				'uses' => 'SwitchingReplacementController@addNewAffordabilitySwitchingReplacement'
 			]);
 		});
 	});

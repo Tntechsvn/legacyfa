@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class CashFlow extends Model
 {
-    protected $fillable = ['pfr_id', 'income', 'expenses', 'reason_cash_flow', 'reason_plan'];
+	protected $fillable = ['pfr_id', 'income', 'expenses', 'reason_cash_flow', 'reason_plan'];
 
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
-    public function addNewCashFlow($param)
+	/*END QUERY*/
+	public function addNewCashFlow($param)
 	{
 		return static::firstOrCreate($param);
 	}
@@ -27,4 +28,5 @@ class CashFlow extends Model
 	{
 		return static::where('pfr_id', $idPfr)->first();
 	}
+	/*QUERY*/
 }

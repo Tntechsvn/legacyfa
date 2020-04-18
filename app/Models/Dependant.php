@@ -18,7 +18,7 @@ class Dependant extends Model
 		return $this->belongsTo('App\Models\Pfr');
 	}
 
-	/*END QUERY*/
+	/*QUERY*/
 	public function listDependant()
 	{
 		return static::all();

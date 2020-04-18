@@ -6,7 +6,7 @@
         <h4>Step 10 - Switching / Replacement</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="protection10" id='protection10' class="" method="post" action="" data-parsley-validate>
+        <form name="protection10" id='protection10' class="" method="post" action="{{route('single_fact.switching_replacement.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <table id="step10" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
@@ -23,21 +23,21 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-1a"  value="0" checked >
+                                    <input class="" type="radio" name="name_1a" value="0" checked >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-1a"  value="1">
+                                    <input class="" type="radio" name="name_1a" value="1">
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
                             </label>
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="text-1a" name="text-1a" placeholder="" value="" >
+                            <input type="text" class="form-control" id="text_1a" name="text_1a" placeholder="" value="" >
                         </td>
                     </tr>
                     <tr>
@@ -47,14 +47,14 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-1b"  value="0" checked >
+                                    <input class="" type="radio" name="name_1b" value="0" checked >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-1b"  value="1">
+                                    <input class="" type="radio" name="name_1b" value="1">
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
@@ -70,14 +70,14 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-2"  value="0" checked >
+                                    <input class="" type="radio" name="name_2" value="0" checked >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-2"  value="1">
+                                    <input class="" type="radio" name="name_2" value="1">
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
@@ -91,7 +91,7 @@
                             <strong>3. What are the reason(s) for switching / replacing your insurance policy and/or investment product? </strong>
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="name-3" name="name-3" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_3" name="name_3" placeholder="" value="" >
                         </td>
                         <td>
                         </td>
@@ -106,7 +106,7 @@
                             Company Name:
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name-41" name="name-41" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_41" name="name_41" placeholder="" value="" >
                         </td>
                     </tr>
                      <tr>
@@ -114,7 +114,7 @@
                             Type of Product:
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name-42" name="name-42" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_42" name="name_42" placeholder="" value="" >
                         </td>
                     </tr>
                     <tr>
@@ -122,7 +122,7 @@
                             Premium / Investment Amount ($):
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name-43" name="name-43" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
                         </td>
                     </tr>
                     <tr>
@@ -130,7 +130,7 @@
                             Benefits Provided:
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name-43" name="name-43" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
                         </td>
                     </tr>
                     <tr>
@@ -138,7 +138,7 @@
                             Inception Date:
                         </td>
                         <td colspan="2">
-                            <input type="date" class="form-control" id="name-43" name="name-43" placeholder="" value="" >
+                            <input type="date" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
                         </td>
                     </tr>
                     <tr>
@@ -146,7 +146,7 @@
                             Maturity Date:
                         </td>
                         <td colspan="2">
-                            <input type="date" class="form-control" id="name-43" name="name-43" placeholder="" value="" >
+                            <input type="date" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
                         </td>
                     </tr>
                     @php 
@@ -167,14 +167,14 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-php{{$key}}"  value="0" checked >
+                                    <input class="" type="radio" name="name_php{{$key}}" value="0" checked >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name-php{{$key}}"  value="1">
+                                    <input class="" type="radio" name="name_php{{$key}}" value="1">
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
@@ -187,7 +187,7 @@
                     <tr>
                         <td>Additional Notes</td>
                         <td colspan="2">
-                            <textarea class="step10area" name="notestep10" placeholder="Additional Notes"></textarea>
+                            <textarea class="step10area" name="note" placeholder="Additional Notes"></textarea>
                         </td>
                     </tr>
                 </tbody>
