@@ -78,13 +78,13 @@ class AffordabilityController extends Controller
 			}
 			if ($resultAddAffordability) {
 				$message = $edit ? "Edit affordability successfully" : "Add new affordability successfully";
-				return $message;
+				return redirect()->route('single_fact.analysis_recommendations.client_overview', $idPfr);
 			} else {
 				$message = $edit ? "Edit affordability error" : "Add new affordability error";
-				return $message;
+				return redirect()->route('single_fact.analysis_recommendations.client_overview', $idPfr);
 			}
 		} else {
-			return "Pfr not found";
+			return redirect()->back();
 		}
 	}
 

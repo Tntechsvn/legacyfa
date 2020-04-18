@@ -23,21 +23,21 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_1a" value="0" checked >
+                                    <input class="" type="radio" name="name_1a" value="0" @if(isset($data['name_1a'])) @if($data['name_1a'] == 0) {{'checked'}} @endif @else {{'checked'}} @endif>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_1a" value="1">
+                                    <input class="" type="radio" name="name_1a" value="1" @if(isset($data['name_1a'])) @if($data['name_1a'] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
                             </label>
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="text_1a" name="text_1a" placeholder="" value="" >
+                            <input type="text" class="form-control" id="text_1a" name="text_1a" placeholder="" value=" @if(isset($data['text_1a'])) {{$data['text_1a']}} @endif" >
                         </td>
                     </tr>
                     <tr>
@@ -47,14 +47,14 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_1b" value="0" checked >
+                                    <input class="" type="radio" name="name_1b" value="0"  @if(isset($data['name_1b'])) @if($data['name_1b'] == 0) {{'checked'}} @endif @else {{'checked'}} @endif >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_1b" value="1">
+                                    <input class="" type="radio" name="name_1b" value="1"  @if(isset($data['name_1b'])) @if($data['name_1b'] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
@@ -70,14 +70,14 @@
                         <td>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_2" value="0" checked >
+                                    <input class="" type="radio" name="name_2" value="0" @if(isset($data['name_2'])) @if($data['name_2'] == 0) {{'checked'}} @endif @endif >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_2" value="1">
+                                    <input class="" type="radio" name="name_2" value="1" @if(isset($data['name_2'])) @if($data['name_2'] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
@@ -91,7 +91,7 @@
                             <strong>3. What are the reason(s) for switching / replacing your insurance policy and/or investment product? </strong>
                         </td>
                         <td>
-                            <input type="text" class="form-control" id="name_3" name="name_3" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_3" name="name_3" placeholder="" value="@if(isset($data['name_3'])) {{$data['name_3']}} @endif" >
                         </td>
                         <td>
                         </td>
@@ -106,7 +106,7 @@
                             Company Name:
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name_41" name="name_41" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_41" name="name_41" placeholder="" value="@if(isset($data['name_41'])) {{$data['name_41']}} @endif" >
                         </td>
                     </tr>
                      <tr>
@@ -114,7 +114,7 @@
                             Type of Product:
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name_42" name="name_42" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_42" name="name_42" placeholder="" value="@if(isset($data['name_42'])) {{$data['name_42']}} @endif" >
                         </td>
                     </tr>
                     <tr>
@@ -122,7 +122,7 @@
                             Premium / Investment Amount ($):
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_43" name="name_43" placeholder="" value="@if(isset($data['name_43'])) {{$data['name_43']}} @endif" >
                         </td>
                     </tr>
                     <tr>
@@ -130,7 +130,7 @@
                             Benefits Provided:
                         </td>
                         <td colspan="2">
-                            <input type="text" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
+                            <input type="text" class="form-control" id="name_44" name="name_44" placeholder="" value="@if(isset($data['name_44'])) {{$data['name_44']}} @endif" >
                         </td>
                     </tr>
                     <tr>
@@ -138,7 +138,7 @@
                             Inception Date:
                         </td>
                         <td colspan="2">
-                            <input type="date" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
+                            <input type="date" class="form-control" id="name_45" name="name_45" placeholder="" value="@if(isset($data['name_45'])){{$data['name_45']}}@endif" >
                         </td>
                     </tr>
                     <tr>
@@ -146,7 +146,7 @@
                             Maturity Date:
                         </td>
                         <td colspan="2">
-                            <input type="date" class="form-control" id="name_43" name="name_43" placeholder="" value="" >
+                            <input type="date" class="form-control" id="name_46" name="name_46" placeholder="" value="@if(isset($data['name_46'])){{$data['name_46']}}@endif" >
                         </td>
                     </tr>
                     @php 
@@ -165,16 +165,19 @@
                     <tr>
                         <td><strong>{{ $name }}</strong></td>
                         <td>
+                            @php
+                            $position = 'name_php'.$key;
+                            @endphp
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_php{{$key}}" value="0" checked >
+                                    <input class="" type="radio" name="name_php{{$key}}" value="0"  @if(isset($data[$position])) @if($data[$position] == 0) {{'checked'}} @endif @endif >
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 No
                             </label>
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
-                                    <input class="" type="radio" name="name_php{{$key}}" value="1">
+                                    <input class="" type="radio" name="name_php{{$key}}" value="1" @if(isset($data[$position])) @if($data[$position] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark-radio"></span>
                                 </div>
                                 Yes
@@ -187,7 +190,7 @@
                     <tr>
                         <td>Additional Notes</td>
                         <td colspan="2">
-                            <textarea class="step10area" name="note" placeholder="Additional Notes"></textarea>
+                            <textarea class="step10area" name="note" placeholder="Additional Notes">@if(isset($note)) {{$note}} @endif</textarea>
                         </td>
                     </tr>
                 </tbody>
