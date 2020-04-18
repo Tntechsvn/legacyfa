@@ -65,7 +65,8 @@ class CKAController extends Controller
 			$message = $edit ? "Edit cka successfully" : "Add new cka successfully";
 			return response()->json([
 				'error' => false,
-				'message' => $message
+				'message' => $message,
+				'url' => route('single_fact.priorities_needs.show_form_rate_category', $idPfr)
 			], 200);
 		} else {
 			$message = $edit ? "Edit cka error" : "Add new cka error";

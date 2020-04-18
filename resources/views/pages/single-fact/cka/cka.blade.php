@@ -124,8 +124,6 @@
             }
         });
 
-
-
         $('#cka_form').on('submit', function(e){
             e.preventDefault();
             var data = $(this).serialize();
@@ -145,7 +143,7 @@
                             });
                         }
                     }else{
-                        location.reload();
+                        window.location.href = res['url'];
                         alert(res['message']);
                     }
                 }

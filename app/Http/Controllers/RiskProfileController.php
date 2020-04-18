@@ -65,7 +65,8 @@ class RiskProfileController extends Controller
 			$message = $edit ? "Edit risk profile successfully" : "Add new risk profile successfully";
 			return response()->json([
 				'error' => false,
-				'message' => $message
+				'message' => $message,
+				'url' => route('single_fact.cka.list', $idPfr)
 			], 200);
 		} else {
 			$message = $edit ? "Edit risk profile error" : "Add new risk profile error";
