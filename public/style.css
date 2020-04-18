@@ -1022,6 +1022,18 @@ table.td50 tr td:last-child{
 	border:none;
 	padding:0;
 }
+.modal-body a.style-button-reset{
+	width:auto;
+	padding:0px 15px;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+	text-align:center;
+	background:#000;
+	border:none;
+	float: left;
+	display: block;
+}
 /* ADD NEW FORM */
 .form-style2 h3{
 	margin-bottom: 15px;

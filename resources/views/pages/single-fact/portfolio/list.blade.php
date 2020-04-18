@@ -444,6 +444,7 @@
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div>
+                    <div class="clear"></div>
                 </form>
             </div>
         </div>
@@ -527,6 +528,7 @@
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
+                    <div class="clear"></div>
                 </form>
             </div>
         </div>
@@ -594,6 +596,7 @@
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
+                    <div class="clear"></div>
                 </form>
             </div>
         </div>
@@ -651,6 +654,7 @@
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
+                    <div class="clear"></div>
                 </form>
             </div>
         </div>
@@ -839,6 +843,7 @@
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
+                    <div class="clear"></div>
                 </form>
             </div>
         </div>
@@ -927,6 +932,7 @@
                     <div class="nav-step form-group-modal">
                         <button type="button" class="btn btn-primary mb-2 style-button1">Cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
+                        <div class="clear"></div>
                     </div> 
                 </form>
             </div>

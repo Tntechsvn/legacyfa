@@ -89,16 +89,20 @@
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="" data-parsley-trigger="change" required>
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal reset-label">
+                        <label></label>
+                        <a href="javascript:;" class="btn btn-primary mb-2 style-button-reset radius_4 hide-input-password">Click To Change Password?</a>
+                    </div>
+                    <div class="form-group form-group-modal password-custom-show">
                         <label for="password">Password<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="password" class="form-control" id="password" name="password" value="">
+                            <input type="password" class="form-control" id="password" name="password" value="" data-parsley-trigger="change" required>
                         </div>
                     </div>
-                    <div class="form-group form-group-modal">
+                    <div class="form-group form-group-modal password-custom-show">
                         <label for="password_confirmation">Re-Type Password<span>*</span></label>
                         <div class="custom-input-modal">
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="">
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="" data-parsley-trigger="change" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
@@ -118,6 +122,8 @@
             var modal = $('#modal_add_new');
             var url = $(this).data('url');
             $('#form_add_new').attr('action', url);
+            $('#form_add_new .reset-label').hide();
+            $('#form_add_new .password-custom-show').show();
             modal.find('h5.modal-title.add').removeClass('hidden');
             modal.find('h5.modal-title.edit').addClass('hidden');
             modal.modal('show');
@@ -127,6 +133,9 @@
             var modal = $('#modal_add_new');
             var url = $(this).data('url');
             $('#form_add_new').attr('action', url);
+            $('#form_add_new .reset-label').show();
+            $('#form_add_new .password-custom-show').hide();
+
             modal.find('h5.modal-title.edit').removeClass('hidden');
             modal.find('h5.modal-title.add').addClass('hidden');
 
@@ -145,6 +154,19 @@
 
             modal.modal('show');
         });
+        $(document).on('click', '.style-button-reset', function(e){
+            var optionshow = $(this);
+            if(optionshow.hasClass('hide-input-password')){
+                optionshow.removeClass('hide-input-password').addClass('show-input-password');
+                $('#form_add_new .password-custom-show').show();
+                $('#form_add_new .password-custom-show input').prop("required",true);
+
+            }else{
+                optionshow.removeClass('show-input-password').addClass('hide-input-password');
+                $('#form_add_new .password-custom-show').hide();
+                $('#form_add_new .password-custom-show input').prop("required",false);
+            }
+        });   
 
         $('#form_add_new').on('submit', function(e){
             e.preventDefault();
