@@ -47,7 +47,6 @@ class HomeController extends Controller
         $listCompany = $this->company->listCompany();
         $listCategoryPlan = $this->categoryPlan->listCategoryPlan();
 
-
         return view('pages.home', compact('listPfr','listUser','listPlan', 'listCompany', 'listCategoryPlan'));
     }
 
@@ -55,8 +54,9 @@ class HomeController extends Controller
     {
         $keyword = $request->keyword ?? "";
         $paginate = config('constants.PAGINATE_PFR');
-        $listPfr = $this->pfr->keyword($keyword)->paginate($paginate);
-        // $listPfr = $this->pfr->listPfrPaginate($request, $paginate);
+        $listPfr = $this->pfr->select('pfrs.*')->keyword($keyword)
+        ->groupBy('pfrs.id')->paginate($paginate);
+        //$listPfr = $this->pfr->listPfrPaginate($request, $paginate);
         return view('pages.pfr.list', compact('listPfr'));
     }
 

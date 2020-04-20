@@ -10,14 +10,11 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="header-table-style2">
-           <!--  <div class="title-table-style2">
-                <h3>1.2 - Dependants Information</h3>
-            </div> -->
             <div class="action-table-style">
                 <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('singlefact.dependant.list_trash', $infoPfr->id)}}"><i class="fas fa-trash"></i></a>
                 <div class="search-table search-fn">
                     <form class="radius_4" method="get" action="">
-                        <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
+                        <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ''}}">
                         <i class="fa fa-search radius_2"></i>
                     </form>
                 </div>
@@ -46,11 +43,9 @@
         </table>
         <div class="paginate-style">{{$listDependant->links()}}</div>
         <div class="nav-step">
-<!--             <button class="btn btn-primary mb-2 style-button1">Back</button>
-            <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button> -->
-            <a href="{{route('single_fact.edit', $infoPfr->id)}}" class="style-button1">Back</a>
-            <a href="{{route('single-fact.show_form_add_new_assessment', $infoPfr->id)}}" class="style-button1">Next</a>
-        </div> 
+            <a href="@if($infoPfr->type == 0){{route('single_fact.edit', $infoPfr->id)}}@else{{route('join-fact.edit', $infoPfr->id)}}@endif" class="style-button1">Back</a>
+            <a href="@if($infoPfr->type == 0){{route('single-fact.show_form_add_new_assessment', $infoPfr->id)}}@else{{route('jointfact.show_form_add_new_assessment', $infoPfr->id)}}@endif" class="style-button1">Next</a>
+        </div>
     </div>
 </div>
 <div class="bottom-step">

@@ -194,11 +194,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 	/*Single Fact*/
 	Route::group(['prefix' => 'single-fact'], function(){
-		// Route::get('/', [
-		// 	'as' => 'ListSingleFact',
-		// 	'uses' => 'SingleFactController@listSingleFact'
-		// ]);
-
 		Route::get('add-new', [
 			'as' => 'single-fact.show_form_add_new',
 			'uses' => 'SingleFactController@showFormAddNewSingleFact'
@@ -206,7 +201,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 		Route::post('add-new', [
 			'as' => 'single-fact.add_new',
-			'uses' => 'SingleFactController@addNewSingleFact'
+			'uses' => 'SingleFactController@addNewAndEditSingleFact'
 		]);
 
 		Route::get('{id}', [
@@ -216,7 +211,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 		Route::post('{id}', [
 			'as' => 'single_fact.postedit',
-			'uses' => 'SingleFactController@postEditSingleFact'
+			'uses' => 'SingleFactController@addNewAndEditSingleFact'
 		]);
 		
 		Route::group(['prefix' => 'dependants/{id_pfr}'], function(){
@@ -596,11 +591,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 /*Joint Fact*/
 Route::group(['prefix' => 'joint-fact'], function(){
-		// Route::get('/', [
-		// 	'as' => 'ListSingleFact',
-		// 	'uses' => 'JointFactController@listJointFact'
-		// ]);
-
 	Route::get('add-new', [
 		'as' => 'joint-fact.show_form_add_new',
 		'uses' => 'JointFactController@showFormAddNewJointFact'
@@ -608,7 +598,7 @@ Route::group(['prefix' => 'joint-fact'], function(){
 
 	Route::post('add-new', [
 		'as' => 'joint-fact.add_new',
-		'uses' => 'JointFactController@addNewJointFact'
+		'uses' => 'JointFactController@addNewAndEditJointFact'
 	]);
 
 	Route::get('{id}', [
@@ -618,7 +608,7 @@ Route::group(['prefix' => 'joint-fact'], function(){
 
 	Route::post('{id}', [
 		'as' => 'join-fact.postedit',
-		'uses' => 'JointFactController@postEditJointFact'
+		'uses' => 'JointFactController@addNewAndEditJointFact'
 	]);
 		
 	Route::group(['prefix' => '{id_pfr}'], function(){
@@ -646,12 +636,7 @@ Route::group(['prefix' => 'joint-fact'], function(){
 				'uses' => 'AssessmentController@addNewSingleAssessment'
 			]);
 		});
-
-
-
 	});
-
-	
 });
 
 /* USER */

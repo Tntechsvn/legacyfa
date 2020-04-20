@@ -9,7 +9,7 @@
         <p class="stlstep">1.3 - Client Accompaniment Assessment:</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="form_assessment" id='form_assessment' class="parsley-form form-style2" method="post" action="{{route('single-fact.add_new_assessment', $infoPfr->id)}}" data-parsley-validate>
+        <form name="form_assessment" id='form_assessment' class="parsley-form form-style2" method="post" action="@if($infoPfr->type == 0){{route('single-fact.add_new_assessment', $infoPfr->id)}}@else{{route('jointfact.add_new_assessment', $infoPfr->id)}}@endif" data-parsley-validate>
             @csrf
             <h3>Client 1</h3>
             <div class="form-group  form-layout-row">
@@ -124,7 +124,7 @@
                 <span id="result">You do not need to be accompanied by a TRUSTED INDIVIDUAL</span>
             </div>
             <div class="nav-step">
-                <a href="{{route('singlefact.dependant.list', $infoPfr->id)}}" class="style-button1">Back</a>
+                <a href="@if($infoPfr->type == 0){{route('singlefact.dependant.list', $infoPfr->id)}}@else{{route('jointfact.dependant.list', $infoPfr->id)}}@endif" class="style-button1">Back</a>
                 <button type="submit" class="style-button1">Next</button>
             </div>
             <div class="clear"></div>

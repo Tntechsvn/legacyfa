@@ -12,6 +12,7 @@ $factory->define(App\Models\Client::class, function (Faker $faker) {
 		'gender' => $faker->numberBetween(0, 1),
 		'nric_passport' => $faker->swiftBicNumber,
 		'nationality' => $faker->randomElement(['australian', 'canadian', 'hungarian', 'vietnamese', 'singaporean', 'qatari', 'indian']),
+		'residency' => $faker->randomElement(['singapore-pr', 'employment-pass', 's-pass', 'work-permit', 'dependants-pass', 'student-pass', 'others']),
 		'dob' => $faker->date('Y-m-d'),
 		'marital_status' => $faker->randomElement(['S', 'M', 'W', 'D']),
 		'smoker' => $faker->numberBetween(0, 1),
