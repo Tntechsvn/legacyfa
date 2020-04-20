@@ -438,7 +438,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-1', [
-				'as' => 'single_fact.priorities-needs.add_priotection_1',
+				'as' => 'single_fact.priorities_needs.add_priotection_1',
 				'uses' => 'PrioritiesNeedsController@addProtectionOne'
 			]);
 
@@ -448,7 +448,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-2', [
-				'as' => 'single_fact.priorities-needs.add_priotection_2',
+				'as' => 'single_fact.priorities_needs.add_priotection_2',
 				'uses' => 'PrioritiesNeedsController@addProtectionTwo'
 			]);
 
@@ -458,7 +458,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-3', [
-				'as' => 'single_fact.priorities-needs.add_priotection_3',
+				'as' => 'single_fact.priorities_needs.add_priotection_3',
 				'uses' => 'PrioritiesNeedsController@addProtectionThree'
 			]);
 
@@ -468,7 +468,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-4', [
-				'as' => 'single_fact.priorities-needs.add_priotection_4',
+				'as' => 'single_fact.priorities_needs.add_priotection_4',
 				'uses' => 'PrioritiesNeedsController@addProtectionFour'
 			]);
 
@@ -478,7 +478,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-5', [
-				'as' => 'single_fact.priorities-needs.add_priotection_5',
+				'as' => 'single_fact.priorities_needs.add_priotection_5',
 				'uses' => 'PrioritiesNeedsController@addProtectionFive'
 			]);
 
@@ -488,7 +488,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-6', [
-				'as' => 'single_fact.priorities-needs.add_priotection_6',
+				'as' => 'single_fact.priorities_needs.add_priotection_6',
 				'uses' => 'PrioritiesNeedsController@addProtectionSix'
 			]);
 
@@ -498,7 +498,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-7', [
-				'as' => 'single_fact.priorities-needs.add_priotection_7',
+				'as' => 'single_fact.priorities_needs.add_priotection_7',
 				'uses' => 'PrioritiesNeedsController@addProtectionSeven'
 			]);
 
@@ -508,7 +508,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-8', [
-				'as' => 'single_fact.priorities-needs.add_priotection_8',
+				'as' => 'single_fact.priorities_needs.add_priotection_8',
 				'uses' => 'PrioritiesNeedsController@addProtectionEight'
 			]);
 
@@ -518,7 +518,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-9', [
-				'as' => 'single_fact.priorities-needs.add_priotection_9',
+				'as' => 'single_fact.priorities_needs.add_priotection_9',
 				'uses' => 'PrioritiesNeedsController@addProtectionNine'
 			]);
 
@@ -528,7 +528,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-10', [
-				'as' => 'single_fact.priorities-needs.add_priotection_10',
+				'as' => 'single_fact.priorities_needs.add_priotection_10',
 				'uses' => 'PrioritiesNeedsController@addProtectionTen'
 			]);
 
@@ -538,7 +538,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 
 			Route::post('add-priotection-11', [
-				'as' => 'single_fact.priorities-needs.add_priotection_11',
+				'as' => 'single_fact.priorities_needs.add_priotection_11',
 				'uses' => 'PrioritiesNeedsController@addProtectionEleven'
 			]);
 		});
@@ -578,6 +578,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'SwitchingReplacementController@addNewAffordabilitySwitchingReplacement'
 			]);
 		});
+
+		Route::group(['prefix' => 'client-acknowledgement/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.client_acknowledgement',
+				'uses' => 'ClientsAcknowledgementController@clientAcknowledgement'
+			]);
+		});
+		Route::group(['prefix' => 'representatives-declaration/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.representatives_declaration',
+				'uses' => 'RepresentativesDeclarationController@representativesDeclaration'
+			]);
+		});
+
 	});
 
 /*Joint Fact*/

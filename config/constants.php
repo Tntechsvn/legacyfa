@@ -169,5 +169,104 @@ return [
 				'f' => 'Development / Structuring / Management / Training / Sale / Trading /Research on and Analysis of Investment'
 			]
 		],
-	]
+	],
+
+	'Clients_Acknowledgement' => [
+		[
+			'name' => 'Customer Knowledge Assessment Outcome',
+			'answers' => [
+				'a' => 'I/we acknowledge that I/we have been assessed to the Customer Knowledge Assessment and I/we confirm that I/we to receive advice concerning the unlisted Specified Investment Product from my/our Legacy FA Representative.',
+				'b' => 'I/we acknowledge that I/we have been assessed to the Customer Knowledge Assessment and I/we confirm that I/we to receive advice concerning the unlisted Specified Investment Product from my/our Legacy FA Representative. In this regard, I/we am/are aware that I/we will not be able to rely on Section 27 of the Financial Advisers Act (Cap 110) to file a civil claim against Legacy FA Pte Ltd in the event of a loss. It is my/our responsibility to ensure the suitability of the unlisted Specified Investment Product selected.',
+				'c' => 'I/we acknowledge that I/we have been assessed to the Customer Knowledge Assessment and I/we understand that I/we will need to receive advice concerning the unlisted Specified Investment Product from my/our Legacy FA Representative and accept his/her recommendation(s) to proceed with the purchase of the investment product(s)'
+			]
+		],
+
+		[
+			'name' => 'Replacement / Switching of Existing Insurance Policy/Investment Product',
+			'answers' => [
+				'a' => 'I/we am/are fully aware that I/we may incur fees and charges as a result of (a) the disposal of, or reduction in interest in, an existing insurance policy/investment product; and (b) the acquisition of, or increase in interest in, a new insurance policy/investment product. I/we confirm that I/we wish to proceed with the replacement / switch notwithstanding the fees, charges or disadvantages that may arise could outweigh any potential benefits.I/we will obtain my/our own advice on the tax implications and/or any ancillary implications in relation to the application of the new insurance policy/investment product'
+			]
+		],
+
+		[
+			'name' => 'Procedures, Charges and Restrictions on Withdrawal / Surrender / Claim',
+			'answers' => [
+				'a' => 'I/we acknowledge that my/our Legacy FA Representative has disclosed and explained the procedures, charges, and restrictions on withdrawal, surrender / termination or claim of the product(s) recommended'
+			]
+		],
+
+		[
+			'name' => 'Documents to Receive',
+			'answers' => [
+				'a' => 'Where and are concerned, I/we acknowledge that my/our Legacy FA Representative has informed me/us of the frequency of the reports/statements and source from which I/we could reasonably expect to receive for the product(s) I/we have chosen to purchase.',
+				'b' => 'I/we acknowledge that my Legacy FA Representative has explained the contents within this document and has furnished me/us with the endorsed copy of this document as well as the following documents (where applicable):',
+				'c' => [
+					'c1' => 'Insurance Application Form(s)',
+					'c2' => 'Legacy FA Model Portfolio Fact Sheet(s)',
+					'c3' => 'Benefit Illustration(s)',
+					'c4' => 'Fund Fact Sheet(s)',
+					'c5' => 'Product Summary(ies)',
+					'c6' => 'Product Highlight Sheet(s)',
+					'c7' => 'Your Guide to Life Insurance',
+					'c8' => 'Prospectus(es)',
+					'c9' => 'Your Guide to Health Insurance',
+					'c10' => 'Navigator Schedule - Funds Investment',
+					'c11' => 'Your Guide to Investment-Linked Insurance Plans',
+					'c12' => 'Navigator Account Opening/Subscription Form',
+					'c13' => 'Fund Summary(ies)',
+					'c14' => 'Havenport Investment Account Opening Form'
+				],
+			],
+		],
+		[
+			'name' => 'Personal Data Collection & Marketing Consent',
+			'answers' => [
+				'a' => 'I/we hereby give my/our consent to Legacy FA Pte Ltd to collect, use, and/or disclose my/our personal data for the purpose of performing financial needs analysis and planning, including providing financial advice, product recommendation and reviews of my/our financial plans',
+				'b' => 'I/we hereby give my/our consent to Legacy FA Pte Ltd to contact me/us regarding any marketing and promotional materials on financial products and services.'
+			]
+		],
+		[
+			'name' => 'Personal Data Collection & Marketing Consent',
+			'answers' => [
+				'a' => 'I/we hereby give my/our consent to Legacy FA Pte Ltd to collect, use, and/or disclose my/our personal data for the purpose of performing financial needs analysis and planning, including providing financial advice, product recommendation and reviews of my/our financial plans',
+				'b' => 'I/we hereby give my/our consent to Legacy FA Pte Ltd to contact me/us regarding any marketing and promotional materials on financial products and services.'
+			]
+		],
+	],
+	'Representatives_Declaration' => [
+		[
+			'name' => 'Representative\'s Declaration',
+			'answers' => [
+				'a' => '1.Where applicable,I have explained to the client the possible disadvantages of product switching / replacement and informed him/her of other options available besides product switching / replacement',
+				'b' => '2.Where applicable, I have also explained the basis for product switching / replacement and why the product switch / replacement is suitable for the client below:',
+				'c' => '3.The recommendation(s) made by me is/are based on the above needs analysis which has taken into account the information disclosed by the client in this \'Personal Financial Record\'.',
+				'd' => '4.The information provided to me in this \'Personal Financial Record\' is strictly confidential and is only to be used for the purpose of fact-finding as part of the process of recommending suitable insurance/investment product(s) and shall not be used for any other purposes.'
+			]
+		],
+	],
+	'Supervisory_Checklist' => [
+		[
+			'name' => 'Supervisory Checklist for \'Personal Financial Record\'',
+			'answers' => [
+				'a' => 'All information required in this \'Personal Financial Record\' were fully obtained and documented.',
+				'b' => 'The client\'s objective(s) to be addressed, including the shortfall amount ($), is/are clearly established. Satisfactory Unsatisfactory Remar',
+				'c' => 'The premium/investment amount proposed to meet the client\'s objective(s) is within the client\'s budget',
+				'd' => 'Reasons for recommendation(s) / deviation / switching / replacement are appropriate and were clearly explained.',
+				'e' => 'The product features, benefits, limitations and risks of the plan(s) recommended were highlighted correctly.'
+			]
+		],
+	],
+	'response_questions' => [
+		[
+			'name' => 'Please indicate the client\'s response during the call-back on ALL of the following questions:',
+			'answers' => [
+				'a' => 'Is the client proficient in spoken English?',
+				'b' => 'Would the client be required to have a Trusted Individual?',
+				'c' => 'Did the FA Representative ask about the client\'s financial situation, investment objective and risk appetite before product recommendation?',
+				'd' => 'Did the FA Representative explain about the suitability of the product(s)?',
+				'e' => 'Did the FA Representative explain on risks and limitations of the product(s)?',
+				'f' => 'Did the FA Representative mention the premium amount of the product(s)?'
+				]
+		]
+	],
 ];

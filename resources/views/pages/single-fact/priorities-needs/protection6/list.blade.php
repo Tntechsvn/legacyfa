@@ -9,7 +9,7 @@
         <p class="stlstep">7.6 - SAVINGS & INVESTMENT <span>(Retirement Lifestyle)</span></p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="protection1" id='protection1' class="" method="post" action="{{route('single_fact.priorities-needs.priotection_1', $infoPfr->id)}}" data-parsley-validate>
+        <form name="protection1" id='protection1' class="" method="post" action="{{route('single_fact.priorities_needs.priotection_1', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <table id="protection6-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>

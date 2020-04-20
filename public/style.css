@@ -2041,3 +2041,37 @@ input.form-check-input[type=checkbox]{
 .table-center-text.table-style1 td{
 	text-align: center;
 }
+
+/* Step 12 */
+.question-setp12{
+	width:100%;
+	float:left;
+	padding:10px 0px;
+}
+.content-check-step12{
+	width: 100%;
+	float: left;
+}
+.list-child1{
+	margin-bottom:10px;
+	width: 100%;
+	float: left;
+}
+.content-check-step12 .list-child1 > label{
+	font-weight: 400;
+	width:90%;
+	float: left;
+}
+.content-check-step12 .check-step12{
+	width:10%;
+	float: left;
+}
+.list-child2{
+	width: 50%;
+	float: left;	
+}
+.content-check-step12 .list-child2 > label{
+	font-weight: 400;
+	width:90%;
+	float: left;
+}
