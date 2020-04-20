@@ -22,7 +22,7 @@
         <div class="form-group form-layout-row">
           <label for="single_name">Name<span>*</span></label>
           <div class="custom-input-layout-row">
-            <input type="text" class="form-control" id="single_name" name="single_name" placeholder="Name" value="{{$infoPfr->client1->name ?? ""}}" data-parsley-trigger="change" required="">
+            <input type="text" class="form-control" id="single_name" name="single_name" placeholder="Name" value="{{$infoPfr->client1->name ?? ''}}" data-parsley-trigger="change" required="">
             <span class="noti-alert">(as in NRIC / Passport)</span>
           </div>
         </div>
@@ -48,7 +48,7 @@
         <div class="form-group form-layout-row">
           <label for="passport_no">NRIC/Passport No<span>*</span></label>
           <div class="custom-input-layout-row">
-            <input type="text" class="form-control" id="passport_no" name="passport_no" placeholder="NRIC/Passport No" value="{{$infoPfr->client1->nric_passport ?? ""}}" data-parsley-trigger="change" required="">
+            <input type="text" class="form-control" id="passport_no" name="passport_no" placeholder="NRIC/Passport No" value="{{$infoPfr->client1->nric_passport ?? ''}}" data-parsley-trigger="change" required="">
           </div>
         </div>
         <div class="form-group form-layout-row">
@@ -72,13 +72,13 @@
                       'employment-pass' => 'Employment Pass',
                       's-pass' => 'S-Pass',
                       'work-permit' => 'Word Permit',
-                      'dependants-pass' => 'Dependant\'s Pass<',
-                      'student-pass' => 'Student Pass<',
+                      'dependants-pass' => 'Dependant\'s Pass',
+                      'student-pass' => 'Student Pass',
                       'others' => 'Others'
                   ];
               @endphp
               @foreach($residency as $key=>$value)
-                  <option value="{{$key}}" {{isset($infoPfr->client1->select_residency) && $infoPfr->client1->select_residency == $key ? 'selected' : ''}}>{{$value}}</option>
+                  <option value="{{$key}}" {{isset($infoPfr->client1->residency) && $infoPfr->client1->residency == $key ? 'selected' : ''}}>{{$value}}</option>
               @endforeach
             </select> 
             <span class="noti-alert">(To fill up if nationality is not Singaporean)</span>
@@ -114,14 +114,14 @@
               <label class="radio-inline custom-style-radio1">
                   <div class="style-checked">
                       <i class="fas fa-check-circle"></i>
-                      <input type="radio" name="smoker" value="0" checked>
+                      <input type="radio" name="smoker" value="0" @if(isset($infoPfr->client1->smoker)) @if($infoPfr->client1->smoker == 0) {{'checked'}}@endif @else {{'checked'}} @endif>
                   </div>
                   Yes
               </label>
               <label class="radio-inline custom-style-radio1">
                   <div class="style-checked">
                       <i class="far fa-circle"></i>
-                      <input type="radio" name="smoker" value="1">
+                      <input type="radio" name="smoker" value="1" {{isset($infoPfr->client1->smoker) && $infoPfr->client1->smoker == 1 ? 'checked' : ''}}>
                   </div>
                   No 
               </label>
@@ -132,10 +132,10 @@
           <label for="select_employment">Employment Status<span>*</span></label>
           <div class="custom-input-layout-row">
             <select name="select_employment" id="select_employment" class="form-control" data-parsley-trigger="change" required="">
-              @php 
+              @php
                   $employments_status = [
                       'FT' => 'Full time',
-                      'pT' => 'Part time',
+                      'PT' => 'Part time',
                       'SE' => 'Self-Employed',
                       'UN' => 'Unemployed',
                       'RT' => 'Retired',

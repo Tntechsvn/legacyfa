@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    protected $fillable = ['pfr_id', 'title', 'name', 'relationship', 'gender', 'nric_passport', 'nationality', 'dob', 'marital_status', 'smoker', 'employment_status', 'occupation', 'company', 'business_nature', 'income_range', 'contact_home', 'contact_mobile', 'contact_office', 'contact_fax', 'email', 'residential_address', 'mailing_address'];
+    protected $fillable = ['pfr_id', 'title', 'name', 'relationship', 'gender', 'nric_passport', 'nationality', 'residency', 'dob', 'marital_status', 'smoker', 'employment_status', 'occupation', 'company', 'business_nature', 'income_range', 'contact_home', 'contact_mobile', 'contact_office', 'contact_fax', 'email', 'residential_address', 'mailing_address'];
 
     public function clientAa()
     {

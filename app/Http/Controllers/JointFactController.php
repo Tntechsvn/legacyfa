@@ -22,7 +22,7 @@ class JointFactController extends Controller
 		return view('pages.joint-fact.add-new');
 	}
 
-	public function addNewJointFact(Request $request)
+	public function addNewAndEditJointFact(Request $request)
 	{
 		$rules = [
 			'title1' => 'required',
@@ -72,20 +72,26 @@ class JointFactController extends Controller
 				'message' => $validator->errors()
 			], 200);
 		}
+		$edit = false;
+		if (isset($request->id)) {
+			$edit = true;
+			$infoPfr = $this->pfr->infoPfrById($request->id);
+		} else {
+			$paramPfr = array(
+				'user_id' => Auth::id(),
+				'type' => 1
+			);
+			$infoPfr = $this->pfr->addNewPfr($paramPfr);
+		}
 
-		$paramPfr = array(
-			'user_id' => Auth::id(),
-			'type' => 1
-		);
-		$resultAddPfr = $this->pfr->addNewPfr($paramPfr);
-		if ($resultAddPfr) {
+		if ($infoPfr) {
 			$paramClient1 = array(
-				'pfr_id' => $resultAddPfr->id,
 				'title' => $request->title1,
 				'name' => $request->join_name1,
 				'gender' => $request->sex1,
 				'nric_passport' => $request->passport_no1,
 				'nationality' => $request->select_nationality1,
+				'residency' => $request->select_residency1,
 				'dob' => $request->birthday1,
 				'marital_status' => $request->select_marital1,
 				'smoker' => $request->smoker1,
@@ -103,22 +109,28 @@ class JointFactController extends Controller
 				'mailing_address' => $request->mailing_address1,
 			);
 
-			$resultAddClient1 = $this->client->addNewClient($paramClient1);
-			if (! $resultAddClient1) {
+			if ($edit) {
+				$resultClient1 = $this->client->editClient($infoPfr->clients[0]->id, $paramClient1);
+			} else {
+				$paramClient1['pfr_id'] = $infoPfr->id;
+				$resultClient1 = $this->client->addNewClient($paramClient1);
+			}
+			if (! $resultClient1) {
+				$message = $edit ? "Edit client 1 error" : "Add new client 1 error";
 				return response()->json([
 					'error' => true,
-					'message' => "Add new client error"
+					'message' => $message
 				], 200);
 			}
 
 			$paramClient2 = array(
-				'pfr_id' => $resultAddPfr->id,
 				'title' => $request->title2,
 				'name' => $request->join_name2,
 				'relationship' => $request->relationship,
 				'gender' => $request->sex2,
 				'nric_passport' => $request->passport_no2,
 				'nationality' => $request->select_nationality2,
+				'residency' => $request->select_residency2,
 				'dob' => $request->birthday2,
 				'marital_status' => $request->select_marital2,
 				'smoker' => $request->smoker2,
@@ -136,43 +148,40 @@ class JointFactController extends Controller
 				'mailing_address' => $request->mailing_address2,
 			);
 
-			$resultAddClient2 = $this->client->addNewClient($paramClient2);
-			if ($resultAddClient2) {
+			if ($edit) {
+				$resultClient2 = $this->client->editClient($infoPfr->clients[1]->id, $paramClient2);
+			} else {
+				$paramClient2['pfr_id'] = $infoPfr->id;
+				$resultClient2 = $this->client->addNewClient($paramClient2);
+			}
+			if ($resultClient2) {
+				$message = $edit ? "Edit client successfully" : "Add new client successfully";
 				return response()->json([
 					'error' => false,
-					'message' => "Add new client successfully"
+					'message' => $message,
+					'url' => route('jointfact.dependant.list', $infoPfr->id)
 				], 200);
 			} else {
+				$message = $edit ? "Edit client 2 error" : "Add new client 2 error";
 				return response()->json([
 					'error' => true,
-					'message' => "Add new client error"
+					'message' => $message
 				], 200);
 			}
 		} else {
+			$message = $edit ? "Pfr not found" : "Add new pfr error";
 			return response()->json([
 				'error' => true,
-				'message' => "Add new pfr error"
+				'message' => $message
 			], 200);
 		}
 	}
 
-    public function editJointFact(Request $request) {
-        $infoPfr = $this->pfr->find($request->id);
-        if(!$infoPfr) return abort(404);
-        if($infoPfr->type == 0)
-            return redirect(route('single_fact.edit', $infoPfr->id));
-        return view('pages.joint-fact.add-new', compact('infoPfr'));
-    }
-
-    public function postEditJointFact(Request $request) {
-        $infoPfr = $this->pfr->find($request->id);
-        if(!$infoPfr) {
-        	return response()->json([
-					'error' => false,
-					'message' => "Edit client successfully",
-                    'url' => route('jointfact.dependant.list', $infoPfr->id)
-				], 200);
-    	}
-    }
-
+	public function editJointFact(Request $request) {
+		$infoPfr = $this->pfr->find($request->id);
+		if(!$infoPfr) return abort(404);
+		if($infoPfr->type == 0)
+			return redirect(route('single_fact.edit', $infoPfr->id));
+		return view('pages.joint-fact.add-new', compact('infoPfr'));
+	}
 }
