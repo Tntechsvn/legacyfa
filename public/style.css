@@ -355,9 +355,11 @@ body{
 	display: none;
 }
 /* hover menu */
+.mainmenu li.active >a,
 .mainmenu li:hover > a{
 	color:#02c39a;
 }
+.mainmenu li.active >a >i,
 .mainmenu li:hover > a > i{
 	color:#02c39a;
 }
@@ -1354,6 +1356,7 @@ body.show_form_login{
 	margin-top:5px;
 }
 .login-style input{
+	border:1px solid rgba(0,0,0,0);
 	border-bottom:1px solid #0054a4;
 	box-shadow: none;
 	background:none;

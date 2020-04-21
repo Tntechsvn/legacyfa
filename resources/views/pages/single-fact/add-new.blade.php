@@ -241,7 +241,12 @@
     </form>
   </div>
 </div>
-@include('pages.navigation', ['id' => $infoPfr->id])
+
+@if(!isset($infoPfr))
+@else
+    @include('pages.navigation', ['id' => $infoPfr->id])
+@endif  
+
 @endsection
 
 @section('script')

@@ -593,6 +593,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'SupervisorsReviewController@supervisorsReview'
 			]);
 		});
+		Route::group(['prefix' => 'client-survey/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.client_survey',
+				'uses' => 'SurveyController@clientSurvey'
+			]);
+		});
 
 	});
 
