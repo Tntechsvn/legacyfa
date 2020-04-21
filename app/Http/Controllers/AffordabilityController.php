@@ -38,11 +38,11 @@ class AffordabilityController extends Controller
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		if ($infoPfr) {
 			$payor = array(
-				'payor_for' => $request->payor_for_client,
-				'relationship' => $request->payor_relationship,
-				'name' => $request->payor_name,
-				'nric' => $request->payor_nric,
-				'occupation' => $request->payor_occupation,
+				'payor_for' => $request->payor_for_client ? $request->payor_for_client : "",
+				'relationship' => $request->payor_relationship ? $request->payor_relationship : "",
+				'name' => $request->payor_name ? $request->payor_name : "",
+				'nric' => $request->payor_nric != null ? $request->payor_nric : "",
+				'occupation' => $request->payor_occupation != null ? $request->payor_occupation : "",
 				'income_range' => $request->income_range != null ? $request->income_range : "",
 			);
 
