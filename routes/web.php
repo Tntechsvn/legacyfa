@@ -586,6 +586,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'RepresentativesDeclarationController@representativesDeclaration'
 			]);
 		});
+		Route::group(['prefix' => 'supervisors-review/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.supervisors_review',
+				'uses' => 'SupervisorsReviewController@supervisorsReview'
+			]);
+		});
 
 	});
 

@@ -9,7 +9,7 @@
         <p class="stlstep">7.1 - PROTECTION <span>(Income Protection Upon Death)</span></p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="protection1" id='protection1' class="" method="post" action="{{route('single_fact.priorities-needs.add_priotection_1', $infoPfr->id)}}" data-parsley-validate>
+        <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
             @csrf
             <table id="protection1-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
@@ -204,15 +204,6 @@
         </form>      
     </div>
 </div>
-<div class="bottom-step">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-        <ul>
-            @if(!isset($infoPfr))
-            @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
-            @endif
-        </ul>
-    </div>
-</div>
+@include('pages.navigation', ['id' => $infoPfr->id])
 @endsection
 

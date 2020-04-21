@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
     <link href="{{asset('style.css')}}" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main-new.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/newcss.css')}}">
     
 </head>
 <body class="{{Route::currentRouteName()}}">

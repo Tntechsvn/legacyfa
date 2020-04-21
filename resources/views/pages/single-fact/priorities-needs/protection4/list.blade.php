@@ -9,7 +9,7 @@
         <p class="stlstep">7.4 - SAVINGS & INVESTMENT <span>(Fund Children's Education)</span></p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="protection1" id='protection1' class="" method="post" action="{{route('single_fact.priorities_needs.priotection_1', $infoPfr->id)}}" data-parsley-validate>
+        <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
             @csrf
             <table id="protection4-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
@@ -219,15 +219,6 @@
         </form>      
     </div>
 </div>
-<div class="bottom-step">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-        <ul>
-            @if(!isset($infoPfr))
-            @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
-            @endif
-        </ul>
-    </div>
-</div>
+@include('pages.navigation', ['id' => $infoPfr->id])
 @endsection
 

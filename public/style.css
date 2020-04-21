@@ -13,6 +13,19 @@ Text Domain: twentysixteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+/* SITE MAP CSS
+	2X  - MAIN STYLE
+	17X - Form  Style
+	27X - SIDEBAR
+	49X - HEADER SITE
+	6xx - Main ConTent Default
+	8xx - Table custom  table-style1
+	9xx - MODAL
+
+
+
+
 /* MAIN STYLE */
 
 html, body, div, span, applet, object, iframe,
@@ -44,12 +57,10 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-/* remember to define focus styles! */
 :focus {
 	outline: 0;
 	text-decoration: none;
 }
-/* remember to highlight inserts somehow! */
 ins {
 	text-decoration: none;
 }
@@ -170,13 +181,12 @@ img.aligncenter{
 .radius_8{-webkit-border-radius: 8px; -moz-border-radius: 8px;-o-border-radius: 8px; border-radius: 8px;}
 .radius_50{-webkit-border-radius: 50%; -moz-border-radius: 50%;-o-border-radius: 50%; border-radius: 50%;}
 
-/* Form */
+/* Form  Style */
 .form-group{
 	clear: both;
 	width: 100%;
 	float: left;
 }
-
 .form-group select{
    -webkit-appearance: none;
    -moz-appearance: none;
@@ -185,14 +195,24 @@ img.aligncenter{
    background-repeat: no-repeat;
    background-position: right 10px top 16px;
 }
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
 .form-group select,
 .form-group input{
 	width:100%;
 	height:40px;
 	line-height:38px;
-	border:1px solid rgba(0,0,0,0);
+	border:1px solid #ccc;
 	padding:0px 15px;
 }
+
 .parsley-errors-list{
 	color:#ff0303;
 	padding-top: 3px;
@@ -241,10 +261,11 @@ textarea{
 	padding:10px 15px;
 }
 .parsley-form,
-.parsley-:form{
+.parsley-form1{
 	width:100%;
 	float:left;
 }
+
 /* STYLE THEMES */
 body{
 	background:#f4f4f1;
@@ -253,8 +274,8 @@ body{
 	line-height: 24px;
 	color:#333;
 }
-/* siderbar */
 
+/* SIDEBAR  */
 .fixed-sidebar {
   position: fixed;
   z-index: 22;
@@ -263,7 +284,6 @@ body{
   left:0;
   top:0;
 }
-
 .sidebar--small{
 	width:60px;
 	height:auto;
@@ -475,7 +495,11 @@ li.has-child{
 .main{
 	background:#f4f4f1;
 	padding-left:75px;
+	transition: all 100ms ease-out;
 }
+
+/* HEADER SITE*/
+
 .header{
 	background:#02c39a;
 	margin-left:-15px;
@@ -574,7 +598,7 @@ li.has-child{
 }
 
 
-/* maincontent */
+/* Main ConTent Default  */
 .maincontent{
 	width:100%;
 	margin-top:15px;
@@ -772,7 +796,7 @@ li.has-child{
 .ct-page{
 	padding-top: 30px;
 }
-/* Table custom */
+/* Table custom  table-style1 */
 .table-style1 > thead > tr > th{
 	font-weight: 700;
 	background:#f3f3f3;
@@ -879,57 +903,6 @@ table.td50 tr td:last-child{
 	font-size: 16px;
 }
 
-/* INNER PAGE */
-.addnewelm{
-	width:100%;
-	height:auto;
-	padding-top:20px;
-	padding-bottom: 2px;
-}
-.addnewelm button{
-	height:35px;
-	width:auto;
-	border:none;
-	color:#fff;
-	-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;
-	background:#00aeef;
-	padding:0 15px;
-	text-align: center;
-	line-height:35px;
-}
-.addnewelm button i{
-	margin-right:5px;
-}
-
-
-
-/* MAIN */
-.main{
-	transition: all 100ms ease-out;
-}
-/* STEP LINK */
-.step-link ul{
-	width:450px;
-	margin:10px auto;
-}
-.step-link ul li{
-	width:45px;
-	height:45px;
-	float: left;
-}
-.step-link ul li a{
-	width:45px;
-	height:45px;
-	line-height: 43px;
-	text-align: center;
-	display: block;
-	background: #fff;
-}
-.step-link ul li.active a{
-	background:#02c39a;
-	border:1px solid #02c39a;
-	color:#fff;
-}
 /* MODAL */
 .modal-dialog{
 	width:90%;
@@ -972,7 +945,7 @@ table.td50 tr td:last-child{
 	margin-right: auto;
 	display: block;
 }
-/* MODAL FORM */
+
 .form-group-modal{
 	padding-left:65px;
 	padding-right:65px;
@@ -1277,6 +1250,54 @@ a.style-button1{
 	max-width: 450px;
 	width:50%;
 	height: 45px;
+}
+
+/* INNER PAGE */
+.addnewelm{
+	width:100%;
+	height:auto;
+	padding-top:20px;
+	padding-bottom: 2px;
+}
+.addnewelm button{
+	height:35px;
+	width:auto;
+	border:none;
+	color:#fff;
+	-webkit-border-radius: 2px; -moz-border-radius: 2px;-o-border-radius: 2px; border-radius: 2px;
+	background:#00aeef;
+	padding:0 15px;
+	text-align: center;
+	line-height:35px;
+}
+.addnewelm button i{
+	margin-right:5px;
+}
+
+
+
+/* STEP LINK */
+.step-link ul{
+	width:450px;
+	margin:10px auto;
+}
+.step-link ul li{
+	width:45px;
+	height:45px;
+	float: left;
+}
+.step-link ul li a{
+	width:45px;
+	height:45px;
+	line-height: 43px;
+	text-align: center;
+	display: block;
+	background: #fff;
+}
+.step-link ul li.active a{
+	background:#02c39a;
+	border:1px solid #02c39a;
+	color:#fff;
 }
 
 /* Login Page */
@@ -2075,3 +2096,4 @@ input.form-check-input[type=checkbox]{
 	width:90%;
 	float: left;
 }
+

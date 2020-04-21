@@ -55,7 +55,7 @@
           <label for="select-country">Nationality<span>*</span></label>
           <div class="custom-input-layout-row">
             <select id="select_nationality" name="select_nationality" data-parsley-trigger="change" required="">
-              <option value="">-- select one --</option>
+              <option value="">Select</option>
               @foreach($nationalities as $key=>$n)
                 <option value="{{$key}}" {{isset($infoPfr->client1->nationality) && $infoPfr->client1->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
               @endforeach
@@ -241,16 +241,7 @@
     </form>
   </div>
 </div>
-<div class="bottom-step">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-        <ul>
-            @if(!isset($infoPfr))
-            @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
-            @endif
-        </ul>
-    </div>
-</div>
+@include('pages.navigation', ['id' => $infoPfr->id])
 @endsection
 
 @section('script')

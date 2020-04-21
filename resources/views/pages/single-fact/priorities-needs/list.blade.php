@@ -5,7 +5,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
         <h4>Step 7 - Priorities & Needs Rating</h4>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page ctpage-step7">
         <p class="note-alert-step7">Please rate all categories according to your priority:</p>
         <form name="priorities_need_form" id='priorities_need_form' class="" method="post" action="{{route('single_fact.priorities_needs.rate_category', $infoPfr->id)}}" data-parsley-validate>
             @csrf
@@ -79,7 +79,6 @@
                                 <span class="checkmark"></span>
                         </td>
                         <td class="style-checked-table2">
-                            <!-- <input type="radio" name="client1goplan{{$key+1}}" id="goplanclient1{{$key+1}}" value="1" {{$checkGoPlan}}> -->
                             <input id="goplanclient1{{$key+1}}" class="form-check-input" value="1" name="client1goplan{{$key+1}}" type="checkbox" {{$checkGoPlan}}>
                             <span class="checkmark"></span>
                         </td>
@@ -249,16 +248,7 @@
         </form>      
     </div>
 </div>
-<div class="bottom-step">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-        <ul>
-            @if(!isset($infoPfr))
-            @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
-            @endif
-        </ul>
-    </div>
-</div>
+@include('pages.navigation', ['id' => $infoPfr->id])
 @endsection
 
 @section('script')
