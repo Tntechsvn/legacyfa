@@ -11,6 +11,8 @@ class CompanyController extends Controller
 {
 	public function __construct()
 	{
+        $this->middleware('roleMiddleware');
+
 		$this->company = new Company;
 	}
 

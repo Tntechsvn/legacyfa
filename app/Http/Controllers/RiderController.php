@@ -12,6 +12,8 @@ class RiderController extends Controller
 {
 	public function __construct()
 	{
+        $this->middleware('roleMiddleware');
+
 		$this->rider = new Rider;
 		$this->plan = new Plan;
 	}

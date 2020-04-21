@@ -15,6 +15,8 @@ class UserController extends Controller
 {
 	public function __construct()
 	{
+        $this->middleware('roleMiddleware',['except' => ['showFormLogin','login']]);
+
 		$this->user = new User;
 		$this->role = new Role;
 	}
@@ -22,6 +24,9 @@ class UserController extends Controller
     // 
 	public function showFormLogin()
 	{
+		if(Auth::id()) {
+			return redirect()->route('home');
+		}
 		return view('pages.login');
 	}
 
