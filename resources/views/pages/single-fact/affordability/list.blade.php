@@ -69,7 +69,7 @@
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked">
                                     <i class="fas fa-check-circle"></i>
-                                    <input class="payor_for_client" type="radio" name="payor_for_client" value="0" @if(isset($payor)) @if($payor['payor_for'] == 0){{'checked'}}@endif @endif>
+                                    <input class="payor_for_client" type="radio" name="payor_for_client" value="0" @if(isset($payor)) @if($payor['payor_for'] == 0) {{'checked'}} @endif @else {{'checked'}} @endif>
                                 </div>
                                 Self
                             </label>
@@ -81,6 +81,7 @@
                                 Others
                             </label>
                         </div>
+                        <span>{{$errors->first('payor_for_client')}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -103,6 +104,7 @@
                     <td><strong>Payor Relationship to Client 1:</strong><span>*</span></td>
                     <td>
                         <input type="text" class="form-control" id="payor_relationship" name="payor_relationship" placeholder="$" value="@if(isset($payor)){{$payor['relationship']}}@endif" readonly="">
+                        <span>{{$errors->first('payor_for_client')}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -174,7 +176,7 @@
                 <label class="radio-inline custom-style-radio1">
                     <div class="style-checked">
                         <i class="fas fa-check-circle"></i>
-                        <input class="action-reasons" type="radio" name="state" value="0" @if(isset($infoAffordability)) @if($infoAffordability->reason == null){{'checked'}}@endif @endif>
+                        <input class="action-reasons" type="radio" name="state" value="0" @if(isset($infoAffordability)) @if($infoAffordability->reason == null){{'checked'}}@endif @else{{'checked'}} @endif>
                     </div>
                     No
                 </label>
@@ -188,6 +190,7 @@
             </div>
             <div class="">
                 <textarea name="reason" id="reason" readonly="">@if(isset($infoAffordability)){{$infoAffordability->reason}}@endif</textarea>
+                <span>{{$errors->first('reason')}}</span>
             </div>
         </div>
         <div class="nav-step">

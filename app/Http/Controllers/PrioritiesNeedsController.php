@@ -95,8 +95,8 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit priorities need successfully" : "Add new priorities need successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_INCOME') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, 0);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message,
@@ -182,7 +182,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit income successfully" : "Add new income successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_DISABILITY') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -255,7 +255,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund disability successfully" : "Add new fund disability successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CRITICAL') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -328,7 +328,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund critical successfully" : "Add new fund critical successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CHILDREN') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -468,7 +468,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund saving successfully" : "Add new fund saving successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_RETIREMENT') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -600,7 +600,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit cover successfully" : "Add new cover successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CARE') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -668,7 +668,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund care successfully" : "Add new fund care successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_HOSPITAL') - 1);
-			$nextUrl = $this->getNextUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -943,7 +943,7 @@ class PrioritiesNeedsController extends Controller
 		return $check;
 	}
 
-	private function getMinGoPlan($str, $nextStep)
+	private function getMinGoPlan($str, $thisStep)
 	{
 		$data = json_decode($str, true);
 		$i = 1;
@@ -956,7 +956,7 @@ class PrioritiesNeedsController extends Controller
 			$j = 1;
 			foreach($item as $val){
 				$goPlan = substr($val, -1, 1);
-				if ($j > $nextStep && $goPlan == 1 && $j < $count) {
+				if ($j > $thisStep && $goPlan == 1 && $j < $count) {
 					$minVal = $j;
 				}
 				$j++;
@@ -969,7 +969,30 @@ class PrioritiesNeedsController extends Controller
 		return $min;
 	}
 
-	public function getNextUrl($nextStep, $idPfr)
+	private function getMaxGoPlan($str, $thisStep)
+	{
+		$data = json_decode($str, true);
+		$i = 1;
+		$max = -1;
+		foreach($data as $item){
+			$maxVal = -1;
+			$j = 1;
+			foreach($item as $val){
+				$goPlan = substr($val, -1, 1);
+				if($goPlan == 1 && $j > $maxVal && $j < $thisStep){
+					$maxVal = $j;
+				}
+				$j++;
+			}
+			if($maxVal > $max){
+				$max = $maxVal;
+			}
+			$i++;
+		}
+		return $max;
+	}
+
+	public function getUrl($nextStep, $idPfr)
 	{
 		switch($nextStep){
 			case 1:
