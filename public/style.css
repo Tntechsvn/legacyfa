@@ -1175,8 +1175,37 @@ a.style-button1{
 	padding-right: 50%;
 }
 #modal_checking_log .modal-dialog{
-	max-width: 310px;
+	max-width: 400px;
 }
+#modal_checking_log .table-style1 > tbody > tr > td,
+#modal_checking_log .table-style1 > tbody > tr > th,
+#modal_checking_log .table-style1 > tfoot > tr > td, 
+#modal_checking_log .table-style1 > tfoot > tr > th,
+#modal_checking_log .table-style1 > thead > tr > td, 
+#modal_checking_log .table-style1 > thead > tr > th {
+    padding: 10px 15px;
+}
+#modal_checking_log .table-style1{
+	margin-bottom:0;
+}
+#modal_checking_log .modal-footer{
+	text-align: center;
+}
+#modal_checking_log .modal-footer button{
+	height: 35px;
+	width: 95px;
+	background: #fff;
+	border:1px solid #959595;
+}
+.modal.fade .modal-dialog{
+	left: 50%;
+  	top: 50%;
+  	transform: translate(-50%, -50%);
+  	position: absolute;
+}
+
+
+
 #modal_checking_log .modal-body{
 	padding: 0;
 }
@@ -1433,7 +1462,14 @@ body.show_form_login{
 	color: #a0a0a0;
 	font-weight: 400;
 }
-
+.g-recaptcha >div{
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-style .text-danger{
+	display: block;
+	text-align: center;
+}
 
 .form-group-submit button{
 	width:100%;

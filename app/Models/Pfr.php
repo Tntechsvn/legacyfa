@@ -68,6 +68,7 @@ class Pfr extends Model
         return $this->hasOne('App\Models\SwitchingReplacement');
     }
 
+
     public function clientAcknowledgement()
     {
         return $this->hasOne('App\Models\ClientAcknowledgement');
@@ -78,6 +79,12 @@ class Pfr extends Model
         return $this->hasOne('App\Models\Survey');
     }
     
+    public function activities()
+    {
+        return $this->hasMany('App\Models\PfrActivity');
+
+    }
+
     /*QUERY*/
     public function listPfr($request)
     {
@@ -133,9 +140,9 @@ class Pfr extends Model
     	return optional($this->user)->full_name;
     }
 
-    public function getCreateDateAttribute()
+    public function getCreatedAtAttribute($value)
     {
-    	return date('F d,Y', strtotime($this->created_at));
+    	return date('F d,Y', strtotime($value));
     }
 
     public function getTypePfrAttribute()
@@ -226,6 +233,59 @@ class Pfr extends Model
         }
         return $totalLiabilities;
     }
+
+    public function getStatusNameAttribute(){
+        switch ($this->status) {
+            case 0:
+                return 'pending';
+                break;
+            case 1:
+                return 'approved';
+                break;
+            case 2:
+                return 'cancelled';
+                break;
+            case 3:
+                return 'draft';
+                break;
+            
+            default:
+                return 'None';
+                break;
+        }
+    }
+
+    public function getIsPendingAttribute(){
+        return $this->status === 0;
+    }
+
+    public function getIsApprovedAttribute(){
+        return $this->status === 1;
+    }
+
+    public function approved(){
+        return $this->activities()->where('type', 1)->first();
+    }
+
+    public function getApprovedByAttribute(){
+        if($ac = $this->approved()){
+            return $ac->user->full_name;
+        }
+    }
+
+    public function getApprovedAtAttribute(){
+        if($ac = $this->approved()){
+            return date('F d,Y', strtotime($ac->time));
+        }
+    }
+
+    public function getTrackingLastAttribute(){
+        $ac = $this->activities()->list()->first();
+        if($ac){
+            return "Last Edit ". $ac->time->diffForHumans();
+        }
+    }
+
     /*END ATTRIBUTE*/
     
     /* DOWNLOAD PDF*/
@@ -237,7 +297,9 @@ class Pfr extends Model
     public function scopeUser($query)
     {
         if(Auth::user()->is_agency){
-            return $query->where('user_id', '=', Auth::id());
+            return $query->with(['user'])->where('user_id', '=', Auth::id());
+        }else {
+            return $query->with('user');
         }
     }
 

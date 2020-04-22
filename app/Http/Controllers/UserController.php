@@ -15,7 +15,7 @@ class UserController extends Controller
 {
 	public function __construct()
 	{
-        $this->middleware('roleMiddleware',['except' => ['showFormLogin','login']]);
+        $this->middleware('roleMiddleware',['except' => ['showFormLogin','login', 'logout']]);
 
 		$this->user = new User;
 		$this->role = new Role;
@@ -32,6 +32,9 @@ class UserController extends Controller
 
 	public function login(Request $request)
 	{
+		request()->validate([
+            'g-recaptcha-response' => 'required|captcha',
+        ]);	
 		$user = User::where('email', '=', $request->email)->first();
 		if ($user === null) {
 			session()->put('error', "Your email not exist");
@@ -43,6 +46,7 @@ class UserController extends Controller
 			session()->put('error', "Your password not correct");
 			return redirect()->back();
 		}
+
 	}
 
 	public function logout()

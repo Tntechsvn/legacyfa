@@ -29,7 +29,9 @@
                 <tr>
                     <th>SN</th>
                     <th>Name</th>
+                    @if(!Auth::user()->is_agency)
                     <th>Add By</th>
+                    @endif
                     <th>Create Date</th>
                     <th>Application Type</th>
                     <th>Approved By</th>
@@ -59,6 +61,36 @@
 
 @section('script')
 <script type="text/javascript">
+    $('.pfr_action').on('click', function(){
+        var url = "{{route('pfr.action')}}";
+        var id = $(this).data('id');
+        var type = $(this).data('type');
+        var data = "type="+type+"&id="+id;
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: 'json',
+            success: function(res){
+                if(res['error']){
+                    if(!$.isPlainObject(res.message)){
+                        alert(res.message);
+                    }else{
+                        $.each(res.message, function(key,value){
+                            alert(value[0]);
+                            return false;
+                        });
+                    }
+                }else{
+                    location.reload();
+                    alert(res['message']);
+                }
+            }
+        });
+    });
     $('.delete').on('click', function(){
         if(confirm("Do you want delete this pfr??")){
             var url = $(this).data('url');
