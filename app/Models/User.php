@@ -110,6 +110,22 @@ class User extends Authenticatable
     {
         return optional($this->role)->level;
     }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->role_id === 1;
+    }
+
+    public function getIsManagerAttribute()
+    {
+        return $this->role_id === 3;
+    }
+
+    public function getIsAgencyAttribute()
+    {
+        return $this->role_id === 2;
+    }
+
     /*END ATTRIBUTE*/
 
     public function scopeKeyword($query, $keyword)

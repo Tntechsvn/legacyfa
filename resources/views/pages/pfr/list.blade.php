@@ -42,18 +42,7 @@
             </thead>
             <tbody>
                 @foreach($listPfr as $pfr)
-                <tr>
-                    <td>{{$pfr->id}}</td>
-                    <td><a href="{{$pfr->permalink()}}">{{$pfr->nameClient}}</a></td>
-                    <td>{{$pfr->nameUserAdd}}</td>
-                    <td>{{$pfr->createDate}}</td>
-                    <td>{{$pfr->typePfr}}</td>
-                    <td><a href="{{route('downloadpdf',$pfr->id)}}">Download as PDF</a></td>
-                    <td>
-                        <a href="{{$pfr->permalink()}}" class="editstyle1 edit" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('pfr.move_to_trash', $pfr->id)}}" data-title="Delete"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
+                    @include('content.pfr-item')
                 @endforeach
             </tbody>
         </table>
@@ -65,6 +54,7 @@
         </div>
     </div>
 </div>
+@include('modal.modal-tracking-log')
 @endsection
 
 @section('script')

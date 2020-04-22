@@ -10,6 +10,7 @@ use App\Models\Plan;
 use App\Models\Company;
 use App\Models\CategoryPlan;
 use PDF;
+use Auth;
 
 use Carbon\Carbon;
 
@@ -22,6 +23,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('roleMiddleware',['except' => ['listPfr','listTrashPfr']]);
+
         $this->pfr = new Pfr;
         $this->user = new User;
         $this->plan = new Plan;
@@ -37,6 +40,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+        if(!Auth::user()->is_admin){
+            return redirect()->route('pfr.list');
+        }
         $paginate = config('constants.PAGINATE_PFR');
         $listPfr = $this->pfr->listPfrPaginate($request, $paginate);
         $paginate2 = config('constants.PAGINATE_USER');

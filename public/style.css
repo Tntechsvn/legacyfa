@@ -554,7 +554,7 @@ li.has-child{
 	height:60px;
 	display: block;
 }
-.noti-bell a.dropdown-toggle::after{
+.noti-bell a.dropdown-toggle span.new-noti{
 	background: #fffc1c;
 	height: 10px;
 	width: 10px;
@@ -892,17 +892,58 @@ table.td50 tr td:last-child{
 	color: #fff;
 	text-transform: uppercase;
 }
-.status-pending{
-	background:#ccc;
-}
-.status-draft{
-	background:#ffbf27;
-}
 .restore{
 	border: none;
 	background: none;
 	color: blue;
 	font-size: 16px;
+}
+.button-approved{
+	width: 85px;
+	height: 35px;
+	color:#02c39a;
+	text-transform: uppercase;
+	line-height: 33px;
+	text-align: center;
+	border:1px solid #02c39a;
+	color:#02c39a;
+	background: #fff;
+}
+.button-cancel{
+	width: 85px;
+	height: 35px;
+	color:#02c39a;
+	text-transform: uppercase;
+	line-height: 33px;
+	text-align: center;
+	border:1px solid #ed1c24;
+	color:#ed1c24;
+	background: #fff;
+}
+.button-approved:hover{
+	color:#fff;
+	background:#02c39a;
+}
+.button-cancel:hover{
+	color:#fff;
+	background:#ed1c24;
+}
+.statuspfr{
+	font-size: 14px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.status-pending{
+	color:#ff8a00;
+}
+.status-draft{
+	color:#ccc;
+}
+.status-approved{
+	color:#02c39a;
+}
+.status-cancelled{
+	color:#ed1c24;
 }
 
 /* MODAL */
@@ -1133,12 +1174,17 @@ a.style-button1{
 	margin-top: 20px;
 	padding-right: 50%;
 }
+#modal_checking_log .modal-dialog{
+	max-width: 310px;
+}
+#modal_checking_log .modal-body{
+	padding: 0;
+}
 .modal-body .nav-step{
 	padding-right: 0;
 }
 .modal-body .nav-step .style-button1{
 	float: none;
-
 }
 .modal-body .nav-step button.button-cancel{
 	background: #fff;

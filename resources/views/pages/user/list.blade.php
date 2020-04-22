@@ -189,16 +189,16 @@
                     console.log(res);
                     if(res['error']){
                         if(!$.isPlainObject(res.message)){
-                            alert(res.message);
+                            swal(res.message);
                         }else{
                             $.each(res.message, function(key,value){
-                                alert(value[0]);
+                                swal(value[0]);
                                 return false;
                             });
                         }
                     }else{
                         _this.trigger("reset");
-                        alert(res['message']);
+                        swal(res['message']);
                         modal.modal('hide');
                         if(row == ''){
                             tbody.append(res.data);
