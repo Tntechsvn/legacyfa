@@ -60,7 +60,7 @@ class HomeController extends Controller
     {
         $keyword = $request->keyword ?? "";
         $paginate = config('constants.PAGINATE_PFR');
-        $listPfr = $this->pfr->select('pfrs.*')->keyword($keyword)
+        $listPfr = $this->pfr->select('pfrs.*')->user()->keyword($keyword)
         ->groupBy('pfrs.id')->paginate($paginate);
         //$listPfr = $this->pfr->listPfrPaginate($request, $paginate);
         return view('pages.pfr.list', compact('listPfr'));

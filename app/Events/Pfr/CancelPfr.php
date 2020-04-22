@@ -10,11 +10,11 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class NewPfr
+class CancelPfr
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $pfr;
+    public $pfr, $user;
 
     /**
      * Create a new event instance.
@@ -24,6 +24,7 @@ class NewPfr
     public function __construct($pfr)
     {
         $this->pfr = $pfr;
+        $this->user = $user;
     }
 
     /**
