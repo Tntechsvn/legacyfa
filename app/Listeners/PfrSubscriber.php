@@ -28,7 +28,7 @@ class PfrSubscriber /*implements ShouldQueue */{
     public function newPfr($event)
     {
         $pfr = $event->pfr;
-        $title = $pfr->user->full_name.' just has submit pfr';
+        $title = $pfr->user->full_name.' just has submit new pfr';
         $data = [
             'type' => 'new',
             'data' => [
@@ -47,7 +47,7 @@ class PfrSubscriber /*implements ShouldQueue */{
         
         $pfr = $event->pfr;
         $user = $event->user;
-        $title = $user->full_name.' just has aprrove your pfr';
+        $title = $user->full_name.' just has aprroved your pfr';
         $data = [
             'type' => 'new',
             'data' => [

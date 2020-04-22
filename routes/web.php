@@ -62,6 +62,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			'as' => 'pfr.restore',
 			'uses' => 'HomeController@restorePfr'
 		]);
+
+		Route::post('action', [
+			'as' => 'pfr.action',
+			'uses' => 'PfrController@action'
+		]);
 	});
 
 	/*COMPANY*/

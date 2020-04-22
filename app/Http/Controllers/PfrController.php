@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
+use App\Models\PfrActivity;
 
 class PfrController extends Controller
 {
 	public function __construct()
 	{
 		$this->pfr = new Pfr;
+		$this->activity = new PfrActivity;
 	}
 
 	public function showFormQuestion($idPfr)
@@ -89,5 +92,29 @@ class PfrController extends Controller
 				'message' => "Error"
 			], 200);
 		}
+	}
+
+	public function action(Request $request){
+		$pfr = $this->pfr->find($request->id);
+		if($pfr){
+			if($request->type == 'approve'){
+				$pfr->status = 1;
+				$this->activity->new($pfr->id, Auth::id(), 1);
+				event(new \App\Events\Pfr\ApprovePfr($pfr, Auth::user()));
+			}else {
+				$pfr->status = 2;
+				$this->activity->new($pfr->id, Auth::id(), 2);
+				event(new \App\Events\Pfr\CancelPfr($pfr, Auth::user()));
+			}
+			$pfr->save();
+			return response()->json([
+				'error' => false,
+				'message' => "Success"
+			], 200);
+		}
+			return response()->json([
+				'error' => true,
+				'message' => "Error"
+			], 200);
 	}
 }
