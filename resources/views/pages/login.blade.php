@@ -50,6 +50,11 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group login-style">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                        </div>
                         <div class="clear"></div>
                         @if(session('error'))
                         <!-- Alert Message -->
