@@ -198,7 +198,7 @@
                 </tbody>
             </table>
             <div class="nav-step">
-                <a href="javascript:;" class="style-button1">Back</a>
+                <a href="{{$backUrl}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      
@@ -206,4 +206,3 @@
 </div>
 @include('pages.navigation', ['id' => $infoPfr->id])
 @endsection
-

@@ -6,10 +6,16 @@
         <h4>Step 12 - Client's Acknowledgement:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="" data-parsley-validate>
+        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.client_acknowledgement.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <p><strong>Please tick " " and acknowledge as appropriate.</strong></p>
-            @php $questions = json_decode(json_encode(config('constants.Clients_Acknowledgement')));
+            @php
+                $questions = json_decode(json_encode(config('constants.Clients_Acknowledgement')));
+                if(isset($infoPfr->clientAcknowledgement)){
+                    $infoCA = $infoPfr->clientAcknowledgement;
+                    $client1 = $infoCA->data[0];
+                    $client2 = $infoCA->data[1];
+                }
             @endphp
                     @foreach($questions as $key_question=>$q)
                     <div class="question-setp12">
@@ -17,11 +23,11 @@
                         <div class="content-check-step12">
                             @foreach($q->answers as $key => $value )
                                 @if(is_object($value))
-                                    @foreach( $value as $childvl )
+                                    @foreach( $value as $key_child => $childvl )
                                         <div class="list-child2">
                                             <label>{{ $childvl }}</label>
                                             <div class="style-checked-table2">
-                                                <input  class="form-check-input" value="1" name="" type="checkbox">
+                                                <input  class="form-check-input" value="1" name="1_{{$key_question + 1}}_{{$key_child}}" type="checkbox" @if(isset($client1)) @if($client1[3]['c'][$key_child] == 1) {{'checked'}} @endif @endif>
                                                  <span class="checkmark"></span>
                                             </div>
                                         </div>
@@ -30,7 +36,7 @@
                                     <div class="list-child1">
                                         <label>{{  $value }}</label>
                                         <div class="style-checked-table2 check-step12">
-                                            <input  class="form-check-input" value="1" name="" type="checkbox">
+                                            <input  class="form-check-input" value="1" name="1_{{$key_question + 1}}_{{$key}}" type="checkbox" @if(isset($client1)) @if($client1[$key_question][$key] == 1){{'checked'}}@endif @endif>
                                             <span class="checkmark"></span>
                                         </div>
                                     </div>
@@ -45,33 +51,33 @@
                             <div class="list-child1">
                                 <label>the recommendation(s). Accept</label>
                                 <div class="style-checked-table2 check-step12">
-                                    <input  class="form-check-input" value="1" name="" type="checkbox">
+                                    <input class="form-check-input" value="1" name="1_7_accept" type="checkbox" @if(isset($client1)) @if($client1[6]['accept'] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark"></span>
                                 </div>
                             </div>
                             <div class="list-child1">
                                 <label>the recommendation(s) and wish to purchase my/our own choice of product(s). Do not accept</label>
                                 <div class="style-checked-table2 check-step12">
-                                    <input  class="form-check-input" value="1" name="" type="checkbox">
+                                    <input  class="form-check-input" value="1" name="1_7_notaccept" type="checkbox" @if(isset($client1)) @if($client1[6]['notaccept'] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark"></span>
                                 </div>
                             </div>
                             <div class="list-child1">
-                                <p>Remarks: <input type="text" name=""></p>
+                                <p>Remarks: <input type="text" name="remark" value="{{isset($infoCA) ? $infoCA->data['remark'] : ''}}"></p>
                             </div>
                         </div>
                     </div>
 
                     <div class="question-setp12">
-                        <p><strong>7, Introducer Disclosure Acknowledgement</strong></p>
+                        <p><strong>8, Introducer Disclosure Acknowledgement</strong></p>
                         <div class="content-check-step12">
                             <div class="list-child1">
                                 <p>I/we hereby confirm that I/we am/are referred by Introducer
-                                    <input type="text" name="">
+                                    <input type="text" name="name" value="{{isset($infoCA) ? $infoCA->data['name'] : ''}}">
                                     am/are informed of the following:
                                 </p>
                                 <div class="style-checked-table2 check-step12">
-                                    <input  class="form-check-input" value="1" name="" type="checkbox">
+                                    <input  class="form-check-input" value="1" name="1_8_check" type="checkbox" @if(isset($client1)) @if($client1[7]['check'] == 1) {{'checked'}} @endif @endif>
                                     <span class="checkmark"></span>
                                 </div>
                             </div>

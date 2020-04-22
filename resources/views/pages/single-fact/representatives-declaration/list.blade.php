@@ -6,7 +6,7 @@
         <h4>Step 13 - Representative's Declaration:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="" data-parsley-validate>
+        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.representatives_declaration.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <p><strong>Please tick " " and acknowledge as appropriate.</strong></p>
             @php $questions = json_decode(json_encode(config('constants.Representatives_Declaration')));
@@ -25,15 +25,17 @@
                                 @else
                                     <div class="list-child1">
                                         <label>{{  $value }}</label>
+                                        @if($key == 'b')
+                                        <input type="text" name="declaration">
+                                        @endif
                                     </div>
                                 @endif
                             @endforeach
                         </div>
                     </div>
                     @endforeach
-                    
             <div class="nav-step">
-                <a href="" class="style-button1">Back</a>
+                <a href="{{route('single_fact.client_acknowledgement', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      

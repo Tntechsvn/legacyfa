@@ -581,19 +581,31 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 		Route::group(['prefix' => 'client-acknowledgement/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.client_acknowledgement',
-				'uses' => 'ClientsAcknowledgementController@clientAcknowledgement'
+				'uses' => 'ClientAcknowledgementController@showFormClientAcknowledgement'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.client_acknowledgement.add_new',
+				'uses' => 'ClientAcknowledgementController@addNewClientAcknowledgement'
 			]);
 		});
+
 		Route::group(['prefix' => 'representatives-declaration/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.representatives_declaration',
-				'uses' => 'RepresentativesDeclarationController@representativesDeclaration'
+				'uses' => 'SurveyController@representativesDeclaration'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.representatives_declaration.add_new',
+				'uses' => 'SurveyController@addNewRepresentativesDeclaration'
 			]);
 		});
+
 		Route::group(['prefix' => 'supervisors-review/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.supervisors_review',
-				'uses' => 'SupervisorsReviewController@supervisorsReview'
+				'uses' => 'SurveyController@supervisorsReview'
 			]);
 		});
 		Route::group(['prefix' => 'client-survey/{id_pfr}'], function(){
@@ -602,7 +614,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'uses' => 'SurveyController@clientSurvey'
 			]);
 		});
-
 	});
 
 /*Joint Fact*/
@@ -626,7 +637,7 @@ Route::group(['prefix' => 'joint-fact'], function(){
 		'as' => 'join-fact.postedit',
 		'uses' => 'JointFactController@addNewAndEditJointFact'
 	]);
-		
+
 	Route::group(['prefix' => '{id_pfr}'], function(){
 		Route::group(['prefix' => 'dependants'], function(){
 			Route::get('/', [
