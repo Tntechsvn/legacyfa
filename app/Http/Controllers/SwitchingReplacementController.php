@@ -40,10 +40,6 @@ class SwitchingReplacementController extends Controller
 
 		if ($validator->fails()) {
 			return redirect()->back()->withErrors($validator->errors());
-			return response()->json([
-				'error' => true,
-				'message' => $validator->errors()
-			], 200);
 		}
 
 		$data = array(
@@ -83,10 +79,10 @@ class SwitchingReplacementController extends Controller
 		}
 		if ($result) {
 			$message = $edit ? "Edit switching replacement successfully" : "Add new switching replacement successfully";
-			return $message;
+			return redirect()->route('single_fact.client_acknowledgement', $idPfr)->with(['message' => $message]);
 		} else {
 			$message = $edit ? "Edit switching replacement error" : "Add new switching replacement error";
-			return $message;
+			return redirect()->back()->with(['message' => $message]);
 		}
 	}
 }

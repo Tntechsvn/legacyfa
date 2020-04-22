@@ -100,7 +100,7 @@ class PrioritiesNeedsController extends Controller
 			return response()->json([
 				'error' => false,
 				'message' => $message,
-				'url' => $nextUrl
+				'nextUrl' => $nextUrl
 			], 200);
 		} else {
 			$message = $edit ? "Edit priorities need error" : "Add new priorities need error";
@@ -114,7 +114,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionOne($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection1.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_INCOME'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection1.list', compact('infoPfr', 'backUrl'));
 	}
 
 	private function addDataProtection2Arr($request, $arr, $position, $user)
@@ -181,7 +183,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit income successfully" : "Add new income successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_DISABILITY') - 1);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_DISABILITY'));
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -199,7 +201,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionTwo($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection2.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_DISABILITY'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection2.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionTwo(Request $request, $idPfr)
@@ -254,7 +258,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund disability successfully" : "Add new fund disability successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CRITICAL') - 1);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CRITICAL'));
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -272,7 +276,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionThree($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection3.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CRITICAL'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection3.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionThree(Request $request, $idPfr)
@@ -327,7 +333,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund critical successfully" : "Add new fund critical successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CHILDREN') - 1);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CHILDREN'));
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -345,7 +351,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionFour($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection4.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CHILDREN'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection4.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionFour(Request $request, $idPfr)
@@ -416,7 +424,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionFive($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection5.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_SAVING'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection5.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionFive(Request $request, $idPfr)
@@ -467,7 +477,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund saving successfully" : "Add new fund saving successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_RETIREMENT') - 1);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_RETIREMENT'));
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -485,7 +495,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionSix($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection6.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_RETIREMENT'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection6.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionSix(Request $request, $idPfr)
@@ -550,7 +562,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionSeven($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection7.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_COVER'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection7.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionSeven(Request $request, $idPfr)
@@ -599,7 +613,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit cover successfully" : "Add new cover successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CARE') - 1);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CARE'));
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -617,7 +631,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionEight($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection8.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CARE'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection8.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionEight(Request $request, $idPfr)
@@ -667,7 +683,7 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund care successfully" : "Add new fund care successfully";
-			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_HOSPITAL') - 1);
+			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_HOSPITAL'));
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([
 				'error' => false,
@@ -685,7 +701,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionNine($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection9.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_HOSPITAL'));
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection9.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionNine(Request $request, $idPfr)
@@ -754,7 +772,9 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionTen($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		return view('pages.single-fact.priorities-needs.protection10.list', compact('infoPfr'));
+		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, 10);
+		$backUrl = $this->getUrl($prevStep, $idPfr);
+		return view('pages.single-fact.priorities-needs.protection10.list', compact('infoPfr', 'backUrl'));
 	}
 
 	/*public function addProtectionTen(Request $request, $idPfr)
@@ -1040,7 +1060,7 @@ class PrioritiesNeedsController extends Controller
 			break;
 
 			default:
-			$url = "";
+			$url = route('single_fact.priorities_needs.show_form_rate_category', $idPfr);
 		}
 		return $url;
 	}

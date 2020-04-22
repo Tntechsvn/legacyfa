@@ -280,7 +280,6 @@
                 data: data,
                 dataType: 'json',
                 success: function(res){
-                    console.log(res);
                     if(res['error']){
                         if(!$.isPlainObject(res.message)){
                             alert(res.message);
@@ -291,7 +290,7 @@
                             });
                         }
                     }else{
-                        window.location.href = res['url'];
+                        window.location.href = res['nextUrl'];
                         alert(res['message']);
                     }
                 }

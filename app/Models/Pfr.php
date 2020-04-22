@@ -66,6 +66,11 @@ class Pfr extends Model
         return $this->hasOne('App\Models\SwitchingReplacement');
     }
 
+    public function clientAcknowledgement()
+    {
+        return $this->hasOne('App\Models\ClientAcknowledgement');
+    }
+
     /*QUERY*/
     public function listPfr($request)
     {
