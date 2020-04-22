@@ -32,7 +32,11 @@
                     <th>Add By</th>
                     <th>Create Date</th>
                     <th>Application Type</th>
+                    <th>Approved By</th>
+                    <th>Time Approved</th>
                     <th>Download PDF</th>
+                    <th>Tracking Log</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
