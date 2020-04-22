@@ -31,7 +31,9 @@
                 <tr>
                     <th>SN</th>
                     <th>Name</th>
+                    @if(!Auth::user()->is_agency)
                     <th>Add By</th>
+                    @endif
                     <th>Create Date</th>
                     <th>Application Type</th>
                     <th>Approved By</th>

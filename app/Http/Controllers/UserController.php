@@ -15,7 +15,7 @@ class UserController extends Controller
 {
 	public function __construct()
 	{
-        $this->middleware('roleMiddleware',['except' => ['showFormLogin','login']]);
+        $this->middleware('roleMiddleware',['except' => ['showFormLogin','login', 'logout']]);
 
 		$this->user = new User;
 		$this->role = new Role;

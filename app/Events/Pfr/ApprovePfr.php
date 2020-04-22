@@ -21,7 +21,7 @@ class ApprovePfr
      *
      * @return void
      */
-    public function __construct($pfr)
+    public function __construct($pfr, $user)
     {
         $this->pfr = $pfr;
         $this->user = $user;
