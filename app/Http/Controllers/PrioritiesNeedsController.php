@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\PrioritiesNeed;
@@ -95,6 +96,9 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit priorities need successfully" : "Add new priorities need successfully";
+			$infoPfr = $this->pfr->infoPfrById($idPfr);
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, 0);
 			$nextUrl = $this->getUrl($nextStep, $idPfr);
 			return response()->json([

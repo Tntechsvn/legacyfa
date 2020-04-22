@@ -9,11 +9,11 @@
         <form name="protection1" id='affordability' class="" method="post" action="{{route('single_fact.affordability.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             @php
-            if(isset($infoAffordability)){
-            $payor = json_decode($infoAffordability->payor_detail, true);
-            $budget = json_decode($infoAffordability->budget, true);
-        }
-        @endphp
+                if(isset($infoAffordability)){
+                    $payor = json_decode($infoAffordability->payor_detail, true);
+                    $budget = json_decode($infoAffordability->budget, true);
+                }
+            @endphp
         <p class="note-alert-step7">Please rate all categories according to your priority:</p>
         <table id="affordability-1" class="table table-content table-bordered table-style2 protection-st affordability50">
             <tbody>

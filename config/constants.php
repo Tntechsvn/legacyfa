@@ -260,12 +260,12 @@ return [
 		[
 			'name' => 'Please indicate the client\'s response during the call-back on ALL of the following questions:',
 			'answers' => [
-				'a' => 'Is the client proficient in spoken English?',
-				'b' => 'Would the client be required to have a Trusted Individual?',
-				'c' => 'Did the FA Representative ask about the client\'s financial situation, investment objective and risk appetite before product recommendation?',
-				'd' => 'Did the FA Representative explain about the suitability of the product(s)?',
-				'e' => 'Did the FA Representative explain on risks and limitations of the product(s)?',
-				'f' => 'Did the FA Representative mention the premium amount of the product(s)?'
+				'1' => 'Is the client proficient in spoken English?',
+				'2' => 'Would the client be required to have a Trusted Individual?',
+				'3' => 'Did the FA Representative ask about the client\'s financial situation, investment objective and risk appetite before product recommendation?',
+				'4' => 'Did the FA Representative explain about the suitability of the product(s)?',
+				'5' => 'Did the FA Representative explain on risks and limitations of the product(s)?',
+				'6' => 'Did the FA Representative mention the premium amount of the product(s)?'
 				]
 		]
 	],

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\Balance;
@@ -52,6 +53,7 @@ class BalanceController extends Controller
 			], 200);
 		}
 
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$assets[] = array(
 			'residence_property' => $request->residence_property != null && $request->state == 0 ? $request->residence_property : "",
 			'investment_property' => $request->investment_property != null && $request->state == 0 ? $request->investment_property : "",
@@ -137,6 +139,8 @@ class BalanceController extends Controller
 		
 		if ($resultAddBalance) {
 			$message = $edit ? "Edit balance successfully" : "Add new balance successfully";
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+			
 			return response()->json([
 				'error' => false,
 				'message' => $message,

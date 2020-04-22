@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\Affordability;
@@ -36,55 +37,53 @@ class AffordabilityController extends Controller
 	public function addNewAffordability(AddNewAffordabilityRequest $request, $idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		if ($infoPfr) {
-			$payor = array(
-				'payor_for' => $request->payor_for_client ? $request->payor_for_client : "",
-				'relationship' => $request->payor_relationship ? $request->payor_relationship : "",
-				'name' => $request->payor_name ? $request->payor_name : "",
-				'nric' => $request->payor_nric != null ? $request->payor_nric : "",
-				'occupation' => $request->payor_occupation != null ? $request->payor_occupation : "",
-				'income_range' => $request->income_range != null ? $request->income_range : "",
-			);
+		$payor = array(
+			'payor_for' => $request->payor_for_client ? $request->payor_for_client : "",
+			'relationship' => $request->payor_relationship ? $request->payor_relationship : "",
+			'name' => $request->payor_name ? $request->payor_name : "",
+			'nric' => $request->payor_nric != null ? $request->payor_nric : "",
+			'occupation' => $request->payor_occupation != null ? $request->payor_occupation : "",
+			'income_range' => $request->income_range != null ? $request->income_range : "",
+		);
 
-			$arrAnnual = $arrSingle = $arrSource = array(
-				'cash' => '',
-				'srs' => '',
-				'cpf_oa' => '',
-				'cpf_medisave' => '',
-				'cpf_sa' => ''
-			);
-			for($i = 1; $i <= 5; $i++){
-				$arrAnnual = $this->addData2Buget($request, $arrAnnual, "annual", $i);
-				$arrSingle = $this->addData2Buget($request, $arrSingle, "single", $i);
-				$arrSource = $this->addData2Buget($request, $arrSource, "source", $i);
-			}
-			$budget[] = $arrAnnual;
-			$budget[] = $arrSingle;
-			$budget[] = $arrSource;
+		$arrAnnual = $arrSingle = $arrSource = array(
+			'cash' => '',
+			'srs' => '',
+			'cpf_oa' => '',
+			'cpf_medisave' => '',
+			'cpf_sa' => ''
+		);
+		for($i = 1; $i <= 5; $i++){
+			$arrAnnual = $this->addData2Buget($request, $arrAnnual, "annual", $i);
+			$arrSingle = $this->addData2Buget($request, $arrSingle, "single", $i);
+			$arrSource = $this->addData2Buget($request, $arrSource, "source", $i);
+		}
+		$budget[] = $arrAnnual;
+		$budget[] = $arrSingle;
+		$budget[] = $arrSource;
 
-			$param = array(
-				'payor_detail' => json_encode($payor),
-				'budget' => json_encode($budget),
-				'reason' => $request->reason
-			);
-			$infoAffordability = $this->affordability->infoAffordabilityForPfr($idPfr);
-			$edit = false;
-			if ($infoAffordability) {
-				$edit = true;
-				$resultAddAffordability = $this->affordability->editAffordability($idPfr, $param);
-			} else {
-				$param['pfr_id'] = $idPfr;
-				$resultAddAffordability = $this->affordability->addNewAffordability($param);
-			}
-			if ($resultAddAffordability) {
-				$message = $edit ? "Edit affordability successfully" : "Add new affordability successfully";
-				return redirect()->route('single_fact.analysis_recommendations.client_overview', $idPfr);
-			} else {
-				$message = $edit ? "Edit affordability error" : "Add new affordability error";
-				return redirect()->route('single_fact.analysis_recommendations.client_overview', $idPfr);
-			}
+		$param = array(
+			'payor_detail' => json_encode($payor),
+			'budget' => json_encode($budget),
+			'reason' => $request->reason
+		);
+		$infoAffordability = $this->affordability->infoAffordabilityForPfr($idPfr);
+		$edit = false;
+		if ($infoAffordability) {
+			$edit = true;
+			$resultAddAffordability = $this->affordability->editAffordability($idPfr, $param);
 		} else {
-			return redirect()->back();
+			$param['pfr_id'] = $idPfr;
+			$resultAddAffordability = $this->affordability->addNewAffordability($param);
+		}
+		if ($resultAddAffordability) {
+			$message = $edit ? "Edit affordability successfully" : "Add new affordability successfully";
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+			
+			return redirect()->route('single_fact.analysis_recommendations.client_overview', $idPfr);
+		} else {
+			$message = $edit ? "Edit affordability error" : "Add new affordability error";
+			return redirect()->route('single_fact.analysis_recommendations.client_overview', $idPfr);
 		}
 	}
 

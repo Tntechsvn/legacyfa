@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\Cka;
@@ -35,6 +36,8 @@ class CKAController extends Controller
 				'message' => $validator->errors()
 			], 200);
 		}
+
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$dataCka = array();
 		foreach($request->except('_token', 'reason') as $key=>$val){
 			if(substr($key, 0, 1) == "q"){
@@ -63,6 +66,8 @@ class CKAController extends Controller
 		}
 		if ($resultAddCka) {
 			$message = $edit ? "Edit cka successfully" : "Add new cka successfully";
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+			
 			return response()->json([
 				'error' => false,
 				'message' => $message,

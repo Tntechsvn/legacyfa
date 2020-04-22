@@ -97,6 +97,11 @@ class SingleFactController extends Controller
             }
             if ($resultClient) {
                 $message = $edit ? "Edit client successfully" : "Add new client successfully";
+                if ($edit) {
+                    event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+                } else {
+                    event(new \App\Events\Pfr\NewPfr($infoPfr));
+                }
                 return response()->json([
                     'error' => false,
                     'message' => $message,

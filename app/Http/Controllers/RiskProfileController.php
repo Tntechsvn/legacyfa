@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\RiskProfile;
@@ -63,6 +64,9 @@ class RiskProfileController extends Controller
 		
 		if ($resultAddRiskProfile) {
 			$message = $edit ? "Edit risk profile successfully" : "Add new risk profile successfully";
+			$infoPfr = $this->pfr->infoPfrById($idPfr);
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 			return response()->json([
 				'error' => false,
 				'message' => $message,

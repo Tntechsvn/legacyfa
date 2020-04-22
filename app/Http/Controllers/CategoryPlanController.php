@@ -11,6 +11,8 @@ class CategoryPlanController extends Controller
 {
 	public function __construct()
 	{
+        $this->middleware('roleMiddleware');
+
 		$this->categoryPlan = new CategoryPlan;
 	}
 

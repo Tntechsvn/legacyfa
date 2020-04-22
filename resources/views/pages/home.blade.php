@@ -31,27 +31,21 @@
                 <tr>
                     <th>SN</th>
                     <th>Name</th>
-                    <th>Added By</th>
+                    <th>Add By</th>
                     <th>Create Date</th>
-                    <th>Application</th>
+                    <th>Application Type</th>
+                    <th>Approved By</th>
+                    <th>Time Approved</th>
                     <th>Download PDF</th>
+                    <th>Tracking Log</th>
                     <th>Status</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($listPfr as $pfr)
                     <tr>
-                        <td>{{$pfr->id}}</td>
-                        <td><a href="{{$pfr->permalink()}}">{{$pfr->nameClient}}</a></td>
-                        <td>{{$pfr->nameUserAdd}}</td>
-                        <td>{{$pfr->createDate}}</td>
-                        <td>{{$pfr->typePfr}}</td>
-                        <td><a class="pdflink" href="{{route('downloadpdf',$pfr->id)}}">Download as PDF</a></td>
-                        <td><a  class="radius_4 status-pfr status-pending" href="javascript:;">PENDING</a></td>
-                        <td>
-                            <a href="javascript:;" class="deletestyle1 delete" data-id="{{$pfr->id}}" data-url="{{route('pfr.move_to_trash', $pfr->id)}}" data-title="Delete"><i class="fas fa-trash"></i></a>
-                        </td>
+                        @include('content.pfr-item')
                     </tr>
                 @endforeach
             </tbody>
@@ -153,4 +147,5 @@
     </div>
 
 </div>
+@include('modal.modal-tracking-log')
 @endsection

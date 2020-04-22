@@ -13,6 +13,8 @@ class PlanController extends Controller
 {
 	public function __construct()
 	{
+        $this->middleware('roleMiddleware');
+
 		$this->plan = new Plan;
 		$this->company = new Company;
 		$this->categoryPlan = new CategoryPlan;

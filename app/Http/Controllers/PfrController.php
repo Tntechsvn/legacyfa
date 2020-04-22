@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 
@@ -71,6 +72,8 @@ class PfrController extends Controller
 			$resultEditPfr = $this->pfr->editPfr($idPfr, $param);
 			if ($resultEditPfr) {
 				$message = $edit ? "Edit trush individual successfully" : "Add new trush individual successfully";
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+				
 				return response()->json([
 					'error' => false,
 					'message' => $message,

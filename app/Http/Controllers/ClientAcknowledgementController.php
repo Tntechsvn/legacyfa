@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\ClientAcknowledgement;
@@ -23,6 +24,7 @@ class ClientAcknowledgementController extends Controller
 
 	public function addNewClientAcknowledgement(Request $request, $idPfr)
 	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$client1 = $client2 = array(
 			array(
 				'a' => 0,
@@ -96,6 +98,8 @@ class ClientAcknowledgementController extends Controller
 		}
 		if ($result) {
 			$message = $edit ? "Edit client acknowledgement successfully" : "Add new client acknowledgement successfully";
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 			return redirect()->route('single_fact.representatives_declaration', $idPfr)->with(['message' => $message]);
 		} else {
 			$message = $edit ? "Edit client acknowledgement error" : "Add new client acknowledgement error";

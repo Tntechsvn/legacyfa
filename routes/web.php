@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-	return view('welcome');
-});*/
+
 Route::get('test', 'TestController@getTest');
+
+Route::get('/', function () {
+	return redirect()->route('login');
+});
+
 
 
 Route::get('login', [
@@ -603,6 +606,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			Route::get('/', [
 				'as' => 'single_fact.supervisors_review',
 				'uses' => 'SurveyController@supervisorsReview'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.supervisors_review.add_new',
+				'uses' => 'SurveyController@addNewSupervisorsReview'
+			]);
+		});
+
+		Route::group(['prefix' => 'client-survey/{id_pfr}'], function(){
+			Route::get('/', [
+				'as' => 'single_fact.client_survey',
+				'uses' => 'SurveyController@clientSurvey'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.client_survey.add_new',
+				'uses' => 'SurveyController@addNewSurvey'
 			]);
 		});
 	});

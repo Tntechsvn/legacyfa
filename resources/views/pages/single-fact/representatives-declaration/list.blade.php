@@ -9,7 +9,8 @@
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.representatives_declaration.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             <p><strong>Please tick " " and acknowledge as appropriate.</strong></p>
-            @php $questions = json_decode(json_encode(config('constants.Representatives_Declaration')));
+            @php
+                $questions = json_decode(json_encode(config('constants.Representatives_Declaration')));
             @endphp
                     @foreach($questions as $key_question=>$q)
                     <div class="question-setp12">
@@ -26,7 +27,7 @@
                                     <div class="list-child1">
                                         <label>{{  $value }}</label>
                                         @if($key == 'b')
-                                        <input type="text" name="declaration">
+                                        <textarea name="declaration" id="" cols="30" rows="10">{{isset($infoPfr->survey->declaration) ? $infoPfr->survey->declaration : ''}}</textarea>
                                         @endif
                                     </div>
                                 @endif
