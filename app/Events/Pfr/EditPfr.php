@@ -10,20 +10,21 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class NewPfr
+class EditPfr
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $pfr;
+    public $pfr, $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($pfr)
+    public function __construct($pfr, $user)
     {
         $this->pfr = $pfr;
+        $this->user = $user;
     }
 
     /**

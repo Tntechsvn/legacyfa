@@ -11,6 +11,8 @@ use Mail;
 
 use App\Models\User;
 
+use App\Notifications\DefaultNotification;
+
 class PfrSubscriber /*implements ShouldQueue */{
 
     /**
@@ -20,13 +22,63 @@ class PfrSubscriber /*implements ShouldQueue */{
      */
     public function __construct()
     {
-        //
+        $this->user = new User;
     }
     
     public function newPfr($event)
     {
-    	
-        return true;
+        $pfr = $event->pfr;
+        $title = $pfr->user->full_name.' just has submit pfr';
+        $data = [
+            'type' => 'new',
+            'data' => [
+                'title' => $title,
+                'pfr_id' => $pfr->id
+            ]
+        ];
+
+        $list_user = $this->user->adminManager()->get();
+
+        Notification::send($list_user, new DefaultNotification($data));
+    }
+    
+    public function approvePfr($event)
+    {
+        
+        $pfr = $event->pfr;
+        $user = $event->user;
+        $title = $user->full_name.' just has aprrove your pfr';
+        $data = [
+            'type' => 'new',
+            'data' => [
+                'title' => $title,
+                'pfr_id' => $pfr->id
+            ]
+        ];
+
+        Notification::send($pfr->user, new DefaultNotification($data));
+    }
+    
+    public function cancelPfr($event)
+    {
+        $pfr = $event->pfr;
+        $user = $event->user;
+        $title = $user->full_name.' just has cancelled your pfr';
+        $data = [
+            'type' => 'new',
+            'data' => [
+                'title' => $title,
+                'pfr_id' => $pfr->id
+            ]
+        ];
+
+        Notification::send($pfr->user, new DefaultNotification($data));
+    }
+    
+    public function editPfr($event)
+    {
+        $pfr = $event->pfr;
+        $user = $event->user;
     }
 
     public function subscribe($events)
@@ -34,6 +86,18 @@ class PfrSubscriber /*implements ShouldQueue */{
         $events->listen(
             'App\Events\Pfr\NewPfr',
             'App\Listeners\PfrSubscriber@newPfr'
+        );
+        $events->listen(
+            'App\Events\Pfr\ApprovePfr',
+            'App\Listeners\PfrSubscriber@approvePfr'
+        );
+        $events->listen(
+            'App\Events\Pfr\CancelPfr',
+            'App\Listeners\PfrSubscriber@cancelPfr'
+        );
+        $events->listen(
+            'App\Events\Pfr\EditPfr',
+            'App\Listeners\PfrSubscriber@editPfr'
         );
     }
 }

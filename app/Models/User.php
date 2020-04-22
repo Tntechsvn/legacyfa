@@ -135,4 +135,9 @@ class User extends Authenticatable
                 ->orWhere('email', 'LIKE', '%'.$keyword.'%');
     }
 
+    public function scopeAdminManager($query)
+    {
+        return $query->whereIn('role_id', [1,3]);
+    }
+
 }

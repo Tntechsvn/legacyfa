@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Auth;
+
 class Pfr extends Model
 {
 
@@ -220,6 +222,13 @@ class Pfr extends Model
     public function downloadPdf($id)
     {
         return static::where('id', $id)->first();
+    }
+
+    public function scopeUser($query)
+    {
+        if(Auth::user()->is_agency){
+            return $query->where('user_id', '=', Auth::id());
+        }
     }
 
     public function scopeKeyword($query, $keyword)
