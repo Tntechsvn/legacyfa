@@ -74,6 +74,11 @@ class Pfr extends Model
         return $this->hasOne('App\Models\ClientAcknowledgement');
     }
 
+    public function survey()
+    {
+        return $this->hasOne('App\Models\Survey');
+    }
+    
     public function activities()
     {
         return $this->hasMany('App\Models\PfrActivity');

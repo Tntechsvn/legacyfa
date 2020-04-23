@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\Client;
@@ -78,6 +79,8 @@ class AssessmentController extends Controller
 					}
 				}
 				$message = $edit ? "Edit assessment successfully" : "Add new assessment successfully";
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+				
 				return response()->json([
 					'error' => false,
 					'message' => $message,

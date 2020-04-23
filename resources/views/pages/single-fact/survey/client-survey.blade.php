@@ -230,7 +230,7 @@
                 </div>
             </div>
             <div class="nav-step">
-                <a href="" class="style-button1">Back</a>
+                <a href="{{route('single_fact.supervisors_review', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      

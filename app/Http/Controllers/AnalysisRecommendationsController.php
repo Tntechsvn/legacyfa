@@ -10,10 +10,9 @@ class AnalysisRecommendationsController extends Controller
 	{
 		return view('pages.single-fact.analysis-recommendations.step1.list');
 	}
+
 	public function plansRecommended()
 	{
 		return view('pages.single-fact.analysis-recommendations.step2.list');
 	}
 }
-
-

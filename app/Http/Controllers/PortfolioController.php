@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\Portfolio;
@@ -86,6 +87,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->addNewPortfolio($param);
 			}
 			if ($result) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 				return response()->json([
 					'error' => false,
 					'message' => "Add new property successfully"
@@ -146,6 +149,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
 
 				if ($result) {
+					event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 					return response()->json([
 						'error' => false,
 						'message' => "Edit property successfully"
@@ -243,6 +248,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->addNewPortfolio($param);
 			}
 			if ($result) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 				return response()->json([
 					'error' => false,
 					'message' => "Add new investment successfully"
@@ -299,6 +306,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
 
 				if ($result) {
+					event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 					return response()->json([
 						'error' => false,
 						'message' => "Edit investment successfully"
@@ -393,6 +402,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->addNewPortfolio($param);
 			}
 			if ($result) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 				return response()->json([
 					'error' => false,
 					'message' => "Add new saving successfully"
@@ -446,6 +457,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
 				
 				if ($result) {
+					event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 					return response()->json([
 						'error' => false,
 						'message' => "Edit saving successfully"
@@ -537,6 +550,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->addNewPortfolio($param);
 			}
 			if ($result) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 				return response()->json([
 					'error' => false,
 					'message' => "Add new cpf successfully"
@@ -587,6 +602,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
 
 				if ($result) {
+					event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 					return response()->json([
 						'error' => false,
 						'message' => "Edit cpf successfully"
@@ -700,6 +717,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->addNewPortfolio($param);
 			}
 			if ($result) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 				return response()->json([
 					'error' => false,
 					'message' => "Add new insurance successfully"
@@ -772,6 +791,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
 
 				if ($result) {
+					event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 					return response()->json([
 						'error' => false,
 						'message' => "Edit insurance successfully"
@@ -869,6 +890,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->addNewPortfolio($param);
 			}
 			if ($result) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 				return response()->json([
 					'error' => false,
 					'message' => "Add new loan successfully"
@@ -925,6 +948,8 @@ class PortfolioController extends Controller
 				$result = $this->portfolio->editPortfolio($idPfr, $param);
 
 				if ($result) {
+					event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+					
 					return response()->json([
 						'error' => false,
 						'message' => "Edit loan successfully"

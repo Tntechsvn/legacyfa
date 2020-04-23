@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 use Validator;
+use Illuminate\Http\Request;
+use Auth;
+
 use App\Models\SwitchingReplacement;
 use App\Models\Pfr;
-
-use Illuminate\Http\Request;
 
 class SwitchingReplacementController extends Controller
 {
@@ -23,6 +24,7 @@ class SwitchingReplacementController extends Controller
 
 	public function addNewAffordabilitySwitchingReplacement(Request $request, $idPfr)
 	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$rules = [
 			'name_1a' => 'required|in:0,1',
 			'name_1b' => 'required|in:0,1',
@@ -67,7 +69,6 @@ class SwitchingReplacementController extends Controller
 			'data' => $data,
 			'note' => $request->note
 		);
-		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$infoSwitchingReplacement = $infoPfr->switchingReplacement;
 		$edit = false;
 		if ($infoSwitchingReplacement) {
@@ -79,6 +80,8 @@ class SwitchingReplacementController extends Controller
 		}
 		if ($result) {
 			$message = $edit ? "Edit switching replacement successfully" : "Add new switching replacement successfully";
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+
 			return redirect()->route('single_fact.client_acknowledgement', $idPfr)->with(['message' => $message]);
 		} else {
 			$message = $edit ? "Edit switching replacement error" : "Add new switching replacement error";

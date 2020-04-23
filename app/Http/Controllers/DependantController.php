@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\Dependant;
@@ -52,6 +53,7 @@ class DependantController extends Controller
 			], 200);
 		}
 		
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$param = [
 			'pfr_id' => $idPfr,
 			'title' => $request->title,
@@ -64,6 +66,7 @@ class DependantController extends Controller
 		];
 		$resultAddDependant = $this->dependant->addNewDependant($param);
 		if ($resultAddDependant) {
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
 			return response()->json([
 				'error' => false,
 				'message' => "Add new dependant successfully"
@@ -96,6 +99,7 @@ class DependantController extends Controller
 			], 200);
 		}
 
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$infoDependant = $this->dependant->infoDependantById($idDependant);
 		if ($infoDependant) {
 			$param = [
@@ -111,6 +115,7 @@ class DependantController extends Controller
 
 			$resultEditDependant = $this->dependant->editDependant($idDependant, $param);
 			if ($resultEditDependant) {
+				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
 				return response()->json([
 					'error' => false,
 					'message' => "Edit dependant successfully"

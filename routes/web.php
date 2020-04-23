@@ -612,11 +612,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 				'as' => 'single_fact.supervisors_review',
 				'uses' => 'SurveyController@supervisorsReview'
 			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.supervisors_review.add_new',
+				'uses' => 'SurveyController@addNewSupervisorsReview'
+			]);
 		});
+
 		Route::group(['prefix' => 'client-survey/{id_pfr}'], function(){
 			Route::get('/', [
 				'as' => 'single_fact.client_survey',
 				'uses' => 'SurveyController@clientSurvey'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'single_fact.client_survey.add_new',
+				'uses' => 'SurveyController@addNewSurvey'
 			]);
 		});
 	});

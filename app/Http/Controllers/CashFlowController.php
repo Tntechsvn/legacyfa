@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 use App\Models\Pfr;
 use App\Models\CashFlow;
@@ -22,7 +23,6 @@ class CashFlowController extends Controller
 		$totalIncome = 0;
 		$totalExpenses = 0;
 		$infoCashFlow = $infoPfr->cashFlow;
-		// $income = (array) $infoPfr->cashFlow->income;
 		$income = [];$expenses = [];
 		if ($infoCashFlow) {
 			$dataIncome = $infoCashFlow->income;
@@ -56,6 +56,7 @@ class CashFlowController extends Controller
 			], 200);
 		}
 
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$income[] = array(
 			'gross_income' => $request->gross_income != null && $request->state_cash_flow == 0 ? $request->gross_income : "",
 			'wages_income' => $request->wages_income != null && $request->state_cash_flow == 0 ? $request->wages_income : "",
@@ -122,6 +123,8 @@ class CashFlowController extends Controller
 		}
 		if ($resultAddCashFlow) {
 			$message = $edit ? "Edit cash flow successfully" : "Add new cash flow successfully";
+			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
+			
 			return response()->json([
 				'error' => false,
 				'message' => $message,
