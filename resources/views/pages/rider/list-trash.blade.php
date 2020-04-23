@@ -7,7 +7,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="header-table-style2">
             <div class="title-table-style2">
-                <h3>List Trash Of Riders</h3>
+                <h3><i class="fas fa-list-alt"></i><span>List Trash Of Riders<span></h3>
             </div>
         </div>
         <table id="list-trash-rider" class="table table-content table-style1" style="width:100%">
