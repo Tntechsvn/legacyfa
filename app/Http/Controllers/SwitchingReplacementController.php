@@ -28,15 +28,15 @@ class SwitchingReplacementController extends Controller
 		$rules = [
 			'name_1a' => 'required|in:0,1',
 			'name_1b' => 'required|in:0,1',
-			'name_2' => 'required|in:0,1',
-			'name_php0' => 'required|in:0,1',
-			'name_php1' => 'required|in:0,1',
-			'name_php2' => 'required|in:0,1',
-			'name_php3' => 'required|in:0,1',
-			'name_php4' => 'required|in:0,1',
-			'name_php5' => 'required|in:0,1',
-			'name_php6' => 'required|in:0,1',
-			'name_php7' => 'required|in:0,1'
+			'name_2' => 'in:0,1',
+			'name_php0' => 'in:0,1',
+			'name_php1' => 'in:0,1',
+			'name_php2' => 'in:0,1',
+			'name_php3' => 'in:0,1',
+			'name_php4' => 'in:0,1',
+			'name_php5' => 'in:0,1',
+			'name_php6' => 'in:0,1',
+			'name_php7' => 'in:0,1'
 		];
 		$validator = Validator::make($request->all(), $rules);
 
