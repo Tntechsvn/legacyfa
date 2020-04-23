@@ -2184,3 +2184,61 @@ input.form-check-input[type=checkbox]{
 	float: left;
 }
 
+/* survey-form step 15 */
+#survey-form{
+	padding: 15px;
+}
+.title-survey1{
+	border:1px solid #00ab87;
+	background:#00ab87;
+	color:#fff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.title-survey1 h4{
+	text-align: center;
+	font-size: 16px;
+	font-weight: 700;
+}
+#survey-form input[type=text],
+#survey-form input[type=number]{
+	width: 100%;
+}
+.lcb1-step15 label{
+	margin-right: 20px;
+}
+.custom-survey1 > div{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-left:1px solid #ccc;
+}
+.custom-survey1 > div:last-child{
+	border-right:1px solid #ccc;
+}
+.custom-survey2 >div{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+}
+.custom-survey2 > div:last-child{
+	border-right:1px solid #ccc;
+}
+
+.content-survey-radio{
+	width: 100%;
+	float: left;
+}
+.content-survey-radio p{
+	width: 80%;
+	float: left;
+	display: block;
+}
+.right-q{
+	width:auto;
+	max-width: 20%;
+	float: right;
+}
+.right-q .survey-radio{
+	float:left;
+}

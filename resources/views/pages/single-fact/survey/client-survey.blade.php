@@ -6,16 +6,16 @@
         <h4>Step 15 - Client Call-back Survey (by supervisor)</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="cashflow_form" id='cashflow_form' class="" method="post" action="" data-parsley-validate>
+        <form name="survey-form" id='survey-form' class="" method="post" action="" data-parsley-validate>
             @csrf
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title-survey1">
                     <h4>Details of Representative</h4>
                 </div>
             </div>
-            <div class="row">
+            <div class="row custom-survey1">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <p><strong>Details of Representative</strong></p>
+                    <p><strong>Name of Representative: (as per NRIC/FIN/Passport)</strong></p>
                     <input type="text" name="" readonly value="Ninh Freelancer"> 
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -28,12 +28,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title-survey1">
                     <h4>Type of Client Call-Back</h4>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row custom-survey1">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 lcb1-step15">
                     <label>
                         <input  class="form-check-input" value="" name="type-client" type="checkbox">
                         Client who is not Proficient in English
@@ -53,11 +53,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title-survey1">
                     <h4>Details of Client Call-Back</h4>
                 </div>
             </div>
-            <div class="row">
+            <div class="row custom-survey1">
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                     <p><strong>Name of Client: (please underline surname)</strong></p>
                     <input type="text" name="">
@@ -67,7 +67,7 @@
                     <input type="text" name="">
                 </div>
             </div>
-            <div class="row">
+            <div class="row custom-survey2">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <p><strong>Mode of Contact:</strong></p>
                     <label>
@@ -200,24 +200,29 @@
                     </table>
                 </div>
             </div>
-            @php $questions = json_decode(json_encode(config('constants.response_questions')));
-            @endphp
-            @foreach($questions as $key_question=>$q)
-                <h4><strong>{{$q->name}}</h4> 
-                <div class="content-survey-radio">
-                    @foreach($q->answers as $key => $value )
-                        {{$key+1}}. {{$value}}
-                        <div class="survey-radio">
-                            <input type="radio" name="rq1" value="">
-                            Yes
-                        </div>
-                        <div class="survey-radio">
-                            <input type="radio" name="rq1" value="">
-                            No
-                        </div>
-                    @endforeach
-                </div>
-             @endforeach 
+            <div class="list-q-step15">
+                @php $questions = json_decode(json_encode(config('constants.response_questions')));
+                @endphp
+                @foreach($questions as $key_question=>$q)
+                    <h4><strong>{{$q->name}}</strong></h4> 
+                        @foreach($q->answers as $key => $value )
+                            <div class="content-survey-radio">
+                                <p><strong>{{$key}}. {{$value}}</strong></p>
+                                <div class="right-q">
+                                    <div class="survey-radio">
+                                        <input type="radio" name="rq1" value="">
+                                        Yes
+                                    </div>
+                                    <div class="survey-radio">
+                                        <input type="radio" name="rq1" value="">
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach 
+            </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p><strong>Comments (if any):</strong></p>
