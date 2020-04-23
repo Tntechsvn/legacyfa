@@ -151,3 +151,6 @@
 </div>
 @include('modal.modal-tracking-log')
 @endsection
+@section('script')
+    <script type="text/javascript" src="{{asset('js/pfr_list.js')}}"></script>
+@endsection

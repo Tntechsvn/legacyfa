@@ -10,6 +10,7 @@ use Notification;
 use Mail;
 
 use App\Models\User;
+use App\Models\PfrActivity;
 
 use App\Notifications\DefaultNotification;
 
@@ -23,6 +24,7 @@ class PfrSubscriber /*implements ShouldQueue */{
     public function __construct()
     {
         $this->user = new User;
+        $this->activity = new PfrActivity;
     }
     
     public function newPfr($event)
@@ -79,6 +81,8 @@ class PfrSubscriber /*implements ShouldQueue */{
     {
         $pfr = $event->pfr;
         $user = $event->user;
+        
+        $this->activity->new($pfr->id, $user->id);
     }
 
     public function subscribe($events)

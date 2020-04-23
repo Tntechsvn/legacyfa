@@ -67,6 +67,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			'as' => 'pfr.action',
 			'uses' => 'PfrController@action'
 		]);
+
+		Route::post('activity', [
+			'as' => 'pfr.activity',
+			'uses' => 'PfrController@loadActivity'
+		]);
 	});
 
 	/*COMPANY*/
