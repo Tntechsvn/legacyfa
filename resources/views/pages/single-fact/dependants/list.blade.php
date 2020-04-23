@@ -125,6 +125,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
+                <div class="clear"></div>
             </div>
         </div>
     </div>

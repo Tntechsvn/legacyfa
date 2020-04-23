@@ -923,11 +923,11 @@ table.td50 tr td:last-child{
 	display: inline-block;
 }
 .button-approved:hover{
-	color:#fff;
+	color:#fff !important;
 	background:#02c39a;
 }
 .button-cancel:hover{
-	color:#fff;
+	color:#fff !important;
 	background:#ed1c24;
 }
 .statuspfr{
@@ -2008,12 +2008,24 @@ input.form-check-input[type=checkbox]{
 	min-width: 120px;
 	padding:0 15px;
 	float: left;
-	background: #01b68f;
 	text-align: center;
 	-webkit-border-radius: 4px 4px 0px 0px;
-	 -moz-border-radius: 4px 4px 0px 0px;
-	 -o-border-radius: 4px 4px 0px 0px;
-	  border-radius: 4px 4px 0px 0px;
+	-moz-border-radius: 4px 4px 0px 0px;
+	-o-border-radius: 4px 4px 0px 0px;
+	border-radius: 4px 4px 0px 0px;
+	background: linear-gradient(180deg, rgba(2,195,154,1) 0%, rgba(0,166,131,1) 100%);  
+}
+.title-table-style2 h3 span{
+	line-height: 45px;
+	display: block;
+	float:left;
+}
+.title-table-style2 h3 i{
+	line-height: 45px;
+	font-size: 22px;
+	margin-right: 8px;
+	display: block;
+	float:left;
 }
 .action-table-style{
 	width: 50%;

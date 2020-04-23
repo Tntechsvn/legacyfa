@@ -6,7 +6,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="header-table-style2">
             <div class="title-table-style2">
-                <h3>List Trash Companies</h3>
+                <h3><i class="fas fa-list-alt"></i><span>List Trash Companies<span></h3>
             </div>
         </div>
         <table id="list-trash-company" class="table table-content table-style1" style="width:100%">

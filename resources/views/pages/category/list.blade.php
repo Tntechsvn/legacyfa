@@ -6,7 +6,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="header-table-style2">
             <div class="title-table-style2">
-                <h3>List Of Category</h3>
+                <h3><i class="fas fa-list-alt"></i><span>List Of Category<span></h3>
             </div>
             <div class="action-table-style">
                 <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('category.list_trash')}}"><i class="fas fa-trash"></i></a>
@@ -72,6 +72,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
+                <div class="clear"></div>
             </div>
         </div>
     </div>
@@ -100,6 +101,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                 </form>
+                <div class="clear"></div>
             </div>
         </div>
     </div>

@@ -6,10 +6,10 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="header-table-style2">
             <div class="title-table-style2">
-                <h3>List PFR</h3>
+                <h3><i class="fas fa-list-alt"></i><span>List PFR<span></h3>
             </div>
             <div class="action-table-style">
-                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('pfr.list_trash')}}"><i class="fas fa-trash"></i></a>
+                <a class="pull-right link-trash iconlinktrash radius_4" href="javascript:;"><i class="fas fa-trash"></i></a>
                 <div class="search-table search-fn">
                     <form class="radius_4" method="get" action="">
                         <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">

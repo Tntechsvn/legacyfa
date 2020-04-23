@@ -15,6 +15,10 @@
     background: rgb(2,195,154);
     background: linear-gradient(180deg, rgba(2,195,154,1) 0%, rgba(0,166,131,1) 100%);
 }
+.title-gradient1{
+    background: linear-gradient(180deg, rgba(2,195,154,1) 0%, rgba(0,166,131,1) 100%);
+}
+
 .title-table-home a i {
     font-size: 30px;
 }
@@ -26,7 +30,7 @@
     color: #999;
 }
 .paginate-style .pagination > li > a, .paginate-style .pagination > li > span {
-    font-weight: 300;
+    font-weight: 400;
 }
 .header-table-style1 {
     border-bottom: 2px solid;
@@ -64,8 +68,10 @@
 #table-pfr-home tr td a {
     color: #333;
 }
-#table-pfr-home tr:hover td a, #table-pfr-home tr:hover td, .table tr:hover td {
+#table-pfr-home tr:hover td a, #table-pfr-home tr:hover td, .table-style1 tr:hover td {
     color: #1b98e0;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
 }
 #table-pfr-home tr td a.status-pfr {
     color: #fff;
@@ -76,27 +82,66 @@
 .viewall-table a {
     border-radius: 4px;
 }
+.header-table-style2 {
+    border-bottom: 2px solid #01b68f;
+}
 .search-fn i:hover {
     background: #02c39a;
     color: #fff;
     border: none;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+}
+.action-table-style .iconlinktrash:hover {
+	background-color: #ed1c24;
+	color: #fff;
+	border: none;
+	transition: all 0.3s ease-out;
 }
 .paginate-style .pagination > li.active span {
-    background: #02c39a;
-    border-radius: 3px;
+    background-color: #02c39a;
+    border-radius: 4px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+.form-group-submit .btn:hover {
+    background-color: #235caa;
+    color: #fff;
+	transition: all 0.3s ease-out;
+}
+.link-forgot.textcenter:hover {
+    color: #235caa;
+	transition: all 0.3s ease-out;
+}
+.title-page-login h5 {
+	font-weight: 400;
+}
+.login-layout {
+    width: 540px;
+    padding: 30px 60px;
+}
+.btn.btn-primary.add_new.radius_4:hover {
+    background-color: #08b1f0;
+    color: #fff;
+	border: none;
+	transition: all 0.3s ease-out;
+}
+.editstyle1.edit:hover {
+	color: #02c39a;
+	transition: all 0.3s ease-out;
+}
+.paginate-style .pagination > li > a, .paginate-style .pagination > li > span {
+    height: 40px;
+    width: 40px;
+}
+.form-check.list-qa .checkmark-radio, .style-checked-table .checkmark,
+.style-checked-table2 .checkmark {
+    border: 1px solid #ccc;
+}
+.style-checked-table input:checked ~ .checkmark {
+    border: none;
+}
+.button-approved:hover, .button-cancel:hover {
+	transition: all 0.3s ease-out;
+}
 
 
 
