@@ -43,9 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($listPfr as $pfr)
-                    @include('content.pfr-item')
-                @endforeach
+                @each('content.pfr-item', $listPfr, 'pfr')
             </tbody>
         </table>
         <div class="bottom-table">

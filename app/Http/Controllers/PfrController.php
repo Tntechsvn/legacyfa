@@ -17,6 +17,39 @@ class PfrController extends Controller
 		$this->activity = new PfrActivity;
 	}
 
+    public function listPfr(Request $request)
+    {
+        $keyword = $request->keyword ?? "";
+        $paginate = config('constants.PAGINATE_PFR');
+        $listPfr = $this->pfr->select('pfrs.*')->user()->keyword($keyword)
+        ->groupBy('pfrs.id')->paginate($paginate);
+        //$listPfr = $this->pfr->listPfrPaginate($request, $paginate);
+        return view('pages.pfr.list', compact('listPfr'));
+    }
+
+    public function listTrashPfr(Request $request)
+    {
+        $paginate = config('constants.PAGINATE_PFR_TRASH');
+        $listPfr = $this->pfr->listPfrTrashPaginate($request, $paginate);
+        return "jfal";
+    }
+
+    public function softDeletePfr($id)
+    {
+        $resultSoftDelete = $this->pfr->softDeletePfr($id);
+        if ($resultSoftDelete) {
+            return response()->json([
+                'error' => false,
+                'message' => "Delete pfr successfully"
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => true,
+                'message' => "Delete pfr error"
+            ], 200);
+        }
+    }
+
 	public function showFormQuestion($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
