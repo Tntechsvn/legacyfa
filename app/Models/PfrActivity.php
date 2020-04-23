@@ -20,7 +20,7 @@ class PfrActivity extends Model
     	return $this->belongsTo('App\Models\Pfr');
     }
 
-    public function new($pfr_id, $user_id, $type = null)
+    public function new($pfr_id, $user_id, $type = 0)
     {
     	$this->pfr_id = $pfr_id;
     	$this->user_id = $user_id;
@@ -31,6 +31,6 @@ class PfrActivity extends Model
 
     public function scopeList($query)
     {
-    	return $query->where('type', 0);
+    	return $query->where('type', 0)->orderBy('time', 'DESC');
     }
 }

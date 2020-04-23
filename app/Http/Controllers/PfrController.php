@@ -114,9 +114,38 @@ class PfrController extends Controller
 				'message' => "Success"
 			], 200);
 		}
+
+		return response()->json([
+			'error' => true,
+			'message' => "Error"
+		], 200);
+	}
+
+	public function loadActivity(Request $request){
+
+		$pfr = $this->pfr->find($request->id);
+		if($pfr){
+			$list = $pfr->activities()->list()->get();
+			$data = '';
+			foreach ($list as $key => $activity) {
+				$full_name = $activity->user->full_name;
+				$data .= "
+                        <tr>
+                            <td><a href=\"detail-checking-log\">$activity->time</a></td>
+                            <td>$full_name</td>
+                        </tr>";
+			}
 			return response()->json([
-				'error' => true,
-				'message' => "Error"
+				'error' => false,
+				'message' => "Success",
+				'data' => $data
 			], 200);
+		}
+
+		return response()->json([
+			'error' => true,
+			'message' => "Error"
+		], 200);
+
 	}
 }

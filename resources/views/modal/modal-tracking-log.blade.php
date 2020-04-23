@@ -1,5 +1,5 @@
 <!-- modal ADD NEW COMPANY -->
-<div class="modal fade" id="modal_checking_log" tabindex="-1" role="dialog" aria-labelledby="modal_checking_log" aria-hidden="true">
+<div class="modal fade" id="modal_tracking_log" tabindex="-1" role="dialog" aria-labelledby="modal_checking_log" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
