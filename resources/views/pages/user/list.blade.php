@@ -110,8 +110,8 @@
                         <button type="submit" class="radius_4 btn btn-primary mb-2 style-button1">Submit</button>
                         <input type="hidden" id="row" name="row" value="">
                     </div>
-                    <div class="clear"></div>
                 </form>
+                <div class="clear"></div>
             </div>
         </div>
     </div>

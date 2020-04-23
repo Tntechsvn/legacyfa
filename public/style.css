@@ -908,6 +908,7 @@ table.td50 tr td:last-child{
 	border:1px solid #02c39a;
 	color:#02c39a;
 	background: #fff;
+	display: inline-block;
 }
 .button-cancel{
 	width: 85px;
@@ -919,6 +920,7 @@ table.td50 tr td:last-child{
 	border:1px solid #ed1c24;
 	color:#ed1c24;
 	background: #fff;
+	display: inline-block;
 }
 .button-approved:hover{
 	color:#fff;
@@ -1034,7 +1036,7 @@ table.td50 tr td:last-child{
 	color:#fff;
 	text-align:center;
 	background:#00aeef;
-	font-weight: 100;
+	font-weight: 400;
 	border:none;
 	padding:0;
 }
