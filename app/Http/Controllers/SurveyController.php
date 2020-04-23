@@ -153,7 +153,7 @@ class SurveyController extends Controller
 		}
 		if ($result) {
 			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
-			return "Finish";
+			return redirect()->route('downloadpdf', $idPfr);
 		} else {
 			return redirect()->back();
 		}

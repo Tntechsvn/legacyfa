@@ -24,7 +24,9 @@
                             <strong>1a. Have you withdrawn / surrendered / terminated, in part or or in full any existing insurance policy or investment product within the last 12 months? </strong>
                         </td>
                         <td>
-                            @php $data = $infoPfr->switchingReplacement->data ?? []; @endphp
+                            @php
+                                $data = $infoPfr->switchingReplacement->data ?? [];
+                            @endphp
                             <label class="radio-inline custom-style-radio1">
                                 <div class="style-checked style-radio-custom">
                                     <input class="" type="radio" name="name_1a" value="0" @if(isset($data['name_1a'])) @if($data['name_1a'] == 0) {{'checked'}} @endif @else {{'checked'}} @endif>
@@ -194,7 +196,7 @@
                     <tr>
                         <td>Additional Notes</td>
                         <td colspan="2">
-                            <textarea class="step10area" name="note" placeholder="Additional Notes">{{$switchingReplacement->note ?? ""}}</textarea>
+                            <textarea class="step10area" name="note" placeholder="Additional Notes">{{$infoPfr->switchingReplacement->note ?? ""}}</textarea>
                         </td>
                     </tr>
                 </tbody>

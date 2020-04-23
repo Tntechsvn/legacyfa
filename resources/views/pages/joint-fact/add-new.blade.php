@@ -81,14 +81,14 @@
         <div class="col-sm-4">
           <label class="radio-inline">
             <div class="style-checked style-radio-custom">
-                <input type="radio" name="sex1" id="male" value="0" {{isset($client2->gender) && $client2->smoker == 1 ? 'checked' : ''}}>
+                <input type="radio" name="sex1" id="male" value="0" @if(isset($client1)){{isset($client1->gender) && $client1->gender == 0 ? 'checked' : ''}}@else{{'checked'}}@endif>
                 <span class="checkmark-radio"></span>
             </div>
             Male
           </label>
           <label class="radio-inline">
             <div class="style-checked style-radio-custom">
-              <input type="radio" name="sex1" id="female" value="1" {{isset($client2->gender) && $client2->smoker == 1 ? 'checked' : ''}}>
+              <input type="radio" name="sex1" id="female" value="1" {{isset($client1->gender) && $client1->gender == 1 ? 'checked' : ''}}>
               <span class="checkmark-radio"></span>
             </div>
             Female
@@ -96,16 +96,16 @@
         </div>
         <div class="col-sm-4">
           <label class="radio-inline">
-            <div class="style-checked1">
-                <input type="radio" name="sex2" id="male2" value="0" {{isset($client2->gender) && $client2->smoker == 1 ? 'checked' : ''}}>
+            <div class="style-checked style-radio-custom">
+                <input type="radio" name="sex2" id="male2" value="0" @if(isset($client2)){{isset($client2->gender) && $client2->gender == 1 ? 'checked' : ''}}@else{{'checked'}}@endif>
                 <span class="checkmark-radio1"></span>
             </div>
             Male
           </label>
           <label class="radio-inline">
-            <div class="style-checked1">
-              <input type="radio" name="sex2" id="female2" value="1" {{isset($client2->gender) && $client2->smoker == 1 ? 'checked' : ''}}>
-              <span class="checkmark-radio1"></span>
+            <div class="style-checked style-radio-custom">
+              <input type="radio" name="sex2" id="female2" value="1" {{isset($client2->gender) && $client2->gender == 1 ? 'checked' : ''}}>
+              <span class="checkmark-radio"></span>
             </div>
             Female
           </label>
@@ -213,28 +213,32 @@
         <label class="col-sm-3">Smoker<span>*</span></label>
         <div class="col-sm-4">
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker1" value="0" @if(isset($client1->smoker)) @if($client1->smoker == 0) {{'checked'}}@endif @else {{'checked'}} @endif>
+                    <span class="checkmark-radio"></span>
                 </div>
                 Yes
             </label>
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker1" value="1" {{isset($client1->smoker) && $client1->smoker == 1 ? 'checked' : ''}}>
+                    <span class="checkmark-radio"></span>
                 </div>
                 No 
             </label>
         </div>
         <div class="col-sm-4">
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker2" value="0" @if(isset($client2->smoker)) @if($client2->smoker == 0) {{'checked'}}@endif @else {{'checked'}} @endif>
+                    <span class="checkmark-radio"></span>
                 </div>
                 Yes
             </label>
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker2" value="1" {{isset($client2->smoker) && $client2->smoker == 1 ? 'checked' : ''}}>
+                    <span class="checkmark-radio"></span>
                 </div>
                 No 
             </label>
@@ -426,7 +430,7 @@
 @section('script')
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#title').change(function(){
+    $('#title1').change(function(){
       var title = $(this).val();
       if(title == "Mrs" || title == "Ms" || title == "Mdm"){
         $('#female').prop('checked', true).siblings('i').addClass('fas fa-check-circle').removeClass('far fa-circle');
@@ -434,6 +438,17 @@
       }else{
         $('#female').prop('checked', false).siblings('i').addClass('far fa-circle').removeClass('fas fa-check-circle');
         $('#male').prop('checked', true).siblings('i').addClass('fas fa-check-circle').removeClass('far fa-circle');
+      }
+    });
+
+    $('#title2').change(function(){
+      var title = $(this).val();
+      if(title == "Mrs" || title == "Ms" || title == "Mdm"){
+        $('#female2').prop('checked', true).siblings('i').addClass('fas fa-check-circle').removeClass('far fa-circle');
+        $('#male2').prop('checked', false).siblings('i').addClass('far fa-circle').removeClass('fas fa-check-circle');
+      }else{
+        $('#female2').prop('checked', false).siblings('i').addClass('far fa-circle').removeClass('fas fa-check-circle');
+        $('#male2').prop('checked', true).siblings('i').addClass('fas fa-check-circle').removeClass('far fa-circle');
       }
     });
 
