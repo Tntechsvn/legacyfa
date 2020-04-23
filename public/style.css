@@ -2184,8 +2184,8 @@ input.form-check-input[type=checkbox]{
 	float: left;
 }
 
-/* survey-form step 15 */
-#survey-form{
+/* survey_form step 15 */
+#survey_form{
 	padding: 15px;
 }
 .title-survey1{
@@ -2200,8 +2200,8 @@ input.form-check-input[type=checkbox]{
 	font-size: 16px;
 	font-weight: 700;
 }
-#survey-form input[type=text],
-#survey-form input[type=number]{
+#survey_form input[type=text],
+#survey_form input[type=number]{
 	width: 100%;
 }
 .lcb1-step15 label{
