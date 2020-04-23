@@ -94,7 +94,7 @@ class HomeController extends Controller
     /* DOWNLOAD PDF*/
     public function downloadPdf($id)
     {
-        $data=$this->pfr->downloadPdf($id);
+        $data = $this->pfr->infoPfrById($id);
         $filename = $data->nameClient;
         $time = Carbon::now();
         $nowtime = $time->format('Y-m-d');

@@ -684,6 +684,121 @@ Route::group(['prefix' => 'joint-fact'], function(){
 				'uses' => 'AssessmentController@addNewSingleAssessment'
 			]);
 		});
+
+		Route::group(['prefix' => 'question'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.show_form_question',
+				'uses' => 'PfrController@showFormQuestion'
+			]);
+
+			Route::post('/', [
+				'as' => 'jointfact.add_new_question',
+				'uses' => 'PfrController@addNewQuestion'
+			]);
+		});
+
+		Route::group(['prefix' => 'portfolio'], function(){
+			Route::get('/', [
+				'as' => 'portfolio.list',
+				'uses' => 'PortfolioController@listPortfolioSingle'
+			]);
+
+			/*property*/
+			Route::post('add-new-property', [
+				'as' => 'portfolio.add_new_property',
+				'uses' => 'PortfolioController@addNewProperty'
+			]);
+
+			Route::post('edit-property/{position}', [
+				'as' => 'portfolio.edit_property',
+				'uses' => 'PortfolioController@editProperty'
+			]);
+
+			Route::get('delete-property/{position}', [
+				'as' => 'portfolio.delete_property',
+				'uses' => 'PortfolioController@deleteProperty'
+			]);
+
+			/*investment*/
+			Route::post('add-new-investment', [
+				'as' => 'portfolio.add_new_investment',
+				'uses' => 'PortfolioController@addNewInvestment'
+			]);
+
+			Route::post('edit-investment/{position}', [
+				'as' => 'portfolio.edit_investment',
+				'uses' => 'PortfolioController@editInvestment'
+			]);
+
+			Route::get('delete-investment/{position}', [
+				'as' => 'portfolio.delete_investment',
+				'uses' => 'PortfolioController@deleteInvestment'
+			]);
+
+			/*saving*/
+			Route::post('add-new-saving', [
+				'as' => 'portfolio.add_new_saving',
+				'uses' => 'PortfolioController@addNewSaving'
+			]);
+
+			Route::post('edit-saving/{position}', [
+				'as' => 'portfolio.edit_saving',
+				'uses' => 'PortfolioController@editSaving'
+			]);
+
+			Route::get('delete-saving/{position}', [
+				'as' => 'portfolio.delete_saving',
+				'uses' => 'PortfolioController@deleteSaving'
+			]);
+
+			/*cpf*/
+			Route::post('add-new-cpf', [
+				'as' => 'portfolio.add_new_cpf',
+				'uses' => 'PortfolioController@addNewCpf'
+			]);
+
+			Route::post('edit-cpf/{position}', [
+				'as' => 'portfolio.edit_cpf',
+				'uses' => 'PortfolioController@editCpf'
+			]);
+
+			Route::get('delete-cpf/{position}', [
+				'as' => 'portfolio.delete_cpf',
+				'uses' => 'PortfolioController@deleteCpf'
+			]);
+
+			/*insurance*/
+			Route::post('add-new-insurance', [
+				'as' => 'portfolio.add_new_insurance',
+				'uses' => 'PortfolioController@addNewInsurance'
+			]);
+
+			Route::post('edit-insurance/{position}', [
+				'as' => 'portfolio.edit_insurance',
+				'uses' => 'PortfolioController@editInsurance'
+			]);
+
+			Route::get('delete-insurance/{position}', [
+				'as' => 'portfolio.delete_insurance',
+				'uses' => 'PortfolioController@deleteInsurance'
+			]);
+
+			/*loan*/
+			Route::post('add-new-loan', [
+				'as' => 'portfolio.add_new_loan',
+				'uses' => 'PortfolioController@addNewLoan'
+			]);
+
+			Route::post('edit-loan/{position}', [
+				'as' => 'portfolio.edit_loan',
+				'uses' => 'PortfolioController@editLoan'
+			]);
+
+			Route::get('delete-loan/{position}', [
+				'as' => 'portfolio.delete_loan',
+				'uses' => 'PortfolioController@deleteLoan'
+			]);
+		});
 	});
 });
 

@@ -289,11 +289,6 @@ class Pfr extends Model
     /*END ATTRIBUTE*/
     
     /* DOWNLOAD PDF*/
-    public function downloadPdf($id)
-    {
-        return static::where('id', $id)->first();
-    }
-
     public function scopeUser($query)
     {
         if(Auth::user()->is_agency){
