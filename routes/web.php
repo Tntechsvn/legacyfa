@@ -45,22 +45,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 	Route::group(['prefix' => 'pfr'], function(){
 		Route::get('/', [
 			'as' => 'pfr.list',
-			'uses' => 'HomeController@listPfr'
+			'uses' => 'PfrController@listPfr'
 		]);
 
 		Route::get('trash', [
 			'as' => 'pfr.list_trash',
-			'uses' => 'HomeController@listTrashPfr'
+			'uses' => 'PfrController@listTrashPfr'
 		]);
 
 		Route::get('move-to-trash/{id}', [
 			'as' => 'pfr.move_to_trash',
-			'uses' => 'HomeController@softDeletePfr'
+			'uses' => 'PfrController@softDeletePfr'
 		]);
 
 		Route::get('restore/{id}', [
 			'as' => 'pfr.restore',
-			'uses' => 'HomeController@restorePfr'
+			'uses' => 'PfrController@restorePfr'
 		]);
 
 		Route::post('action', [

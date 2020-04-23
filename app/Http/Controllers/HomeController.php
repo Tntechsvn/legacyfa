@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('roleMiddleware',['except' => ['listPfr','listTrashPfr']]);
+        $this->middleware('roleMiddleware',['except' => ['listPfr','listTrashPfr', 'softDeletePfr']]);
 
         $this->pfr = new Pfr;
         $this->user = new User;
