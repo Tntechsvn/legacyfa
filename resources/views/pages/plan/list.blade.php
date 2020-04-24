@@ -278,7 +278,7 @@
                     }
                 });
               } else {
-                swal("Cancelled", "error");
+                swal("cancelled", "error");
               }
             });
     });

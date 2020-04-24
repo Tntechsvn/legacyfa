@@ -914,7 +914,7 @@ table.td50 tr td:last-child{
 	width: 85px;
 	height: 35px;
 	color:#02c39a;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	line-height: 33px;
 	text-align: center;
 	border:1px solid #ed1c24;
@@ -985,6 +985,9 @@ table.td50 tr td:last-child{
 	top:15px;
 	display: none;
 }
+.modal-body{
+	padding:30px 15px;
+}
 .modal-body button{
 	margin-left:auto;
 	margin-right: auto;
@@ -992,8 +995,8 @@ table.td50 tr td:last-child{
 }
 
 .form-group-modal{
-	padding-left:65px;
-	padding-right:65px;
+	padding-left:30px;
+	padding-right:30px;
 }
 .form-group-modal > label{
 	width:28%;
@@ -1213,6 +1216,7 @@ a.style-button1{
 }
 .modal-body .nav-step{
 	padding-right: 0;
+	margin-top:10px;
 }
 .modal-body .nav-step .style-button1{
 	float: none;
@@ -1956,7 +1960,7 @@ input.form-check-input[type=checkbox]{
 	display: block;
 	font-weight: 700;
 }
-.sub-title-step p:after{
+/*.sub-title-step p:after{
 	width: 50px;
 	bottom:0;
 	left: 0;
@@ -1964,7 +1968,7 @@ input.form-check-input[type=checkbox]{
 	content: "";
 	display: block;
 	height: 3px;
-}
+}*/
 /* Step1 */
 .has_14{
 	display: none;

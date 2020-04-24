@@ -16,7 +16,7 @@
     <td>
         @if($pfr->is_pending)
             <a href="javascript:;" class="pfr_action button-approved radius_4" data-type="approve" data-id="{{$pfr->id}}" data-url="{{route('pfr.action')}}">APPROVE</a>
-            <a href="javascript:;" class="pfr_action button-cancel radius_4" data-type="cancel" data-id="{{$pfr->id}}" data-url="{{route('pfr.action')}}">CANCEL</a>
+            <a href="javascript:;" class="pfr_action button-cancel radius_4" data-type="cancel" data-id="{{$pfr->id}}" data-url="{{route('pfr.action')}}">cancel</a>
         @else
             @if(!Auth::user()->is_agency)
                 <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('pfr.move_to_trash', $pfr->id)}}" data-title="Delete"><i class="lni lni-trash"></i></a>
