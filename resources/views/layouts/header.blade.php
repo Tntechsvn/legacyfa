@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="user-header">
-            <a href="javascript:;"><i class="fas fa-user-circle"></i>{{Auth::user()->full_name}}</a>
+            <a href="javascript:;"><i class="lni lni-user"></i>{{Auth::user()->full_name}}</a>
         </div>
         <div class="logout-user">
             <a href="{{route('logout')}}"><img src="{{asset('images/logout.png')}}"  alt=""/></a>

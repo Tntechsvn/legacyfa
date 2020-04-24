@@ -9,14 +9,14 @@
                 <h3><i class="fas fa-list-alt"></i><span>List Of Plans<span></h3>
             </div>
             <div class="action-table-style">
-                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('plan.list_trash')}}"><i class="fas fa-trash"></i></a>
+                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('plan.list_trash')}}"><i class="lni lni-trash"></i></a>
                 <div class="search-table search-fn">
                     <form class="radius_4" method="get" action="">
                         <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
-                        <i class="fa fa-search radius_2"></i>
+                        <i class="lni lni-search-alt radius_2"></i>
                     </form>
                 </div>
-                <button type="button" class="btn btn-primary add_new radius_4" data-toggle="modal" data-target="#modal_add_new"><i class="fas fa-plus"></i></button>
+                <button type="button" class="btn btn-primary add_new radius_4" data-toggle="modal" data-target="#modal_add_new"><i class="lni lni-plus"></i></button>
             </div>
         </div>
         <table id="list-plan-page" class="table  table-content table-style1" style="width:100%">
@@ -37,8 +37,8 @@
                     <td>{{$plan->name}}</td>
                     <td>{{$plan->nameCategoryPlan}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-id="{{$plan->id}}" data-name="{{$plan->name}}" data-company="{{$plan->company_id}}" data-category="{{$plan->category_plan_id}}" data-featured="{{$plan->featured}}" data-url="{{route('plan.edit', $plan->id)}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('plan.move_to_trash', $plan->id)}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit" data-toggle="modal" data-id="{{$plan->id}}" data-name="{{$plan->name}}" data-company="{{$plan->company_id}}" data-category="{{$plan->category_plan_id}}" data-featured="{{$plan->featured}}" data-url="{{route('plan.edit', $plan->id)}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('plan.move_to_trash', $plan->id)}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

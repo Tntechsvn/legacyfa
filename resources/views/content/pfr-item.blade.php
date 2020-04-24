@@ -19,7 +19,7 @@
             <a href="javascript:;" class="pfr_action button-cancel radius_4" data-type="cancel" data-id="{{$pfr->id}}" data-url="{{route('pfr.action')}}">CANCEL</a>
         @else
             @if(!Auth::user()->is_agency)
-                <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('pfr.move_to_trash', $pfr->id)}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                <a href="javascript:;" class="deletestyle1 delete" data-url="{{route('pfr.move_to_trash', $pfr->id)}}" data-title="Delete"><i class="lni lni-trash"></i></a>
             @endif
         @endif
     </td>

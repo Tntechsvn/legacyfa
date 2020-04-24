@@ -22,6 +22,7 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="{{asset('css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/LineIcons.css')}}">
     <link href="https://parsleyjs.org/src/parsley.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
     <link href="{{asset('style.css')}}" rel="stylesheet" media="screen">

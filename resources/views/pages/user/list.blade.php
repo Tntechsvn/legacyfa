@@ -9,14 +9,14 @@
                 <h3><i class="fas fa-list-alt"></i><span>List User<span></h3>
             </div>
             <div class="action-table-style">
-                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('user.list_trash')}}"><i class="fas fa-trash"></i></a>
+                <a class="pull-right link-trash iconlinktrash radius_4" href="{{route('user.list_trash')}}"><i class="lni lni-trash"></i></a>
                 <div class="search-table search-fn">
                     <form class="radius_4" method="get" action="">
                         <input class="radius_4" type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
-                        <i class="fa fa-search radius_2"></i>
+                        <i class="lni lni-search-alt radius_2"></i>
                     </form>
                 </div>
-                <button type="button" class="btn btn-primary add_new radius_4" data-url="{{route('user.add_new')}}"><i class="fas fa-plus"></i></button> 
+                <button type="button" class="btn btn-primary add_new radius_4" data-url="{{route('user.add_new')}}"><i class="lni lni-plus"></i></button> 
             </div>
         </div>
         <table id="list-user" class="table table-content table-style1" style="width:100%">

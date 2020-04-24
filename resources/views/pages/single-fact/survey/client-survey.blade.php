@@ -3,7 +3,7 @@
 @section('content')
 <div class="maincontent">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
-        <h4>Step 15 - Client Call-back Survey (by supervisor)</h4>
+        <h4>Step 14 - Client Call-back Survey (by supervisor)</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
 
@@ -76,39 +76,41 @@
             <div class="row custom-survey2">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <p><strong>Mode of Contact:</strong></p>
-                    <label>
+                    <label class="lablefullstep15">
                         <input class="form-check-input" value="FTF" name="mode_contact[]" type="checkbox" @if(isset($callback)) @foreach($callback['mode_contact'] as $mode) @if($mode == 'FTF'){{'checked'}}@endif @endforeach @endif>
                        Face-to-face
                     </label>
-                    <label>
+                    <label  class="lablefullstep15">
                         <input class="form-check-input" value="VC" name="mode_contact[]" type="checkbox"@if(isset($callback)) @foreach($callback['mode_contact'] as $mode) @if($mode == 'VC'){{'checked'}}@endif @endforeach @endif>
                         Voice Call
                     </label>
-                    <p>Please specify contact no: <input type="text" name="specify_contact" value="{{isset($callback) ? $callback['specify_contact'] : ''}}"></p>
+                    <label class="lablehalfstep15">Please specify contact no:</label>
+                    <p class="lablehalfstep15"><input type="text" name="specify_contact" value="{{isset($callback) ? $callback['specify_contact'] : ''}}">
+                    </p>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <p><strong>Language used during the client call-back:</strong></p>
-                    <label>
+                    <label class="lablehalfstep15">
                         <input  class="form-check-input" value="ENG" name="used_lang[]" type="checkbox"  @if(isset($callback)) @foreach($callback['used_lang'] as $lang) @if($lang == 'ENG'){{'checked'}}@endif @endforeach @endif>
                        English
                     </label>
-                    <label>
+                    <label  class="lablehalfstep15">
                         <input  class="form-check-input" value="MAL" name="used_lang[]" type="checkbox"  @if(isset($callback)) @foreach($callback['used_lang'] as $lang) @if($lang == 'MAL'){{'checked'}}@endif @endforeach @endif>
                        Malay
                     </label>
-                    <label>
+                    <label  class="lablehalfstep15">
                         <input  class="form-check-input" value="MAN" name="used_lang[]" type="checkbox"  @if(isset($callback)) @foreach($callback['used_lang'] as $lang) @if($lang == 'MAN'){{'checked'}}@endif @endforeach @endif>
                         Mandarin
                     </label>
-                    <label>
+                    <label  class="lablehalfstep15">
                         <input  class="form-check-input" value="TAM" name="used_lang[]" type="checkbox"  @if(isset($callback)) @foreach($callback['used_lang'] as $lang) @if($lang == 'TAM'){{'checked'}}@endif @endforeach @endif>
                         Tamil
                     </label>
-                    <label>
+                    <label   class="lablehalfstep15">
                         <input  class="form-check-input" value="Ot" name="used_lang[]" type="checkbox"  @if(isset($callback)) @foreach($callback['used_lang'] as $lang) @if($lang == 'Ot'){{'checked'}}@endif @endforeach @endif>
                        Others, please specify:
                     </label>
-                    <label>
+                    <label   class="lablehalfstep15">
                        <input type="text" name="lang" value="{{isset($callback) ? $callback['lang'] : ''}}">
                     </label>
                 </div>
@@ -116,7 +118,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p><strong>Log of Calls Attempt:</strong></p>
-                    <table>
+                    <table class="survey-table">
                         <thead>
                             <tr>
                                 <th></th>
@@ -127,19 +129,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Date:</strong></td>
+                                <td class="first-td"><strong>Date:</strong></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td><strong>Time:</strong></td>
+                                <td  class="first-td"><strong>Time:</strong></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
-                                <td rowspan="3"><strong>OutCome:</strong></td>
+                                <td rowspan="3"  class="first-td"><strong>OutCome:</strong></td>
                                 <td>
                                     <label>
                                         <input class="form-check-input" value="1" name="a_one" type="checkbox" @if(isset($callback)) @if($callback['log_of_call'][0]['surveyed'] == 1){{'checked'}}@endif @endif>
@@ -208,28 +210,30 @@
             </div>
             @php $questions = json_decode(json_encode(config('constants.response_questions')));
             @endphp
-            <div class="list-q-step15">
-	            @foreach($questions as $key_question=>$q)
-	                <h4><strong>{{$q->name}}</strong></h4> 
-	                    @foreach($q->answers as $key => $value )
-	                    	<div class="content-survey-radio">
-	                    		<p><strong>{{$key}}. {{$value}}</strong></p>
-	                    		<div class="right-q">
-			                        <div class="survey-radio">
-			                            <input type="radio" name="rq{{$key}}" value="1" @if(isset($callback)) @if($callback['question'][$key - 1] == 1){{'checked'}}@endif @endif>
-			                            Yes
-			                        </div>
-			                        <div class="survey-radio">
-			                            <input type="radio" name="rq{{$key}}" value="0" @if(isset($callback)) @if($callback['question'][$key - 1] == 0){{'checked'}}@endif @endif>
-			                            No
-			                        </div>
-		                        </div>
-		                    </div>
-	                    @endforeach
-	             @endforeach 
+            <div class="list-q-step15 row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    	            @foreach($questions as $key_question=>$q)
+    	                <h4><strong>{{$q->name}}</strong></h4> 
+    	                    @foreach($q->answers as $key => $value )
+    	                    	<div class="content-survey-radio">
+    	                    		<p>{{$key}}. {{$value}}</p>
+    	                    		<div class="right-q">
+    			                        <div class="survey-radio">
+    			                            <input type="radio" name="rq{{$key}}" value="1" @if(isset($callback)) @if($callback['question'][$key - 1] == 1){{'checked'}}@endif @endif>
+    			                            Yes
+    			                        </div>
+    			                        <div class="survey-radio">
+    			                            <input type="radio" name="rq{{$key}}" value="0" @if(isset($callback)) @if($callback['question'][$key - 1] == 0){{'checked'}}@endif @endif>
+    			                            No
+    			                        </div>
+    		                        </div>
+    		                    </div>
+    	                    @endforeach
+    	           @endforeach 
+                </div>
 	        </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 title-textarea">
                 	 <p><strong>Comments (if any):</strong></p>
                     <textarea name="comment">{{isset($callback) ? $callback['comment'] : ''}}</textarea>
                 </div>

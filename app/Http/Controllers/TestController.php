@@ -10,4 +10,8 @@ class TestController extends Controller
 	{
 
 	}
+	public function testtable()
+    {
+        return view('pages.test');
+    }
 }
