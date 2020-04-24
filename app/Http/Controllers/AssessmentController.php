@@ -95,7 +95,9 @@ class AssessmentController extends Controller
 				} else {
 					$url = route('jointfact.balance.list', $idPfr);
 				}
+				$needTrust = false;
 				if ( ( $request->age == 1 && ($request->spoken_en == 1 || $request->written_en == 1 ) ) || ( $request->age == 1 && ( $request->education == 0 || $request->education == 1) ) || ( ( $request->spoken_en == 1 || $request->written_en == 1 ) && ( $request->education == 0 || $request->education == 1 ) ) || ( $request->spoken_en == 1 || $request->written_en == 1 ) ) {
+					$needTrust = true;
 					if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
 						$url = route('jointfact.show_form_question', $idPfr);
 					} else {
@@ -104,12 +106,12 @@ class AssessmentController extends Controller
 				} else {
 					if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
 						if ( ( $request->age_j == 1 && ($request->spoken_en_j == 1 || $request->written_en_j == 1 ) ) || ( $request->age_j == 1 && ( $request->education_j == 0 || $request->education_j == 1) ) || ( ( $request->spoken_en_j == 1 || $request->written_en_j == 1 ) && ( $request->education_j == 0 || $request->education_j == 1 ) ) || ( $request->spoken_en_j == 1 || $request->written_en_j == 1 ) ) {
+							$needTrust = true;
 							$url = route('jointfact.show_form_question', $idPfr);
 						}
 					}
 				}
-
-				if ($edit) {
+				if ($edit && $needTrust == false) {
 					$param = array(
 						'trusted_individual' => null
 					);

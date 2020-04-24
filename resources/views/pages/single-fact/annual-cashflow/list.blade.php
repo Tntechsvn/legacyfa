@@ -146,7 +146,7 @@
             </div>
 
             <div class="nav-step">
-                <a href="{{route('single_fact.balance.list', $infoPfr->id)}}" class="style-button1">Back</a>
+                <a href="@if($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {{route('single_fact.balance.list', $infoPfr->id)}} @else {{route('jointfact.balance.list', $infoPfr->id)}} @endif" class="style-button1">Back</a>
                 <button type="submit" class="style-button1">Next</button>
             </div>
         </form>      

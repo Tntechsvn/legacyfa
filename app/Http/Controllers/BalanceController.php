@@ -36,7 +36,20 @@ class BalanceController extends Controller
 				$totalLiabilities += (int) $val;
 			}
 		}
-		return view('pages.single-fact.balance.list', compact('infoPfr', 'infoBalance', "assets", 'totalAssets', 'liabilities', 'totalLiabilities'));
+		if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+			if ($infoPfr->trusted_individual != null) {
+				$backUrl = route('single-fact.show_form_question', $idPfr);
+			} else {
+				$backUrl = route('single-fact.show_form_add_new_assessment', $idPfr);
+			}
+		} else {
+			if ($infoPfr->trusted_individual != null) {
+				$backUrl = route('jointfact.show_form_question', $idPfr);
+			} else {
+				$backUrl = route('jointfact.show_form_add_new_assessment', $idPfr);
+			}
+		}
+		return view('pages.single-fact.balance.list', compact('infoPfr', 'infoBalance', "assets", 'totalAssets', 'liabilities', 'totalLiabilities', 'backUrl'));
 	}
 
 	public function addNewBalance(Request $request, $idPfr)
@@ -141,10 +154,15 @@ class BalanceController extends Controller
 			$message = $edit ? "Edit balance successfully" : "Add new balance successfully";
 			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
 			
+			if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+				$url = route('single_fact.cash_flow.list', $idPfr);
+			} else {
+				$url = route('jointfact.cash_flow.list', $idPfr);
+			}
 			return response()->json([
 				'error' => false,
 				'message' => $message,
-				'url' => route('single_fact.cash_flow.list', $idPfr)
+				'url' => $url
 			], 200);
 		} else {
 			$message = $edit ? "Edit balance error" : "Add new balance error";
