@@ -467,7 +467,6 @@ li.has-child{
 	width: 22px;
 	height:22px;
 	color: #555;
-	border:1px solid #555;
 	position: absolute;
 	right:10px;
 	top:16px;
@@ -645,6 +644,7 @@ li.has-child{
 }
 .link-action-addnew a i{
 	margin-right:10px;
+	font-size: 20px;
 }
 
 .link-trash{
@@ -951,7 +951,7 @@ table.td50 tr td:last-child{
 /* MODAL */
 .modal-dialog{
 	width:90%;
-	max-width:725px;
+	max-width:650px;
 }
 .modal-header{
 	position: relative;
@@ -1847,26 +1847,14 @@ input.form-check-input[type=checkbox]{
 	height:40px;
 	width: 100%;
 	line-height: 40px;
-	padding:0;
-	background: #02c39a;
-	color: #fff;
+	color: #333;
 	font-size: 16px;
-	-webkit-border-radius: 4px 4px 0px 0px;
-	-moz-border-radius: 4px 4px 0px 0px;
-	-o-border-radius: 4px 4px 0px 0px;
-	border-radius: 4px 4px 0px 0px;
-	margin-top:0 !important;
 }
 .swal-text{
 	line-height: 28px;
 	padding:0px 15px 0px 30px;
-	background:url(images/icon-warning.png) no-repeat left top;
 	display: inline-block;
 	margin-top:15px;
-}
-
-.swal-icon {
-	display: none;
 }
 .swal-footer{
 	text-align: center;
@@ -2172,6 +2160,9 @@ input.form-check-input[type=checkbox]{
 	width: 100%;
 	float: left;
 }
+.content-check-step12 textarea{
+	width: 100%;
+}
 .list-child1{
 	margin-bottom:10px;
 	width: 100%;
@@ -2199,6 +2190,11 @@ input.form-check-input[type=checkbox]{
 /* survey_form step 15 */
 #survey_form{
 	padding: 15px;
+	padding-top:0;
+	border: 1px solid #ccc;
+	border-top:none;
+	width: 100%;
+	float: left;
 }
 .title-survey1{
 	border:1px solid #00ab87;
@@ -2215,6 +2211,10 @@ input.form-check-input[type=checkbox]{
 #survey_form input[type=text],
 #survey_form input[type=number]{
 	width: 100%;
+	height:35px;
+	line-height:33px;
+	border:1px solid #ccc;
+	padding:0px 15px;
 }
 .lcb1-step15 label{
 	margin-right: 20px;
@@ -2222,19 +2222,14 @@ input.form-check-input[type=checkbox]{
 .custom-survey1 > div{
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-left:1px solid #ccc;
 }
-.custom-survey1 > div:last-child{
-	border-right:1px solid #ccc;
+.custom-survey2{
+	margin-top:15px;
+	margin-bottom:15px;
 }
 .custom-survey2 >div{
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-top:1px solid #ccc;
-	border-left:1px solid #ccc;
-}
-.custom-survey2 > div:last-child{
-	border-right:1px solid #ccc;
 }
 
 .content-survey-radio{
@@ -2246,6 +2241,10 @@ input.form-check-input[type=checkbox]{
 	float: left;
 	display: block;
 }
+.list-q-step15{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
 .right-q{
 	width:auto;
 	max-width: 20%;
@@ -2253,4 +2252,74 @@ input.form-check-input[type=checkbox]{
 }
 .right-q .survey-radio{
 	float:left;
+	margin-left: 20px;
+}
+.title-textarea p{
+	width: :100%;
+	border: 1px solid #00ab87;
+	background: #00ab87;
+	color: #fff;
+	display: block;
+	padding-left: 10px;
+}
+.title-textarea textarea{
+	border:1px solid #ccc;
+	border-top:none;
+	width: 100%;
+}
+.survey-table {
+
+}
+.survey-table thead tr th{
+	background: #00ab87;
+	color:#fff;
+}
+.survey-table tbody tr td{
+	vertical-align: middle;
+}
+.survey-table td,
+.survey-table th{
+	padding:5px 10px;
+	border:1px solid #ccc;
+}
+.survey-table label{
+	font-weight: 400;
+}
+.survey-table label.custom-style-radio1{
+	margin-right:25px;
+}
+.survey-table textarea{
+	width: 100%;
+	border:1px solid #ccc;
+}
+.survey-table input[type=text]{
+	width: 100%;
+	border:1px solid #ccc;
+	margin-top:10px;
+}
+.lablefullstep15{
+	width: 100%;
+	font-weight: 400;
+}
+.lablehalfstep15{
+	width: 50%;
+	float: left;
+	font-weight: 400;
+}
+
+
+/* STEP 13 */
+.list-check-step13{
+	margin-top: 5px;
+}
+.list-check-step13 label{
+	font-weight: 400;
+}
+.list-check-step13 textarea{
+	width: 100%;
+}
+
+.form-group select.multi-select-modal{
+	padding:5px;
+	min-height: 110px;
 }

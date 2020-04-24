@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="{{asset('css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/LineIcons.css')}}">
     <link href="https://parsleyjs.org/src/parsley.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
     <link href="{{asset('style.css')}}" rel="stylesheet" media="screen"> 
@@ -37,11 +38,11 @@
                         @csrf
                         <div class="form-group login-style">
                             <input class="radius_none" id="email" type="email" class="form-control"  name="email" value="{{ old('email') }}" required  placeholder="Email" data-parsley-trigger="change" required="">
-                            <i class="far fa-user-circle"></i>
+                            <i class="lni lni-user"></i>
                         </div>
                         <div class="form-group login-style">
                             <input class="radius_none" id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="Password" data-parsley-trigger="change" required="">
-                            <i class="fas fa-lock"></i>
+                            <i class="lni lni-lock-alt"></i>
                         </div>
                         <div class="form-group login-style">
                             {!! NoCaptcha::renderJs() !!}

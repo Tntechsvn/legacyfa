@@ -40,9 +40,9 @@
                     <td>{{$property->outstanding_loan}}</td>
                     <td>{{$property->market_property}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_property" data-client="{{$property->client_property}}" data-category="{{$property->category_property}}" data-type="{{$property->type_property}}" data-year="{{$property->year_property}}" data-price="{{$property->price_property}}" data-loan="{{$property->loan_property}}" data-outstanding="{{$property->outstanding_loan}}" data-monthly-loan="{{$property->monthly_loan}}" data-monthly-loan-cpf="{{$property->monthly_loan_cpf}}" data-market="{{$property->market_property}}" data-intention="{{$property->intention}}" data-url="{{route('portfolio.edit_property', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_property" data-client="{{$property->client_property}}" data-category="{{$property->category_property}}" data-type="{{$property->type_property}}" data-year="{{$property->year_property}}" data-price="{{$property->price_property}}" data-loan="{{$property->loan_property}}" data-outstanding="{{$property->outstanding_loan}}" data-monthly-loan="{{$property->monthly_loan}}" data-monthly-loan-cpf="{{$property->monthly_loan_cpf}}" data-market="{{$property->market_property}}" data-intention="{{$property->intention}}" data-url="{{route('portfolio.edit_property', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
 
-                        <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_property" data-url="{{route('portfolio.delete_property', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                 </tr>
                 @php $i++; @endphp
@@ -83,8 +83,8 @@
                     <td>{{$investment->amount_investment}}</td>
                     <td>{{$investment->market_investment}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_investment" data-client="{{$investment->client_investment}}" data-type="{{$investment->type_investment}}" data-company="{{$investment->company_investment}}" data-invested="{{$investment->invested_investment}}" data-amount="{{$investment->amount_investment}}" data-market="{{$investment->market_investment}}" data-source="{{$investment->source_investment}}" data-intention="{{$investment->intention_investment}}" data-url="{{route('portfolio.edit_investment', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_investment" data-client="{{$investment->client_investment}}" data-type="{{$investment->type_investment}}" data-company="{{$investment->company_investment}}" data-invested="{{$investment->invested_investment}}" data-amount="{{$investment->amount_investment}}" data-market="{{$investment->market_investment}}" data-source="{{$investment->source_investment}}" data-intention="{{$investment->intention_investment}}" data-url="{{route('portfolio.edit_investment', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_investment" data-url="{{route('portfolio.delete_investment', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                 </tr>
                 @php $i++; @endphp
@@ -124,8 +124,8 @@
                     <td>{{$saving->deposit_year}}</td>
                     <td>{{$saving->amount_saving}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_saving" data-client="{{$saving->client_saving}}" data-type="{{$saving->type_deposit}}" data-bank="{{$saving->bank_saving}}" data-year="{{$saving->deposit_year}}" data-amount="{{$saving->amount_saving}}" data-intention="{{$saving->intention_saving}}" data-url="{{route('portfolio.edit_saving', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_saving" data-client="{{$saving->client_saving}}" data-type="{{$saving->type_deposit}}" data-bank="{{$saving->bank_saving}}" data-year="{{$saving->deposit_year}}" data-amount="{{$saving->amount_saving}}" data-intention="{{$saving->intention_saving}}" data-url="{{route('portfolio.edit_saving', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_saving" data-url="{{route('portfolio.delete_saving', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -165,8 +165,8 @@
                     <td>{{$cpf->medisave_account}}</td>
                     <td>{{$cpf->retirement_account}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_cpf" data-client="{{$cpf->client_cpf}}" data-ordinary="{{$cpf->ordinary_account}}" data-special="{{$cpf->special_account}}" data-medisave="{{$cpf->medisave_account}}" data-retiment="{{$cpf->retirement_account}}" data-url="{{route('portfolio.edit_cpf', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_cpf" data-client="{{$cpf->client_cpf}}" data-ordinary="{{$cpf->ordinary_account}}" data-special="{{$cpf->special_account}}" data-medisave="{{$cpf->medisave_account}}" data-retiment="{{$cpf->retirement_account}}" data-url="{{route('portfolio.edit_cpf', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_cpf" data-url="{{route('portfolio.delete_cpf', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>
@@ -224,8 +224,8 @@
                     <td>{{$insurance->maturity_year}}</td>
                     <td>{{$insurance->estimated_current_cash}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_insurance" data-client="{{$insurance->client_insurance}}" data-status="{{$insurance->status_insurance}}" data-insurer="{{$insurance->insurer_insurance}}" data-policy-type="{{$insurance->policy_type}}" data-death="{{$insurance->sa_death}}" data-tpd="{{$insurance->sa_tpd}}" data-ci="{{$insurance->sa_ci}}" data-accident="{{$insurance->sa_accident}}" data-purcharsed="{{$insurance->year_purchased}}" data-policy-term="{{$insurance->policy_term}}" data-frequency="{{$insurance->frequency_insurance}}" data-source-fund="{{$insurance->source_fund}}" data-premium-insurance="{{$insurance->premium_insurance}}" data-maturity-year="{{$insurance->maturity_year}}" data-estimated-maturity="{{$insurance->estimated_maturity}}" data-estimated-current-cash="{{$insurance->estimated_current_cash}}" data-existing-plan="{{$insurance->existing_plan}}" data-insurance-hospital="{{$insurance->insurance_hospital}}" data-ward-covered="{{$insurance->ward_covered}}" data-additional-insurance="{{$insurance->additional_insurance}}" data-url="{{route('portfolio.edit_insurance', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance" data-client="{{$insurance->client_insurance}}" data-status="{{$insurance->status_insurance}}" data-insurer="{{$insurance->insurer_insurance}}" data-policy-type="{{$insurance->policy_type}}" data-death="{{$insurance->sa_death}}" data-tpd="{{$insurance->sa_tpd}}" data-ci="{{$insurance->sa_ci}}" data-accident="{{$insurance->sa_accident}}" data-purcharsed="{{$insurance->year_purchased}}" data-policy-term="{{$insurance->policy_term}}" data-frequency="{{$insurance->frequency_insurance}}" data-source-fund="{{$insurance->source_fund}}" data-premium-insurance="{{$insurance->premium_insurance}}" data-maturity-year="{{$insurance->maturity_year}}" data-estimated-maturity="{{$insurance->estimated_maturity}}" data-estimated-current-cash="{{$insurance->estimated_current_cash}}" data-existing-plan="{{$insurance->existing_plan}}" data-insurance-hospital="{{$insurance->insurance_hospital}}" data-ward-covered="{{$insurance->ward_covered}}" data-additional-insurance="{{$insurance->additional_insurance}}" data-url="{{route('portfolio.edit_insurance', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                 </tr>
                 @endif
@@ -271,8 +271,8 @@
                     <td>{{$insurance->year_purchased}}</td>
                     <td>{{$insurance->premium_insurance}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_insurance" data-client="{{$insurance->client_insurance}}" data-status="{{$insurance->status_insurance}}" data-insurer="{{$insurance->insurer_insurance}}" data-policy-type="{{$insurance->policy_type}}" data-death="{{$insurance->sa_death}}" data-tpd="{{$insurance->sa_tpd}}" data-ci="{{$insurance->sa_ci}}" data-accident="{{$insurance->sa_accident}}" data-purcharsed="{{$insurance->year_purchased}}" data-policy-term="{{$insurance->policy_term}}" data-frequency="{{$insurance->frequency_insurance}}" data-source-fund="{{$insurance->source_fund}}" data-premium-insurance="{{$insurance->premium_insurance}}" data-maturity-year="{{$insurance->maturity_year}}" data-estimated-maturity="{{$insurance->estimated_maturity}}" data-estimated-current-cash="{{$insurance->estimated_current_cash}}" data-existing-plan="{{$insurance->existing_plan}}" data-insurance-hospital="{{$insurance->insurance_hospital}}" data-ward-covered="{{$insurance->ward_covered}}" data-additional-insurance="{{$insurance->additional_insurance}}" data-url="{{route('portfolio.edit_insurance', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_insurance" data-client="{{$insurance->client_insurance}}" data-status="{{$insurance->status_insurance}}" data-insurer="{{$insurance->insurer_insurance}}" data-policy-type="{{$insurance->policy_type}}" data-death="{{$insurance->sa_death}}" data-tpd="{{$insurance->sa_tpd}}" data-ci="{{$insurance->sa_ci}}" data-accident="{{$insurance->sa_accident}}" data-purcharsed="{{$insurance->year_purchased}}" data-policy-term="{{$insurance->policy_term}}" data-frequency="{{$insurance->frequency_insurance}}" data-source-fund="{{$insurance->source_fund}}" data-premium-insurance="{{$insurance->premium_insurance}}" data-maturity-year="{{$insurance->maturity_year}}" data-estimated-maturity="{{$insurance->estimated_maturity}}" data-estimated-current-cash="{{$insurance->estimated_current_cash}}" data-existing-plan="{{$insurance->existing_plan}}" data-insurance-hospital="{{$insurance->insurance_hospital}}" data-ward-covered="{{$insurance->ward_covered}}" data-additional-insurance="{{$insurance->additional_insurance}}" data-url="{{route('portfolio.edit_insurance', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_insurance" data-url="{{route('portfolio.delete_insurance', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                 </tr>
                 @endif
@@ -319,8 +319,8 @@
                     <td>{{$loan->lender_loan}}</td>
                     <td>{{$loan->interest_rate}}</td>
                     <td>
-                        <a href="javascript:;" class="editstyle1 edit_loan" data-client="{{$loan->client_loan}}" data-type="{{$loan->type_loan}}" data-term="{{$loan->term_loan}}" data-year="{{$loan->year_loan}}" data-borrowed="{{$loan->amount_borrowed}}" data-outstanding="{{$loan->outstanding_amount}}" data-lender="{{$loan->lender_loan}}" data-interest="{{$loan->interest_rate}}" data-repayment="{{$loan->repayment_cash}}" data-url="{{route('portfolio.edit_loan', [$infoPfr->id, $i])}}" data-title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}" data-title="Delete"><i class="fas fa-trash"></i></a>
+                        <a href="javascript:;" class="editstyle1 edit_loan" data-client="{{$loan->client_loan}}" data-type="{{$loan->type_loan}}" data-term="{{$loan->term_loan}}" data-year="{{$loan->year_loan}}" data-borrowed="{{$loan->amount_borrowed}}" data-outstanding="{{$loan->outstanding_amount}}" data-lender="{{$loan->lender_loan}}" data-interest="{{$loan->interest_rate}}" data-repayment="{{$loan->repayment_cash}}" data-url="{{route('portfolio.edit_loan', [$infoPfr->id, $i])}}" data-title="Edit"><i class="lni lni-pencil-alt"></i></a>
+                        <a href="javascript:;" class="deletestyle1 delete_loan" data-url="{{route('portfolio.delete_loan', [$infoPfr->id, $i])}}" data-title="Delete"><i class="lni lni-trash"></i></a>
                     </td>
                     @php $i++; @endphp
                 </tr>

@@ -41,6 +41,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 
 	Route::get('/', 'HomeController@index')->name('home');
 
+	Route::get('testa', [
+		'as' => 'testthat',
+		'uses' => 'TestController@testtable'
+	]);
+
 	/* PFR */
 	Route::group(['prefix' => 'pfr'], function(){
 		Route::get('/', [

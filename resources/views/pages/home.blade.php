@@ -7,8 +7,9 @@
         <h4>Please select your desired application:</h4>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 borderfullwidth link-action-addnew">
-        <a class="textcenter radius_4" href="{{route('single-fact.show_form_add_new')}}"><i class="fas fa-user"></i>Single Fact Find</a>
-        <a class="textcenter radius_4" href="{{route('joint-fact.show_form_add_new')}}"><i class="fas fa-users"></i>Joint Fact Find</a>
+        <a class="textcenter radius_4" href="{{route('single-fact.show_form_add_new')}}"><i class="lni lni-user"></i></i>Single Fact Find</a>
+        <a class="textcenter radius_4" href="{{route('joint-fact.show_form_add_new')}}"><i class="lni lni-users"></i>Joint Fact Find</a>
+
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="header-table-style1">
@@ -22,7 +23,7 @@
             <div class="search-table-home search-fn">
                 <form class="pull-right" method="get" action="{{route('pfr.list')}}">
                     <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
-                    <i class="fa fa-search radius_2"></i>
+                    <i class="lni lni-search-alt radius_2"></i>
                 </form>
             </div>
         </div>
@@ -68,7 +69,7 @@
                 <div class="search-table-home search-fn">
                     <form class="pull-right" method="get" action="{{route('user.list')}}">
                         <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
-                        <i class="fa fa-search radius_2"></i>
+                        <i class="lni lni-search-alt radius_2"></i>
                     </form>
                 </div>
             </div>
@@ -111,7 +112,7 @@
                 <div class="search-table-home search-fn">
                     <form class="pull-right" method="get" action="{{route('company.list')}}">
                         <input type="text" name="keyword" placeholder="Search.." value="{{$_GET['keyword'] ?? ""}}">
-                        <i class="fa fa-search radius_2"></i>
+                        <i class="lni lni-search-alt radius_2"></i>
                     </form>
                 </div>
             </div>
