@@ -27,12 +27,22 @@ class AssessmentController extends Controller
 
 	public function addNewSingleAssessment(Request $request, $idPfr)
 	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$rules = [
 			'age' => 'required|min:0|max:1',
 			'spoken_en' => 'required|min:0|max:1',
 			'written_en' => 'required|min:0|max:1',
 			'education' => 'required|min:0|max:4'
 		];
+		if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+			$rules2 = [
+				'age_j' => 'required|min:0|max:1',
+				'spoken_en_j' => 'required|min:0|max:1',
+				'written_en_j' => 'required|min:0|max:1',
+				'education_j' => 'required|min:0|max:4'
+			];
+			$rules = array_merge($rules, $rules2);
+		}
 		$validator = Validator::make($request->all(), $rules);
 
 		if ($validator->fails()) {
@@ -42,10 +52,12 @@ class AssessmentController extends Controller
 			], 200);
 		}
 
-		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$infoClientOne = $infoPfr->clients[0];
-		if ($infoClientOne) {
-			$infoClientAa = $infoClientOne->clientAa;
+		if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+			$infoClientTwo = $infoPfr->clients[1];
+		}
+		if ($infoClientOne || $infoClientTwo) {
+			$infoClientAa1 = $infoClientOne->clientAa;
 			$param = array(
 				'age' => $request->age,
 				'english_spoken' => $request->spoken_en,
@@ -53,29 +65,60 @@ class AssessmentController extends Controller
 				'education_level' => $request->education
 			);
 			$edit = false;
-			if ($infoClientAa) {
+			if ($infoClientAa1) {
 				$edit = true;
-				$resultAddAssessment = $this->assessment->editClientAa($infoClientAa->id, $param);
+				$resultAddAssessment = $this->assessment->editClientAa($infoClientAa1->id, $param);
 			} else {
 				$param['client_id'] = $infoClientOne->id;
 				$resultAddAssessment = $this->assessment->addNewClientAa($param);
 			}
-			if ($resultAddAssessment) {
-				$url = route('single_fact.balance.list', $idPfr);
-				if ( ( $request->age == 1 && ($request->spoken_en == 1 || $request->written_en == 1 ) ) || ( $request->age == 1 && ( $request->education == 0 || $request->education == 1) ) || ( ( $request->spoken_en == 1 || $request->written_en == 1 ) && ( $request->education == 0 || $request->education == 1 ) ) || ( $request->spoken_en == 1 || $request->written_en == 1 ) ) {
-					$url = route('single-fact.show_form_question', $idPfr);
+			$resultAddAssessment2 = true;
+			if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+				$infoClientAa2 = $infoClientTwo->clientAa;
+				$param = array(
+					'age' => $request->age_j,
+					'english_spoken' => $request->spoken_en_j,
+					'english_written' => $request->written_en_j,
+					'education_level' => $request->education_j
+				);
+				if ($infoClientAa2) {
+					$edit = true;
+					$resultAddAssessment2 = $this->assessment->editClientAa($infoClientAa2->id, $param);
 				} else {
-					if ($edit) {
-						$param = array(
-							'trusted_individual' => null
-						);
-						$resultUpdatePfr = $this->pfr->editPfr($idPfr, $param);
-						if (! $resultUpdatePfr) {
-							return response()->json([
-								'error' => true,
-								'message' => "Error"
-							], 200);
+					$param['client_id'] = $infoClientTwo->id;
+					$resultAddAssessment2 = $this->assessment->addNewClientAa($param);
+				}
+			}
+			if ($resultAddAssessment || $resultAddAssessment2) {
+				if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+					$url = route('single_fact.balance.list', $idPfr);
+				} else {
+					$url = route('jointfact.balance.list', $idPfr);
+				}
+				if ( ( $request->age == 1 && ($request->spoken_en == 1 || $request->written_en == 1 ) ) || ( $request->age == 1 && ( $request->education == 0 || $request->education == 1) ) || ( ( $request->spoken_en == 1 || $request->written_en == 1 ) && ( $request->education == 0 || $request->education == 1 ) ) || ( $request->spoken_en == 1 || $request->written_en == 1 ) ) {
+					if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+						$url = route('jointfact.show_form_question', $idPfr);
+					} else {
+						$url = route('single-fact.show_form_question', $idPfr);
+					}
+				} else {
+					if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+						if ( ( $request->age_j == 1 && ($request->spoken_en_j == 1 || $request->written_en_j == 1 ) ) || ( $request->age_j == 1 && ( $request->education_j == 0 || $request->education_j == 1) ) || ( ( $request->spoken_en_j == 1 || $request->written_en_j == 1 ) && ( $request->education_j == 0 || $request->education_j == 1 ) ) || ( $request->spoken_en_j == 1 || $request->written_en_j == 1 ) ) {
+							$url = route('jointfact.show_form_question', $idPfr);
 						}
+					}
+				}
+
+				if ($edit) {
+					$param = array(
+						'trusted_individual' => null
+					);
+					$resultUpdatePfr = $this->pfr->editPfr($idPfr, $param);
+					if (! $resultUpdatePfr) {
+						return response()->json([
+							'error' => true,
+							'message' => "Error"
+						], 200);
 					}
 				}
 				$message = $edit ? "Edit assessment successfully" : "Add new assessment successfully";

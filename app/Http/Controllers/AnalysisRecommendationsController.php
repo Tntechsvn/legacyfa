@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Pfr;
+
 class AnalysisRecommendationsController extends Controller
 {
-    public function clientOverview()
+	public function __construct()
 	{
-		return view('pages.single-fact.analysis-recommendations.step1.list');
+		$this->pfr = new Pfr;
+	}
+	
+    public function clientOverview($idPfr)
+	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.analysis-recommendations.step1.list', compact('infoPfr'));
 	}
 
-	public function plansRecommended()
+	public function plansRecommended($idPfr)
 	{
-		return view('pages.single-fact.analysis-recommendations.step2.list');
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
+		return view('pages.single-fact.analysis-recommendations.step2.list', compact('infoPfr'));
 	}
 }

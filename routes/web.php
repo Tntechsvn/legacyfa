@@ -552,90 +552,90 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			]);
 		});
 
-		Route::group(['prefix' => 'affordability/{id_pfr}'], function(){
-			Route::get('/', [
-				'as' => 'single_fact.affordability.list',
-				'uses' => 'AffordabilityController@listAffordability'
-			]);
+Route::group(['prefix' => 'affordability/{id_pfr}'], function(){
+	Route::get('/', [
+		'as' => 'single_fact.affordability.list',
+		'uses' => 'AffordabilityController@listAffordability'
+	]);
 
-			Route::post('add-new', [
-				'as' => 'single_fact.affordability.add_new',
-				'uses' => 'AffordabilityController@addNewAffordability'
-			]);
-		});
+	Route::post('add-new', [
+		'as' => 'single_fact.affordability.add_new',
+		'uses' => 'AffordabilityController@addNewAffordability'
+	]);
+});
 
-		Route::group(['prefix' => 'analysis-recommendations/{id_pfr}'], function(){
-			Route::get('/client-overview', [
-				'as' => 'single_fact.analysis_recommendations.client_overview',
-				'uses' => 'AnalysisRecommendationsController@clientOverview'
-			]);
+Route::group(['prefix' => 'analysis-recommendations/{id_pfr}'], function(){
+	Route::get('/client-overview', [
+		'as' => 'single_fact.analysis_recommendations.client_overview',
+		'uses' => 'AnalysisRecommendationsController@clientOverview'
+	]);
 
-			Route::get('/plans-recommended', [
-				'as' => 'single_fact.analysis_recommendations.plans-recommended',
-				'uses' => 'AnalysisRecommendationsController@plansRecommended'
-			]);
-		});
+	Route::get('/plans-recommended', [
+		'as' => 'single_fact.analysis_recommendations.plans-recommended',
+		'uses' => 'AnalysisRecommendationsController@plansRecommended'
+	]);
+});
 
-		Route::group(['prefix' => 'switching-replacement/{id_pfr}'], function(){
-			Route::get('/', [
-				'as' => 'single_fact.switching_replacement',
-				'uses' => 'SwitchingReplacementController@switchingReplacement'
-			]);
+Route::group(['prefix' => 'switching-replacement/{id_pfr}'], function(){
+	Route::get('/', [
+		'as' => 'single_fact.switching_replacement',
+		'uses' => 'SwitchingReplacementController@switchingReplacement'
+	]);
 
-			Route::post('add-new', [
-				'as' => 'single_fact.switching_replacement.add_new',
-				'uses' => 'SwitchingReplacementController@addNewAffordabilitySwitchingReplacement'
-			]);
-		});
+	Route::post('add-new', [
+		'as' => 'single_fact.switching_replacement.add_new',
+		'uses' => 'SwitchingReplacementController@addNewAffordabilitySwitchingReplacement'
+	]);
+});
 
-		Route::group(['prefix' => 'client-acknowledgement/{id_pfr}'], function(){
-			Route::get('/', [
-				'as' => 'single_fact.client_acknowledgement',
-				'uses' => 'ClientAcknowledgementController@showFormClientAcknowledgement'
-			]);
+Route::group(['prefix' => 'client-acknowledgement/{id_pfr}'], function(){
+	Route::get('/', [
+		'as' => 'single_fact.client_acknowledgement',
+		'uses' => 'ClientAcknowledgementController@showFormClientAcknowledgement'
+	]);
 
-			Route::post('add-new', [
-				'as' => 'single_fact.client_acknowledgement.add_new',
-				'uses' => 'ClientAcknowledgementController@addNewClientAcknowledgement'
-			]);
-		});
+	Route::post('add-new', [
+		'as' => 'single_fact.client_acknowledgement.add_new',
+		'uses' => 'ClientAcknowledgementController@addNewClientAcknowledgement'
+	]);
+});
 
-		Route::group(['prefix' => 'representatives-declaration/{id_pfr}'], function(){
-			Route::get('/', [
-				'as' => 'single_fact.representatives_declaration',
-				'uses' => 'SurveyController@representativesDeclaration'
-			]);
+Route::group(['prefix' => 'representatives-declaration/{id_pfr}'], function(){
+	Route::get('/', [
+		'as' => 'single_fact.representatives_declaration',
+		'uses' => 'SurveyController@representativesDeclaration'
+	]);
 
-			Route::post('add-new', [
-				'as' => 'single_fact.representatives_declaration.add_new',
-				'uses' => 'SurveyController@addNewRepresentativesDeclaration'
-			]);
-		});
+	Route::post('add-new', [
+		'as' => 'single_fact.representatives_declaration.add_new',
+		'uses' => 'SurveyController@addNewRepresentativesDeclaration'
+	]);
+});
 
-		Route::group(['prefix' => 'supervisors-review/{id_pfr}'], function(){
-			Route::get('/', [
-				'as' => 'single_fact.supervisors_review',
-				'uses' => 'SurveyController@supervisorsReview'
-			]);
+Route::group(['prefix' => 'supervisors-review/{id_pfr}'], function(){
+	Route::get('/', [
+		'as' => 'single_fact.supervisors_review',
+		'uses' => 'SurveyController@supervisorsReview'
+	]);
 
-			Route::post('add-new', [
-				'as' => 'single_fact.supervisors_review.add_new',
-				'uses' => 'SurveyController@addNewSupervisorsReview'
-			]);
-		});
+	Route::post('add-new', [
+		'as' => 'single_fact.supervisors_review.add_new',
+		'uses' => 'SurveyController@addNewSupervisorsReview'
+	]);
+});
 
-		Route::group(['prefix' => 'client-survey/{id_pfr}'], function(){
-			Route::get('/', [
-				'as' => 'single_fact.client_survey',
-				'uses' => 'SurveyController@clientSurvey'
-			]);
+Route::group(['prefix' => 'client-survey/{id_pfr}'], function(){
+	Route::get('/', [
+		'as' => 'single_fact.client_survey',
+		'uses' => 'SurveyController@clientSurvey'
+	]);
 
-			Route::post('add-new', [
-				'as' => 'single_fact.client_survey.add_new',
-				'uses' => 'SurveyController@addNewSurvey'
-			]);
-		});
-	});
+	Route::post('add-new', [
+		'as' => 'single_fact.client_survey.add_new',
+		'uses' => 'SurveyController@addNewSurvey'
+	]);
+});
+});
 
 /*Joint Fact*/
 Route::group(['prefix' => 'joint-fact'], function(){
@@ -797,6 +797,188 @@ Route::group(['prefix' => 'joint-fact'], function(){
 			Route::get('delete-loan/{position}', [
 				'as' => 'portfolio.delete_loan',
 				'uses' => 'PortfolioController@deleteLoan'
+			]);
+		});
+
+		Route::group(['prefix' => 'balance'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.balance.list',
+				'uses' => 'BalanceController@listBalance'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'jointfact.balance.add_new',
+				'uses' => 'BalanceController@addNewBalance'
+			]);
+		});
+
+		Route::group(['prefix' => 'cash-flow'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.cash_flow.list',
+				'uses' => 'CashFlowController@listCashFlow'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'jointfact.cash_flow.add_new',
+				'uses' => 'CashFlowController@addNewCashFlow'
+			]);
+		});
+
+		Route::group(['prefix' => 'risk-profile'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.risk_profile.list',
+				'uses' => 'RiskProfileController@listRiskProfile'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'jointfact.risk_profile.add_new',
+				'uses' => 'RiskProfileController@addNewRiskProfile'
+			]);
+		});
+
+		Route::group(['prefix' => 'cka'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.cka.list',
+				'uses' => 'CKAController@listCka'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'jointfact.cka.add_new',
+				'uses' => 'CKAController@addNewCka'
+			]);
+		});
+
+		Route::group(['prefix' => 'priorities-needs'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.priorities_needs.show_form_rate_category',
+				'uses' => 'PrioritiesNeedsController@showFormRateCategory'
+			]);
+
+			Route::post('rate-category', [
+				'as' => 'jointfact.priorities_needs.rate_category',
+				'uses' => 'PrioritiesNeedsController@rateCategory'
+			]);
+
+			Route::get('priotection-1', [
+				'as' => 'jointfact.priorities_needs.priotection_1',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionOne'
+			]);
+
+			Route::post('add-priotection-1', [
+				'as' => 'jointfact.priorities_needs.add_priotection_1',
+				'uses' => 'PrioritiesNeedsController@addProtectionOne'
+			]);
+
+			Route::get('priotection-2', [
+				'as' => 'jointfact.priorities_needs.priotection_2',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTwo'
+			]);
+
+			Route::post('add-priotection-2', [
+				'as' => 'jointfact.priorities_needs.add_priotection_2',
+				'uses' => 'PrioritiesNeedsController@addProtectionTwo'
+			]);
+
+			Route::get('priotection-3', [
+				'as' => 'jointfact.priorities_needs.priotection_3',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionThree'
+			]);
+
+			Route::post('add-priotection-3', [
+				'as' => 'jointfact.priorities_needs.add_priotection_3',
+				'uses' => 'PrioritiesNeedsController@addProtectionThree'
+			]);
+
+			Route::get('priotection-4', [
+				'as' => 'jointfact.priorities_needs.priotection_4',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionFour'
+			]);
+
+			Route::post('add-priotection-4', [
+				'as' => 'jointfact.priorities_needs.add_priotection_4',
+				'uses' => 'PrioritiesNeedsController@addProtectionFour'
+			]);
+
+			Route::get('priotection-5', [
+				'as' => 'jointfact.priorities_needs.priotection_5',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionFive'
+			]);
+
+			Route::post('add-priotection-5', [
+				'as' => 'jointfact.priorities_needs.add_priotection_5',
+				'uses' => 'PrioritiesNeedsController@addProtectionFive'
+			]);
+
+			Route::get('priotection-6', [
+				'as' => 'jointfact.priorities_needs.priotection_6',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionSix'
+			]);
+
+			Route::post('add-priotection-6', [
+				'as' => 'jointfact.priorities_needs.add_priotection_6',
+				'uses' => 'PrioritiesNeedsController@addProtectionSix'
+			]);
+
+			Route::get('priotection-7', [
+				'as' => 'jointfact.priorities_needs.priotection_7',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionSeven'
+			]);
+
+			Route::post('add-priotection-7', [
+				'as' => 'jointfact.priorities_needs.add_priotection_7',
+				'uses' => 'PrioritiesNeedsController@addProtectionSeven'
+			]);
+
+			Route::get('priotection-8', [
+				'as' => 'jointfact.priorities_needs.priotection_8',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionEight'
+			]);
+
+			Route::post('add-priotection-8', [
+				'as' => 'jointfact.priorities_needs.add_priotection_8',
+				'uses' => 'PrioritiesNeedsController@addProtectionEight'
+			]);
+
+			Route::get('priotection-9', [
+				'as' => 'jointfact.priorities_needs.priotection_9',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionNine'
+			]);
+
+			Route::post('add-priotection-9', [
+				'as' => 'jointfact.priorities_needs.add_priotection_9',
+				'uses' => 'PrioritiesNeedsController@addProtectionNine'
+			]);
+
+			Route::get('priotection-10', [
+				'as' => 'jointfact.priorities_needs.priotection_10',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionTen'
+			]);
+
+			Route::post('add-priotection-10', [
+				'as' => 'jointfact.priorities_needs.add_priotection_10',
+				'uses' => 'PrioritiesNeedsController@addProtectionTen'
+			]);
+
+			Route::get('priotection-11', [
+				'as' => 'jointfact.priorities_needs.priotection_11',
+				'uses' => 'PrioritiesNeedsController@showFormAddProtectionEleven'
+			]);
+
+			Route::post('add-priotection-11', [
+				'as' => 'jointfact.priorities_needs.add_priotection_11',
+				'uses' => 'PrioritiesNeedsController@addProtectionEleven'
+			]);
+		});
+
+		Route::group(['prefix' => 'affordability'], function(){
+			Route::get('/', [
+				'as' => 'jointfact.affordability.list',
+				'uses' => 'AffordabilityController@listAffordability'
+			]);
+
+			Route::post('add-new', [
+				'as' => 'jointfact.affordability.add_new',
+				'uses' => 'AffordabilityController@addNewAffordability'
 			]);
 		});
 	});

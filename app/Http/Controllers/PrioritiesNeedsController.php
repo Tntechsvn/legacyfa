@@ -100,7 +100,7 @@ class PrioritiesNeedsController extends Controller
 			event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
 
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, 0);
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message,
@@ -118,17 +118,20 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionOne($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_INCOME'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_INCOME'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection1.list', compact('infoPfr', 'backUrl'));
 	}
 
 	private function addDataProtection2Arr($request, $arr, $position, $user)
 	{
-		foreach($request as $key=>$val){
-			if($key == $position."_".$user){
-				$arr[$position] = $val;
-			}
+		$key = $position."_".$user;
+		if(isset($request[$key])){
+			$arr[$position] = $request[$key];
 		}
 		return $arr;
 	}
@@ -188,7 +191,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit income successfully" : "Add new income successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_DISABILITY'));
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -205,8 +208,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionTwo($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_DISABILITY'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_DISABILITY'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection2.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -263,7 +270,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund disability successfully" : "Add new fund disability successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CRITICAL'));
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -280,8 +287,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionThree($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CRITICAL'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CRITICAL'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection3.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -338,7 +349,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund critical successfully" : "Add new fund critical successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CHILDREN'));
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -355,8 +366,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionFour($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CHILDREN'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CHILDREN'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection4.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -428,8 +443,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionFive($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_SAVING'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_SAVING'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection5.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -482,7 +501,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund saving successfully" : "Add new fund saving successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_RETIREMENT'));
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -499,8 +518,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionSix($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_RETIREMENT'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_RETIREMENT'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection6.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -566,8 +589,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionSeven($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_COVER'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_COVER'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection7.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -618,7 +645,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit cover successfully" : "Add new cover successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_CARE'));
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -635,8 +662,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionEight($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CARE'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_CARE'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection8.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -688,7 +719,7 @@ class PrioritiesNeedsController extends Controller
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit fund care successfully" : "Add new fund care successfully";
 			$nextStep = $this->getMinGoPlan($infoPrioritiesNeedForPfr->rate, config('constants.STEP_RATE_FUND_HOSPITAL'));
-			$nextUrl = $this->getUrl($nextStep, $idPfr);
+			$nextUrl = $this->getUrl($nextStep, $infoPfr);
 			return response()->json([
 				'error' => false,
 				'message' => $message
@@ -705,8 +736,12 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionNine($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_HOSPITAL'));
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, config('constants.STEP_RATE_FUND_HOSPITAL'));
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection9.list', compact('infoPfr', 'backUrl'));
 	}
 
@@ -776,24 +811,34 @@ class PrioritiesNeedsController extends Controller
 	public function showFormAddProtectionTen($idPfr)
 	{
 		$infoPfr = $this->pfr->infoPfrById($idPfr);
-		$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, 10);
-		$backUrl = $this->getUrl($prevStep, $idPfr);
+		if ($infoPfr->prioritiesNeed) {
+			$prevStep = $this->getMaxGoPlan($infoPfr->prioritiesNeed->rate, 10);
+		} else {
+			abort('404');
+		}
+		$backUrl = $this->getUrl($prevStep, $infoPfr);
 		return view('pages.single-fact.priorities-needs.protection10.list', compact('infoPfr', 'backUrl'));
 	}
 
-	/*public function addProtectionTen(Request $request, $idPfr)
+	public function addProtectionTen(Request $request, $idPfr)
 	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$client1 = $client2 = array(
 			'written' => '',
 			'time_updated' => '',
+			'provisions' => '',
 			'attorney' => '',
-			'beneficiaries' => ''
+			'cpf' => '',
+			'beneficiaries' => '',
+			'beneficiaries_select' => ''
 		);
 		$data = $request->except('_token');
-		$param = array('written', 'time_updated', 'attorney', 'beneficiaries');
+		$param = array('written', 'time_updated', 'provisions', 'attorney', 'cpf', 'beneficiaries', 'beneficiaries_select');
 		foreach($param as $val){
 			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
-			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+				$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			}
 		}
 		$estate_planning[] = $client1;
 		$estate_planning[] = $client2;
@@ -812,18 +857,16 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit estate planning successfully" : "Add new estate planning successfully";
-			return response()->json([
-				'error' => false,
-				'message' => $message
-			], 200);
+			if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+				return redirect()->route('single_fact.priorities_needs.priotection_11', $idPfr);
+			} else {
+				return redirect()->route('jointfact.priorities_needs.priotection_11', $idPfr);
+			}
 		} else {
 			$message = $edit ? "Edit estate planning error" : "Add new estate planning error";
-			return response()->json([
-				'error' => true,
-				'message' => $message
-			], 200);
+			return redirect()->back();
 		}
-	}*/
+	}
 
 	public function showFormAddProtectionEleven($idPfr)
 	{
@@ -831,21 +874,26 @@ class PrioritiesNeedsController extends Controller
 		return view('pages.single-fact.priorities-needs.protection11.list', compact('infoPfr'));
 	}
 
-	/*public function addProtectionEleven(Request $request, $idPfr)
+	public function addProtectionEleven(Request $request, $idPfr)
 	{
+		$infoPfr = $this->pfr->infoPfrById($idPfr);
 		$client1 = $client2 = array(
 			'frequency' => '',
 			'type_travel' => '',
 			'company' => '',
+			'year' => '',
+			'month' => '',
 			'renewal' => '',
 			'mortgage_insurance' => '',
 			'group_insurance' => ''
 		);
 		$data = $request->except('_token');
-		$param = array('frequency', 'type_travel', 'company', 'renewal', 'mortgage_insurance', 'group_insurance');
+		$param = array('frequency', 'type_travel', 'company', 'year', 'month', 'renewal', 'mortgage_insurance', 'group_insurance');
 		foreach($param as $val){
 			$client1 = $this->addDataProtection2Arr($data, $client1, $val, "client1");
-			$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+				$client2 = $this->addDataProtection2Arr($data, $client2, $val, "client2");
+			}
 		}
 		$other_insurance[] = $client1;
 		$other_insurance[] = $client2;
@@ -864,18 +912,16 @@ class PrioritiesNeedsController extends Controller
 		
 		if ($resultAddPrioritiesNeed) {
 			$message = $edit ? "Edit other insurance successfully" : "Add new other insurance successfully";
-			return response()->json([
-				'error' => false,
-				'message' => $message
-			], 200);
+			if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+				return redirect()->route('single_fact.affordability.list', $idPfr);
+			} else {
+				return redirect()->route('jointfact.affordability.list', $idPfr);
+			}
 		} else {
 			$message = $edit ? "Edit other insurance error" : "Add new other insurance error";
-			return response()->json([
-				'error' => true,
-				'message' => $message
-			], 200);
+			return redirect()->back();
 		}
-	}*/
+	}
 
 	private function addDataRate2Arr($request, $goPlan, $arr, $position, $type, $rate)
 	{
@@ -1016,55 +1062,106 @@ class PrioritiesNeedsController extends Controller
 		return $max;
 	}
 
-	public function getUrl($nextStep, $idPfr)
+	public function getUrl($nextStep, $infoPfr)
 	{
-		switch($nextStep){
-			case 1:
-			$url = route('single_fact.priorities_needs.priotection_1', $idPfr);
-			break;
+		if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+			switch($nextStep){
+				case 1:
+				$url = route('single_fact.priorities_needs.priotection_1', $infoPfr->id);
+				break;
 
-			case 2:
-			$url = route('single_fact.priorities_needs.priotection_2', $idPfr);
-			break;
+				case 2:
+				$url = route('single_fact.priorities_needs.priotection_2', $infoPfr->id);
+				break;
 
-			case 3:
-			$url = route('single_fact.priorities_needs.priotection_3', $idPfr);
-			break;
+				case 3:
+				$url = route('single_fact.priorities_needs.priotection_3', $infoPfr->id);
+				break;
 
-			case 4:
-			$url = route('single_fact.priorities_needs.priotection_4', $idPfr);
-			break;
+				case 4:
+				$url = route('single_fact.priorities_needs.priotection_4', $infoPfr->id);
+				break;
 
-			case 5:
-			$url = route('single_fact.priorities_needs.priotection_5', $idPfr);
-			break;
+				case 5:
+				$url = route('single_fact.priorities_needs.priotection_5', $infoPfr->id);
+				break;
 
-			case 6:
-			$url = route('single_fact.priorities_needs.priotection_6', $idPfr);
-			break;
+				case 6:
+				$url = route('single_fact.priorities_needs.priotection_6', $infoPfr->id);
+				break;
 
-			case 7:
-			$url = route('single_fact.priorities_needs.priotection_7', $idPfr);
-			break;
+				case 7:
+				$url = route('single_fact.priorities_needs.priotection_7', $infoPfr->id);
+				break;
 
-			case 8:
-			$url = route('single_fact.priorities_needs.priotection_8', $idPfr);
-			break;
+				case 8:
+				$url = route('single_fact.priorities_needs.priotection_8', $infoPfr->id);
+				break;
 
-			case 9:
-			$url = route('single_fact.priorities_needs.priotection_9', $idPfr);
-			break;
+				case 9:
+				$url = route('single_fact.priorities_needs.priotection_9', $infoPfr->id);
+				break;
 
-			case 10:
-			$url = route('single_fact.priorities_needs.priotection_10', $idPfr);
-			break;
+				case 10:
+				$url = route('single_fact.priorities_needs.priotection_10', $infoPfr->id);
+				break;
 
-			case 11:
-			$url = route('single_fact.priorities_needs.priotection_11', $idPfr);
-			break;
+				case 11:
+				$url = route('single_fact.priorities_needs.priotection_11', $infoPfr->id);
+				break;
 
-			default:
-			$url = route('single_fact.priorities_needs.show_form_rate_category', $idPfr);
+				default:
+				$url = route('single_fact.priorities_needs.show_form_rate_category', $infoPfr->id);
+			}
+		} else {
+			switch($nextStep){
+				case 1:
+				$url = route('jointfact.priorities_needs.priotection_1', $infoPfr->id);
+				break;
+
+				case 2:
+				$url = route('jointfact.priorities_needs.priotection_2', $infoPfr->id);
+				break;
+
+				case 3:
+				$url = route('jointfact.priorities_needs.priotection_3', $infoPfr->id);
+				break;
+
+				case 4:
+				$url = route('jointfact.priorities_needs.priotection_4', $infoPfr->id);
+				break;
+
+				case 5:
+				$url = route('jointfact.priorities_needs.priotection_5', $infoPfr->id);
+				break;
+
+				case 6:
+				$url = route('jointfact.priorities_needs.priotection_6', $infoPfr->id);
+				break;
+
+				case 7:
+				$url = route('jointfact.priorities_needs.priotection_7', $infoPfr->id);
+				break;
+
+				case 8:
+				$url = route('jointfact.priorities_needs.priotection_8', $infoPfr->id);
+				break;
+
+				case 9:
+				$url = route('jointfact.priorities_needs.priotection_9', $infoPfr->id);
+				break;
+
+				case 10:
+				$url = route('jointfact.priorities_needs.priotection_10', $infoPfr->id);
+				break;
+
+				case 11:
+				$url = route('jointfact.priorities_needs.priotection_11', $infoPfr->id);
+				break;
+
+				default:
+				$url = route('jointfact.priorities_needs.show_form_rate_category', $infoPfr->id);
+			}
 		}
 		return $url;
 	}

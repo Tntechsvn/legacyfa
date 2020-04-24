@@ -9,8 +9,14 @@
         <p class="stlstep">7.11 - OTHER INSURANCE(S)</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
-        <form name="protection1" id='protection1' class="" method="post" action="" data-parsley-validate>
+        <form name="protection1" id='protection1' class="" method="post" action="{{route('single_fact.priorities_needs.add_priotection_11', $infoPfr->id)}}" data-parsley-validate>
             @csrf
+            @php
+                if($infoPfr->prioritiesNeed->other_insurance){
+                    $other_insurance = json_decode($infoPfr->prioritiesNeed->other_insurance);
+                    $client1 = $other_insurance[0];
+                }
+            @endphp
             <table id="protection10-1" class="table table-content table-bordered table-style2 protection-st" style="width:100%">
                 <thead>
                     <tr>
@@ -25,7 +31,7 @@
                     <tr>
                         <td>Frequency of Travel</td>
                         <td>
-                           <input type="text" class="form-control" id="frequency_client1" name="frequency_client1" placeholder="Frequency of Travel" value="" readonly="">
+                           <input type="text" class="form-control" id="frequency_client1" name="frequency_client1" placeholder="Frequency of Travel" value="{{isset($client1) ? $client1->frequency : ''}}" readonly="">
                         </td>
                     </tr>
                     <tr>
@@ -33,9 +39,9 @@
                         <td>
                             <select name="type_travel_client1" id="type_travel_client1" class="form-control" data-parsley-trigger="change" required="">
                                 <option value="">Select</option>
-                                <option value="single">Single Trip</option>
-                                <option value="plan">Annual Plan</option>
-                                <option value="moment">None at the moment</option>
+                                <option value="single" {{isset($client1) && $client1->type_travel == 'single' ? 'selected' : ''}}>Single Trip</option>
+                                <option value="plan" {{isset($client1) && $client1->type_travel == 'plan' ? 'selected' : ''}}>Annual Plan</option>
+                                <option value="moment" {{isset($client1) && $client1->type_travel == 'moment' ? 'selected' : ''}}>None at the moment</option>
                             </select>
                         </td>    
                     </tr>
@@ -45,7 +51,7 @@
                     <tr>
                         <td>Company Name</td>
                         <td>
-                            <input type="text" class="form-control" id="company_client1" name="company_client1" placeholder="Frequency of Travel" value="" readonly="">
+                            <input type="text" class="form-control" id="company_client1" name="company_client1" placeholder="Frequency of Travel" value="{{isset($client1) ? $client1->company : ''}}" readonly="">
                         </td>
                     </tr>
                     <tr>
@@ -57,7 +63,9 @@
                                     <option value="">Select</option>
                                     @php
                                         for ($i = 1990; $i <= 2050; $i++) {
-                                            echo '<option value="'.$i.'">'.$i.'</option>';
+                                    @endphp
+                                            <option value="{{$i}}" {{isset($client1) && $client1->year == $i ? 'selected' : ''}}>{{$i}}</option>;
+                                    @php
                                         }
                                     @endphp
                                 </select>
@@ -68,7 +76,9 @@
                                     <option value="">Select</option>
                                     @php
                                         for ($i = 1; $i <= 12; $i++) {
-                                            echo '<option value="'.$i.'">'.$i.'</option>';
+                                    @endphp
+                                            <option value="{{$i}}" {{isset($client1) && $client1->month == $i ? 'selected' : ''}}>{{$i}}</option>;
+                                    @php
                                         }
                                     @endphp
                                 </select>
@@ -83,8 +93,8 @@
                         <td>
                             <select name="mortgage_insurance_client1" id="mortgage_insurance_client1" class="form-control" data-parsley-trigger="change" required="">
                                 <option value="">Select</option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                                <option value="yes" {{isset($client1) && $client1->mortgage_insurance == 'yes' ? 'selected' : ''}}>Yes</option>
+                                <option value="no" {{isset($client1) && $client1->mortgage_insurance == 'no' ? 'selected' : ''}}>No</option>
                             </select>
                         </td>
                     </tr>
@@ -96,15 +106,15 @@
                         <td>
                             <select name="group_insurance_client1" id="group_insurance_client1" class="form-control" data-parsley-trigger="change" required="">
                                 <option value="">Select</option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                                <option value="yes" {{isset($client1) && $client1->group_insurance == 'yes' ? 'selected' : ''}}>Yes</option>
+                                <option value="no" {{isset($client1) && $client1->group_insurance == 'no' ? 'selected' : ''}}>No</option>
                             </select>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="nav-step">
-                <a href="{{route('single_fact.priorities_needs.priotection_10', $infoPfr->id)}}" class="style-button1">Back</a>
+                <a href="@if($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {{route('single_fact.priorities_needs.priotection_10', $infoPfr->id)}} @else {{route('jointfact.priorities_needs.priotection_10', $infoPfr->id)}} @endif" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      
