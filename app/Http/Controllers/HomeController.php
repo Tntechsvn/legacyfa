@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('roleMiddleware',['except' => ['listPfr','listTrashPfr']]);
+        $this->middleware('roleMiddleware',['except' => ['listPfr','listTrashPfr', 'softDeletePfr']]);
 
         $this->pfr = new Pfr;
         $this->user = new User;
@@ -70,7 +70,7 @@ class HomeController extends Controller
     {
         $paginate = config('constants.PAGINATE_PFR_TRASH');
         $listPfr = $this->pfr->listPfrTrashPaginate($request, $paginate);
-        return "jfal";
+        return view('pages.pfr.list-trash', compact('listPfr'));
     }
 
     public function softDeletePfr($id)

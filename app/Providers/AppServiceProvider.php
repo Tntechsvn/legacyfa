@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,10 +25,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::include('includes.input', 'input');
         View::composer(
             ['pages.*'], 
             'App\Http\ViewComposers\ViewShareComposer'
         );
+        Blade::directive('hello', function ($expression) {
+            return "<?php echo 'Hi '. {$expression} .','; ?>";
+        });
     }
 
     

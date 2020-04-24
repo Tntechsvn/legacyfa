@@ -15,7 +15,7 @@
         }
       @endphp
       <div class="form-group">
-        <label class="col-sm-2"></label>
+        <label class="col-sm-3"></label>
         <div class="col-sm-4 text-center">
           Client 1
         </div>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Name<span>*</span></label>
+        <label class="col-sm-3">Name<span>*</span></label>
         <div class="col-sm-4">
           <select name="title1" id="title1" class="form-control" data-parsley-trigger="change">
             @foreach($array_title_name as $title)
@@ -43,7 +43,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Title<span>*</span></label>
+        <label class="col-sm-3">Title<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="join_name1" placeholder="Name" value="{{$client1->name ?? ''}}" data-parsley-trigger="change">
           <span class="noti-alert">(as in NRIC / Passport)</span>
@@ -55,7 +55,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Relationship to Client 1<span>*</span></label>
+        <label class="col-sm-3">Relationship to Client 1<span>*</span></label>
         @php 
           $arr_re = [
             'Spouse', 'Child', 'Parent', 'Others'
@@ -65,41 +65,47 @@
         </div>
         <div class="col-sm-4">
           @foreach($arr_re as $key=>$re)
-              <label class="radio-inline" for="re_{{$key}}"><input id="re_{{$key}}" type="radio" name="relationship" value="{{$key + 1}}" {{isset($client2->relationship) && $client2->relationship == $key + 1 ? 'checked' : ''}}>{{$re}}</option></label>
+              <label class="radio-inline" for="re_{{$key}}">
+                 <div class="style-checked style-radio-custom">
+                    <input id="re_{{$key}}" type="radio" name="relationship" value="{{$key + 1}}" {{isset($client2->relationship) && $client2->relationship == $key + 1 ? 'checked' : ''}}>
+                    <span class="checkmark-radio"></span>
+                  </div>
+                  {{$re}}
+              </label>
           @endforeach
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Gender<span>*</span></label>
+        <label class="col-sm-3">Gender<span>*</span></label>
         <div class="col-sm-4">
           <label class="radio-inline">
-            <div class="style-checked1">
+            <div class="style-checked style-radio-custom">
                 <input type="radio" name="sex1" id="male" value="0" @if(isset($client1)){{isset($client1->gender) && $client1->gender == 0 ? 'checked' : ''}}@else{{'checked'}}@endif>
-                <span class="checkmark-radio1"></span>
+                <span class="checkmark-radio"></span>
             </div>
             Male
           </label>
           <label class="radio-inline">
-            <div class="style-checked1">
+            <div class="style-checked style-radio-custom">
               <input type="radio" name="sex1" id="female" value="1" {{isset($client1->gender) && $client1->gender == 1 ? 'checked' : ''}}>
-              <span class="checkmark-radio1"></span>
+              <span class="checkmark-radio"></span>
             </div>
             Female
           </label>
         </div>
         <div class="col-sm-4">
           <label class="radio-inline">
-            <div class="style-checked1">
+            <div class="style-checked style-radio-custom">
                 <input type="radio" name="sex2" id="male2" value="0" @if(isset($client2)){{isset($client2->gender) && $client2->gender == 1 ? 'checked' : ''}}@else{{'checked'}}@endif>
                 <span class="checkmark-radio1"></span>
             </div>
             Male
           </label>
           <label class="radio-inline">
-            <div class="style-checked1">
+            <div class="style-checked style-radio-custom">
               <input type="radio" name="sex2" id="female2" value="1" {{isset($client2->gender) && $client2->gender == 1 ? 'checked' : ''}}>
-              <span class="checkmark-radio1"></span>
+              <span class="checkmark-radio"></span>
             </div>
             Female
           </label>
@@ -107,7 +113,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">NRIC/Passport No<span>*</span></label>
+        <label class="col-sm-3">NRIC/Passport No<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" id="passport_no1" name="passport_no1" placeholder="NRIC/Passport No" value="{{$infoPfr->client1->nric_passport ?? ''}}" data-parsley-trigger="change" required="">
         </div>
@@ -117,10 +123,10 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Nationality<span>*</span></label>
+        <label class="col-sm-3">Nationality<span>*</span></label>
         <div class="col-sm-4">
           <select id="select_nationality_1" name="select_nationality1" data-parsley-trigger="change">
-            <option value="">-- select one --</option>
+            <option value="">Select</option>
             @foreach($nationalities as $key=>$n)
               <option value="{{$key}}" {{isset($client1->nationality) && $client1->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
             @endforeach
@@ -128,7 +134,7 @@
         </div>
         <div class="col-sm-4">
           <select id="select_nationality_2" name="select_nationality2" data-parsley-trigger="change">
-            <option value="">-- select one --</option>
+            <option value="">Select</option>
             @foreach($nationalities as $key=>$n)
               <option value="{{$key}}" {{isset($client2->nationality) && $client2->nationality == $key ? 'selected' : ''}}>{{$n}}</option>
             @endforeach
@@ -137,7 +143,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Residency Status<span>*</span></label>
+        <label class="col-sm-3">Residency Status<span>*</span></label>
           @php 
             $residency = [
                 'singapore-pr' => 'Singapore PR',
@@ -168,7 +174,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Date of Birth<span>*</span></label>
+        <label class="col-sm-3">Date of Birth<span>*</span></label>
         <div class="col-sm-4">
           <input type="date" class="form-control" name="birthday1" placeholder="Date of Birth" value="{{$client1->dob ?? ''}}" data-parsley-trigger="change">
         </div>
@@ -178,7 +184,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Marital Status<span>*</span></label>
+        <label class="col-sm-3">Marital Status<span>*</span></label>
             @php 
                 $maritals = [
                     'S' => 'Single',
@@ -204,31 +210,35 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Smoker<span>*</span></label>
+        <label class="col-sm-3">Smoker<span>*</span></label>
         <div class="col-sm-4">
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker1" value="0" @if(isset($client1->smoker)) @if($client1->smoker == 0) {{'checked'}}@endif @else {{'checked'}} @endif>
+                    <span class="checkmark-radio"></span>
                 </div>
                 Yes
             </label>
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker1" value="1" {{isset($client1->smoker) && $client1->smoker == 1 ? 'checked' : ''}}>
+                    <span class="checkmark-radio"></span>
                 </div>
                 No 
             </label>
         </div>
         <div class="col-sm-4">
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker2" value="0" @if(isset($client2->smoker)) @if($client2->smoker == 0) {{'checked'}}@endif @else {{'checked'}} @endif>
+                    <span class="checkmark-radio"></span>
                 </div>
                 Yes
             </label>
             <label class="radio-inline">
-                <div class="style-checked1">
+                <div class="style-checked style-radio-custom">
                     <input type="radio" name="smoker2" value="1" {{isset($client2->smoker) && $client2->smoker == 1 ? 'checked' : ''}}>
+                    <span class="checkmark-radio"></span>
                 </div>
                 No 
             </label>
@@ -238,7 +248,7 @@
       <hr  class="hr-fullcontent"/>
 
       <div class="form-group">
-        <label class="col-sm-2">Employment Status<span>*</span></label>
+        <label class="col-sm-3">Employment Status<span>*</span></label>
             @php 
                 $employments_status = [
                     'FT' => 'Full time',
@@ -266,7 +276,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Occupation<span>*</span></label>
+        <label class="col-sm-3">Occupation<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="occupation1" placeholder="Occupation" value="{{$client1->occupation ?? ''}}" data-parsley-trigger="change">
           <span class="noti-alert">(If Retired, please indicate previous occupation)</span>
@@ -278,7 +288,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Company Name<span>*</span></label>
+        <label class="col-sm-3">Company Name<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="company_name1" placeholder="Company Name" value="{{$client1->company ?? ''}}" data-parsley-trigger="change">
         </div>
@@ -288,7 +298,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Business Nature<span>*</span></label>
+        <label class="col-sm-3">Business Nature<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="business_nature1" placeholder="Business Nature" value="{{$client1->business_nature ?? ''}}" data-parsley-trigger="change">
         </div>
@@ -298,7 +308,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Annual Income Range ($)<span>*</span></label>
+        <label class="col-sm-3">Annual Income Range ($)<span>*</span></label>
             @php 
                 $annual_income = [
                     '0' => '0-29,999',
@@ -327,7 +337,7 @@
       <hr  class="hr-fullcontent"/>
 
       <div class="form-group">
-        <label class="col-sm-2">Contact Details - Home<span>*</span></label>
+        <label class="col-sm-3">Contact Details - Home<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="details_home1" placeholder="Contact Details" value="{{$client1->contact_home ?? ''}}">
         </div>
@@ -337,7 +347,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Contact Details - Mobile<span>*</span></label>
+        <label class="col-sm-3">Contact Details - Mobile<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="details_mobile1" placeholder="Contact Details" value="{{$client1->contact_mobile ?? ''}}">
         </div>
@@ -347,7 +357,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Contact Details - Office<span>*</span></label>
+        <label class="col-sm-3">Contact Details - Office<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="details_office1" placeholder="Contact Details" value="{{$client1->contact_office ?? ''}}">
         </div>
@@ -357,7 +367,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Contact Details - Fax<span>*</span></label>
+        <label class="col-sm-3">Contact Details - Fax<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="details_fax1" placeholder="Contact Details" value="{{$client1->contact_fax ?? ''}}">
         </div>
@@ -367,7 +377,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">E-mail Address<span>*</span></label>
+        <label class="col-sm-3">E-mail Address<span>*</span></label>
         <div class="col-sm-4">
           <input type="email" class="form-control" name="email_address1" placeholder="E-mail Address" value="{{$client1->email ?? ''}}">
           <span class="noti-alert">(Compulsory for Investment Products)</span>
@@ -379,7 +389,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Residential Address<span>*</span></label>
+        <label class="col-sm-3">Residential Address<span>*</span></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" name="residential_address1" placeholder="E-mail Address" value="{{$client1->residential_address ?? ''}}">
         </div>
@@ -389,7 +399,7 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2">Mailing Address<span>*</span></label>
+        <label class="col-sm-3">Mailing Address<span>*</span></label>
         <div class="col-sm-4">
           <input type="email" class="form-control" name="mailing_address1" placeholder="Mailing Address" value="{{$client1->mailing_address ?? ''}}">
           <span class="noti-alert">(Compulsory for Investment Products)</span>
@@ -400,22 +410,18 @@
         </div>
       </div>
 
-      <div class="action-form">
+      <div class="nav-step">
           <button type="submit" class="btn btn-primary mb-2 radius_2 style-button1">Next</button>
       </div>
     </form>
   </div>
 </div>
-<div class="bottom-step">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 step-link">
-        <ul>
-            @if(!isset($infoPfr))
-            @else
-                @include('pages.navigation', ['id' => $infoPfr->id])
-            @endif
-        </ul>
-    </div>
-</div>
+
+@if(!isset($infoPfr))
+@else
+    @include('pages.navigation', ['id' => $infoPfr->id])
+@endif 
+
 <style type="text/css">
  label {text-align: right;}
 </style>
