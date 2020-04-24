@@ -63,6 +63,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'loginMiddleware'], function(
 			'uses' => 'PfrController@restorePfr'
 		]);
 
+		Route::get('downloadpdf/{id}', [
+			'as' => 'downloadpdf',
+			'uses' => 'PfrController@downloadPdf'
+		]);
+
 		Route::post('action', [
 			'as' => 'pfr.action',
 			'uses' => 'PfrController@action'
@@ -834,9 +839,9 @@ Route::group(['prefix' => 'user'], function(){
 		'uses' => 'UserController@restoreUser'
 	]);
 
-	Route::get('downloadpdf/{id}', [
+	/*Route::get('downloadpdf/{id}', [
 		'as' => 'downloadpdf',
 		'uses' => 'HomeController@downloadPdf'
-	]);
+	]);*/
 });
 });
