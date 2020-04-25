@@ -121,11 +121,6 @@
                 </div>
             </div>
 
-
-
-
-
-
             <div class="nav-step">
                 <a href="{{route('single_fact.analysis_recommendations.client_overview', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>

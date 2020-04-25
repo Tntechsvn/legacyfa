@@ -127,7 +127,7 @@
                                     Yes
                                     <select class="beneficiaries_select" name="beneficiaries_select_client1" id="beneficiaries_select_client1" class="form-control" data-parsley-trigger="change" required="">
                                         <option value="">Select</option>
-                                        <option value="M" {{isset($client1) && $client1->beneficiaries == 'M' ? 'selected' : ''}}>49M</option>
+                                        <option value="M" {{isset($client1) && $client1->beneficiaries_select == 'M' ? 'selected' : ''}}>49M</option>
                                         <option value="L" {{isset($client1) && $client1->beneficiaries_select == 'L' ? 'selected' : ''}}>49L</option>
                                     </select>
                                 </label>

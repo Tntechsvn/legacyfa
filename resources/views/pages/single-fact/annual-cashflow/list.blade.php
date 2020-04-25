@@ -126,23 +126,23 @@
                     <div class="custom-input-layout-row">
                         <label class="radio-inline custom-style-radio1 pdl0">
                             <div class="style-checked style-radio-custom">
-                                <input class="state-plan" type="radio" name="state_plan" value="0" checked>
+                                <input class="state-plan" type="radio" name="state_plan" value="0" @if(isset($infoCashFlow))@if($infoCashFlow->reason_plan == null){{'checked'}}@endif@else{{'checked'}}@endif>
                                 <span class="checkmark-radio"></span>
                             </div>
                             No
                         </label>
                         <label class="radio-inline custom-style-radio1 pdl0">
                             <div class="style-checked style-radio-custom">
-                                <input class="state-plan" type="radio" name="state_plan" value="1">
+                                <input class="state-plan" type="radio" name="state_plan" value="1"@if(isset($infoCashFlow)) @if($infoCashFlow->reason_plan != null){{'checked'}}@endif @endif>
                                 <span class="checkmark-radio"></span>
                             </div>
                             Yes (Please state details)
                         </label>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="reason_plan" name="reason_plan" placeholder="Please state details" readonly="readonly"></textarea>
+                        <textarea class="form-control" id="reason_plan" name="reason_plan" placeholder="Please state details" readonly="readonly">@if(isset($infoCashFlow)){{$infoCashFlow->reason_plan}}@endif</textarea>
                     </div>
-                </div>  
+                </div>
             </div>
 
             <div class="nav-step">

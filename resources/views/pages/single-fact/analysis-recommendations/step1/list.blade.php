@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="nav-step">
-                <button class="btn btn-primary mb-2 style-button1">Back</button>
+                <a href="{{route('single_fact.priorities_needs.priotection_11', $infoPfr->id)}}" class="style-button1">Back</a>
                 <button type="submit" class="btn btn-primary mb-2 style-button1">Next</button>
             </div>
         </form>      
