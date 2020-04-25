@@ -215,18 +215,18 @@ a.style-button1:hover {
 .button-approved:hover, .button-cancel:hover {
 	transition: all 0.3s ease-out;
 }
-.g-recaptcha {
+/*.g-recaptcha {
     transform: scale(1.39);
     -webkit-transform: scale(1.39);
     transform-origin: 210px 0;
     -webkit-transform-origin: 210px 0;
-}
+}*/
 .logo img {
     margin: -1px auto;
 }
-.login-form .form-group.form-group-submit {
+/*.login-form .form-group.form-group-submit {
     margin-top: 30px;
-}
+}*/
 
 
 

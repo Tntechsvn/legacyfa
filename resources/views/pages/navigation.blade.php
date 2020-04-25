@@ -27,6 +27,7 @@
 					['single_fact.affordability.list'],
 					['single_fact.analysis_recommendations.client_overview', 'single_fact.analysis_recommendations.plans-recommended'],
 					['single_fact.switching_replacement']
+
 				];
 			@endphp
 			@foreach($routes as $key=>$route)

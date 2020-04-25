@@ -54,7 +54,7 @@
             [
                 'url' => 'pfr.list',
                 'name' => 'View List PFR',
-                'icon' => 'list-alt',
+                'icon' => 'list',
                 'children' => [
                     ['url' => 'single-fact.show_form_add_new',
                     'name' => 'Single Fact - Find',
