@@ -26,7 +26,12 @@
 					],
 					['single_fact.affordability.list'],
 					['single_fact.analysis_recommendations.client_overview', 'single_fact.analysis_recommendations.plans-recommended'],
-					['single_fact.switching_replacement']
+					['single_fact.switching_replacement'],
+					['single_fact.client_acknowledgement'],
+					['single_fact.representatives_declaration'],
+					['single_fact.supervisors_review'],
+					['single_fact.client_survey']
+
 
 				];
 			@endphp

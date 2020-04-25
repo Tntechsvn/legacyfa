@@ -1809,7 +1809,7 @@ body.show_form_login{
 }
 
 .bottom-step{
-	width:50%;
+	width:60%;
 	margin-bottom:20px;
 	background: none; 
 	float: right;
@@ -1847,6 +1847,8 @@ body.show_form_login{
 input.form-check-input[type=checkbox]{
 	width: 15px;
 	height: 15px;
+	float: right;
+	margin-right:15px;
 }
 
 /* style alert custom */

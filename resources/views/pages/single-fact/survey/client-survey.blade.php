@@ -245,4 +245,5 @@
         </form>      
     </div>
 </div>
+@include('pages.navigation', ['id' => $infoPfr->id])
 @endsection
