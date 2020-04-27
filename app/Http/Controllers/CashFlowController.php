@@ -23,7 +23,8 @@ class CashFlowController extends Controller
 		$totalIncome = 0;
 		$totalExpenses = 0;
 		$infoCashFlow = $infoPfr->cashFlow;
-		$income = [];$expenses = [];
+		$income = [];
+		$expenses = [];
 		if ($infoCashFlow) {
 			$dataIncome = $infoCashFlow->income;
 			$income = $dataIncome[0];
@@ -48,6 +49,15 @@ class CashFlowController extends Controller
 			'state_plan' => 'required:in:0,1',
 			'reason_plan' => 'required_if:state_plan,1'
 		];
+		/*if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+			$rules2 = [
+				'state_cash_flow' => 'required|in:0,1',
+				'reason_cash_flow' => 'required_if:state_cash_flow,1',
+				'state_plan' => 'required:in:0,1',
+				'reason_plan' => 'required_if:state_plan,1'
+			];
+			$rules = array_merge($rules, $rules2);
+		}*/
 		$validator = Validator::make($request->all(), $rules);
 		if ($validator->fails()) {
 			return response()->json([

@@ -58,6 +58,13 @@ class BalanceController extends Controller
 			'state' => 'required|in:0,1',
 			'reason' => 'required_if:state,1'
 		];
+		/*if ($infoPfr->type == config('constants.TYPE_FACT_JOIN')) {
+			$rules2 = [
+				'state' => 'required|in:0,1',
+				'reason' => 'required_if:state,1'
+			];
+			$rules = array_merge($rules, $rules2);
+		}*/
 		$validator = Validator::make($request->all(), $rules);
 		if ($validator->fails()) {
 			return response()->json([
