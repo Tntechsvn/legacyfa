@@ -8,6 +8,12 @@ class Balance extends Model
 {
 	protected $fillable = ['pfr_id', 'assets', 'liabilities', 'reason'];
 
+	protected $casts = [
+		'assets' => 'array',
+		'liabilities' => 'array',
+		'reason' => 'array'
+	];
+
 	public function pfr()
 	{
 		return $this->belongsTo('App\Models\Pfr');
