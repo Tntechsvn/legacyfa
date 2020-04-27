@@ -869,9 +869,23 @@ table.table-style2.table-bordered > thead > tr > th{
 	float: left;
 	padding-right: 15px;
 }
+.cnd .directional-radio{
+	width:25%;
+}
+.cnd .directional-radio .custom-style-radio1{
+	margin-left:0;
+	width: 100%;
+}
 table.td50 tr td:last-child{
 	width:50%;
 }
+table.td50.cnd tr td:last-child{
+	width:25%;
+}
+table.td50.cnd tr td:nth-last-child(2){
+	width:25%;
+}
+
 .directional-radio .custom-input-layout-row{
 	width: 100%;
 	margin-bottom:10px;
