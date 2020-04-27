@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="nav-step">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="radius_4 btn btn-primary mb-2 style-button1">Submit</button>
                         <input type="hidden" id="row" name="row" value="">
                     </div>
@@ -246,7 +246,7 @@
                     }
                 });
               } else {
-                swal("Cancelled", "error");
+                swal("cancelled", "error");
               }
             })
         });

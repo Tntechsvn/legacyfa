@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
+use PDF;
+use Carbon\Carbon;
 
 use App\Models\Pfr;
 use App\Models\PfrActivity;
@@ -30,8 +32,8 @@ class PfrController extends Controller
     public function listTrashPfr(Request $request)
     {
         $paginate = config('constants.PAGINATE_PFR_TRASH');
-        $listPfr = $this->pfr->listPfrTrashPaginate($request, $paginate);
-        return "jfal";
+        $listPfr = $this->pfr->onlyTrashed()->user()->paginate($paginate);;
+        return view('pages.pfr.list-trash', compact('listPfr'));
     }
 
     public function softDeletePfr($id)
@@ -48,6 +50,33 @@ class PfrController extends Controller
                 'message' => "Delete pfr error"
             ], 200);
         }
+    }
+
+	public function restorePfr($id)
+	{
+		$resultRestore = $this->pfr->restorePfr($id);
+		if ($resultRestore) {
+			return response()->json([
+				'error' => false,
+				'message' => "Restore pfr successfully"
+			], 200);
+		} else {
+			return response()->json([
+				'error' => true,
+				'message' => "Restore pfr error"
+			], 200);
+		}
+	}
+
+    /* DOWNLOAD PDF*/
+    public function downloadPdf($id)
+    {
+        $data = $this->pfr->infoPfrById($id);
+        $filename = $data->nameClient;
+        $time = Carbon::now();
+        $nowtime = $time->format('Y-m-d');
+        $pdf = PDF::loadView('pages.user.invoice',  compact('data'));
+        return $pdf->download($nowtime.'-'.$id.'-'.$filename.'.pdf');
     }
 
 	public function showFormQuestion($idPfr)
@@ -168,7 +197,7 @@ class PfrController extends Controller
 				$full_name = $activity->user->full_name;
 				$data .= "
                         <tr>
-                            <td><a href=\"detail-checking-log\">$activity->time</a></td>
+                            <td><a href=\"javascript:;\" class=\"detail-checking-log\">$activity->time</a></td>
                             <td>$full_name</td>
                         </tr>";
 			}

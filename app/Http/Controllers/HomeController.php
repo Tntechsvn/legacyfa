@@ -56,50 +56,6 @@ class HomeController extends Controller
         return view('pages.home', compact('listPfr','listUser','listPlan', 'listCompany', 'listCategoryPlan'));
     }
 
-    public function listPfr(Request $request)
-    {
-        $keyword = $request->keyword ?? "";
-        $paginate = config('constants.PAGINATE_PFR');
-        $listPfr = $this->pfr->select('pfrs.*')->user()->keyword($keyword)
-        ->groupBy('pfrs.id')->paginate($paginate);
-        //$listPfr = $this->pfr->listPfrPaginate($request, $paginate);
-        return view('pages.pfr.list', compact('listPfr'));
-    }
-
-    public function listTrashPfr(Request $request)
-    {
-        $paginate = config('constants.PAGINATE_PFR_TRASH');
-        $listPfr = $this->pfr->listPfrTrashPaginate($request, $paginate);
-        return view('pages.pfr.list-trash', compact('listPfr'));
-    }
-
-    public function softDeletePfr($id)
-    {
-        $resultSoftDelete = $this->pfr->softDeletePfr($id);
-        if ($resultSoftDelete) {
-            return response()->json([
-                'error' => false,
-                'message' => "Delete pfr successfully"
-            ], 200);
-        } else {
-            return response()->json([
-                'error' => true,
-                'message' => "Delete pfr error"
-            ], 200);
-        }
-    }
-
-
-
-    /* DOWNLOAD PDF*/
-    public function downloadPdf($id)
-    {
-        $data = $this->pfr->infoPfrById($id);
-        $filename = $data->nameClient;
-        $time = Carbon::now();
-        $nowtime = $time->format('Y-m-d');
-        $pdf = PDF::loadView('pages.user.invoice',  compact('data'));
-        return $pdf->download($nowtime.'-'.$id.'-'.$filename.'.pdf');
-    }
+    
     
 }

@@ -26,19 +26,13 @@
                                     @foreach( $value as $key_child => $childvl )
                                         <div class="list-child2">
                                             <label>{{ $childvl }}</label>
-                                            <div class="style-checked-table2">
                                                 <input  class="form-check-input" value="1" name="1_{{$key_question + 1}}_{{$key_child}}" type="checkbox" @if(isset($client1)) @if($client1[3]['c'][$key_child] == 1) {{'checked'}} @endif @endif>
-                                                 <span class="checkmark"></span>
-                                            </div>
                                         </div>
                                     @endforeach
                                 @else
                                     <div class="list-child1">
                                         <label>{{  $value }}</label>
-                                        <div class="style-checked-table2 check-step12">
-                                            <input  class="form-check-input" value="1" name="1_{{$key_question + 1}}_{{$key}}" type="checkbox" @if(isset($client1)) @if($client1[$key_question][$key] == 1){{'checked'}}@endif @endif>
-                                            <span class="checkmark"></span>
-                                        </div>
+                                        <input  class="form-check-input" value="1" name="1_{{$key_question + 1}}_{{$key}}" type="checkbox" @if(isset($client1)) @if($client1[$key_question][$key] == 1){{'checked'}}@endif @endif>
                                     </div>
                                 @endif
                             @endforeach
@@ -50,17 +44,13 @@
                         <div class="content-check-step12">
                             <div class="list-child1">
                                 <label>the recommendation(s). Accept</label>
-                                <div class="style-checked-table2 check-step12">
-                                    <input class="form-check-input" value="1" name="1_7_accept" type="checkbox" @if(isset($client1)) @if($client1[6]['accept'] == 1) {{'checked'}} @endif @endif>
-                                    <span class="checkmark"></span>
-                                </div>
+                                <input class="form-check-input" value="1" name="1_7_accept" type="checkbox" @if(isset($client1)) @if($client1[6]['accept'] == 1) {{'checked'}} @endif @endif>
+                                    
                             </div>
                             <div class="list-child1">
                                 <label>the recommendation(s) and wish to purchase my/our own choice of product(s). Do not accept</label>
-                                <div class="style-checked-table2 check-step12">
-                                    <input  class="form-check-input" value="1" name="1_7_notaccept" type="checkbox" @if(isset($client1)) @if($client1[6]['notaccept'] == 1) {{'checked'}} @endif @endif>
-                                    <span class="checkmark"></span>
-                                </div>
+                                
+                                <input  class="form-check-input" value="1" name="1_7_notaccept" type="checkbox" @if(isset($client1)) @if($client1[6]['notaccept'] == 1) {{'checked'}} @endif @endif>                            
                             </div>
                             <div class="list-child1">
                                 <p>Remarks: <input type="text" name="remark" value="{{isset($infoCA) ? $infoCA->data['remark'] : ''}}"></p>
@@ -76,10 +66,9 @@
                                     <input type="text" name="name" value="{{isset($infoCA) ? $infoCA->data['name'] : ''}}">
                                     am/are informed of the following:
                                 </p>
-                                <div class="style-checked-table2 check-step12">
-                                    <input  class="form-check-input" value="1" name="1_8_check" type="checkbox" @if(isset($client1)) @if($client1[7]['check'] == 1) {{'checked'}} @endif @endif>
-                                    <span class="checkmark"></span>
-                                </div>
+                                
+                                <input  class="form-check-input" value="1" name="1_8_check" type="checkbox" @if(isset($client1)) @if($client1[7]['check'] == 1) {{'checked'}} @endif @endif>
+                                 
                             </div>
                             <div class="list-child1">
                                 <p>a, That the Introducer is not permitted to give advice or provide recommendations on any investment product to me/us, market any collective investment scheme, or arrange any contract of insurance in respect of life policies; and</p>
@@ -94,4 +83,5 @@
         </form>
     </div>
 </div>
+@include('pages.navigation', ['id' => $infoPfr->id])
 @endsection

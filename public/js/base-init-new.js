@@ -68,10 +68,10 @@ var CRUMINA = {};
         return false;
     });
 	$(".has-submenu").on('click', function () {
-		if($(this).hasClass('fa-plus')){
-			$(this).removeClass('fa-plus').addClass('fa-minus');
+		if($(this).hasClass('lni-circle-plus')){
+			$(this).removeClass('lni-circle-plus').addClass('lni-circle-minus');
 		}else{
-			$(this).removeClass('fa-minus').addClass('fa-plus');
+			$(this).removeClass('lni-circle-minus').addClass('lni-circle-plus');
 		}
 		
 		$(this).closest('li').find('.sub-menu').toggle();

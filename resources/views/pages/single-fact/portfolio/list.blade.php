@@ -432,7 +432,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div>
                     <div class="clear"></div>
@@ -516,7 +516,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -584,7 +584,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -642,7 +642,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -831,7 +831,7 @@
                         </div>
                     </div>  
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                     </div> 
                     <div class="clear"></div>
@@ -921,7 +921,7 @@
                         </div>
                     </div>
                     <div class="nav-step form-group-modal">
-                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="radius_4 btn btn-secondary style-button1 button-cancel" data-dismiss="modal">cancel</button>
                         <button type="submit" class="btn btn-primary mb-2 style-button1">Submit</button>
                         <div class="clear"></div>
                     </div> 

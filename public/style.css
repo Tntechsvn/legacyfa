@@ -345,7 +345,7 @@ body{
 }
 .menuicon > nav > ul > li > a i{
 	line-height:59px;
-	font-size: 24px;
+	font-size: 26px;
 	color:#555;
 	text-align: center;
 	display: block;
@@ -443,7 +443,7 @@ body{
 	width: 60px;
 	height:55px;
 	line-height: 55px;
-	font-size: 22px;
+	font-size: 24px;
 	float:left;
 	display: block;
 	color: #555;
@@ -850,6 +850,9 @@ table.table-style2.table-bordered > thead > tr > th{
 	margin-bottom: 5px;
 	margin-top: 20px;
 }
+.minwidth75{
+	min-width: 75px;
+}
 
 /* Style */
 .directional-action{
@@ -866,9 +869,23 @@ table.table-style2.table-bordered > thead > tr > th{
 	float: left;
 	padding-right: 15px;
 }
+.cnd .directional-radio{
+	width:25%;
+}
+.cnd .directional-radio .custom-style-radio1{
+	margin-left:0;
+	width: 100%;
+}
 table.td50 tr td:last-child{
 	width:50%;
 }
+table.td50.cnd tr td:last-child{
+	width:25%;
+}
+table.td50.cnd tr td:nth-last-child(2){
+	width:25%;
+}
+
 .directional-radio .custom-input-layout-row{
 	width: 100%;
 	margin-bottom:10px;
@@ -914,7 +931,7 @@ table.td50 tr td:last-child{
 	width: 85px;
 	height: 35px;
 	color:#02c39a;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	line-height: 33px;
 	text-align: center;
 	border:1px solid #ed1c24;
@@ -985,6 +1002,9 @@ table.td50 tr td:last-child{
 	top:15px;
 	display: none;
 }
+.modal-body{
+	padding:30px 15px;
+}
 .modal-body button{
 	margin-left:auto;
 	margin-right: auto;
@@ -992,8 +1012,8 @@ table.td50 tr td:last-child{
 }
 
 .form-group-modal{
-	padding-left:65px;
-	padding-right:65px;
+	padding-left:30px;
+	padding-right:30px;
 }
 .form-group-modal > label{
 	width:28%;
@@ -1213,6 +1233,7 @@ a.style-button1{
 }
 .modal-body .nav-step{
 	padding-right: 0;
+	margin-top:10px;
 }
 .modal-body .nav-step .style-button1{
 	float: none;
@@ -1802,7 +1823,7 @@ body.show_form_login{
 }
 
 .bottom-step{
-	width:50%;
+	width:60%;
 	margin-bottom:20px;
 	background: none; 
 	float: right;
@@ -1840,6 +1861,8 @@ body.show_form_login{
 input.form-check-input[type=checkbox]{
 	width: 15px;
 	height: 15px;
+	float: right;
+	margin-right:15px;
 }
 
 /* style alert custom */
@@ -1956,7 +1979,7 @@ input.form-check-input[type=checkbox]{
 	display: block;
 	font-weight: 700;
 }
-.sub-title-step p:after{
+/*.sub-title-step p:after{
 	width: 50px;
 	bottom:0;
 	left: 0;
@@ -1964,7 +1987,7 @@ input.form-check-input[type=checkbox]{
 	content: "";
 	display: block;
 	height: 3px;
-}
+}*/
 /* Step1 */
 .has_14{
 	display: none;

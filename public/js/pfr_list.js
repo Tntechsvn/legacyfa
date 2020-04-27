@@ -85,4 +85,22 @@ jQuery(document).ready(function(){
             });
         }
     });
+    $('.restore').on('click', function(){
+        alert('sá');
+        var url = $(this).data('url');
+        var tr = $(this).closest('tr');
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: 'json',
+            success: function(res){
+                if(res['error']){
+                    swal(res['message']);
+                }else{
+                    tr.remove();
+                    swal(res['message']);
+                }
+            }
+        });
+    });
 });
