@@ -103,32 +103,29 @@ class CashFlowController extends Controller
 			'orther_expenses' => 0
 		);
 
-		$reason_cash_flow = $request->state_cash_flow == 1 && $request->reason_cash_flow != null ? $request->reason_cash_flow : null;
-		$reason_plan = $request->state_cash_flow == 0 && $request->state_plan == 1 && $request->reason_plan != null ? $request->reason_plan : null;
+		$reason_cash_flow = array(
+			$request->state_cash_flow == 1 && $request->reason_cash_flow != null ? $request->reason_cash_flow : "",
+			//$request->state_cash_flow == 1 && $request->reason_cash_flow != null ? $request->reason_cash_flow : ""
+		);
+		$reason_plan = array(
+			$request->state_cash_flow == 0 && $request->state_plan == 1 && $request->reason_plan != null ? $request->reason_plan : "",
+			//$request->state_cash_flow == 0 && $request->state_plan == 1 && $request->reason_plan != null ? $request->reason_plan : ""
+		);
 
 		$infoCashFlowForPfr = $this->cashFlow->infoCashFlowForPfr($idPfr);
 		$edit = false;
+		$param = [
+			'pfr_id' => $idPfr,
+			'income' => $income,
+			'expenses' => $expenses,
+			'reason_cash_flow' => $reason_cash_flow,
+			'reason_plan' => $reason_plan
+		];
 		if ($infoCashFlowForPfr) {
 			$edit = true;
-			$dataIncome = $infoCashFlowForPfr->income;
-			$dataIncome = $income;
-			$dataExpenses = $infoCashFlowForPfr->expenses;
-			$dataExpenses = $expenses;
-			$param = [
-				'income' => $dataIncome,
-				'expenses' => $dataExpenses,
-				'reason_cash_flow' => $reason_cash_flow,
-				'reason_plan' => $reason_plan
-			];
 			$resultAddCashFlow = $this->cashFlow->editCashFlow($idPfr, $param);
 		} else {
-			$param = [
-				'pfr_id' => $idPfr,
-				'income' => $income,
-				'expenses' => $expenses,
-				'reason_cash_flow' => $reason_cash_flow,
-				'reason_plan' => $reason_plan
-			];
+			$param['pfr_id'] = $idPfr;
 			$resultAddCashFlow = $this->cashFlow->addNewCashFlow($param);
 		}
 		if ($resultAddCashFlow) {

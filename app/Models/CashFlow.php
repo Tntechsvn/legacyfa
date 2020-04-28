@@ -10,7 +10,9 @@ class CashFlow extends Model
 
 	protected $casts = [
 		'income' => 'array',
-		'expenses' => 'array'
+		'expenses' => 'array',
+		'reason_cash_flow' => 'array',
+		'reason_plan' => 'array'
 	];
 
 	public function pfr()
