@@ -5,6 +5,11 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
         <h4>Step 5 - Risk Profile:</h4>
     </div>
+    @php
+        if($infoPfr->type == config('constants.TYPE_FACT_JOIN')){
+            $nd=1;
+        }
+    @endphp
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="cashflow_form" id='cashflow_form' class="" method="post" action="{{route('single_fact.risk_profile.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
@@ -12,7 +17,16 @@
 
             $dataRiskProfile = json_decode($infoPfr->dataRiskProfile, true);
             @endphp
-            <table id="annual-income-table" class="table table-content table-bordered table-style2 td50" style="width:100%">
+            <table id="annual-income-table" class="table table-content table-bordered table-style2 td50 @if(isset($nd)){{'cnd'}}@endif" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Client1</th>
+                        @if(isset($nd))
+                        <th>Client2</th>
+                        @endif
+                    </tr>
+                </thead>
                 <tbody>
                     @foreach($questions as $key_question=>$q)
                     <tr>
@@ -37,6 +51,28 @@
                             </div>
                             @endforeach
                         </td>
+                        @if(isset($nd))
+                        <td>
+                            @foreach($q->answers as $key_answer=>$a)
+                            <div class="form-check list-qa">
+                                <div class="style-checked style-radio-custom">
+                                    <input class="form-check-input" type="radio" name="q_{{$key_question+1}}_2nd" value="{{$key_answer}}" <?php
+                                    if(isset($infoPfr) && $dataRiskProfile){
+                                        foreach($dataRiskProfile[0] as $key=>$val){
+                                            if($key == "q_".($key_question+1) && $val == $key_answer){
+                                                echo "checked";
+                                            }
+                                        }
+                                    }?> >
+                                    <span class="checkmark-radio"></span>
+                                </div>
+                                <!-- <label class="form-check-label" for="gridRadios2"> -->
+                                    {{$a}}
+                                <!-- </label> -->
+                            </div>
+                            @endforeach
+                        </td> 
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

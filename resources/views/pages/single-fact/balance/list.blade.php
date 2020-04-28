@@ -63,7 +63,6 @@
                 </div> 
                 @endif
             </div>
-
             <h3>ASSETS</h3>
             <table id="blance-table" class="table table-bordered table-content table-style2 td50 @if(isset($nd)){{'cnd'}}@endif" style="width:100%">
                 <thead>

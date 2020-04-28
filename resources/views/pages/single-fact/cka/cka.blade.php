@@ -5,13 +5,27 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titlesection borderfullwidth step-title">
         <h4>Step 6 - Customer Knowledge Assessment (CKA):</h4>
     </div>
+    @php
+        if($infoPfr->type == config('constants.TYPE_FACT_JOIN')){
+            $nd=1;
+        }
+    @endphp
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct-page">
         <form name="cka_form" id='cka_form' class="" method="post" action="{{route('single_fact.cka.add_new', $infoPfr->id)}}" data-parsley-validate>
             @csrf
             @php $questions = json_decode(json_encode(config('constants.CKA_Questionnaire')));
             $dataCka = json_decode($infoPfr->dataCka, true);
             @endphp 
-            <table id="annual-income-table" class="table table-content table-bordered table-style2 td50" style="width:100%">
+            <table id="annual-income-table" class="table table-content table-bordered table-style2 td50 @if(isset($nd)){{'cnd'}}@endif" style="width:100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Client1</th>
+                        @if(isset($nd))
+                        <th>Client2</th>
+                        @endif
+                    </tr>
+                </thead>
                 <tbody>
                     @foreach($questions as $key_question=>$q)
                     <tr>
@@ -48,6 +62,41 @@
                                 No
                             </label>
                         </td>
+                        @if(isset($nd))
+                        <td class="action-checkbox">
+                            <label class="radio-inline custom-style-radio1 pdl0">
+                                <div class="style-checked style-radio-custom">
+                                    <input class="showcheckbox" type="radio" name="name{{$key_question}}_2nd" value="0" checked>
+                                    <span class="checkmark-radio"></span>
+                                </div>
+                                Yes
+                            </label>
+                            @foreach($q->answers as $key_answer=>$a)
+                            <div class="checkbox">
+                                <label><input   class="form-check-input" type="checkbox" name="q_{{$key_question+1}}_2nd[]" value="{{$key_answer}}" <?php
+                                if(isset($infoPfr) && $dataCka){
+                                    foreach($dataCka[0] as $key=>$value){
+                                        if($key == "q_".($key_question+1)){
+                                            foreach($value as $val){
+                                                if($val == $key_answer){
+                                                    echo "checked";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }?> >{{$a}}</label>
+                            </div>
+                            @endforeach
+                            <label class="radio-inline custom-style-radio1 pdl0">
+                                <div class="style-checked style-radio-custom">
+                                    <input class="showcheckbox" type="radio" name="name{{$key_question}}_2nd" value="1">
+                                    <span class="checkmark-radio"></span>
+                                </div>
+                                No
+                            </label>
+                        </td>
+                        @endif
+
                     </tr>
                     @endforeach
                 </tbody>
