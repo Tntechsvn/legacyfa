@@ -137,11 +137,15 @@ class PfrController extends Controller
 			if ($resultEditPfr) {
 				$message = $edit ? "Edit trush individual successfully" : "Add new trush individual successfully";
 				event(new \App\Events\Pfr\EditPfr($infoPfr, Auth::user()));
-				
+				if ($infoPfr->type == config('constants.TYPE_FACT_SINGLE')) {
+					$url = route('single_fact.balance.list', $idPfr);
+				} else {
+					$url = route('jointfact.balance.list', $idPfr);
+				}
 				return response()->json([
 					'error' => false,
 					'message' => $message,
-					'url' => route('single_fact.balance.list', $idPfr)
+					'url' => $url
 				], 200);
 			} else {
 				$message = $edit ? "Edit trush individual error" : "Add new trush individual error";
